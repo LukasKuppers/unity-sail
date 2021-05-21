@@ -56,6 +56,31 @@ public static class SavedGamesManager
         return true;
     }
 
+    public static void RemoveGame(string name)
+    {
+        if (name == null || name.Equals(""))
+        {
+            Debug.LogError("SavedGamesManager: Cannot remove a game with null or empty name");
+            return;
+        }
+
+        SavedGamesNames saves = LoadSavesData();
+        string[] newSaves = new string[saves.saveNames.Length - 1];
+        int i = 0;
+        foreach (string save in saves.saveNames)
+        {
+            if (!save.Equals(name))
+            {
+                newSaves[i] = save;
+                i++;
+            }
+        }
+
+        saves.saveNames = newSaves;
+        string json = JsonUtility.ToJson(saves);
+        PlayerPrefs.SetString(SAVED_GAMES_KEY, json);
+    }
+
     private static SavedGamesNames LoadSavesData()
     {
         string savedGamesJson = PlayerPrefs.GetString(SAVED_GAMES_KEY, "");
