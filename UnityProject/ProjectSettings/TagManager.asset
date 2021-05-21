@@ -7,6 +7,7 @@ TagManager:
   - GroundPlane
   - EnemyTurret
   - EnemyShip
+  - Canvas
   layers:
   - Default
   - TransparentFX
