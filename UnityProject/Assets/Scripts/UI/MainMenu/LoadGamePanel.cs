@@ -31,6 +31,7 @@ public class LoadGamePanel : MonoBehaviour
 
     private void LoadGame()
     {
+        LoadedGame.SetLoadedGame(text.text);
         SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
     }
 }

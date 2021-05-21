@@ -41,6 +41,7 @@ public class NewGameModal : MonoBehaviour
             bool success = SavedGamesManager.CreateGame(text.text);
             if (success)
             {
+                LoadedGame.SetLoadedGame(text.text);
                 SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
             }
             else
