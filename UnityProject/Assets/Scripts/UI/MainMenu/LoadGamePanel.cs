@@ -8,17 +8,24 @@ public class LoadGamePanel : MonoBehaviour
     [SerializeField]
     private string sceneName;
     [SerializeField]
+    private GameObject loadButtonObject;
+    [SerializeField]
+    private GameObject deleteButtonObject;
+    [SerializeField]
     private GameObject textObject;
 
-    private Button button;
+    private Button loadButton;
+    private Button deleteButton;
     private TextMeshProUGUI text;
 
     private void Awake()
     {
-        button = gameObject.GetComponent<Button>();
+        loadButton = loadButtonObject.GetComponent<Button>();
+        deleteButton = deleteButtonObject.GetComponent<Button>();
         text = textObject.GetComponent<TextMeshProUGUI>();
 
-        button.onClick.AddListener(LoadGame);
+        loadButton.onClick.AddListener(LoadGame);
+        deleteButton.onClick.AddListener(DeleteGame);
     }
 
     public void SetName(string name)
@@ -33,5 +40,11 @@ public class LoadGamePanel : MonoBehaviour
     {
         LoadedGame.SetLoadedGame(text.text);
         SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
+    }
+
+    private void DeleteGame()
+    {
+        SavedGamesManager.RemoveGame(text.text);
+        Destroy(gameObject);
     }
 }

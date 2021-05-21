@@ -79,6 +79,9 @@ public static class SavedGamesManager
         saves.saveNames = newSaves;
         string json = JsonUtility.ToJson(saves);
         PlayerPrefs.SetString(SAVED_GAMES_KEY, json);
+
+        // delete data for saved game
+        PlayerPrefs.DeleteKey(name);
     }
 
     private static SavedGamesNames LoadSavesData()
