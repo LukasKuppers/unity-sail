@@ -1,10 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
 public interface ILoadModule
 {
+    public string GetJsonKey();
+
     public void Load(string saveJson);
 
-    public string SaveJson();
+    public string GetJsonString();
 }
