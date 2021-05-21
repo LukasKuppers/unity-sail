@@ -10,11 +10,10 @@ public class LoadGamePanel : MonoBehaviour
     [SerializeField]
     private GameObject textObject;
 
-    private string gameName = "";
     private Button button;
     private TextMeshProUGUI text;
 
-    private void Start()
+    private void Awake()
     {
         button = gameObject.GetComponent<Button>();
         text = textObject.GetComponent<TextMeshProUGUI>();
@@ -26,7 +25,6 @@ public class LoadGamePanel : MonoBehaviour
     {
         if (name != null && !name.Equals(""))
         {
-            gameName = name;
             text.text = name;
         }
     }
