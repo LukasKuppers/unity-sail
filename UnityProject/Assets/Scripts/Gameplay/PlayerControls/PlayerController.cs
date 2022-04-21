@@ -4,13 +4,18 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject windManager;
+
     private IShipController controller;
 
+    private WindGenerator wind;
     private float sailHeight = 0f;
     private float sailAngle = 0f;
 
     private void Start()
     {
+        wind = windManager.GetComponent<WindGenerator>();
         controller = gameObject.GetComponent<IShipController>();
     }
 
@@ -28,7 +33,15 @@ public class PlayerController : MonoBehaviour
         sailHeight += 0.1f * Input.GetAxis("Vertical");
         sailHeight = Mathf.Clamp01(sailHeight);
 
-        sailAngle += Input.GetAxis("SecondaryHorizontal");
-        sailAngle = Mathf.Clamp(sailAngle, -90, 90);
+        sailAngle = GetSailAngle(sailAngle);
+    }
+
+    private float GetSailAngle(float currentSailAngle)
+    {
+        float shipAngle = transform.localEulerAngles.y > 180f ? transform.localEulerAngles.y - 360f : transform.localEulerAngles.y;
+        float currentGlobal = currentSailAngle + shipAngle;
+        float targetAngle = wind.GetWindDirection();
+
+        return currentSailAngle + (targetAngle - currentGlobal) / 100f;
     }
 }
