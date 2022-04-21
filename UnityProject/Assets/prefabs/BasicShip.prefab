@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: 3471812832663499124}
   - component: {fileID: 3471812832663499125}
   - component: {fileID: 3471812832663499114}
+  - component: {fileID: 5019582338740968460}
   m_Layer: 0
   m_Name: BasicShip
   m_TagString: Player
@@ -241,6 +242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6165a98fc84538f4d9f50de987491f9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  windManager: {fileID: 0}
 --- !u!114 &3471812832663499114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -253,10 +255,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42a342a7ed5a9a94d9c91e027b3f30cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftCanons:
+  playerCamera: {fileID: 8468870573405646756}
+  leftCannons:
   - {fileID: 59023974001824157}
-  rightCanons:
+  rightCannons:
   - {fileID: 8468870572970067094}
+--- !u!114 &5019582338740968460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3471812832663499121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dba2cbdac0649ea4b994d9ae32def51c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5657517306999458966
 GameObject:
   m_ObjectHideFlags: 0
@@ -745,6 +760,7 @@ MonoBehaviour:
   specialCameraPositions:
   - {fileID: 8468870574363794625}
   - {fileID: 8468870574233422931}
+  elevationAngle: 5
   angleSwitchTime: 0.25
   panSpeed: 0.5
   pitchSpeed: 0.5

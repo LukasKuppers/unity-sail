@@ -5,93 +5,73 @@ using UnityEngine;
 public class PlayerCanonController : MonoBehaviour
 {
     [SerializeField]
-    private GameObject[] leftCanons;
+    private GameObject playerCamera;
     [SerializeField]
-    private GameObject[] rightCanons;
+    private GameObject[] leftCannons;
+    [SerializeField]
+    private GameObject[] rightCannons;
 
-    private CameraController camController;
+    private Camera cam;
     private Rigidbody rb;
-    private IProjectileShooter[][] canons;
-
-    private float pitch = 0f;
-    private float yaw = 0f;
-
-    private int fireMode;
+    private IProjectileShooter[][] cannons;
 
     private void Start()
     {
-        camController = Camera.main.gameObject.GetComponent<CameraController>();
+        cam = playerCamera.GetComponent<Camera>();
         rb = gameObject.GetComponent<Rigidbody>();
-
-        canons = new IProjectileShooter[2][];
-        canons[0] = InitCanons(leftCanons);
-        canons[1] = InitCanons(rightCanons);
-
-        fireMode = 2;
+        cannons = new IProjectileShooter[2][];
+        cannons[0] = InitCanons(leftCannons);
+        cannons[1] = InitCanons(rightCannons);
     }
 
     private void Update()
     {
-        ControlFireMode();
-        if (fireMode != 2)
-        {
-            ControlAim();
-
-            foreach (IProjectileShooter canon in canons[fireMode])
-            {
-                canon.DisplayAim();
-            }
-            ControlFire();
-        }
+        int cannonIndex = ControlAim();
+        ControlFire(cannonIndex);
     }
 
-    private void ControlFireMode()
+    private Vector3 GetTargetPos()
     {
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            CycleFireMode();
-        }
+        Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+        Physics.Raycast(ray, out RaycastHit hit);
+        return hit.point;
     }
 
-    private void ControlAim()
+    private int ControlAim()
     {
-        Vector2 delta = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
-        pitch = Mathf.Clamp(pitch + delta.y, 0f, 45f);
-        yaw = Mathf.Clamp(yaw + delta.x, -30f, 30f);
+        Vector3 targetPos = GetTargetPos();
 
-        foreach (IProjectileShooter canon in canons[fireMode])
+        Vector2 diff_2d = new Vector2(targetPos.x - transform.position.x,
+            targetPos.z - transform.position.z);
+        Vector2 right = new Vector2(transform.right.x, transform.right.z);
+        Vector2 left = -right;
+        float aimAngleRight = Vector2.SignedAngle(right, diff_2d);
+        float aimAngleLeft = Vector2.SignedAngle(left, diff_2d);
+
+        float aimAngle = Mathf.Abs(aimAngleLeft) < Mathf.Abs(aimAngleRight) ? aimAngleLeft : aimAngleRight;
+        int cannonIndex = aimAngle == aimAngleLeft ? 0 : 1;
+
+        Vector3 diff_3d = targetPos - transform.position;
+        float range = Vector3.Scale(diff_3d, new Vector3(1, 0, 1)).magnitude;
+        float height = transform.position.y - targetPos.y;
+
+        foreach (IProjectileShooter cannon in cannons[cannonIndex])
         {
-            canon.SetOrientation(yaw, pitch);
+            cannon.SetOrientation(-aimAngle, 0f);
+            cannon.SetPitch(range, height);
         }
+
+        return cannonIndex;
     }
 
-    private void ControlFire()
+    private void ControlFire(int cannonIndex)
     {
         if (Input.GetMouseButton(0))
         {
-            foreach (IProjectileShooter canon in canons[fireMode])
+            foreach (IProjectileShooter cannon in cannons[cannonIndex])
             {
-                canon.Shoot();
-                fireMode = 1;
-                CycleFireMode();
+                cannon.Shoot();
             }
-        }
-    }
-
-    private void CycleFireMode()
-    {
-        fireMode = (fireMode + 1) % 3;
-        if (fireMode == 2)
-        {
-            camController.EnableMainCamera();
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
-        }
-        else
-        {
-            camController.EnableSpecialCamera(fireMode);
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Confined;
         }
     }
 
