@@ -4,6 +4,10 @@ using UnityEngine;
 
 public interface IDamageable
 {
+    public float GetHealth();
+
+    public void ResetHealth();
+
     public void Damage(float damageAmount);
 
     public void Restore(float restoreAmount);

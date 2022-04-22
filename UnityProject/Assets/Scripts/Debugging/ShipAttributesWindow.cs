@@ -10,11 +10,13 @@ public class ShipAttributesWindow : MonoBehaviour
 
     private TextMeshProUGUI text;
     private IShipController controller;
+    private IDamageable health;
 
     private void Start()
     {
         text = gameObject.GetComponent<TextMeshProUGUI>();
         controller = ship.GetComponent<IShipController>();
+        health = ship.GetComponent<IDamageable>();
     }
 
     private void Update()
@@ -27,10 +29,12 @@ public class ShipAttributesWindow : MonoBehaviour
         float sailAngle = controller.GetSailAngle();
         float sailHeight = controller.GetSailHeight();
         float speed = controller.GetSpeed();
+        float hp = health.GetHealth();
 
         string display = "Sail Angle: " + sailAngle + "\n" +
             "Sail Height: " + sailHeight + "\n" +
-            "Speed: " + speed;
+            "Speed: " + speed + "\n" +
+            "Health: " + hp;
 
         text.text = display;
     }
