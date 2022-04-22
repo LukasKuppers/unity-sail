@@ -21,6 +21,11 @@ public class HealthManager : MonoBehaviour, IDamageable
         return healthPoints;
     }
 
+    public void SetHealth(float health)
+    {
+        healthPoints = health;
+    }
+
     public void ResetHealth()
     {
         healthPoints = maxHealth;
