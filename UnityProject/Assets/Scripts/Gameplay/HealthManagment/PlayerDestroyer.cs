@@ -27,6 +27,17 @@ public class PlayerDestroyer : MonoBehaviour, IDestructable
         shipController = gameObject.GetComponent<IShipController>();
     }
 
+    public void SetRespawnPoint(GameObject newRespawnPoint)
+    {
+        respawnPoint = newRespawnPoint;
+    }
+
+    public void SetPlayerInventory(GameObject newInventory)
+    {
+        playerInventory = newInventory;
+        inventory = playerInventory.GetComponent<PlayerInventory>();
+    }
+
     public void Destroy()
     {
         inventory.SetFoodAmount(defaultFoodAmount);

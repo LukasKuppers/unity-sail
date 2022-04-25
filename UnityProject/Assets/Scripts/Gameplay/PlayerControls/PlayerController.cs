@@ -19,6 +19,12 @@ public class PlayerController : MonoBehaviour
         controller = gameObject.GetComponent<IShipController>();
     }
 
+    public void SetWindManager(GameObject newWindManager)
+    {
+        windManager = newWindManager;
+        wind = windManager.GetComponent<WindGenerator>();
+    }
+
     private void Update()
     {
         SetSailParameters();

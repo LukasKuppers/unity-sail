@@ -23,6 +23,12 @@ public class PhysicsAdvancedBuoyancy : MonoBehaviour
         gravity = Physics.gravity.magnitude;
     }
 
+    public void SetWaveManager(GameObject newWaveManager)
+    {
+        waveManager = newWaveManager;
+        waves = newWaveManager.GetComponent<WaveGenerator>();
+    }
+
     private void FixedUpdate()
     {
         ApplyBuoyancyForce();

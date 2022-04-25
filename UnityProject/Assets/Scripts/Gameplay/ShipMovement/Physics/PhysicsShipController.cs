@@ -36,6 +36,12 @@ public class PhysicsShipController : MonoBehaviour, IShipController
         steerAmount = 0f;
     }
 
+    public void SetWindManager(GameObject newWindManager)
+    {
+        windManager = newWindManager;
+        wind = windManager.GetComponent<WindGenerator>();
+    }
+
     private void FixedUpdate()
     {
         float magnitude = CalculateForce();
