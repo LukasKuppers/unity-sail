@@ -5,12 +5,14 @@ using UnityEngine;
 public class AICanonController : MonoBehaviour
 {
     [SerializeField]
-    private GameObject targetObject;
+    private GameObject shipPrefabManager;
     [SerializeField]
     private float maxRange = 50f;
     [SerializeField]
     private float maxYawAngle = 30f;
 
+    private ShipPrefabManager shipManager;
+    private GameObject targetObject;
     private IProjectileShooter canon;
     private Rigidbody targetRb;
 
@@ -25,13 +27,27 @@ public class AICanonController : MonoBehaviour
 
     private void Start()
     {
+        shipManager = shipPrefabManager.GetComponent<ShipPrefabManager>();
+        shipManager.AddSpawnListener(UpdateTargetListener);
+
         canon = gameObject.GetComponent<IProjectileShooter>();
-        targetRb = targetObject.GetComponent<Rigidbody>();
+    }
+
+    private void UpdateTargetListener()
+    {
+        targetObject = shipManager.GetCurrentShip();
+        if (targetObject != null)
+        {
+            targetRb = targetObject.GetComponent<Rigidbody>();
+        }
     }
 
     private void Update()
     {
-        ControlFire();
+        if (targetObject != null)
+        {
+            ControlFire();
+        }
     }
 
     private void ControlFire()

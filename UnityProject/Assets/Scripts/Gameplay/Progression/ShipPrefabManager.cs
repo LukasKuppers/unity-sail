@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ShipPrefabManager : MonoBehaviour
 {
@@ -21,8 +22,19 @@ public class ShipPrefabManager : MonoBehaviour
     [SerializeField]
     private GameObject debugWindow;
 
+    private UnityEvent spawnedNewShipEvent;
+
     private int currentShipIndex;
     private GameObject currentShip;
+
+    public void AddSpawnListener(UnityAction call)
+    {
+        if (spawnedNewShipEvent == null)
+        {
+            spawnedNewShipEvent = new UnityEvent();
+        }
+        spawnedNewShipEvent.AddListener(call);
+    }
 
     public int GetShipIndex()
     {
@@ -69,6 +81,10 @@ public class ShipPrefabManager : MonoBehaviour
         camFollower.SetTarget(currentShip);
         debug.SetShipObject(currentShip);
 
+        if (spawnedNewShipEvent != null)
+        {
+            spawnedNewShipEvent.Invoke();
+        }
         return currentShip;
     }
 

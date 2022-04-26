@@ -5,14 +5,23 @@ using UnityEngine;
 public class AIShipController : MonoBehaviour
 {
     [SerializeField]
-    private GameObject targetObject;
+    private GameObject shipPrefabManager;
 
+    private ShipPrefabManager spawnedShipManager;
+    private GameObject targetObject;
     private AIShipMode shipMode = AIShipMode.Anchored;
     private IAutomaticShip ship;
 
     private void Start()
     {
         ship = gameObject.GetComponent<IAutomaticShip>();
+        spawnedShipManager = shipPrefabManager.GetComponent<ShipPrefabManager>();
+        spawnedShipManager.AddSpawnListener(UpdateTarget);
+    }
+
+    private void UpdateTarget()
+    {
+        targetObject = spawnedShipManager.GetCurrentShip();
     }
 
     private void Update()
@@ -22,7 +31,7 @@ public class AIShipController : MonoBehaviour
             SetMode(AIShipMode.Agressive);
         }
 
-        if (shipMode == AIShipMode.Agressive)
+        if (shipMode == AIShipMode.Agressive && targetObject != null)
         {
             Attack();
         }
