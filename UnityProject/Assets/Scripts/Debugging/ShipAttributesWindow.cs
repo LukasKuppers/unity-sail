@@ -21,7 +21,17 @@ public class ShipAttributesWindow : MonoBehaviour
 
     private void Update()
     {
-        SetText();
+        if (ship != null && ship.activeSelf)
+        {
+            SetText();
+        }
+    }
+
+    public void SetShipObject(GameObject newShip)
+    {
+        ship = newShip;
+        controller = ship.GetComponent<IShipController>();
+        health = ship.GetComponent<IDamageable>();
     }
 
     private void SetText()

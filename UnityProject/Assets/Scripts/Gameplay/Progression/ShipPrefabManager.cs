@@ -18,6 +18,8 @@ public class ShipPrefabManager : MonoBehaviour
     private GameObject inventoryManager;
     [SerializeField]
     private GameObject cameraRoot;
+    [SerializeField]
+    private GameObject debugWindow;
 
     private int currentShipIndex;
     private GameObject currentShip;
@@ -61,9 +63,11 @@ public class ShipPrefabManager : MonoBehaviour
         // setup external dependencies to ship
         Follower waveFollower = waveObject.GetComponent<Follower>();
         Follower camFollower = cameraRoot.GetComponent<Follower>();
+        ShipAttributesWindow debug = debugWindow.GetComponent<ShipAttributesWindow>();
 
         waveFollower.SetTarget(currentShip);
         camFollower.SetTarget(currentShip);
+        debug.SetShipObject(currentShip);
 
         return currentShip;
     }
