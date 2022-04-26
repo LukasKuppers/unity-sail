@@ -5,9 +5,7 @@ using TMPro;
 
 public class ShipAttributesWindow : MonoBehaviour
 {
-    [SerializeField]
     private GameObject ship;
-
     private TextMeshProUGUI text;
     private IShipController controller;
     private IDamageable health;
@@ -15,8 +13,6 @@ public class ShipAttributesWindow : MonoBehaviour
     private void Start()
     {
         text = gameObject.GetComponent<TextMeshProUGUI>();
-        controller = ship.GetComponent<IShipController>();
-        health = ship.GetComponent<IDamageable>();
     }
 
     private void Update()

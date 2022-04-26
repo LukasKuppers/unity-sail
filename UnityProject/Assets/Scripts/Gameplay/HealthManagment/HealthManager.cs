@@ -10,7 +10,7 @@ public class HealthManager : MonoBehaviour, IDamageable
     private IDestructable destroyer;
     private float healthPoints;
 
-    private void Start()
+    private void Awake()
     {
         destroyer = gameObject.GetComponent<IDestructable>();
         healthPoints = maxHealth;
