@@ -19,6 +19,12 @@ public class WindFlag : MonoBehaviour
         SetRotation();    
     }
 
+    public void SetWindGenerator(GameObject newWindGenerator)
+    {
+        windGenerator = newWindGenerator;
+        wind = windGenerator.GetComponent<WindGenerator>();
+    }
+
     private void SetRotation()
     {
         Vector3 normal = transform.parent.transform.up;

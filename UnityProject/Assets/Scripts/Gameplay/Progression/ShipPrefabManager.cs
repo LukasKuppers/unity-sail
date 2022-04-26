@@ -11,36 +11,59 @@ public class ShipPrefabManager : MonoBehaviour
     [SerializeField]
     private GameObject windManager;
     [SerializeField]
+    private GameObject waveObject;
+    [SerializeField]
     private GameObject respawnPoint;
     [SerializeField]
     private GameObject inventoryManager;
+    [SerializeField]
+    private GameObject cameraRoot;
 
+    private int currentShipIndex;
     private GameObject currentShip;
+
+    public int GetShipIndex()
+    {
+        return currentShipIndex;
+    }
+
+    public GameObject GetCurrentShip()
+    {
+        return currentShip;
+    }
 
     public GameObject SpawnShip(int shipTypeIndex)
     {
+        currentShipIndex = shipTypeIndex;
+
         if (currentShip != null)
         {
             DestroyCurrentShip();
         }
 
         currentShip = Instantiate(shipTypePrefabs[shipTypeIndex]);
+        currentShip.transform.position = respawnPoint.transform.position;
 
         // setup ship dependencies
         PhysicsAdvancedBuoyancy buoyancy = currentShip.GetComponent<PhysicsAdvancedBuoyancy>();
         PhysicsShipController shipController = currentShip.GetComponent<PhysicsShipController>();
         PlayerController playerController = currentShip.GetComponent<PlayerController>();
         PlayerDestroyer destroyer = currentShip.GetComponent<PlayerDestroyer>();
+        WindFlag flag = currentShip.GetComponentInChildren<WindFlag>();
 
         buoyancy.SetWaveManager(waveManager);
         shipController.SetWindManager(windManager);
         playerController.SetWindManager(windManager);
         destroyer.SetRespawnPoint(respawnPoint);
         destroyer.SetPlayerInventory(inventoryManager);
+        flag.SetWindGenerator(windManager);
 
         // setup external dependencies to ship
-        Follower waveFollower = waveManager.GetComponent<Follower>();
+        Follower waveFollower = waveObject.GetComponent<Follower>();
+        Follower camFollower = cameraRoot.GetComponent<Follower>();
+
         waveFollower.SetTarget(currentShip);
+        camFollower.SetTarget(currentShip);
 
         return currentShip;
     }

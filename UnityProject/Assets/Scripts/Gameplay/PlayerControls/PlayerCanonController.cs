@@ -5,8 +5,6 @@ using UnityEngine;
 public class PlayerCanonController : MonoBehaviour
 {
     [SerializeField]
-    private GameObject playerCamera;
-    [SerializeField]
     private GameObject[] leftCannons;
     [SerializeField]
     private GameObject[] rightCannons;
@@ -17,7 +15,7 @@ public class PlayerCanonController : MonoBehaviour
 
     private void Start()
     {
-        cam = playerCamera.GetComponent<Camera>();
+        cam = Camera.main;
         rb = gameObject.GetComponent<Rigidbody>();
         cannons = new IProjectileShooter[2][];
         cannons[0] = InitCanons(leftCannons);
