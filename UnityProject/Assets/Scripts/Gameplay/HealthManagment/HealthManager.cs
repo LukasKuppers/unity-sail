@@ -16,6 +16,11 @@ public class HealthManager : MonoBehaviour, IDamageable
         healthPoints = maxHealth;
     }
 
+    public float GetMaxHealth()
+    {
+        return maxHealth;
+    }
+
     public float GetHealth()
     {
         return healthPoints;

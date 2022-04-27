@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1474.2708, g: 2017.8203, b: 3197.2812, a: 1}
+  m_IndirectSpecularColor: {r: 1470.237, g: 2025.6328, b: 3226.1914, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -884,7 +884,11 @@ PrefabInstance:
     - target: {fileID: 505325252369100535, guid: 35afc122612688e45910c1454171df7c, type: 3}
       propertyPath: targetObject
       value: 
-      objectReference: {fileID: 5019582338740968459}
+      objectReference: {fileID: 0}
+    - target: {fileID: 505325252369100535, guid: 35afc122612688e45910c1454171df7c, type: 3}
+      propertyPath: shipPrefabManager
+      value: 
+      objectReference: {fileID: 1163210783}
     - target: {fileID: 1272774555195542124, guid: 35afc122612688e45910c1454171df7c, type: 3}
       propertyPath: tagMask
       value: EnemyTurret
@@ -1044,7 +1048,7 @@ RectTransform:
   m_Children:
   - {fileID: 1866534766}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1177,7 +1181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 279421d8c2932be4daaca5d205943a2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 5019582338740968459}
+  target: {fileID: 2081118141}
   x: 1
   y: 0
   z: 1
@@ -1245,7 +1249,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &995975343
 PrefabInstance:
@@ -1265,7 +1269,11 @@ PrefabInstance:
     - target: {fileID: 505325252369100535, guid: 35afc122612688e45910c1454171df7c, type: 3}
       propertyPath: targetObject
       value: 
-      objectReference: {fileID: 5019582338740968459}
+      objectReference: {fileID: 0}
+    - target: {fileID: 505325252369100535, guid: 35afc122612688e45910c1454171df7c, type: 3}
+      propertyPath: shipPrefabManager
+      value: 
+      objectReference: {fileID: 1163210783}
     - target: {fileID: 1272774555195542124, guid: 35afc122612688e45910c1454171df7c, type: 3}
       propertyPath: tagMask
       value: EnemyTurret
@@ -1786,7 +1794,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb8fb985d26fe4145a1b227649d93186, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ship: {fileID: 5019582338740968459}
 --- !u!114 &1866534768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2011,7 +2018,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 279421d8c2932be4daaca5d205943a2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 5019582338740968459}
+  target: {fileID: 2081118141}
   x: 1
   y: 1
   z: 1
@@ -2382,41 +2389,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abbb69ab263b7c8498ba9b9dec4e4f8f, type: 3}
---- !u!1 &5019582338740968459 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3471812832663499121, guid: 789253875fcf10f40a08b49fcb0d29a2, type: 3}
-  m_PrefabInstance: {fileID: 8468870573747219834}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &5019582338740968469
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5019582338740968459}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eac4f1c6c1ab4604cb25db670af503d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  respawnPoint: {fileID: 2081118141}
-  playerInventory: {fileID: 816629300}
-  defaultFoodAmount: 10
-  defaultWoodAmount: 10
-  defaultCannonballAmount: 50
---- !u!114 &5019582338740968470
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5019582338740968459}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca588077746da5843bd571a9d5165805, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
 --- !u!1001 &5823022088365250448
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2435,7 +2407,11 @@ PrefabInstance:
     - target: {fileID: 505325252369100535, guid: 35afc122612688e45910c1454171df7c, type: 3}
       propertyPath: targetObject
       value: 
-      objectReference: {fileID: 5019582338740968459}
+      objectReference: {fileID: 0}
+    - target: {fileID: 505325252369100535, guid: 35afc122612688e45910c1454171df7c, type: 3}
+      propertyPath: shipPrefabManager
+      value: 
+      objectReference: {fileID: 1163210783}
     - target: {fileID: 1272774555195542124, guid: 35afc122612688e45910c1454171df7c, type: 3}
       propertyPath: tagMask
       value: EnemyTurret
@@ -2512,11 +2488,19 @@ PrefabInstance:
     - target: {fileID: 2308580133933381605, guid: c5b7d6761ec60414293a9353485f5421, type: 3}
       propertyPath: targetObject
       value: 
-      objectReference: {fileID: 5019582338740968459}
+      objectReference: {fileID: 0}
+    - target: {fileID: 2308580133933381605, guid: c5b7d6761ec60414293a9353485f5421, type: 3}
+      propertyPath: shipPrefabManager
+      value: 
+      objectReference: {fileID: 1163210783}
     - target: {fileID: 2308580134542988032, guid: c5b7d6761ec60414293a9353485f5421, type: 3}
       propertyPath: targetObject
       value: 
-      objectReference: {fileID: 5019582338740968459}
+      objectReference: {fileID: 0}
+    - target: {fileID: 2308580134542988032, guid: c5b7d6761ec60414293a9353485f5421, type: 3}
+      propertyPath: shipPrefabManager
+      value: 
+      objectReference: {fileID: 1163210783}
     - target: {fileID: 2308580135572388994, guid: c5b7d6761ec60414293a9353485f5421, type: 3}
       propertyPath: m_Name
       value: EnemyShip
@@ -2531,7 +2515,7 @@ PrefabInstance:
       objectReference: {fileID: 357877953}
     - target: {fileID: 2308580135572389016, guid: c5b7d6761ec60414293a9353485f5421, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 2308580135572389016, guid: c5b7d6761ec60414293a9353485f5421, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2576,7 +2560,7 @@ PrefabInstance:
     - target: {fileID: 4752174676431244480, guid: c5b7d6761ec60414293a9353485f5421, type: 3}
       propertyPath: targetObject
       value: 
-      objectReference: {fileID: 5019582338740968459}
+      objectReference: {fileID: 0}
     - target: {fileID: 4752174676431244480, guid: c5b7d6761ec60414293a9353485f5421, type: 3}
       propertyPath: shipPrefabManager
       value: 
@@ -2599,92 +2583,3 @@ PrefabInstance:
       objectReference: {fileID: 357877953}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5b7d6761ec60414293a9353485f5421, type: 3}
---- !u!1001 &8468870573747219834
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3471812832663499121, guid: 789253875fcf10f40a08b49fcb0d29a2, type: 3}
-      propertyPath: m_Name
-      value: BasicShip
-      objectReference: {fileID: 0}
-    - target: {fileID: 3471812832663499121, guid: 789253875fcf10f40a08b49fcb0d29a2, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3471812832663499124, guid: 789253875fcf10f40a08b49fcb0d29a2, type: 3}
-      propertyPath: windManager
-      value: 
-      objectReference: {fileID: 357877953}
-    - target: {fileID: 3471812832663499124, guid: 789253875fcf10f40a08b49fcb0d29a2, type: 3}
-      propertyPath: intoWindBonus
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3471812832663499125, guid: 789253875fcf10f40a08b49fcb0d29a2, type: 3}
-      propertyPath: windManager
-      value: 
-      objectReference: {fileID: 357877953}
-    - target: {fileID: 3471812832663499127, guid: 789253875fcf10f40a08b49fcb0d29a2, type: 3}
-      propertyPath: waveManager
-      value: 
-      objectReference: {fileID: 357877953}
-    - target: {fileID: 5804279009801683469, guid: 789253875fcf10f40a08b49fcb0d29a2, type: 3}
-      propertyPath: m_RootOrder
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 5804279009801683469, guid: 789253875fcf10f40a08b49fcb0d29a2, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 26
-      objectReference: {fileID: 0}
-    - target: {fileID: 5804279009801683469, guid: 789253875fcf10f40a08b49fcb0d29a2, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 5.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5804279009801683469, guid: 789253875fcf10f40a08b49fcb0d29a2, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5804279009801683469, guid: 789253875fcf10f40a08b49fcb0d29a2, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5804279009801683469, guid: 789253875fcf10f40a08b49fcb0d29a2, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5804279009801683469, guid: 789253875fcf10f40a08b49fcb0d29a2, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5804279009801683469, guid: 789253875fcf10f40a08b49fcb0d29a2, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5804279009801683469, guid: 789253875fcf10f40a08b49fcb0d29a2, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5804279009801683469, guid: 789253875fcf10f40a08b49fcb0d29a2, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5804279009801683469, guid: 789253875fcf10f40a08b49fcb0d29a2, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8468870573345752314, guid: 789253875fcf10f40a08b49fcb0d29a2, type: 3}
-      propertyPath: windGenerator
-      value: 
-      objectReference: {fileID: 357877953}
-    - target: {fileID: 8468870573405646745, guid: 789253875fcf10f40a08b49fcb0d29a2, type: 3}
-      propertyPath: maxZoom
-      value: 75
-      objectReference: {fileID: 0}
-    - target: {fileID: 8468870573405646745, guid: 789253875fcf10f40a08b49fcb0d29a2, type: 3}
-      propertyPath: mouseInputManager
-      value: 
-      objectReference: {fileID: 362012124}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 789253875fcf10f40a08b49fcb0d29a2, type: 3}
