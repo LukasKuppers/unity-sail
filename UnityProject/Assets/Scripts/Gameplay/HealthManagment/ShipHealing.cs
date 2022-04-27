@@ -18,6 +18,8 @@ public class ShipHealing : MonoBehaviour
     ShipPrefabManager shipManager;
     private IDamageable healthManager;
 
+    private bool coroutineRunning = false;
+
     private float lastRrecordedHealth = float.PositiveInfinity;
 
     private void Start()
@@ -32,7 +34,11 @@ public class ShipHealing : MonoBehaviour
         GameObject currentShip = shipManager.GetCurrentShip();
         healthManager = currentShip.GetComponent<IDamageable>();
 
-        StartCoroutine(RegenerateHealth());
+        if (!coroutineRunning)
+        {
+            coroutineRunning = true;
+            StartCoroutine(RegenerateHealth());
+        }
     }
 
     private IEnumerator RegenerateHealth()
