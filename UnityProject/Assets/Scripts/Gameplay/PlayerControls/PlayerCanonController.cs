@@ -5,21 +5,31 @@ using UnityEngine;
 public class PlayerCanonController : MonoBehaviour
 {
     [SerializeField]
+    private GameObject inventoryObject;
+    [SerializeField]
     private GameObject[] leftCannons;
     [SerializeField]
     private GameObject[] rightCannons;
 
+    private PlayerInventory inventory;
     private Camera cam;
     private Rigidbody rb;
     private IProjectileShooter[][] cannons;
 
     private void Start()
     {
+        inventory = inventoryObject.GetComponent<PlayerInventory>();
         cam = Camera.main;
         rb = gameObject.GetComponent<Rigidbody>();
         cannons = new IProjectileShooter[2][];
         cannons[0] = InitCanons(leftCannons);
         cannons[1] = InitCanons(rightCannons);
+    }
+
+    public void SetInventory(GameObject newInventoryObject)
+    {
+        inventoryObject = newInventoryObject;
+        inventory = inventoryObject.GetComponent<PlayerInventory>();
     }
 
     private void Update()
@@ -68,7 +78,14 @@ public class PlayerCanonController : MonoBehaviour
         {
             foreach (IProjectileShooter cannon in cannons[cannonIndex])
             {
-                cannon.Shoot();
+                if (inventory.GetCannonballAmount() > 0)
+                {
+                    bool didFire = cannon.Shoot();
+                    if (didFire)
+                    {
+                        inventory.IncrementCannonball(-1);
+                    }
+                }
             }
         }
     }

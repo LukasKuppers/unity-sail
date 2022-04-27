@@ -12,7 +12,7 @@ public interface IProjectileShooter
 
     public void SetPitch(float range, float height);
 
-    public void Shoot();
+    public bool Shoot();
 
     public void DisplayAim();
 }

@@ -81,7 +81,7 @@ public class CanonController : MonoBehaviour, IProjectileShooter
         cannonModel.transform.localEulerAngles = new Vector3(-pitch, 0, 0);
     }
 
-    public void Shoot()
+    public bool Shoot()
     {
         if (fireReady)
         {
@@ -102,8 +102,9 @@ public class CanonController : MonoBehaviour, IProjectileShooter
 
             fireReady = false;
             StartCoroutine(COROUTINE_CALL_NAME);
+            return true;
         }
-        
+        return false;
     }
 
     private bool ValidateParams(float xRot, float yRot)

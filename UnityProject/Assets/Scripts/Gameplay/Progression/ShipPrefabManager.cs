@@ -62,12 +62,14 @@ public class ShipPrefabManager : MonoBehaviour
         PhysicsAdvancedBuoyancy buoyancy = currentShip.GetComponent<PhysicsAdvancedBuoyancy>();
         PhysicsShipController shipController = currentShip.GetComponent<PhysicsShipController>();
         PlayerController playerController = currentShip.GetComponent<PlayerController>();
+        PlayerCanonController cannonController = currentShip.GetComponent<PlayerCanonController>();
         PlayerDestroyer destroyer = currentShip.GetComponent<PlayerDestroyer>();
         WindFlag flag = currentShip.GetComponentInChildren<WindFlag>();
 
         buoyancy.SetWaveManager(waveManager);
         shipController.SetWindManager(windManager);
         playerController.SetWindManager(windManager);
+        cannonController.SetInventory(inventoryManager);
         destroyer.SetRespawnPoint(respawnPoint);
         destroyer.SetPlayerInventory(inventoryManager);
         flag.SetWindGenerator(windManager);
