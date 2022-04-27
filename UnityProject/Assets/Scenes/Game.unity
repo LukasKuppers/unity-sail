@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1470.238, g: 2025.6328, b: 3226.1992, a: 1}
+  m_IndirectSpecularColor: {r: 1480.5151, g: 2009.2637, b: 3167.5352, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1352,6 +1352,7 @@ GameObject:
   - component: {fileID: 1163210785}
   - component: {fileID: 1163210786}
   - component: {fileID: 1163210787}
+  - component: {fileID: 1163210788}
   m_Layer: 0
   m_Name: ShipData
   m_TagString: Untagged
@@ -1422,6 +1423,23 @@ MonoBehaviour:
   shipPrefabManager: {fileID: 1163210783}
   inventoryObject: {fileID: 816629300}
   healthPerWood: 1
+--- !u!114 &1163210788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1163210783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 136c7c714a55bac46a667789536e2cd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shipPrefabManager: {fileID: 1163210783}
+  inventoryObject: {fileID: 816629300}
+  foodDecrementTickTime: 10
+  hungerTickTime: 2
+  hpPerTick: 1
 --- !u!1 &1318436105
 GameObject:
   m_ObjectHideFlags: 0
