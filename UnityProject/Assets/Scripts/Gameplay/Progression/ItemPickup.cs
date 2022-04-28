@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemPickup : MonoBehaviour
+public class ItemPickup : MonoBehaviour, IDestructable
 {
     [SerializeField]
     private GameObject displayPrefab;
@@ -95,8 +95,7 @@ public class ItemPickup : MonoBehaviour
 
         if (itemAmount <= 0)
         {
-            Destroy(displayObject);
-            Destroy(gameObject);
+            Destroy();
         }
     }
 
@@ -104,6 +103,12 @@ public class ItemPickup : MonoBehaviour
     {
         playerShip = shipManager.GetCurrentShip();
         display.SetInitParameters(item, itemAmount, gameObject);
+    }
+
+    public void Destroy()
+    {
+        Destroy(displayObject);
+        Destroy(gameObject);
     }
 
     public void SetParameters(GameObject newShipPrefabManager, GameObject newInventoryObject,

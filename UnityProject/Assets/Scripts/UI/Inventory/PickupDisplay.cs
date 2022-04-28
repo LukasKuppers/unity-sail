@@ -32,7 +32,6 @@ public class PickupDisplay : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log("target name: " + scenePickupObject.name);
         transform.position = mainCam.WorldToScreenPoint(scenePickupObject.transform.position);
         transform.position += Vector3.up * verticalOffset;
     }

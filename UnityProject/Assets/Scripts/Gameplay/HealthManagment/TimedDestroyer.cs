@@ -9,8 +9,11 @@ public class TimedDestroyer : MonoBehaviour
     [SerializeField]
     private float lifeDuration = 10f;
 
+    private IDestructable objectDestroyer;
+
     private void Awake()
     {
+        objectDestroyer = gameObject.GetComponent<IDestructable>();
         StartCoroutine(COUROTINE_CALL_NAME);
     }
 
@@ -18,6 +21,13 @@ public class TimedDestroyer : MonoBehaviour
     {
         yield return new WaitForSeconds(lifeDuration);
 
-        Destroy(gameObject);
+        if (objectDestroyer != null)
+        {
+            objectDestroyer.Destroy();
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 }
