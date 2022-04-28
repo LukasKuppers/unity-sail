@@ -101,6 +101,7 @@ GameObject:
   - component: {fileID: 3471812832663499114}
   - component: {fileID: 5019582338740968469}
   - component: {fileID: 5019582338740968470}
+  - component: {fileID: -5391807174701347603}
   m_Layer: 0
   m_Name: BasicShip
   m_TagString: Player
@@ -255,6 +256,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42a342a7ed5a9a94d9c91e027b3f30cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inventoryObject: {fileID: 0}
   leftCannons:
   - {fileID: 59023974001824157}
   rightCannons:
@@ -289,6 +291,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+--- !u!114 &-5391807174701347603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3471812832663499121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12ae1448cdb0b4a41b870eb1e5164152, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  capacity: 100
 --- !u!1 &5657517306999458966
 GameObject:
   m_ObjectHideFlags: 0
@@ -1008,14 +1023,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca5ae4264cb39534f987275dec1532c6, type: 3}
---- !u!4 &6540829731646828005 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3405505368243925351, guid: ca5ae4264cb39534f987275dec1532c6, type: 3}
-  m_PrefabInstance: {fileID: 8468870573559258242}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &5876741563910928223 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2596634947891309533, guid: ca5ae4264cb39534f987275dec1532c6, type: 3}
+  m_PrefabInstance: {fileID: 8468870573559258242}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6540829731646828005 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3405505368243925351, guid: ca5ae4264cb39534f987275dec1532c6, type: 3}
   m_PrefabInstance: {fileID: 8468870573559258242}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8468870573789451651
