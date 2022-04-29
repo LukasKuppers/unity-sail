@@ -6,8 +6,11 @@ public class AIShipController : MonoBehaviour
 {
     [SerializeField]
     private GameObject shipPrefabManager;
+    [SerializeField]
+    private GameObject shipSafetyManager;
 
     private ShipPrefabManager spawnedShipManager;
+    private ShipSafetyManager safetyManager;
     private GameObject targetObject;
     private AIShipMode shipMode = AIShipMode.Anchored;
     private IAutomaticShip ship;
@@ -15,6 +18,7 @@ public class AIShipController : MonoBehaviour
     private void Start()
     {
         ship = gameObject.GetComponent<IAutomaticShip>();
+        safetyManager = shipSafetyManager.GetComponent<ShipSafetyManager>();
         spawnedShipManager = shipPrefabManager.GetComponent<ShipPrefabManager>();
         spawnedShipManager.AddSpawnListener(UpdateTarget);
     }
@@ -26,7 +30,11 @@ public class AIShipController : MonoBehaviour
 
     private void Update()
     {
-        if (shipMode != AIShipMode.Agressive)
+        if (safetyManager.ShipIsSafe())
+        {
+            SetMode(AIShipMode.Passive);
+        }
+        else
         {
             SetMode(AIShipMode.Agressive);
         }
@@ -40,7 +48,7 @@ public class AIShipController : MonoBehaviour
     public void SetMode(AIShipMode newMode)
     {
         shipMode = newMode;
-        if (shipMode == AIShipMode.Anchored)
+        if (shipMode == AIShipMode.Anchored || shipMode == AIShipMode.Passive)
         {
             ship.DisableMovement();
         } else

@@ -14,6 +14,8 @@ public class ShipAutomation : MonoBehaviour, IAutomaticShip
     private WindGenerator wind;
     private Vector3 target;
 
+    private bool sailCoroutineRunning = false;
+
     private void Start()
     {
         shipController = gameObject.GetComponent<IShipController>();
@@ -38,12 +40,19 @@ public class ShipAutomation : MonoBehaviour, IAutomaticShip
 
     public void DisableMovement()
     {
-        StartCoroutine(SetSail(0f));
+        if (!sailCoroutineRunning)
+        {
+            StartCoroutine(SetSail(0f));
+        }
+        shipController.SetSteerAmount(0);
     }
 
     public void EnableMovement()
     {
-        StartCoroutine(SetSail(1f));
+        if (!sailCoroutineRunning)
+        {
+            StartCoroutine(SetSail(1f));
+        }
     }
 
     private void FollowTarget()
@@ -74,6 +83,7 @@ public class ShipAutomation : MonoBehaviour, IAutomaticShip
 
     private IEnumerator SetSail(float sailHeight)
     {
+        sailCoroutineRunning = true;
         float current = shipController.GetSailHeight();
 
         for (float t = 0; t <= 1; t += Time.deltaTime)
@@ -83,5 +93,6 @@ public class ShipAutomation : MonoBehaviour, IAutomaticShip
             yield return null;
         }
         shipController.SetSailHeight(sailHeight);
+        sailCoroutineRunning = false;
     }
 }
