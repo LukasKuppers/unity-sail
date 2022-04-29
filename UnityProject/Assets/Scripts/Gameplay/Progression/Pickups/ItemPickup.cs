@@ -44,6 +44,14 @@ public class ItemPickup : MonoBehaviour, IDestructable
 
     private void Awake()
     {
+        if (uiParent != null)
+        {
+            SetupDisplay();
+        }
+    }
+
+    private void SetupDisplay()
+    {
         displayObject = Instantiate(displayPrefab, uiParent.transform);
         display = displayObject.GetComponent<PickupDisplay>();
 
@@ -128,5 +136,7 @@ public class ItemPickup : MonoBehaviour, IDestructable
         playerShip = shipManager.GetCurrentShip();
         item = itemType;
         itemAmount = amount;
+
+        SetupDisplay();
     }
 }

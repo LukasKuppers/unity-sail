@@ -11,6 +11,8 @@ public class PickupGenerator : MonoBehaviour
     [SerializeField]
     private GameObject pickupUIParent;
     [SerializeField]
+    private GameObject waveManager;
+    [SerializeField]
     private GameObject pickupPrefab;
 
     public GameObject SpawnPickup(Item item, int amount, Vector3 position)
@@ -24,6 +26,9 @@ public class PickupGenerator : MonoBehaviour
             pickupUIParent,
             item,
             amount);
+
+        BasicBuoyancy buoyancy = pickupObject.GetComponent<BasicBuoyancy>();
+        buoyancy.SetWaveManager(waveManager);
 
         return pickupObject;
     }

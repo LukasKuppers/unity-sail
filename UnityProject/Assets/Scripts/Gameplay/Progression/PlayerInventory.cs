@@ -96,7 +96,7 @@ public class PlayerInventory : MonoBehaviour
         coinAmount = Mathf.Max(0, coinAmount + amount);
     }
 
-    private int GetFreeCapacity()
+    public int GetFreeCapacity()
     {
         int foodTotal = foodAmount * foodWeight;
         int woodtotal = woodAmount * woodWeight;

@@ -14,6 +14,12 @@ public class BasicBuoyancy : MonoBehaviour
         waveFunc = waveManager.GetComponent<WaveGenerator>();
     }
 
+    public void SetWaveManager(GameObject newWaveManager)
+    {
+        waveManager = newWaveManager;
+        waveFunc = waveManager.GetComponent<WaveGenerator>();
+    }
+
     private void Update()
     {
         SetHeight();
