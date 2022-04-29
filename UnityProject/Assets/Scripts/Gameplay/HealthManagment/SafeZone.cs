@@ -15,6 +15,7 @@ public class SafeZone : MonoBehaviour
     private ShipSafetyManager safetyManager;
 
     private GameObject ship;
+    private bool shipInZone = false;
 
     private void OnDrawGizmosSelected()
     {
@@ -34,6 +35,11 @@ public class SafeZone : MonoBehaviour
         ship = shipManager.GetCurrentShip();
     }
 
+    public bool ShipInZone()
+    {
+        return shipInZone;
+    }
+
     private void Update()
     {
         if (ship != null)
@@ -42,10 +48,12 @@ public class SafeZone : MonoBehaviour
             if (dist <= zoneRadius)
             {
                 safetyManager.SetShipSafety(true);
+                shipInZone = true;
             }
             else
             {
                 safetyManager.SetShipSafety(false);
+                shipInZone = false;
             }
         }
     }
