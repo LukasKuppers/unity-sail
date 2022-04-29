@@ -7,6 +7,8 @@ public class ShipHunger : MonoBehaviour
     [SerializeField]
     private GameObject shipPrefabManager;
     [SerializeField]
+    private GameObject shipSafetyManager;
+    [SerializeField]
     private GameObject inventoryObject;
     [SerializeField]
     private float foodDecrementTickTime;
@@ -16,6 +18,7 @@ public class ShipHunger : MonoBehaviour
     private float hpPerTick;
 
     private ShipPrefabManager shipManager;
+    private ShipSafetyManager safetyManager;
     private PlayerInventory inventory;
     private IDamageable healthManager;
 
@@ -24,6 +27,7 @@ public class ShipHunger : MonoBehaviour
     private void Start()
     {
         shipManager = shipPrefabManager.GetComponent<ShipPrefabManager>();
+        safetyManager = shipPrefabManager.GetComponent<ShipSafetyManager>();
         inventory = inventoryObject.GetComponent<PlayerInventory>();
 
         shipManager.AddSpawnListener(UpdateHealthManager);
@@ -45,16 +49,20 @@ public class ShipHunger : MonoBehaviour
     {
         while (true)
         {
-            if (inventory.GetFoodAmount() > 0)
+            if (!safetyManager.ShipIsSafe())
             {
-                inventory.IncrementFood(-1);
-                yield return new WaitForSeconds(foodDecrementTickTime);
-            } 
-            else
-            {
-                healthManager.Damage(hpPerTick);
-                yield return new WaitForSeconds(hungerTickTime);
+                if (inventory.GetFoodAmount() > 0)
+                {
+                    inventory.IncrementFood(-1);
+                    yield return new WaitForSeconds(foodDecrementTickTime);
+                }
+                else
+                {
+                    healthManager.Damage(hpPerTick);
+                    yield return new WaitForSeconds(hungerTickTime);
+                }
             }
+            yield return new WaitForSeconds(foodDecrementTickTime);
         }
     }
 }
