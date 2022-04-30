@@ -30,6 +30,7 @@ public class ObjectOutline : MonoBehaviour
         rend.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
         outlineObj.GetComponent<ObjectOutline>().enabled = false;
         outlineObj.GetComponent<Collider>().enabled = false;
+        outlineObj.transform.localScale = new Vector3(1, 1, 1);
         rend.enabled = false;
 
         return rend;
