@@ -16,10 +16,13 @@ public class ShipAutomation : MonoBehaviour, IAutomaticShip
 
     private bool sailCoroutineRunning = false;
 
-    private void Start()
+    private void Awake()
     {
         shipController = gameObject.GetComponent<IShipController>();
-        wind = WindManager.GetComponent<WindGenerator>();
+        if (WindManager != null)
+        {
+            wind = WindManager.GetComponent<WindGenerator>();
+        }
     }
 
     private void Update()
@@ -28,6 +31,12 @@ public class ShipAutomation : MonoBehaviour, IAutomaticShip
         {
             FollowTarget();
         }
+    }
+
+    public void SetWindManager(GameObject newWindManager)
+    {
+        WindManager = newWindManager;
+        wind = WindManager.GetComponent<WindGenerator>();
     }
 
     public void SetTarget(Vector3 targetPosition)

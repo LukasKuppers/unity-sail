@@ -25,10 +25,21 @@ public class AICanonController : MonoBehaviour
         }
     }
 
-    private void Start()
+    public void SetShipPrefabManager(GameObject newShipPrefabManager)
     {
+        shipPrefabManager = newShipPrefabManager;
         shipManager = shipPrefabManager.GetComponent<ShipPrefabManager>();
         shipManager.AddSpawnListener(UpdateTargetListener);
+        UpdateTargetListener();
+    }
+
+    private void Start()
+    {
+        if (shipPrefabManager != null)
+        {
+            shipManager = shipPrefabManager.GetComponent<ShipPrefabManager>();
+            shipManager.AddSpawnListener(UpdateTargetListener);
+        }
 
         canon = gameObject.GetComponent<IProjectileShooter>();
     }

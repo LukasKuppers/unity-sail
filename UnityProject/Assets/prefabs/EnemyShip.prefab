@@ -650,7 +650,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77cae84347d0af244aee6d2d9c5c822a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetObject: {fileID: 0}
 --- !u!114 &1882328490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -807,7 +806,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a99be84a291e06b40be91f9682d4d7b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetObject: {fileID: 0}
+  shipPrefabManager: {fileID: 0}
   maxRange: 50
   maxYawAngle: 40
 --- !u!114 &2308580133933381605
@@ -822,7 +821,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a99be84a291e06b40be91f9682d4d7b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetObject: {fileID: 0}
+  shipPrefabManager: {fileID: 0}
   maxRange: 50
   maxYawAngle: 40
 --- !u!1001 &2308580134999125464
@@ -847,6 +846,10 @@ PrefabInstance:
     - target: {fileID: 8455166452883178524, guid: a51e54718cc177748b06f80586e8bc2c, type: 3}
       propertyPath: fireForce
       value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8455166452883178524, guid: a51e54718cc177748b06f80586e8bc2c, type: 3}
+      propertyPath: reloadTime
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8455166452883178526, guid: a51e54718cc177748b06f80586e8bc2c, type: 3}
       propertyPath: m_Name
@@ -933,6 +936,10 @@ PrefabInstance:
     - target: {fileID: 8455166452883178524, guid: a51e54718cc177748b06f80586e8bc2c, type: 3}
       propertyPath: fireForce
       value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8455166452883178524, guid: a51e54718cc177748b06f80586e8bc2c, type: 3}
+      propertyPath: reloadTime
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8455166452883178526, guid: a51e54718cc177748b06f80586e8bc2c, type: 3}
       propertyPath: m_Name

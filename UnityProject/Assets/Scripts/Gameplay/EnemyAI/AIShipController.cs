@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class AIShipController : MonoBehaviour
 {
-    [SerializeField]
     private GameObject shipPrefabManager;
-    [SerializeField]
     private GameObject shipSafetyManager;
 
     private ShipPrefabManager spawnedShipManager;
@@ -15,12 +13,9 @@ public class AIShipController : MonoBehaviour
     private AIShipMode shipMode = AIShipMode.Anchored;
     private IAutomaticShip ship;
 
-    private void Start()
+    private void Awake()
     {
         ship = gameObject.GetComponent<IAutomaticShip>();
-        safetyManager = shipSafetyManager.GetComponent<ShipSafetyManager>();
-        spawnedShipManager = shipPrefabManager.GetComponent<ShipPrefabManager>();
-        spawnedShipManager.AddSpawnListener(UpdateTarget);
     }
 
     private void UpdateTarget()
@@ -34,15 +29,25 @@ public class AIShipController : MonoBehaviour
         {
             SetMode(AIShipMode.Passive);
         }
-        else
-        {
-            SetMode(AIShipMode.Agressive);
-        }
 
         if (shipMode == AIShipMode.Agressive && targetObject != null)
         {
             Attack();
         }
+    }
+
+    public void SetShipPrefabManager(GameObject newShipPrefabManager)
+    {
+        shipPrefabManager = newShipPrefabManager;
+        spawnedShipManager = shipPrefabManager.GetComponent<ShipPrefabManager>();
+        spawnedShipManager.AddSpawnListener(UpdateTarget);
+        UpdateTarget();
+    }
+
+    public void SetShipSafetyManager(GameObject newShipSafetyManager)
+    {
+        shipSafetyManager = newShipSafetyManager;
+        safetyManager = shipSafetyManager.GetComponent<ShipSafetyManager>();
     }
 
     public void SetMode(AIShipMode newMode)
