@@ -130,7 +130,7 @@ public class DropItemsModal : MonoBehaviour
             switch (itemType)
             {
                 case Item.FOOD:
-                    inventory.IncrementWood(-amount);
+                    inventory.IncrementFood(-amount);
                     break;
                 case Item.WOOD:
                     inventory.IncrementWood(-amount);
