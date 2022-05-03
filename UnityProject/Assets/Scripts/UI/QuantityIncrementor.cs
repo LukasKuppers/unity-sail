@@ -31,18 +31,19 @@ public class QuantityIncrementor : MonoBehaviour, ISelectableQuantity
 
         decBtn.onClick.AddListener(Decrement);
         incBtn.onClick.AddListener(Increment);
-
-        if (quantityChangedEvent == null)
-        {
-            quantityChangedEvent = new UnityEvent();
-        }
     }
 
     public void SetQuantity(int newQuantity)
     {
         quantity = Mathf.Max(0, newQuantity);
         UpdateText();
-        quantityChangedEvent.Invoke();
+        InvokeQuantityChangeEvent();
+    }
+
+    public void SetQuantityQuiet(int newQuantity)
+    {
+        quantity = Mathf.Max(0, newQuantity);
+        UpdateText();
     }
 
     public void SetLimits(int minInclusive, int maxInclusive)
@@ -50,7 +51,7 @@ public class QuantityIncrementor : MonoBehaviour, ISelectableQuantity
         min = minInclusive;
         max = maxInclusive;
         quantity = Mathf.Clamp(quantity, min, max);
-        quantityChangedEvent.Invoke();
+        InvokeQuantityChangeEvent();
     }
 
     public int GetQuantity()
@@ -60,6 +61,10 @@ public class QuantityIncrementor : MonoBehaviour, ISelectableQuantity
 
     public void AddChangeListener(UnityAction callback)
     {
+        if (quantityChangedEvent == null)
+        {
+            quantityChangedEvent = new UnityEvent();
+        }
         quantityChangedEvent.AddListener(callback);
     }
 
@@ -69,7 +74,7 @@ public class QuantityIncrementor : MonoBehaviour, ISelectableQuantity
         {
             quantity++;
             UpdateText();
-            quantityChangedEvent.Invoke();
+            InvokeQuantityChangeEvent();
         }
     }
 
@@ -79,12 +84,21 @@ public class QuantityIncrementor : MonoBehaviour, ISelectableQuantity
         {
             quantity--;
             UpdateText();
-            quantityChangedEvent.Invoke();
+            InvokeQuantityChangeEvent();
         }
     }
 
     private void UpdateText()
     {
         quantityText.SetText(quantity.ToString());
+    }
+
+    private void InvokeQuantityChangeEvent()
+    {
+        if (quantityChangedEvent == null)
+        {
+            quantityChangedEvent = new UnityEvent();
+        }
+        quantityChangedEvent.Invoke();
     }
 }

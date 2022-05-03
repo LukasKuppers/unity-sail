@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SafeZone : MonoBehaviour
 {
+    private static readonly string ATTACK_MODE_KEY = "safe_zone_key";
+
     [SerializeField]
     private GameObject shipPrefabManager;
     [SerializeField]
@@ -47,11 +49,13 @@ public class SafeZone : MonoBehaviour
             float dist = Vector3.Distance(transform.position, ship.transform.position);
             if (dist <= zoneRadius)
             {
+                PlayerAttackMode.DisableAttack(ATTACK_MODE_KEY);
                 safetyManager.SetShipSafety(true);
                 shipInZone = true;
             }
             else
             {
+                PlayerAttackMode.EnableAttack(ATTACK_MODE_KEY);
                 safetyManager.SetShipSafety(false);
                 shipInZone = false;
             }

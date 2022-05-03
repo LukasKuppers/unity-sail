@@ -74,7 +74,7 @@ public class PlayerCanonController : MonoBehaviour
 
     private void ControlFire(int cannonIndex)
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) && PlayerAttackMode.AttackEnabled())
         {
             foreach (IProjectileShooter cannon in cannons[cannonIndex])
             {
