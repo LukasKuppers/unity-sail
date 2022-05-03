@@ -14,6 +14,8 @@ public class ShipAttributesWindow : MonoBehaviour
     private IShipController controller;
     private IDamageable health;
 
+    private bool isEnabled = false;
+
     private void Start()
     {
         safetyManager = shipSafetyManager.GetComponent<ShipSafetyManager>();
@@ -22,6 +24,10 @@ public class ShipAttributesWindow : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.F3))
+        {
+            isEnabled = !isEnabled;
+        }
         if (ship != null && ship.activeSelf)
         {
             SetText();
@@ -37,18 +43,25 @@ public class ShipAttributesWindow : MonoBehaviour
 
     private void SetText()
     {
-        float sailAngle = controller.GetSailAngle();
-        float sailHeight = controller.GetSailHeight();
-        float speed = controller.GetSpeed();
-        float hp = health.GetHealth();
-        bool isSafe = safetyManager.ShipIsSafe();
+        if (isEnabled)
+        {
+            float sailAngle = controller.GetSailAngle();
+            float sailHeight = controller.GetSailHeight();
+            float speed = controller.GetSpeed();
+            float hp = health.GetHealth();
+            bool isSafe = safetyManager.ShipIsSafe();
 
-        string display = "Sail Angle: " + sailAngle + "\n" +
-            "Sail Height: " + sailHeight + "\n" +
-            "Speed: " + speed + "\n" +
-            "Health: " + hp + "\n" +
-            "Ship Is Safe: " + isSafe;
+            string display = "Sail Angle: " + sailAngle + "\n" +
+                "Sail Height: " + sailHeight + "\n" +
+                "Speed: " + speed + "\n" +
+                "Health: " + hp + "\n" +
+                "Ship Is Safe: " + isSafe;
 
-        text.text = display;
+            text.text = display;
+        }
+        else
+        {
+            text.text = "";
+        }
     }
 }

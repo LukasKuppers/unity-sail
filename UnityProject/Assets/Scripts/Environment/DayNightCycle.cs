@@ -61,7 +61,7 @@ public class DayNightCycle : MonoBehaviour
 
     private void SetMoonRotation(float dayPercent)
     {
-        float monthRot = (day / 30) * 360f;
+        float monthRot = day * 12f;
         float dayRot = dayPercent * 12f;
         float rot = monthRot + dayRot;
 
