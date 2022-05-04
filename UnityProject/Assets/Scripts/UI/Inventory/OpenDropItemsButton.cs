@@ -25,9 +25,12 @@ public class OpenDropItemsButton : MonoBehaviour
 
     private void CreateModal()
     {
-        GameObject modal = Instantiate(DropItemsModalPrefab, transform.parent);
-        DropItemsModal modalController = modal.GetComponent<DropItemsModal>();
+        if (PlayerSceneInteraction.InteractionEnabled())
+        {
+            GameObject modal = Instantiate(DropItemsModalPrefab, transform.parent);
+            DropItemsModal modalController = modal.GetComponent<DropItemsModal>();
 
-        modalController.InitParameters(pickupSpawner, inventoryObject, shipPrefabManager);
+            modalController.InitParameters(pickupSpawner, inventoryObject, shipPrefabManager);
+        }
     }
 }

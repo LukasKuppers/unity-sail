@@ -25,7 +25,7 @@ public class TreasureShop : MonoBehaviour
     {
         if (safeZone.ShipInZone())
         {
-            if (Input.GetMouseButtonDown(0) && mouseIsFocused)
+            if (Input.GetMouseButtonDown(0) && mouseIsFocused && PlayerSceneInteraction.InteractionEnabled())
             {
                 OpenModal();
             }

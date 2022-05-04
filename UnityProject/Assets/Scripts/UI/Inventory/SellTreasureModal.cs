@@ -6,6 +6,8 @@ using TMPro;
 
 public class SellTreasureModal : MonoBehaviour
 {
+    private static readonly string INTERACTION_LOCK_KEY = "Sell_treasure_modal_key";
+
     [SerializeField]
     private GameObject exitButton;
     [SerializeField]
@@ -37,6 +39,8 @@ public class SellTreasureModal : MonoBehaviour
 
         exitBtn.onClick.AddListener(CloseModal);
         sellTreasureBtn.onClick.AddListener(SellTreasure);
+
+        PlayerSceneInteraction.DisableInteraction(INTERACTION_LOCK_KEY);
     }
 
     public void SetInventory(GameObject inventoryObject)
@@ -50,6 +54,7 @@ public class SellTreasureModal : MonoBehaviour
 
     private void CloseModal()
     {
+        PlayerSceneInteraction.EnableInteraction(INTERACTION_LOCK_KEY);
         Destroy(gameObject);
     }
 

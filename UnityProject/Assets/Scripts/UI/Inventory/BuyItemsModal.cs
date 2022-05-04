@@ -6,6 +6,8 @@ using TMPro;
 
 public class BuyItemsModal : MonoBehaviour
 {
+    private static readonly string INTERACTION_LOCK_KEY = "Buy_items_modal_key";
+
     [SerializeField]
     private GameObject exitButton;
     [SerializeField]
@@ -61,6 +63,8 @@ public class BuyItemsModal : MonoBehaviour
         foodQuant.AddChangeListener(() => OnIncrement(Item.FOOD));
         woodQuant.AddChangeListener(() => OnIncrement(Item.WOOD));
         cannonballQuant.AddChangeListener(() => OnIncrement(Item.CANNONBALL));
+
+        PlayerSceneInteraction.DisableInteraction(INTERACTION_LOCK_KEY);
     }
 
     public void InitParameters(GameObject inventoryObject, int foodPrice, int woodPrice, int cannonballPrice)
@@ -148,6 +152,7 @@ public class BuyItemsModal : MonoBehaviour
 
     private void CloseModal()
     {
+        PlayerSceneInteraction.EnableInteraction(INTERACTION_LOCK_KEY);
         Destroy(gameObject);
     }
 

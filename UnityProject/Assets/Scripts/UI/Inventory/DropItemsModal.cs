@@ -6,6 +6,8 @@ using TMPro;
 
 public class DropItemsModal : MonoBehaviour
 {
+    private static readonly string INTERACTION_LOCK_KEY = "Drop_items_modal_key";
+
     [SerializeField]
     private GameObject exitButton;
     [SerializeField]
@@ -59,6 +61,8 @@ public class DropItemsModal : MonoBehaviour
 
         exitBtn.onClick.AddListener(ExitModal);
         dropItemsBtn.onClick.AddListener(DropItems);
+
+        PlayerSceneInteraction.DisableInteraction(INTERACTION_LOCK_KEY);
     }
 
     public void InitParameters(GameObject pickupSpawner, GameObject inventoryObject, GameObject prefabManager)
@@ -91,6 +95,7 @@ public class DropItemsModal : MonoBehaviour
 
     private void ExitModal()
     {
+        PlayerSceneInteraction.EnableInteraction(INTERACTION_LOCK_KEY);
         Destroy(gameObject);
     }
 

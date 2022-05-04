@@ -21,7 +21,7 @@ public class ItemsShop : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && mouseIsFocused)
+        if (Input.GetMouseButtonDown(0) && mouseIsFocused && PlayerSceneInteraction.InteractionEnabled())
         {
             GameObject modal = Instantiate(itemShopModal, uIParent.transform);
             BuyItemsModal modalData = modal.GetComponent<BuyItemsModal>();
