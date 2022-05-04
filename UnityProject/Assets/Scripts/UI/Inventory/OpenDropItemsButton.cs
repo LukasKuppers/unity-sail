@@ -14,18 +14,9 @@ public class OpenDropItemsButton : MonoBehaviour
     [SerializeField]
     private GameObject DropItemsModalPrefab;
 
-    private Button button;
-
-    private void Start()
+    private void Update()
     {
-        button = gameObject.GetComponent<Button>();
-
-        button.onClick.AddListener(CreateModal);
-    }
-
-    private void CreateModal()
-    {
-        if (PlayerSceneInteraction.InteractionEnabled())
+        if (Input.GetKeyDown(KeyCode.E) && PlayerSceneInteraction.InteractionEnabled())
         {
             GameObject modal = Instantiate(DropItemsModalPrefab, transform.parent);
             DropItemsModal modalController = modal.GetComponent<DropItemsModal>();

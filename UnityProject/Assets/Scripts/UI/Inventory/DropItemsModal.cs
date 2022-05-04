@@ -63,6 +63,7 @@ public class DropItemsModal : MonoBehaviour
         dropItemsBtn.onClick.AddListener(DropItems);
 
         PlayerSceneInteraction.DisableInteraction(INTERACTION_LOCK_KEY);
+        PlayerAttackMode.DisableAttack(INTERACTION_LOCK_KEY);
     }
 
     public void InitParameters(GameObject pickupSpawner, GameObject inventoryObject, GameObject prefabManager)
@@ -96,6 +97,7 @@ public class DropItemsModal : MonoBehaviour
     private void ExitModal()
     {
         PlayerSceneInteraction.EnableInteraction(INTERACTION_LOCK_KEY);
+        PlayerAttackMode.EnableAttack(INTERACTION_LOCK_KEY);
         Destroy(gameObject);
     }
 
