@@ -5,6 +5,8 @@ using UnityEngine;
 public class ObjectOutline : MonoBehaviour
 {
     [SerializeField]
+    private GameObject model;
+    [SerializeField]
     private Material outlineMaterial;
     [SerializeField]
     private float outlineScale = 1.1f;
@@ -20,7 +22,15 @@ public class ObjectOutline : MonoBehaviour
 
     private Renderer CreateOutline(Material outlineMat, float scaleFactor, Color outlineCol)
     {
-        GameObject outlineObj = Instantiate(this.gameObject, transform.position, transform.rotation, transform);
+        GameObject outlineObj;
+        if (model != null)
+        {
+            outlineObj = Instantiate(model, model.transform.position, model.transform.rotation, model.transform);
+        }
+        else
+        {
+            outlineObj = Instantiate(this.gameObject, transform.position, transform.rotation, transform);
+        }
         Renderer rend = outlineObj.GetComponent<Renderer>();
 
         rend.material = outlineMat;
@@ -28,8 +38,17 @@ public class ObjectOutline : MonoBehaviour
         rend.material.SetFloat("_ScaleFactor", scaleFactor);
 
         rend.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
-        outlineObj.GetComponent<ObjectOutline>().enabled = false;
-        outlineObj.GetComponent<Collider>().enabled = false;
+        ObjectOutline childOutline = outlineObj.GetComponent<ObjectOutline>();
+        Collider childCol = outlineObj.GetComponent<Collider>();
+        if (childOutline != null)
+        {
+            childOutline.enabled = false;
+        }
+        if (childCol != null)
+        {
+            childCol.enabled = false;
+        }
+
         outlineObj.transform.localScale = new Vector3(1, 1, 1);
         rend.enabled = false;
 
