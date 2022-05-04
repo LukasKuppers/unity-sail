@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1710.0901, g: 3164.4727, b: 6684.5234, a: 1}
+  m_IndirectSpecularColor: {r: 1727.1926, g: 3128.0117, b: 6523.2266, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4638,13 +4638,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseInputManager: {fileID: 362012124}
   specialCameraPositions: []
-  elevationAngle: 10
+  elevationAngle: 15
   angleSwitchTime: 0.5
   panSpeed: 0.5
   pitchSpeed: 0.5
-  zoomSpeed: 0.5
-  minZoom: 10
-  maxZoom: 50
+  zoomSpeed: 1
+  minZoom: 20
+  maxZoom: 100
 --- !u!114 &2133451525
 MonoBehaviour:
   m_ObjectHideFlags: 0
