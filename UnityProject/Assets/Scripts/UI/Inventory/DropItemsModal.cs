@@ -103,10 +103,10 @@ public class DropItemsModal : MonoBehaviour
 
     private void DropItems()
     {
-        DropItem(Item.FOOD, food.GetQuantity());
-        DropItem(Item.WOOD, wood.GetQuantity());
-        DropItem(Item.CANNONBALL, cannonball.GetQuantity());
-        DropItem(Item.TREASURE, treasure.GetQuantity());
+        DropItem(Item.FOOD, Mathf.Min(food.GetQuantity(), inventory.GetFoodAmount()));
+        DropItem(Item.WOOD, Mathf.Min(wood.GetQuantity(), inventory.GetWoodAmount()));
+        DropItem(Item.CANNONBALL, Mathf.Min(cannonball.GetQuantity(), inventory.GetCannonballAmount()));
+        DropItem(Item.TREASURE, Mathf.Min(treasure.GetQuantity(), inventory.GetTreasureAmount()));
 
         ExitModal();
     }
