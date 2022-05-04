@@ -31,3 +31,6 @@ MonoBehaviour:
   _posterizeAmount:
     m_OverrideState: 1
     m_Value: 14
+  _ambientLight:
+    m_OverrideState: 1
+    m_Value: 0.03

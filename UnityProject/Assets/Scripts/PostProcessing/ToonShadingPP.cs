@@ -9,6 +9,8 @@ public sealed class ToonShadingPP : CustomPostProcessVolumeComponent, IPostProce
     [Tooltip("Controls the intensity of the effect.")]
     [SerializeField]
     private FloatParameter _posterizeAmount = new FloatParameter(1f);
+    [SerializeField]
+    private FloatParameter _ambientLight = new FloatParameter(30f);
 
     Material m_Material;
 
@@ -33,6 +35,7 @@ public sealed class ToonShadingPP : CustomPostProcessVolumeComponent, IPostProce
             return;
 
         m_Material.SetFloat("_PosterizeAmount", _posterizeAmount.value);
+        m_Material.SetFloat("_AmbientLight", _ambientLight.value);
         m_Material.SetTexture("_InputTexture", source);
         HDUtils.DrawFullScreen(cmd, m_Material, destination);
     }

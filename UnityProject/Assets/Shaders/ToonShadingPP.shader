@@ -36,10 +36,12 @@ Shader "Hidden/Shader/ToonShadingPP"
 
     // List of properties to control your post process effect
     float _PosterizeAmount;
+    float _AmbientLight;
     TEXTURE2D_X(_InputTexture);
 
     float posterize(float In, float steps) {
-        return floor(In / (1 / steps)) * (1 / steps);
+        float value = floor(In / (1 / steps)) * (1 / steps);
+        return max(value, _AmbientLight);
     }
 
     float4 CustomPostProcess(Varyings input) : SV_Target
