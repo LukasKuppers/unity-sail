@@ -56,7 +56,7 @@ public class DayNightCycle : MonoBehaviour
     private void SetSunRotation(float dayPercent)
     {
         float rot = dayPercent * 360f;
-        sunObject.transform.rotation = Quaternion.Euler(rot, 0, 0);
+        sunObject.transform.rotation = Quaternion.Euler(rot, -90, 0);
     }
 
     private void SetMoonRotation(float dayPercent)
