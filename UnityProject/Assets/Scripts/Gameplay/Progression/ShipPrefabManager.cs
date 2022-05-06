@@ -57,6 +57,7 @@ public class ShipPrefabManager : MonoBehaviour
 
         currentShip = Instantiate(shipTypePrefabs[shipTypeIndex]);
         currentShip.transform.position = respawnPoint.transform.position;
+        currentShip.transform.rotation = respawnPoint.transform.rotation;
 
         // setup ship dependencies
         PhysicsAdvancedBuoyancy buoyancy = currentShip.GetComponent<PhysicsAdvancedBuoyancy>();
@@ -72,6 +73,7 @@ public class ShipPrefabManager : MonoBehaviour
         cannonController.SetInventory(inventoryManager);
         destroyer.SetRespawnPoint(respawnPoint);
         destroyer.SetPlayerInventory(inventoryManager);
+        destroyer.SetPrefabManager(gameObject);
         flag.SetWindGenerator(windManager);
 
         // setup external dependencies to ship

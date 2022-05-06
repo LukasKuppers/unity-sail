@@ -8,6 +8,8 @@ public class PlayerDestroyer : MonoBehaviour, IDestructable
     private GameObject respawnPoint;
     [SerializeField]
     private GameObject playerInventory;
+    [SerializeField]
+    private GameObject shipPrefabManager;
 
     [SerializeField]
     private int defaultFoodAmount = 0;
@@ -17,14 +19,12 @@ public class PlayerDestroyer : MonoBehaviour, IDestructable
     private int defaultCannonballAmount = 0;
 
     private PlayerInventory inventory;
-    private HealthManager playerHealth;
-    private IShipController shipController;
+    private ShipPrefabManager prefabManager;
 
     private void Start()
     {
         inventory = playerInventory.GetComponent<PlayerInventory>();
-        playerHealth = gameObject.GetComponent<HealthManager>();
-        shipController = gameObject.GetComponent<IShipController>();
+        prefabManager = shipPrefabManager.GetComponent<ShipPrefabManager>();
     }
 
     public void SetRespawnPoint(GameObject newRespawnPoint)
@@ -38,17 +38,19 @@ public class PlayerDestroyer : MonoBehaviour, IDestructable
         inventory = playerInventory.GetComponent<PlayerInventory>();
     }
 
+    public void SetPrefabManager(GameObject newShipPrefabManager)
+    {
+        shipPrefabManager = newShipPrefabManager;
+        prefabManager = shipPrefabManager.GetComponent<ShipPrefabManager>();
+    }
+
     public void Destroy()
     {
+        prefabManager.SpawnShip(prefabManager.GetShipIndex());
+
         inventory.SetFoodAmount(defaultFoodAmount);
         inventory.SetWoodAmount(defaultWoodAmount);
         inventory.SetCannonballAmount(defaultCannonballAmount);
         inventory.SetTreasureAmount(0);
-
-        playerHealth.ResetHealth();
-
-        shipController.SetSailHeight(0f);
-        transform.position = respawnPoint.transform.position;
-        transform.rotation = Quaternion.Euler(0, 0, 0);
     }
 }
