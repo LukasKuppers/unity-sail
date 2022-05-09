@@ -11,6 +11,8 @@ public class ShipShop : MonoBehaviour
     [SerializeField]
     private GameObject uIParent;
     [SerializeField]
+    private GameObject safeZoneObject;
+    [SerializeField]
     private GameObject modalPrefab;
 
     [SerializeField]
@@ -18,22 +20,25 @@ public class ShipShop : MonoBehaviour
     [SerializeField]
     private int[] shipPrices;
 
+    private SafeZone safeZone;
     private bool mouseIsFocused = false;
 
-    private void Update()
+    private void Start()
     {
-        if (Input.GetMouseButtonDown(0) && mouseIsFocused && PlayerSceneInteraction.InteractionEnabled())
-        {
-            OpenModal();
-        }
+        safeZone = safeZoneObject.GetComponent<SafeZone>();
+        PlayerInputManager inputManager = InputReference.GetInputManager();
+        inputManager.AddInputListener(InputEvent.MOUSE_LEFT, OpenModal);
     }
 
     private void OpenModal()
     {
-        GameObject modal = Instantiate(modalPrefab, uIParent.transform);
+        if (safeZone.ShipInZone() && mouseIsFocused && PlayerSceneInteraction.InteractionEnabled())
+        {
+            GameObject modal = Instantiate(modalPrefab, uIParent.transform);
 
-        UpgradeShipModal modalData = modal.GetComponent<UpgradeShipModal>();
-        modalData.InitParameters(inventoryObject, shipPrefabManager, shipNames, shipPrices);
+            UpgradeShipModal modalData = modal.GetComponent<UpgradeShipModal>();
+            modalData.InitParameters(inventoryObject, shipPrefabManager, shipNames, shipPrices);
+        }
     }
 
     private void OnMouseEnter()

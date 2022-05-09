@@ -19,25 +19,19 @@ public class TreasureShop : MonoBehaviour
     private void Start()
     {
         safeZone = safeZoneObject.GetComponent<SafeZone>();
-    }
-
-    private void Update()
-    {
-        if (safeZone.ShipInZone())
-        {
-            if (Input.GetMouseButtonDown(0) && mouseIsFocused && PlayerSceneInteraction.InteractionEnabled())
-            {
-                OpenModal();
-            }
-        }
+        PlayerInputManager inputManager = InputReference.GetInputManager();
+        inputManager.AddInputListener(InputEvent.MOUSE_LEFT, OpenModal);
     }
 
     private void OpenModal()
     {
-        GameObject modal = Instantiate(modalPrefab, uIParent.transform);
-        SellTreasureModal modalData = modal.GetComponent<SellTreasureModal>();
+        if (safeZone.ShipInZone() && mouseIsFocused && PlayerSceneInteraction.InteractionEnabled())
+        {
+            GameObject modal = Instantiate(modalPrefab, uIParent.transform);
+            SellTreasureModal modalData = modal.GetComponent<SellTreasureModal>();
 
-        modalData.SetInventory(inventoryObject);
+            modalData.SetInventory(inventoryObject);
+        }
     }
 
     private void OnMouseEnter()

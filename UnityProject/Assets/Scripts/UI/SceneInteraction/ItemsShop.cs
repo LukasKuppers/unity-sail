@@ -9,6 +9,8 @@ public class ItemsShop : MonoBehaviour
     [SerializeField]
     private GameObject uIParent;
     [SerializeField]
+    private GameObject safeZoneObject;
+    [SerializeField]
     private GameObject itemShopModal;
     [SerializeField]
     private int foodPrice = 1;
@@ -17,11 +19,19 @@ public class ItemsShop : MonoBehaviour
     [SerializeField]
     private int cannonballPrice = 1;
 
+    private SafeZone safeZone;
     private bool mouseIsFocused = false;
 
-    private void Update()
+    private void Start()
     {
-        if (Input.GetMouseButtonDown(0) && mouseIsFocused && PlayerSceneInteraction.InteractionEnabled())
+        safeZone = safeZoneObject.GetComponent<SafeZone>();
+        PlayerInputManager inputManager = InputReference.GetInputManager();
+        inputManager.AddInputListener(InputEvent.MOUSE_LEFT, OpenModal);
+    }
+
+    private void OpenModal()
+    {
+        if (safeZone.ShipInZone() && mouseIsFocused && PlayerSceneInteraction.InteractionEnabled())
         {
             GameObject modal = Instantiate(itemShopModal, uIParent.transform);
             BuyItemsModal modalData = modal.GetComponent<BuyItemsModal>();
