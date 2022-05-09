@@ -11,6 +11,8 @@ public class EnemyShipSpawner : MonoBehaviour
     [SerializeField]
     private GameObject shipSafetyManager;
     [SerializeField]
+    private GameObject pickupSpawner;
+    [SerializeField]
     private GameObject waveManager;
     [SerializeField]
     private GameObject windManager;
@@ -106,6 +108,7 @@ public class EnemyShipSpawner : MonoBehaviour
                 AIShipController aiController = newShip.GetComponent<AIShipController>();
                 WindFlag flag = newShip.GetComponentInChildren<WindFlag>();
                 AICanonController[] cannons = newShip.GetComponentsInChildren<AICanonController>();
+                EnemyShipDestroyer shipDestroyer = newShip.GetComponent<EnemyShipDestroyer>();
 
                 buoyancy.SetWaveManager(waveManager);
                 controller.SetWindManager(windManager);
@@ -113,6 +116,7 @@ public class EnemyShipSpawner : MonoBehaviour
                 aiController.SetShipPrefabManager(shipPrefabManager);
                 aiController.SetShipSafetyManager(shipSafetyManager);
                 flag.SetWindGenerator(windManager);
+                shipDestroyer.SetPickupGenerator(pickupSpawner);
                 foreach (AICanonController cannon in cannons)
                 {
                     cannon.SetShipPrefabManager(shipPrefabManager);
