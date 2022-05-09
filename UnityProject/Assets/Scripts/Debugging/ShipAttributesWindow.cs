@@ -20,14 +20,19 @@ public class ShipAttributesWindow : MonoBehaviour
     {
         safetyManager = shipSafetyManager.GetComponent<ShipSafetyManager>();
         text = gameObject.GetComponent<TextMeshProUGUI>();
+
+        PlayerInputManager inputManager = InputReference.GetInputManager();
+        inputManager.AddInputListener(InputEvent.OPEN_DEBUG, ToggleDebugWindow);
+        SetText();
+    }
+
+    private void ToggleDebugWindow()
+    {
+        isEnabled = !isEnabled;
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F3))
-        {
-            isEnabled = !isEnabled;
-        }
         if (ship != null && ship.activeSelf)
         {
             SetText();
