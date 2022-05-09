@@ -16,6 +16,8 @@ public class PlayerCanonController : MonoBehaviour
     private Rigidbody rb;
     private IProjectileShooter[][] cannons;
 
+    private int activeCannonIndex = 0;
+
     private void Start()
     {
         inventory = inventoryObject.GetComponent<PlayerInventory>();
@@ -26,6 +28,18 @@ public class PlayerCanonController : MonoBehaviour
         cannons[1] = InitCanons(rightCannons);
     }
 
+    private void Awake()
+    {
+        PlayerInputManager inputManager = InputReference.GetInputManager();
+        inputManager.AddInputListener(InputEvent.MOUSE_LEFT, FireCannons);
+    }
+
+    private void OnDestroy()
+    {
+        PlayerInputManager inputManager = InputReference.GetInputManager();
+        inputManager.RemoveInputListener(InputEvent.MOUSE_LEFT, FireCannons);
+    }
+
     public void SetInventory(GameObject newInventoryObject)
     {
         inventoryObject = newInventoryObject;
@@ -34,8 +48,7 @@ public class PlayerCanonController : MonoBehaviour
 
     private void Update()
     {
-        int cannonIndex = ControlAim();
-        ControlFire(cannonIndex);
+        activeCannonIndex = ControlAim();
     }
 
     private Vector3 GetTargetPos()
@@ -72,11 +85,11 @@ public class PlayerCanonController : MonoBehaviour
         return cannonIndex;
     }
 
-    private void ControlFire(int cannonIndex)
+    private void FireCannons()
     {
-        if (Input.GetMouseButton(0) && PlayerAttackMode.AttackEnabled())
+        if (PlayerAttackMode.AttackEnabled())
         {
-            foreach (IProjectileShooter cannon in cannons[cannonIndex])
+            foreach (IProjectileShooter cannon in cannons[activeCannonIndex])
             {
                 if (inventory.GetCannonballAmount() > 0)
                 {
