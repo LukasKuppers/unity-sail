@@ -26,7 +26,7 @@ public class LoadGameModal : MonoBehaviour
         
         foreach (string name in gameNames)
         {
-            GameObject panel = Instantiate(gameButtonPrefab, gameObject.transform.GetChild(0).transform);
+            GameObject panel = Instantiate(gameButtonPrefab, gameObject.transform);
             panel.GetComponent<LoadGamePanel>().SetName(name);
         }
     }
