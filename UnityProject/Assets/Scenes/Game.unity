@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1714.1211, g: 3156.9219, b: 6649.9844, a: 1}
+  m_IndirectSpecularColor: {r: 1706.4224, g: 3173.5234, b: 6732.8438, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3853,9 +3853,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 1
+  m_UiScaleMode: 0
   m_ReferencePixelsPerUnit: 100
-  m_ScaleFactor: 1
+  m_ScaleFactor: 0.75
   m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0.5
@@ -6323,6 +6323,7 @@ GameObject:
   - component: {fileID: 1589554461}
   - component: {fileID: 1589554463}
   - component: {fileID: 1589554462}
+  - component: {fileID: 1589554464}
   m_Layer: 5
   m_Name: DropItemsPrompt
   m_TagString: Untagged
@@ -6393,6 +6394,21 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &1589554464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1589554460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dd78b4cb207035479c04a204dda5ee8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uIParent: {fileID: 850941751}
+  gameLoader: {fileID: 1867300523}
+  menuPrefab: {fileID: 6395392067362590035, guid: 1bf61d5a7ecb5454c98e4c4f67700a4d, type: 3}
 --- !u!1001 &1608810417
 PrefabInstance:
   m_ObjectHideFlags: 0

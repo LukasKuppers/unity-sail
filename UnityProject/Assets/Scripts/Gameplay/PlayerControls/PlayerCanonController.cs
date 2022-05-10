@@ -34,12 +34,6 @@ public class PlayerCanonController : MonoBehaviour
         inputManager.AddInputListener(InputEvent.MOUSE_LEFT, FireCannons);
     }
 
-    private void OnDestroy()
-    {
-        PlayerInputManager inputManager = InputReference.GetInputManager();
-        inputManager.RemoveInputListener(InputEvent.MOUSE_LEFT, FireCannons);
-    }
-
     public void SetInventory(GameObject newInventoryObject)
     {
         inventoryObject = newInventoryObject;
