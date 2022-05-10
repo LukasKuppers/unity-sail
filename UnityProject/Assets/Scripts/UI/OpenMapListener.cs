@@ -7,6 +7,8 @@ public class OpenMapListener : MonoBehaviour
     [SerializeField]
     private GameObject shipPrefabManager;
     [SerializeField]
+    private GameObject islandMapManager;
+    [SerializeField]
     private GameObject uIParent;
     [SerializeField]
     private GameObject mapPrefab;
@@ -38,7 +40,7 @@ public class OpenMapListener : MonoBehaviour
             {
                 mapInstance = Instantiate(mapPrefab, uIParent.transform);
                 MapManager mapData = mapInstance.GetComponent<MapManager>();
-                mapData.SetShip(playerShip);
+                mapData.InitParameters(playerShip, islandMapManager);
             }
         }
         else

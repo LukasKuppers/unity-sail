@@ -10,12 +10,17 @@ public class MapManager : MonoBehaviour
     [SerializeField]
     private GameObject contentContainer;
     [SerializeField]
+    private GameObject islandsContainer;
+    [SerializeField]
     private GameObject playerPosIcon;
     [SerializeField]
     private float worldMapWidth;
     [SerializeField]
     private float worldMapHeight;
+    [SerializeField]
+    private GameObject islandSpritePrefab;
 
+    private IslandMapsManager islandsManager;
     private GameObject playerShip;
     private float containerWidth = 1f;
     private float containerHeight = 1f;
@@ -36,9 +41,10 @@ public class MapManager : MonoBehaviour
         PlayerSceneInteraction.EnableInteraction(INTERACTION_LOCK_KEY);
     }
 
-    public void SetShip(GameObject ship)
+    public void InitParameters(GameObject ship, GameObject islandMapManager)
     {
         playerShip = ship;
+        islandsManager = islandMapManager.GetComponent<IslandMapsManager>();
     }
 
     private IEnumerator DelayedAwake()
@@ -48,6 +54,17 @@ public class MapManager : MonoBehaviour
         RectTransform containerTransform = contentContainer.GetComponent<RectTransform>();
         containerWidth = containerTransform.rect.size.x;
         containerHeight = containerTransform.rect.size.y;
+
+        foreach (IslandData islandData in islandsManager.GetDiscoveredIslands())
+        {
+            GameObject islandSprite = Instantiate(islandSpritePrefab, islandsContainer.transform);
+
+            Vector3 islandPos = WorldToMapPos(islandData.islandObject.transform.position);
+            islandSprite.GetComponent<RectTransform>().anchoredPosition = islandPos;
+
+            Image sprite = islandSprite.GetComponent<Image>();
+            sprite.sprite = islandData.islandSprite;
+        }
     }
 
     private void Update()
