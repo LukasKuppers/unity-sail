@@ -17,8 +17,6 @@ public class MapManager : MonoBehaviour
     private float worldMapWidth;
     [SerializeField]
     private float worldMapHeight;
-    [SerializeField]
-    private GameObject islandSpritePrefab;
 
     private IslandMapsManager islandsManager;
     private GameObject playerShip;
@@ -57,13 +55,10 @@ public class MapManager : MonoBehaviour
 
         foreach (IslandData islandData in islandsManager.GetDiscoveredIslands())
         {
-            GameObject islandSprite = Instantiate(islandSpritePrefab, islandsContainer.transform);
+            GameObject islandSprite = Instantiate(islandData.islandSprite, islandsContainer.transform);
 
             Vector3 islandPos = WorldToMapPos(islandData.islandObject.transform.position);
             islandSprite.GetComponent<RectTransform>().anchoredPosition = islandPos;
-
-            Image sprite = islandSprite.GetComponent<Image>();
-            sprite.sprite = islandData.islandSprite;
         }
     }
 

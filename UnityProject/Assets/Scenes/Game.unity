@@ -7499,16 +7499,16 @@ MonoBehaviour:
   islands:
   - island: 0
     islandObject: {fileID: 422120038}
-    islandSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+    islandSprite: {fileID: 6281394676077553583, guid: 640bd3464d605c349afd2dd882dd44c8, type: 3}
   - island: 1
     islandObject: {fileID: 647466515}
-    islandSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+    islandSprite: {fileID: 4703163468022490144, guid: db898641a0aee5843ade99551f56837d, type: 3}
   - island: 2
     islandObject: {fileID: 406534074}
-    islandSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+    islandSprite: {fileID: 4393694687226854146, guid: 9ffecba7791732d4ba32ef60ccec63ab, type: 3}
   - island: 3
     islandObject: {fileID: 468269149}
-    islandSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+    islandSprite: {fileID: 5319095718075964377, guid: 97299f752d6b5e542ae2463944e8a27d, type: 3}
 --- !u!1 &1892340149
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,5 +11,5 @@ public class IslandData
 
     public GameObject islandObject;
 
-    public Sprite islandSprite;
+    public GameObject islandSprite;
 }
