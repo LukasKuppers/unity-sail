@@ -13,7 +13,8 @@ public class PlayerInputManager : MonoBehaviour
         { KeyCode.D, InputEvent.STEER_RIGHT },
         { KeyCode.E, InputEvent.DROP_ITEMS },
         { KeyCode.F3, InputEvent.OPEN_DEBUG },
-        { KeyCode.Escape, InputEvent.OPEN_MENU }
+        { KeyCode.Escape, InputEvent.OPEN_MENU },
+        { KeyCode.Q, InputEvent.TOGGLE_MAP }
     };
 
     private Dictionary<InputEvent, UnityEvent> eventMap;
@@ -82,6 +83,7 @@ public enum InputEvent
     DROP_ITEMS, 
     OPEN_DEBUG,
     OPEN_MENU, 
+    TOGGLE_MAP, 
     MOUSE_RIGHT, 
     MOUSE_LEFT
 }
