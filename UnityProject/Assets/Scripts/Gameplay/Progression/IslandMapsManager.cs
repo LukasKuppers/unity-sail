@@ -17,7 +17,8 @@ public class IslandMapsManager : MonoBehaviour
             Islands.EUREKA_TRADING_POST, 
             Islands.ROCKY_COVE, 
             Islands.PALM_ISLE, 
-            Islands.BANNANA_CAY
+            Islands.BANNANA_CAY, 
+            Islands.CRAB_REEF
         };
     }
 
@@ -49,5 +50,6 @@ public enum Islands
     EUREKA_TRADING_POST, 
     ROCKY_COVE, 
     PALM_ISLE, 
-    BANNANA_CAY
+    BANNANA_CAY, 
+    CRAB_REEF
 }
