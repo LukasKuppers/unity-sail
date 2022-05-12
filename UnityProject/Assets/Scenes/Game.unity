@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1727.196, g: 3128.0117, b: 6523.242, a: 1}
+  m_IndirectSpecularColor: {r: 1721.7668, g: 3137.3008, b: 6562.1484, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4285,6 +4285,7 @@ Transform:
   - {fileID: 1357481932}
   - {fileID: 20867844}
   - {fileID: 350558823}
+  - {fileID: 1172355852}
   m_Father: {fileID: 1885766790}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 166.042, z: 0}
@@ -7172,6 +7173,11 @@ MonoBehaviour:
 Transform:
   m_CorrespondingSourceObject: {fileID: 2533103086336251022, guid: d07968b6ca18bde4aa136b1d520f2127, type: 3}
   m_PrefabInstance: {fileID: 1334837869}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1172355852 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 75743043850902143, guid: 62628fb1c7f38874bb46dc3aefcec9bf, type: 3}
+  m_PrefabInstance: {fileID: 75743044859601267}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1181391606
 GameObject:
@@ -11209,6 +11215,67 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9032be9be730680479f653299762729f, type: 3}
+--- !u!1001 &75743044859601267
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 647466516}
+    m_Modifications:
+    - target: {fileID: 75743043850902136, guid: 62628fb1c7f38874bb46dc3aefcec9bf, type: 3}
+      propertyPath: m_Name
+      value: TreasureChest
+      objectReference: {fileID: 0}
+    - target: {fileID: 75743043850902142, guid: 62628fb1c7f38874bb46dc3aefcec9bf, type: 3}
+      propertyPath: inventoryObject
+      value: 
+      objectReference: {fileID: 816629300}
+    - target: {fileID: 75743043850902143, guid: 62628fb1c7f38874bb46dc3aefcec9bf, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 75743043850902143, guid: 62628fb1c7f38874bb46dc3aefcec9bf, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -8.58
+      objectReference: {fileID: 0}
+    - target: {fileID: 75743043850902143, guid: 62628fb1c7f38874bb46dc3aefcec9bf, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 8.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 75743043850902143, guid: 62628fb1c7f38874bb46dc3aefcec9bf, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 75743043850902143, guid: 62628fb1c7f38874bb46dc3aefcec9bf, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.42937845
+      objectReference: {fileID: 0}
+    - target: {fileID: 75743043850902143, guid: 62628fb1c7f38874bb46dc3aefcec9bf, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 75743043850902143, guid: 62628fb1c7f38874bb46dc3aefcec9bf, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.90312463
+      objectReference: {fileID: 0}
+    - target: {fileID: 75743043850902143, guid: 62628fb1c7f38874bb46dc3aefcec9bf, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 75743043850902143, guid: 62628fb1c7f38874bb46dc3aefcec9bf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 75743043850902143, guid: 62628fb1c7f38874bb46dc3aefcec9bf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -230.856
+      objectReference: {fileID: 0}
+    - target: {fileID: 75743043850902143, guid: 62628fb1c7f38874bb46dc3aefcec9bf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 62628fb1c7f38874bb46dc3aefcec9bf, type: 3}
 --- !u!4 &405665656460339402 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3388424260731773905, guid: 38312605d3dc2614a8c97b0688f022d1, type: 3}
