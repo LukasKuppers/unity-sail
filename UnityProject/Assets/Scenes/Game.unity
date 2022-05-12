@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1714.8604, g: 3156.1055, b: 6647.0625, a: 1}
+  m_IndirectSpecularColor: {r: 1669.8071, g: 3232.0469, b: 7104.8438, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4371,7 +4371,7 @@ GameObject:
   - component: {fileID: 668413231}
   - component: {fileID: 668413230}
   - component: {fileID: 668413229}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RockyCoveVisitCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6936,7 +6936,7 @@ GameObject:
   - component: {fileID: 1134427976}
   - component: {fileID: 1134427975}
   - component: {fileID: 1134427974}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PlamIsleVisitCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7727,7 +7727,7 @@ GameObject:
   - component: {fileID: 1286256004}
   - component: {fileID: 1286256003}
   - component: {fileID: 1286256002}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: BeaconHillVisitCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10352,7 +10352,7 @@ GameObject:
   - component: {fileID: 1899503595}
   - component: {fileID: 1899503594}
   - component: {fileID: 1899503593}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: BannanaCayVisitCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10409,6 +10409,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1908523564}
   - component: {fileID: 1908523565}
+  - component: {fileID: 1908523566}
   m_Layer: 0
   m_Name: PickupGenerator
   m_TagString: Untagged
@@ -10447,6 +10448,19 @@ MonoBehaviour:
   pickupUIParent: {fileID: 719837650}
   waveManager: {fileID: 357877953}
   pickupPrefab: {fileID: 7804129491667645749, guid: a9e4b6873bf5a1149840cf9b106861fd, type: 3}
+--- !u!114 &1908523566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1908523563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 113c53edfdbf41f43b217d7d6092d60e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  islandVisitManager: {fileID: 1885766789}
 --- !u!4 &1913651933 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6423452166882886779, guid: 7bc9a6b9943fc3e4e82506a3ec12b9cb, type: 3}
@@ -10721,7 +10735,7 @@ GameObject:
   - component: {fileID: 1976106870}
   - component: {fileID: 1976106869}
   - component: {fileID: 1976106868}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: CrabReefVisitCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10963,7 +10977,7 @@ GameObject:
   - component: {fileID: 2073164171}
   - component: {fileID: 2073164170}
   - component: {fileID: 2073164169}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: HomeVisitCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}

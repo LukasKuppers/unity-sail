@@ -24,9 +24,9 @@ public class IslandVisitCollider : MonoBehaviour
         visitEvent.AddListener(call);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        GameObject colObj = collision.gameObject;
+        GameObject colObj = other.gameObject;
         if (colObj.CompareTag("Player"))
         {
             visitEvent.Invoke(island);

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerCanonController : MonoBehaviour
 {
+    private static readonly int AIM_RAY_LAYER_MASK = 3;
+
     [SerializeField]
     private GameObject inventoryObject;
     [SerializeField]
@@ -17,6 +19,7 @@ public class PlayerCanonController : MonoBehaviour
     private IProjectileShooter[][] cannons;
 
     private int activeCannonIndex = 0;
+    private int layerMask;
 
     private void Start()
     {
@@ -26,6 +29,9 @@ public class PlayerCanonController : MonoBehaviour
         cannons = new IProjectileShooter[2][];
         cannons[0] = InitCanons(leftCannons);
         cannons[1] = InitCanons(rightCannons);
+
+        layerMask = 1 << AIM_RAY_LAYER_MASK;
+        layerMask = ~layerMask;
     }
 
     private void Awake()
@@ -48,7 +54,7 @@ public class PlayerCanonController : MonoBehaviour
     private Vector3 GetTargetPos()
     {
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-        Physics.Raycast(ray, out RaycastHit hit);
+        Physics.Raycast(ray, out RaycastHit hit, 3000f, layerMask);
         return hit.point;
     }
 

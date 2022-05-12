@@ -27,11 +27,6 @@ public class Projectile : MonoBehaviour
         HandleCollision(collision.gameObject);
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        HandleCollision(other.gameObject);
-    }
-
     private void HandleCollision(GameObject other)
     {
         if (!other.gameObject.CompareTag(tagMask))
