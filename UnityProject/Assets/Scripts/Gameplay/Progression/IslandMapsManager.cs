@@ -18,7 +18,8 @@ public class IslandMapsManager : MonoBehaviour
             Islands.ROCKY_COVE, 
             Islands.PALM_ISLE, 
             Islands.BANNANA_CAY, 
-            Islands.CRAB_REEF
+            Islands.CRAB_REEF, 
+            Islands.BEACON_HILL
         };
     }
 
@@ -51,5 +52,6 @@ public enum Islands
     ROCKY_COVE, 
     PALM_ISLE, 
     BANNANA_CAY, 
-    CRAB_REEF
+    CRAB_REEF, 
+    BEACON_HILL
 }

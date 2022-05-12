@@ -121,8 +121,7 @@ MonoBehaviour:
   islandsContainer: {fileID: 8763464473908088344}
   playerPosIcon: {fileID: 6583900432814136254}
   worldMapWidth: 2000
-  worldMapHeight: 2000
-  islandSpritePrefab: {fileID: 4010488610972000176, guid: 26e98dd48d0f5b54192692255605e126, type: 3}
+  worldMapHeight: 3000
 --- !u!1 &4614397631895714936
 GameObject:
   m_ObjectHideFlags: 0
