@@ -217,7 +217,7 @@ GameObject:
   - component: {fileID: 5847643010787931249}
   m_Layer: 0
   m_Name: PlayerSmallShip
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -339,6 +339,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   respawnPoint: {fileID: 0}
   playerInventory: {fileID: 0}
+  shipPrefabManager: {fileID: 0}
   defaultFoodAmount: 10
   defaultWoodAmount: 10
   defaultCannonballAmount: 50
