@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class IslandTreasurePickup : MonoBehaviour
 {
+    private static readonly string ATTACK_LOCK_KEY = "Island_treasure_pickup_key";
+
     [SerializeField]
     private GameObject inventoryObject;
 
@@ -41,10 +43,12 @@ public class IslandTreasurePickup : MonoBehaviour
     private void OnMouseEnter()
     {
         mouseIsFocused = true;
+        PlayerAttackMode.DisableAttack(ATTACK_LOCK_KEY);
     }
 
     private void OnMouseExit()
     {
         mouseIsFocused = false;
+        PlayerAttackMode.EnableAttack(ATTACK_LOCK_KEY);
     }
 }

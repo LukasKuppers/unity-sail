@@ -61,7 +61,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   model: {fileID: 8229967898178056693}
   outlineMaterial: {fileID: 2100000, guid: 7a91ab38c37807d41a309f0230233270, type: 2}
-  outlineScale: 1.02
+  outlineScale: 1.05
   outlineColor: {r: 0.9553981, g: 1, b: 0, a: 1}
 --- !u!114 &75743043850902142
 MonoBehaviour:
