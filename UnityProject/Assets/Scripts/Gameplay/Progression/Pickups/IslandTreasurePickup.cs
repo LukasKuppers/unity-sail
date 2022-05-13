@@ -35,6 +35,7 @@ public class IslandTreasurePickup : MonoBehaviour
             int acutalInc = inventory.IncrementTreasure(1);
             if (acutalInc == 1)
             {
+                PlayerAttackMode.EnableAttack(ATTACK_LOCK_KEY);
                 Destroy(gameObject);
             }
         }
