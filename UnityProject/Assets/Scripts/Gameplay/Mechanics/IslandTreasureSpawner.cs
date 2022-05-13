@@ -5,20 +5,36 @@ using UnityEngine;
 public class IslandTreasureSpawner : MonoBehaviour
 {
     [SerializeField]
-    private GameObject islandVisitManager;
+    private GameObject inventoryObject;
+    [SerializeField]
+    private GameObject treasurePrefab;
+    [SerializeField]
+    private GameObject[] spawnLocations;
+    [SerializeField]
+    private float spawnProbability = 1f;
 
-    private IslandVisitManager visitManager;
-
-    private void Start()
+    public void SpawnTreasure()
     {
-        visitManager = islandVisitManager.GetComponent<IslandVisitManager>();
-
-        visitManager.AddGeneralVisitListener(PrintVisitedIsland);
+        foreach (GameObject location in spawnLocations)
+        {
+            if (ShouldSpawnRand())
+            {
+                Spawn(location);
+            }
+        }
     }
 
-    private void PrintVisitedIsland(Islands island)
+    private bool ShouldSpawnRand()
     {
-        string islandName = island.ToString();
-        Debug.Log($"Visted island: {islandName}!");
+        float rand = Random.Range(0f, 1f);
+        return rand <= spawnProbability;
+    }
+
+    private void Spawn(GameObject location)
+    {
+        GameObject treasure = Instantiate(treasurePrefab, location.transform.position,
+                                          location.transform.rotation, location.transform);
+        IslandTreasurePickup data = treasure.GetComponent<IslandTreasurePickup>();
+        data.SetInventory(inventoryObject);
     }
 }

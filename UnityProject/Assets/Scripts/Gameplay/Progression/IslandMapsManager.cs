@@ -53,5 +53,6 @@ public enum Islands
     PALM_ISLE, 
     BANNANA_CAY, 
     CRAB_REEF, 
-    BEACON_HILL
+    BEACON_HILL, 
+    NONE
 }

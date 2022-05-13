@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1669.8071, g: 3232.0469, b: 7104.8438, a: 1}
+  m_IndirectSpecularColor: {r: 1679.0239, g: 3221.1133, b: 7013.172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2540,6 +2540,55 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f4d0cd59771398409b2abedaa2483bd, type: 3}
+--- !u!1 &379764847
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 379764849}
+  - component: {fileID: 379764848}
+  m_Layer: 0
+  m_Name: RockyCoveTreasureSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &379764848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 379764847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a54f561c25b9db549a500cbb6f794b39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventoryObject: {fileID: 816629300}
+  treasurePrefab: {fileID: 75743043850902136, guid: 62628fb1c7f38874bb46dc3aefcec9bf, type: 3}
+  spawnLocations:
+  - {fileID: 1417764959}
+  spawnProbability: 1
+--- !u!4 &379764849
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 379764847}
+  m_LocalRotation: {x: -0, y: -0.9925906, z: -0, w: 0.12150739}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1417764960}
+  m_Father: {fileID: 647466516}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &381345605
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2752,6 +2801,7 @@ Transform:
   - {fileID: 1498457639}
   - {fileID: 1233289494}
   - {fileID: 1134427976}
+  - {fileID: 1659245227}
   m_Father: {fileID: 1885766790}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3325,6 +3375,7 @@ Transform:
   - {fileID: 775268067}
   - {fileID: 1790647125}
   - {fileID: 1899503595}
+  - {fileID: 828070166}
   m_Father: {fileID: 1885766790}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3645,7 +3696,7 @@ MeshCollider:
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: -4345763077422999555, guid: dc24dc2e1a0ec804cb579ea33e7da367, type: 3}
+  m_Mesh: {fileID: 3434228089327822904, guid: dc24dc2e1a0ec804cb579ea33e7da367, type: 3}
 --- !u!1001 &537001981
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4288,8 +4339,8 @@ Transform:
   - {fileID: 1357481932}
   - {fileID: 20867844}
   - {fileID: 350558823}
-  - {fileID: 1172355852}
   - {fileID: 668413231}
+  - {fileID: 379764849}
   m_Father: {fileID: 1885766790}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 166.042, z: 0}
@@ -4416,7 +4467,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 647466516}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &672312008
 PrefabInstance:
@@ -4595,6 +4646,7 @@ Transform:
   - {fileID: 884066456}
   - {fileID: 118543749}
   - {fileID: 1976106870}
+  - {fileID: 1332102222}
   m_Father: {fileID: 1885766790}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5362,6 +5414,53 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b105855a7a65fdd47b196a51f82f580d, type: 3}
+--- !u!1 &828070164
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 828070166}
+  - component: {fileID: 828070165}
+  m_Layer: 0
+  m_Name: BannanaCayTreasureSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &828070165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 828070164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a54f561c25b9db549a500cbb6f794b39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventoryObject: {fileID: 816629300}
+  treasurePrefab: {fileID: 75743043850902136, guid: 62628fb1c7f38874bb46dc3aefcec9bf, type: 3}
+  spawnLocations: []
+  spawnProbability: 1
+--- !u!4 &828070166
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 828070164}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 468269150}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &831697984
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7295,11 +7394,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2533103086336251022, guid: d07968b6ca18bde4aa136b1d520f2127, type: 3}
   m_PrefabInstance: {fileID: 1334837869}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1172355852 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 75743043850902143, guid: 62628fb1c7f38874bb46dc3aefcec9bf, type: 3}
-  m_PrefabInstance: {fileID: 75743044859601267}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1181391606
 GameObject:
   m_ObjectHideFlags: 0
@@ -7331,6 +7425,7 @@ Transform:
   - {fileID: 1041054086}
   - {fileID: 625811555}
   - {fileID: 1286256004}
+  - {fileID: 1727477115}
   m_Father: {fileID: 1885766790}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8150,6 +8245,53 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2215151641630246088, guid: bb28a60e07dd3534e85f8a8a658736a8, type: 3}
   m_PrefabInstance: {fileID: 875597245}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1332102220
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1332102222}
+  - component: {fileID: 1332102221}
+  m_Layer: 0
+  m_Name: CrabReefTreasureSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1332102221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1332102220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a54f561c25b9db549a500cbb6f794b39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventoryObject: {fileID: 816629300}
+  treasurePrefab: {fileID: 75743043850902136, guid: 62628fb1c7f38874bb46dc3aefcec9bf, type: 3}
+  spawnLocations: []
+  spawnProbability: 1
+--- !u!4 &1332102222
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1332102220}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 689569713}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1334837869
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8484,6 +8626,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 176d567b4134ff24795efa92a14cda77, type: 3}
+--- !u!1 &1417764959
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1417764960}
+  m_Layer: 0
+  m_Name: p0
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1417764960
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1417764959}
+  m_LocalRotation: {x: 0, y: 0.8319541, z: 0, w: 0.55484444}
+  m_LocalPosition: {x: 7.39, y: 8.5, z: 4.66}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 379764849}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 112.6, z: 0}
 --- !u!1001 &1433407752
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9357,6 +9529,53 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 814a01bf38bffb5459aa72779a690643, type: 3}
+--- !u!1 &1659245225
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1659245227}
+  - component: {fileID: 1659245226}
+  m_Layer: 0
+  m_Name: PalmIsleTreasureSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1659245226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1659245225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a54f561c25b9db549a500cbb6f794b39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventoryObject: {fileID: 816629300}
+  treasurePrefab: {fileID: 75743043850902136, guid: 62628fb1c7f38874bb46dc3aefcec9bf, type: 3}
+  spawnLocations: []
+  spawnProbability: 1
+--- !u!4 &1659245227
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1659245225}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 406534075}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1694906254 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2943491801845623285, guid: 5f4d0cd59771398409b2abedaa2483bd, type: 3}
@@ -9427,6 +9646,53 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d07968b6ca18bde4aa136b1d520f2127, type: 3}
+--- !u!1 &1727477113
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1727477115}
+  - component: {fileID: 1727477114}
+  m_Layer: 0
+  m_Name: BreaconHillTreasureSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1727477114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1727477113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a54f561c25b9db549a500cbb6f794b39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventoryObject: {fileID: 816629300}
+  treasurePrefab: {fileID: 75743043850902136, guid: 62628fb1c7f38874bb46dc3aefcec9bf, type: 3}
+  spawnLocations: []
+  spawnProbability: 1
+--- !u!4 &1727477115
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1727477113}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1181391607}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1728636065 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6423452166882886779, guid: 7bc9a6b9943fc3e4e82506a3ec12b9cb, type: 3}
@@ -10151,6 +10417,7 @@ GameObject:
   - component: {fileID: 1885766790}
   - component: {fileID: 1885766791}
   - component: {fileID: 1885766792}
+  - component: {fileID: 1885766793}
   m_Layer: 0
   m_Name: Islands
   m_TagString: Untagged
@@ -10228,6 +10495,27 @@ MonoBehaviour:
   - {fileID: 1899503592}
   - {fileID: 1976106867}
   - {fileID: 1286256001}
+--- !u!114 &1885766793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1885766789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 113c53edfdbf41f43b217d7d6092d60e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  islandVisitManager: {fileID: 1885766789}
+  islandQueueSize: 5
+  islandsTreasureManagers:
+  - {fileID: 1659245225}
+  - {fileID: 379764847}
+  - {fileID: 828070164}
+  - {fileID: 1332102220}
+  - {fileID: 1727477113}
+  islandsMapping: 0200000001000000030000000400000005000000
 --- !u!1 &1892340149
 GameObject:
   m_ObjectHideFlags: 0
@@ -10409,7 +10697,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1908523564}
   - component: {fileID: 1908523565}
-  - component: {fileID: 1908523566}
   m_Layer: 0
   m_Name: PickupGenerator
   m_TagString: Untagged
@@ -10448,19 +10735,6 @@ MonoBehaviour:
   pickupUIParent: {fileID: 719837650}
   waveManager: {fileID: 357877953}
   pickupPrefab: {fileID: 7804129491667645749, guid: a9e4b6873bf5a1149840cf9b106861fd, type: 3}
---- !u!114 &1908523566
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1908523563}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 113c53edfdbf41f43b217d7d6092d60e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  islandVisitManager: {fileID: 1885766789}
 --- !u!4 &1913651933 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6423452166882886779, guid: 7bc9a6b9943fc3e4e82506a3ec12b9cb, type: 3}
@@ -11603,67 +11877,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9032be9be730680479f653299762729f, type: 3}
---- !u!1001 &75743044859601267
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 647466516}
-    m_Modifications:
-    - target: {fileID: 75743043850902136, guid: 62628fb1c7f38874bb46dc3aefcec9bf, type: 3}
-      propertyPath: m_Name
-      value: TreasureChest
-      objectReference: {fileID: 0}
-    - target: {fileID: 75743043850902142, guid: 62628fb1c7f38874bb46dc3aefcec9bf, type: 3}
-      propertyPath: inventoryObject
-      value: 
-      objectReference: {fileID: 816629300}
-    - target: {fileID: 75743043850902143, guid: 62628fb1c7f38874bb46dc3aefcec9bf, type: 3}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 75743043850902143, guid: 62628fb1c7f38874bb46dc3aefcec9bf, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -8.58
-      objectReference: {fileID: 0}
-    - target: {fileID: 75743043850902143, guid: 62628fb1c7f38874bb46dc3aefcec9bf, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 8.32
-      objectReference: {fileID: 0}
-    - target: {fileID: 75743043850902143, guid: 62628fb1c7f38874bb46dc3aefcec9bf, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -2.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 75743043850902143, guid: 62628fb1c7f38874bb46dc3aefcec9bf, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: -0.42937845
-      objectReference: {fileID: 0}
-    - target: {fileID: 75743043850902143, guid: 62628fb1c7f38874bb46dc3aefcec9bf, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 75743043850902143, guid: 62628fb1c7f38874bb46dc3aefcec9bf, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.90312463
-      objectReference: {fileID: 0}
-    - target: {fileID: 75743043850902143, guid: 62628fb1c7f38874bb46dc3aefcec9bf, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 75743043850902143, guid: 62628fb1c7f38874bb46dc3aefcec9bf, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 75743043850902143, guid: 62628fb1c7f38874bb46dc3aefcec9bf, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -230.856
-      objectReference: {fileID: 0}
-    - target: {fileID: 75743043850902143, guid: 62628fb1c7f38874bb46dc3aefcec9bf, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 62628fb1c7f38874bb46dc3aefcec9bf, type: 3}
 --- !u!4 &405665656460339402 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3388424260731773905, guid: 38312605d3dc2614a8c97b0688f022d1, type: 3}
