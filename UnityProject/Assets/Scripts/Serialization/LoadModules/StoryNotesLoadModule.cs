@@ -25,7 +25,7 @@ public class StoryNotesLoadModule : MonoBehaviour, ILoadModule
 
     public string GetJsonString()
     {
-        List<int> discoveredNotesList = notesManager.GetDiscoveredNotes();
+        List<int> discoveredNotesList = notesManager.GetDiscoveredNoteIndicies();
         int[] discoveredNotes = discoveredNotesList.ToArray();
 
         PersistentNotesData notesData = new PersistentNotesData()

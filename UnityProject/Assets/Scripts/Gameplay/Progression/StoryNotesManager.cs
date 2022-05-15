@@ -5,27 +5,40 @@ using UnityEngine;
 public class StoryNotesManager : MonoBehaviour
 {
     private List<int> discoveredNotes;
-    private string[][] storyNoteData;
+    private Dictionary<int, StoryNote> allNotes;
 
     private void Start()
     {
         discoveredNotes = new List<int>();
 
+        allNotes = new Dictionary<int, StoryNote>();
         DelimmitedTextLoader noteLoader = new DelimmitedTextLoader("StoryNotes", '\t');
-        storyNoteData = noteLoader.GetDataNoHeader();
-
-        foreach (string[] row in storyNoteData)
+        string[][] rawData = noteLoader.GetDataNoHeader();
+        foreach (string[] row in rawData)
         {
-            foreach (string cell in row)
+            StoryNote note = new StoryNote()
             {
-                Debug.Log(cell);
-            }
+                index = int.Parse(row[0]),
+                name = row[1],
+                content = row[2]
+            };
+            allNotes.Add(note.index, note);
         }
     }
 
-    public List<int> GetDiscoveredNotes()
+    public List<int> GetDiscoveredNoteIndicies()
     {
         return discoveredNotes;
+    }
+
+    public StoryNote GetNote(int noteIndex)
+    {
+        if (discoveredNotes.Contains(noteIndex) && allNotes.ContainsKey(noteIndex))
+        {
+            return allNotes[noteIndex];
+        }
+        Debug.LogWarning("StoryNotesManager:GetNote: note is not discovered or doesn't exist");
+        return null;
     }
 
     public void SetDiscoveredNotes(List<int> discoveredNotes)
@@ -41,4 +54,14 @@ public class StoryNotesManager : MonoBehaviour
             discoveredNotes.Add(noteID);
         }
     }
+}
+
+[System.Serializable]
+public class StoryNote
+{
+    public int index;
+
+    public string name;
+
+    public string content;
 }
