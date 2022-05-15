@@ -2,15 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IslandTreasurePickup : MonoBehaviour
+public class IslandTreasurePickup : MonoBehaviour, IClickableObject
 {
-    private static readonly string ATTACK_LOCK_KEY = "Island_treasure_pickup_key";
-
     [SerializeField]
     private GameObject inventoryObject;
+    [SerializeField]
+    private int treasureAmount = 1;
 
     private PlayerInventory inventory;
-    private bool mouseIsFocused = false;
 
     private void Start()
     {
@@ -18,38 +17,24 @@ public class IslandTreasurePickup : MonoBehaviour
         {
             inventory = inventoryObject.GetComponent<PlayerInventory>();
         }
-        PlayerInputManager inputManager = InputReference.GetInputManager();
-        inputManager.AddInputListener(InputEvent.MOUSE_LEFT, PickupTreasure);
+    }
+
+    public void Interact(string interactionLockKey)
+    {
+        if (PlayerSceneInteraction.InteractionEnabled())
+        {
+            int acutalInc = inventory.IncrementTreasure(treasureAmount);
+            if (acutalInc > 0)
+            {
+                PlayerAttackMode.EnableAttack(interactionLockKey);
+                Destroy(gameObject);
+            }
+        }
     }
 
     public void SetInventory(GameObject inventoryManager)
     {
         inventoryObject = inventoryManager;
         inventory = inventoryObject.GetComponent<PlayerInventory>();
-    }
-
-    private void PickupTreasure()
-    {
-        if (mouseIsFocused && PlayerSceneInteraction.InteractionEnabled())
-        {
-            int acutalInc = inventory.IncrementTreasure(1);
-            if (acutalInc == 1)
-            {
-                PlayerAttackMode.EnableAttack(ATTACK_LOCK_KEY);
-                Destroy(gameObject);
-            }
-        }
-    }
-
-    private void OnMouseEnter()
-    {
-        mouseIsFocused = true;
-        PlayerAttackMode.DisableAttack(ATTACK_LOCK_KEY);
-    }
-
-    private void OnMouseExit()
-    {
-        mouseIsFocused = false;
-        PlayerAttackMode.EnableAttack(ATTACK_LOCK_KEY);
     }
 }
