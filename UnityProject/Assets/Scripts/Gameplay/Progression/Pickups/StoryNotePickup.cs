@@ -7,7 +7,7 @@ public class StoryNotePickup : MonoBehaviour, IClickableObject
     [SerializeField]
     private GameObject storyNoteManager;
     [SerializeField]
-    private int noteIndex;
+    private int noteIndex = 0;
 
     private StoryNotesManager notesManager;
 
@@ -16,8 +16,9 @@ public class StoryNotePickup : MonoBehaviour, IClickableObject
         InitNoteManager();
     }
 
-    public void SetStoryNoteManager(GameObject storyNoteManager)
+    public void InitParameters(GameObject storyNoteManager, int noteIndex)
     {
+        this.noteIndex = noteIndex;
         this.storyNoteManager = storyNoteManager;
         InitNoteManager();
     }
@@ -34,7 +35,8 @@ public class StoryNotePickup : MonoBehaviour, IClickableObject
         if (storyNoteManager != null)
         {
             notesManager = storyNoteManager.GetComponent<StoryNotesManager>();
-            if (notesManager.GetDiscoveredNoteIndicies().Contains(noteIndex))
+            List<int> discoveredNotes = notesManager.GetDiscoveredNoteIndicies();
+            if (discoveredNotes != null && discoveredNotes.Contains(noteIndex))
             {
                 Destroy(gameObject);
             }
