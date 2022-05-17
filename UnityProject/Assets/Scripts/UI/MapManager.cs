@@ -8,6 +8,8 @@ public class MapManager : MonoBehaviour
     private static readonly string INTERACTION_LOCK_KEY = "Map_manager_key";
 
     [SerializeField]
+    private GameObject treasureLocationPrefab;
+    [SerializeField]
     private GameObject contentContainer;
     [SerializeField]
     private GameObject islandsContainer;
@@ -18,6 +20,7 @@ public class MapManager : MonoBehaviour
     [SerializeField]
     private float worldMapHeight;
 
+    private MapTreasureManager treasureManager;
     private IslandMapsManager islandsManager;
     private GameObject playerShip;
     private float containerWidth = 1f;
@@ -39,10 +42,11 @@ public class MapManager : MonoBehaviour
         PlayerSceneInteraction.EnableInteraction(INTERACTION_LOCK_KEY);
     }
 
-    public void InitParameters(GameObject ship, GameObject islandMapManager)
+    public void InitParameters(GameObject ship, GameObject islandMapManager, GameObject mapTreasureManager)
     {
         playerShip = ship;
         islandsManager = islandMapManager.GetComponent<IslandMapsManager>();
+        treasureManager = mapTreasureManager.GetComponent<MapTreasureManager>();
     }
 
     private IEnumerator DelayedAwake()
@@ -59,6 +63,15 @@ public class MapManager : MonoBehaviour
 
             Vector3 islandPos = WorldToMapPos(islandData.islandObject.transform.position);
             islandSprite.GetComponent<RectTransform>().anchoredPosition = islandPos;
+        }
+
+        foreach (Islands island in treasureManager.GetIslandsWithTreasure())
+        {
+            IslandData islandInfo = islandsManager.GetIslandInfo(island);
+
+            GameObject treasureMark = Instantiate(treasureLocationPrefab, islandsContainer.transform);
+            Vector3 markPos = WorldToMapPos(islandInfo.islandObject.transform.position);
+            treasureMark.GetComponent<RectTransform>().anchoredPosition = markPos;
         }
     }
 

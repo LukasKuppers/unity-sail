@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9129664120587154989}
   - component: {fileID: 840858278367304054}
   - component: {fileID: 5367090082949280770}
-  - component: {fileID: 6804318595883050276}
+  - component: {fileID: 2407530362406250878}
   m_Layer: 0
   m_Name: NativeTreasureChest
   m_TagString: Untagged
@@ -76,7 +76,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45cf7d6e23c0fd94da7021b33cd0edac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6804318595883050276
+--- !u!114 &2407530362406250878
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -85,10 +85,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 129428923551117900}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: baca2f2dcde41b042ae486089445e5e3, type: 3}
+  m_Script: {fileID: 11500000, guid: 899e9c5f7bfd26a46b623b402a746796, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryObject: {fileID: 0}
+  mapTreasureManager: {fileID: 0}
+  island: 0
   treasureAmount: 3
 --- !u!1001 &5929064302960565625
 PrefabInstance:
@@ -159,7 +161,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4742473837712756890, guid: 99d62aee0bcc8db42a1e01cc2085b39e, type: 3}
       propertyPath: m_LODs.Array.data[0].screenRelativeHeight
-      value: 0.05364665
+      value: 0.028239518
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99d62aee0bcc8db42a1e01cc2085b39e, type: 3}

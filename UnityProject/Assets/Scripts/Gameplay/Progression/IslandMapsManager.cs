@@ -44,6 +44,16 @@ public class IslandMapsManager : MonoBehaviour
         }
         return discoveredIslandsData.ToArray();
     }
+
+    public IslandData GetIslandInfo(Islands island)
+    {
+        for (int i = 0; i < islands.Length; i++)
+        {
+            if (islands[i].island == island)
+                return islands[i];
+        }
+        return null;
+    }
 }
 
 public enum Islands

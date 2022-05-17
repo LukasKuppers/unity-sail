@@ -32,6 +32,7 @@ public class MapTreasureManager : MonoBehaviour
             foreach (Islands island in islands)
             {
                 islandsWithTreasure.Add(island);
+                islandSpawnMap[island].SpawnSpecialTreasure();
             }
         }
     }
@@ -47,6 +48,22 @@ public class MapTreasureManager : MonoBehaviour
         {
             islandsWithTreasure.Add(island);
             islandSpawnMap[island].SpawnSpecialTreasure();
+        }
+    }
+
+    public void AddRandomTreasure()
+    {
+        bool foundLocation = false;
+        var enumValues = System.Enum.GetValues(typeof(Islands));
+        while (!foundLocation)
+        {
+            Islands randIsland = (Islands)enumValues.GetValue(Random.Range(0, enumValues.Length));
+            if (!islandsWithTreasure.Contains(randIsland) && 
+                randIsland != Islands.EUREKA_TRADING_POST && randIsland != Islands.NONE)
+            {
+                foundLocation = true;
+                AddTreasure(randIsland);
+            }
         }
     }
 

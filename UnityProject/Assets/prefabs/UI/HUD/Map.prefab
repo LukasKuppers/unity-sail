@@ -117,6 +117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4118d1b803d412747bd938c6b296dbad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  treasureLocationPrefab: {fileID: 6703227258108952446, guid: df41329d743538741bc73a2efaeb3672, type: 3}
   contentContainer: {fileID: 6583900433191183780}
   islandsContainer: {fileID: 8763464473908088344}
   playerPosIcon: {fileID: 6583900432814136254}

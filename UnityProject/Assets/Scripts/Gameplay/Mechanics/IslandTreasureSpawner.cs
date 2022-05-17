@@ -7,9 +7,13 @@ public class IslandTreasureSpawner : MonoBehaviour
     [SerializeField]
     private GameObject inventoryObject;
     [SerializeField]
+    private GameObject mapTreasureManager;
+    [SerializeField]
     private GameObject treasurePrefab;
     [SerializeField]
     private GameObject specialTreasurePrefab;
+    [SerializeField]
+    private Islands island;
     [SerializeField]
     private GameObject[] spawnLocations;
     [SerializeField]
@@ -33,7 +37,10 @@ public class IslandTreasureSpawner : MonoBehaviour
     {
         GameObject location = spawnLocations[Random.Range(0, spawnLocations.Length)];
 
-        Spawn(specialTreasurePrefab, location);
+        GameObject treasure = Instantiate(specialTreasurePrefab, location.transform.position,
+                                          location.transform.rotation, location.transform);
+        MapTreasurePickup data = treasure.GetComponent<MapTreasurePickup>();
+        data.InitParameters(inventoryObject, mapTreasureManager, island);
     }
 
     private bool ShouldSpawnRand()
