@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1675.1245, g: 3226.5664, b: 7055.078, a: 1}
+  m_IndirectSpecularColor: {r: 1723.8884, g: 3130.3203, b: 6538.9297, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2661,7 +2661,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryObject: {fileID: 816629300}
   treasurePrefab: {fileID: 75743043850902136, guid: 62628fb1c7f38874bb46dc3aefcec9bf, type: 3}
-  specialTreasurePrefab: {fileID: 0}
+  specialTreasurePrefab: {fileID: 129428923551117900, guid: 046f074fce1023c45ba833cf6b7a2aae, type: 3}
   spawnLocations:
   - {fileID: 1417764959}
   - {fileID: 1149419460}
@@ -5722,7 +5722,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryObject: {fileID: 816629300}
   treasurePrefab: {fileID: 75743043850902136, guid: 62628fb1c7f38874bb46dc3aefcec9bf, type: 3}
-  specialTreasurePrefab: {fileID: 0}
+  specialTreasurePrefab: {fileID: 129428923551117900, guid: 046f074fce1023c45ba833cf6b7a2aae, type: 3}
   spawnLocations:
   - {fileID: 1133926361}
   - {fileID: 172971718}
@@ -8679,7 +8679,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryObject: {fileID: 816629300}
   treasurePrefab: {fileID: 75743043850902136, guid: 62628fb1c7f38874bb46dc3aefcec9bf, type: 3}
-  specialTreasurePrefab: {fileID: 0}
+  specialTreasurePrefab: {fileID: 129428923551117900, guid: 046f074fce1023c45ba833cf6b7a2aae, type: 3}
   spawnLocations:
   - {fileID: 1092417144}
   - {fileID: 1490340527}
@@ -10017,7 +10017,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryObject: {fileID: 816629300}
   treasurePrefab: {fileID: 75743043850902136, guid: 62628fb1c7f38874bb46dc3aefcec9bf, type: 3}
-  specialTreasurePrefab: {fileID: 0}
+  specialTreasurePrefab: {fileID: 129428923551117900, guid: 046f074fce1023c45ba833cf6b7a2aae, type: 3}
   spawnLocations:
   - {fileID: 305277868}
   - {fileID: 785282854}
@@ -10139,7 +10139,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryObject: {fileID: 816629300}
   treasurePrefab: {fileID: 75743043850902136, guid: 62628fb1c7f38874bb46dc3aefcec9bf, type: 3}
-  specialTreasurePrefab: {fileID: 0}
+  specialTreasurePrefab: {fileID: 129428923551117900, guid: 046f074fce1023c45ba833cf6b7a2aae, type: 3}
   spawnLocations:
   - {fileID: 156323693}
   - {fileID: 1893708808}
