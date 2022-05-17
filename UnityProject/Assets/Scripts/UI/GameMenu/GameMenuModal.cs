@@ -38,6 +38,7 @@ public class GameMenuModal : MonoBehaviour
         InitPageButtons();
 
         PlayerSceneInteraction.DisableInteraction(INTERACTION_LOCK_KEY);
+        PlayerAttackMode.DisableAttack(INTERACTION_LOCK_KEY);
     }
 
     public void InitParameters(GameObject gameLoader)
@@ -78,6 +79,7 @@ public class GameMenuModal : MonoBehaviour
     private void SaveAndQuit()
     {
         PlayerSceneInteraction.EnableInteraction(INTERACTION_LOCK_KEY);
+        PlayerAttackMode.EnableAttack(INTERACTION_LOCK_KEY);
         gameLoader.SaveScene();
         SceneManager.LoadScene(menuSceneName, LoadSceneMode.Single);
     }
