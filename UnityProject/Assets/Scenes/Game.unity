@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1727.1941, g: 3127.996, b: 6523.2266, a: 1}
+  m_IndirectSpecularColor: {r: 1727.1921, g: 3128.0117, b: 6523.2266, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -10800,6 +10800,7 @@ MonoBehaviour:
   - {fileID: 816629300}
   - {fileID: 1316961270}
   - {fileID: 463560862}
+  - {fileID: 1885766789}
 --- !u!4 &1867300525
 Transform:
   m_ObjectHideFlags: 0
@@ -10831,6 +10832,7 @@ GameObject:
   - component: {fileID: 1885766791}
   - component: {fileID: 1885766792}
   - component: {fileID: 1885766793}
+  - component: {fileID: 1885766794}
   m_Layer: 0
   m_Name: Islands
   m_TagString: Untagged
@@ -10929,6 +10931,19 @@ MonoBehaviour:
   - {fileID: 1332102220}
   - {fileID: 1727477113}
   islandsMapping: 0200000001000000030000000400000005000000
+--- !u!114 &1885766794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1885766789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aef505caa46e92f4fa45524c8f8c6252, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  islandTreasureSpawnManager: {fileID: 1885766789}
 --- !u!1 &1892340149
 GameObject:
   m_ObjectHideFlags: 0

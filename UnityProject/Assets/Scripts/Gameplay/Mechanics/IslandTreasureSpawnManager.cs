@@ -47,4 +47,15 @@ public class IslandTreasureSpawnManager : MonoBehaviour
             islandSpawnerMap[island].SpawnTreasure();
         }
     }
+
+    public Queue<Islands> GetRecentVisits()
+    {
+        return recentVisits;
+    }
+
+    public void SetRecentVisits(Queue<Islands> queue)
+    {
+        if (queue != null)
+            recentVisits = queue;
+    }
 }
