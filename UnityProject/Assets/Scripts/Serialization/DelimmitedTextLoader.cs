@@ -29,6 +29,11 @@ public class DelimmitedTextLoader
             if (rowsRaw[i] != "")
             {
                 string[] parsedRow = rowsRaw[i].Split(new char[] { delimmiterChar });
+                for (int j = 0; j < parsedRow.Length; j++)
+                {
+                    parsedRow[j] = parsedRow[j].Replace("\\n", "\n");
+                    parsedRow[j] = parsedRow[j].Replace("\"", "");
+                }
                 parsedDataLst.Add(parsedRow);
             }
         }

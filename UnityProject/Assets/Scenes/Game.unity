@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1655.9683, g: 3244.9883, b: 6794.453, a: 1}
+  m_IndirectSpecularColor: {r: 1727.1941, g: 3127.996, b: 6523.2266, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9611,6 +9611,7 @@ GameObject:
   - component: {fileID: 1589554462}
   - component: {fileID: 1589554464}
   - component: {fileID: 1589554465}
+  - component: {fileID: 1589554466}
   m_Layer: 5
   m_Name: DropItemsPrompt
   m_TagString: Untagged
@@ -9712,6 +9713,21 @@ MonoBehaviour:
   islandMapManager: {fileID: 1885766789}
   uIParent: {fileID: 850941751}
   mapPrefab: {fileID: 530225958857074554, guid: ce4079beb31aad1459286bc9ba103236, type: 3}
+--- !u!114 &1589554466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1589554460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb9adbed27a4cf84fa5426374eb478c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uIParent: {fileID: 850941751}
+  notesManager: {fileID: 463560862}
+  notesModalPrefab: {fileID: 313221364342303929, guid: a47cc525069f3a34e8093d52afc8fad4, type: 3}
 --- !u!4 &1602082028 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8957189822999362394, guid: acc2c3f8bcf64c54c8fbd354d2f2c6f7, type: 3}

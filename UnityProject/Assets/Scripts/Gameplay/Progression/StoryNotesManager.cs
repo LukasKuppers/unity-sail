@@ -9,7 +9,7 @@ public class StoryNotesManager : MonoBehaviour
 
     private void Start()
     {
-        discoveredNotes = new List<int>();
+        discoveredNotes = new List<int>() { 0 };
 
         allNotes = new Dictionary<int, StoryNote>();
         DelimmitedTextLoader noteLoader = new DelimmitedTextLoader("StoryNotes", '\t');
@@ -45,6 +45,9 @@ public class StoryNotesManager : MonoBehaviour
     {
         if (discoveredNotes != null)
             this.discoveredNotes = discoveredNotes;
+
+        if (!this.discoveredNotes.Contains(0))
+            this.discoveredNotes.Add(0);
     }
 
     public void DiscoverNote(int noteID)
