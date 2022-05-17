@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1720.2393, g: 3142.0938, b: 6586.8516, a: 1}
+  m_IndirectSpecularColor: {r: 1717.7944, g: 3148.8633, b: 6619.125, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2444,7 +2444,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &362012127
 MonoBehaviour:
@@ -2663,11 +2663,13 @@ MonoBehaviour:
   mapTreasureManager: {fileID: 826976890}
   treasurePrefab: {fileID: 75743043850902136, guid: 62628fb1c7f38874bb46dc3aefcec9bf, type: 3}
   specialTreasurePrefab: {fileID: 129428923551117900, guid: 046f074fce1023c45ba833cf6b7a2aae, type: 3}
+  treasureMapPrefab: {fileID: 5492372491763508163, guid: e82d865834b54cd4cb90b6cad804ed85, type: 3}
   island: 1
   spawnLocations:
   - {fileID: 1417764959}
   - {fileID: 1149419460}
-  spawnProbability: 0.3
+  treasureSpawnProbability: 0.2
+  mapSpawnProbability: 0.1
 --- !u!4 &379764849
 Transform:
   m_ObjectHideFlags: 0
@@ -4044,67 +4046,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1fdc1d82684d37a4f872f386b16c1e10, type: 3}
---- !u!1001 &555112749
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 932867723437346627, guid: e82d865834b54cd4cb90b6cad804ed85, type: 3}
-      propertyPath: mapTreasureManager
-      value: 
-      objectReference: {fileID: 826976890}
-    - target: {fileID: 5492372491763508163, guid: e82d865834b54cd4cb90b6cad804ed85, type: 3}
-      propertyPath: m_Name
-      value: NoteInBottle_TreasureMap
-      objectReference: {fileID: 0}
-    - target: {fileID: 8239333277963153564, guid: e82d865834b54cd4cb90b6cad804ed85, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8239333277963153564, guid: e82d865834b54cd4cb90b6cad804ed85, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 760.9844
-      objectReference: {fileID: 0}
-    - target: {fileID: 8239333277963153564, guid: e82d865834b54cd4cb90b6cad804ed85, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 6.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8239333277963153564, guid: e82d865834b54cd4cb90b6cad804ed85, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 12.419563
-      objectReference: {fileID: 0}
-    - target: {fileID: 8239333277963153564, guid: e82d865834b54cd4cb90b6cad804ed85, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8239333277963153564, guid: e82d865834b54cd4cb90b6cad804ed85, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8239333277963153564, guid: e82d865834b54cd4cb90b6cad804ed85, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8239333277963153564, guid: e82d865834b54cd4cb90b6cad804ed85, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8239333277963153564, guid: e82d865834b54cd4cb90b6cad804ed85, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8239333277963153564, guid: e82d865834b54cd4cb90b6cad804ed85, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8239333277963153564, guid: e82d865834b54cd4cb90b6cad804ed85, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: e82d865834b54cd4cb90b6cad804ed85, type: 3}
 --- !u!4 &556280229 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8957189822999362394, guid: acc2c3f8bcf64c54c8fbd354d2f2c6f7, type: 3}
@@ -5632,7 +5573,7 @@ Transform:
   - {fileID: 1163210784}
   - {fileID: 463560863}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &816629304
 MonoBehaviour:
@@ -5787,11 +5728,13 @@ MonoBehaviour:
   mapTreasureManager: {fileID: 826976890}
   treasurePrefab: {fileID: 75743043850902136, guid: 62628fb1c7f38874bb46dc3aefcec9bf, type: 3}
   specialTreasurePrefab: {fileID: 129428923551117900, guid: 046f074fce1023c45ba833cf6b7a2aae, type: 3}
+  treasureMapPrefab: {fileID: 5492372491763508163, guid: e82d865834b54cd4cb90b6cad804ed85, type: 3}
   island: 3
   spawnLocations:
   - {fileID: 1133926361}
   - {fileID: 172971718}
-  spawnProbability: 0.3
+  treasureSpawnProbability: 0.2
+  mapSpawnProbability: 0.1
 --- !u!4 &828070166
 Transform:
   m_ObjectHideFlags: 0
@@ -5920,7 +5863,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &850941751
 GameObject:
@@ -6021,7 +5964,7 @@ RectTransform:
   - {fileID: 1295022801}
   - {fileID: 1589554461}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -6631,7 +6574,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &959820468
 MeshFilter:
@@ -6866,7 +6809,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &976931591
 GameObject:
@@ -8746,12 +8689,14 @@ MonoBehaviour:
   mapTreasureManager: {fileID: 826976890}
   treasurePrefab: {fileID: 75743043850902136, guid: 62628fb1c7f38874bb46dc3aefcec9bf, type: 3}
   specialTreasurePrefab: {fileID: 129428923551117900, guid: 046f074fce1023c45ba833cf6b7a2aae, type: 3}
+  treasureMapPrefab: {fileID: 5492372491763508163, guid: e82d865834b54cd4cb90b6cad804ed85, type: 3}
   island: 4
   spawnLocations:
   - {fileID: 1092417144}
   - {fileID: 1490340527}
   - {fileID: 1903477262}
-  spawnProbability: 0.3
+  treasureSpawnProbability: 0.2
+  mapSpawnProbability: 0.1
 --- !u!4 &1332102222
 Transform:
   m_ObjectHideFlags: 0
@@ -9562,7 +9507,7 @@ Transform:
   - {fileID: 971990260}
   - {fileID: 1360285890}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1518668350 stripped
 Transform:
@@ -10087,11 +10032,13 @@ MonoBehaviour:
   mapTreasureManager: {fileID: 826976890}
   treasurePrefab: {fileID: 75743043850902136, guid: 62628fb1c7f38874bb46dc3aefcec9bf, type: 3}
   specialTreasurePrefab: {fileID: 129428923551117900, guid: 046f074fce1023c45ba833cf6b7a2aae, type: 3}
+  treasureMapPrefab: {fileID: 5492372491763508163, guid: e82d865834b54cd4cb90b6cad804ed85, type: 3}
   island: 2
   spawnLocations:
   - {fileID: 305277868}
   - {fileID: 785282854}
-  spawnProbability: 0.3
+  treasureSpawnProbability: 0.2
+  mapSpawnProbability: 0.1
 --- !u!4 &1659245227
 Transform:
   m_ObjectHideFlags: 0
@@ -10211,11 +10158,13 @@ MonoBehaviour:
   mapTreasureManager: {fileID: 826976890}
   treasurePrefab: {fileID: 75743043850902136, guid: 62628fb1c7f38874bb46dc3aefcec9bf, type: 3}
   specialTreasurePrefab: {fileID: 129428923551117900, guid: 046f074fce1023c45ba833cf6b7a2aae, type: 3}
+  treasureMapPrefab: {fileID: 5492372491763508163, guid: e82d865834b54cd4cb90b6cad804ed85, type: 3}
   island: 5
   spawnLocations:
   - {fileID: 156323693}
   - {fileID: 1893708808}
-  spawnProbability: 0.3
+  treasureSpawnProbability: 0.2
+  mapSpawnProbability: 0.1
 --- !u!4 &1727477115
 Transform:
   m_ObjectHideFlags: 0
@@ -11613,7 +11562,7 @@ Transform:
   m_Children:
   - {fileID: 2133451523}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1976106867
 GameObject:
@@ -11840,7 +11789,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &2016272315 stripped
 Transform:

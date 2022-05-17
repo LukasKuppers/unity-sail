@@ -63,7 +63,7 @@ MonoBehaviour:
   model: {fileID: 1855752372453033093}
   outlineMaterial: {fileID: 2100000, guid: 7a91ab38c37807d41a309f0230233270, type: 2}
   outlineScale: 1.1
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineColor: {r: 0.95686275, g: 1, b: 0, a: 1}
 --- !u!114 &4150392388889300683
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89,6 +89,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mapTreasureManager: {fileID: 0}
+  island: 0
 --- !u!1001 &1084608299342730113
 PrefabInstance:
   m_ObjectHideFlags: 0

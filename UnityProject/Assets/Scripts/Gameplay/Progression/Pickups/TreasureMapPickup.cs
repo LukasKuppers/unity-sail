@@ -6,6 +6,8 @@ public class TreasureMapPickup : MonoBehaviour, IClickableObject
 {
     [SerializeField]
     private GameObject mapTreasureManager;
+    [SerializeField]
+    private Islands island;
 
     private MapTreasureManager treasureManager;
 
@@ -17,15 +19,17 @@ public class TreasureMapPickup : MonoBehaviour, IClickableObject
         }
     }
 
-    public void InitParameters(GameObject mapTreasureManager)
+    public void InitParameters(GameObject mapTreasureManager, Islands island)
     {
         this.mapTreasureManager = mapTreasureManager;
         treasureManager = mapTreasureManager.GetComponent<MapTreasureManager>();
+
+        this.island = island;
     }
 
     public void Interact(string interactionLockKey)
     {
-        treasureManager.AddRandomTreasure();
+        treasureManager.AddRandomTreasure(island);
         PlayerAttackMode.EnableAttack(interactionLockKey);
         Destroy(gameObject);
     }

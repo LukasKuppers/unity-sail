@@ -51,7 +51,7 @@ public class MapTreasureManager : MonoBehaviour
         }
     }
 
-    public void AddRandomTreasure()
+    public void AddRandomTreasure(Islands excludeIsland)
     {
         bool foundLocation = false;
         var enumValues = System.Enum.GetValues(typeof(Islands));
@@ -59,7 +59,8 @@ public class MapTreasureManager : MonoBehaviour
         {
             Islands randIsland = (Islands)enumValues.GetValue(Random.Range(0, enumValues.Length));
             if (!islandsWithTreasure.Contains(randIsland) && 
-                randIsland != Islands.EUREKA_TRADING_POST && randIsland != Islands.NONE)
+                randIsland != Islands.EUREKA_TRADING_POST && randIsland != Islands.NONE &&
+                randIsland != excludeIsland)
             {
                 foundLocation = true;
                 AddTreasure(randIsland);

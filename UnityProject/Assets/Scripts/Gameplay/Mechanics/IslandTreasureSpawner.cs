@@ -13,11 +13,15 @@ public class IslandTreasureSpawner : MonoBehaviour
     [SerializeField]
     private GameObject specialTreasurePrefab;
     [SerializeField]
+    private GameObject treasureMapPrefab;
+    [SerializeField]
     private Islands island;
     [SerializeField]
     private GameObject[] spawnLocations;
     [SerializeField]
-    private float spawnProbability = 1f;
+    private float treasureSpawnProbability = 1f;
+    [SerializeField]
+    private float mapSpawnProbability = 0f;
 
     public void SpawnTreasure()
     {
@@ -25,9 +29,13 @@ public class IslandTreasureSpawner : MonoBehaviour
         {
             if (location.transform.childCount == 0)
             {
-                if (ShouldSpawnRand())
+                if (ShouldSpawnRand(treasureSpawnProbability))
                 {
-                    Spawn(treasurePrefab, location);
+                    SpawnTreasure(location);
+                }
+                else if (ShouldSpawnRand(mapSpawnProbability))
+                {
+                    SpawnTreasureMap(location);
                 }
             }
         }
@@ -43,17 +51,25 @@ public class IslandTreasureSpawner : MonoBehaviour
         data.InitParameters(inventoryObject, mapTreasureManager, island);
     }
 
-    private bool ShouldSpawnRand()
+    private bool ShouldSpawnRand(float probability)
     {
         float rand = Random.Range(0f, 1f);
-        return rand <= spawnProbability;
+        return rand <= probability;
     }
 
-    private void Spawn(GameObject treasurePrefab, GameObject location)
+    private void SpawnTreasure(GameObject location)
     {
         GameObject treasure = Instantiate(treasurePrefab, location.transform.position,
                                           location.transform.rotation, location.transform);
         IslandTreasurePickup data = treasure.GetComponent<IslandTreasurePickup>();
         data.SetInventory(inventoryObject);
+    }
+
+    private void SpawnTreasureMap(GameObject location)
+    {
+        GameObject map = Instantiate(treasureMapPrefab, location.transform.position,
+                                     location.transform.rotation, location.transform);
+        TreasureMapPickup data = map.GetComponent<TreasureMapPickup>();
+        data.InitParameters(mapTreasureManager, island);
     }
 }

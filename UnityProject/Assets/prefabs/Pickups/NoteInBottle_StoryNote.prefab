@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5580807747229329741}
   - component: {fileID: 5277285454294053700}
   m_Layer: 0
-  m_Name: NoteInBottle
+  m_Name: NoteInBottle_StoryNote
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63,7 +63,7 @@ MonoBehaviour:
   model: {fileID: 7866328414222263043}
   outlineMaterial: {fileID: 2100000, guid: 7a91ab38c37807d41a309f0230233270, type: 2}
   outlineScale: 1.1
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineColor: {r: 0.95686275, g: 1, b: 0, a: 1}
 --- !u!114 &5580807747229329741
 MonoBehaviour:
   m_ObjectHideFlags: 0
