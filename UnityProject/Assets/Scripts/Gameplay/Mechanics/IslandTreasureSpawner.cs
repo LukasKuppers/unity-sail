@@ -9,6 +9,8 @@ public class IslandTreasureSpawner : MonoBehaviour
     [SerializeField]
     private GameObject treasurePrefab;
     [SerializeField]
+    private GameObject specialTreasurePrefab;
+    [SerializeField]
     private GameObject[] spawnLocations;
     [SerializeField]
     private float spawnProbability = 1f;
@@ -17,11 +19,21 @@ public class IslandTreasureSpawner : MonoBehaviour
     {
         foreach (GameObject location in spawnLocations)
         {
-            if (ShouldSpawnRand())
+            if (location.transform.childCount == 0)
             {
-                Spawn(location);
+                if (ShouldSpawnRand())
+                {
+                    Spawn(treasurePrefab, location);
+                }
             }
         }
+    }
+
+    public void SpawnSpecialTreasure()
+    {
+        GameObject location = spawnLocations[Random.Range(0, spawnLocations.Length)];
+
+        Spawn(specialTreasurePrefab, location);
     }
 
     private bool ShouldSpawnRand()
@@ -30,7 +42,7 @@ public class IslandTreasureSpawner : MonoBehaviour
         return rand <= spawnProbability;
     }
 
-    private void Spawn(GameObject location)
+    private void Spawn(GameObject treasurePrefab, GameObject location)
     {
         GameObject treasure = Instantiate(treasurePrefab, location.transform.position,
                                           location.transform.rotation, location.transform);

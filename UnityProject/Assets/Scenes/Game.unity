@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1727.1921, g: 3128.0117, b: 6523.2266, a: 1}
+  m_IndirectSpecularColor: {r: 1675.1245, g: 3226.5664, b: 7055.078, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2661,6 +2661,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryObject: {fileID: 816629300}
   treasurePrefab: {fileID: 75743043850902136, guid: 62628fb1c7f38874bb46dc3aefcec9bf, type: 3}
+  specialTreasurePrefab: {fileID: 0}
   spawnLocations:
   - {fileID: 1417764959}
   - {fileID: 1149419460}
@@ -2895,7 +2896,7 @@ Transform:
   - {fileID: 1134427976}
   - {fileID: 1659245227}
   m_Father: {fileID: 1885766790}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &407654529
 GameObject:
@@ -3071,7 +3072,7 @@ Transform:
   - {fileID: 530453450}
   - {fileID: 2073164171}
   m_Father: {fileID: 1885766790}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &422676091
 GameObject:
@@ -3526,7 +3527,7 @@ Transform:
   - {fileID: 1899503595}
   - {fileID: 828070166}
   m_Father: {fileID: 1885766790}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &490848620 stripped
 Transform:
@@ -4491,7 +4492,7 @@ Transform:
   - {fileID: 668413231}
   - {fileID: 379764849}
   m_Father: {fileID: 1885766790}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 166.042, z: 0}
 --- !u!1001 &656518138
 PrefabInstance:
@@ -4797,7 +4798,7 @@ Transform:
   - {fileID: 1976106870}
   - {fileID: 1332102222}
   m_Father: {fileID: 1885766790}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &699126677 stripped
 Transform:
@@ -5640,6 +5641,56 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b105855a7a65fdd47b196a51f82f580d, type: 3}
+--- !u!1 &826976890
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 826976891}
+  - component: {fileID: 826976892}
+  m_Layer: 0
+  m_Name: MapTreasureManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &826976891
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 826976890}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1885766790}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &826976892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 826976890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d499a3c6c4c28b141be63cc936080d39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  islandTreasureSpawners:
+  - {fileID: 1659245225}
+  - {fileID: 379764847}
+  - {fileID: 828070164}
+  - {fileID: 1332102220}
+  - {fileID: 1727477113}
+  islandsMapping: 0200000001000000030000000400000005000000
 --- !u!1 &828070164
 GameObject:
   m_ObjectHideFlags: 0
@@ -5671,6 +5722,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryObject: {fileID: 816629300}
   treasurePrefab: {fileID: 75743043850902136, guid: 62628fb1c7f38874bb46dc3aefcec9bf, type: 3}
+  specialTreasurePrefab: {fileID: 0}
   spawnLocations:
   - {fileID: 1133926361}
   - {fileID: 172971718}
@@ -7778,7 +7830,7 @@ Transform:
   - {fileID: 1286256004}
   - {fileID: 1727477115}
   m_Father: {fileID: 1885766790}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1187829371 stripped
 Transform:
@@ -8627,6 +8679,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryObject: {fileID: 816629300}
   treasurePrefab: {fileID: 75743043850902136, guid: 62628fb1c7f38874bb46dc3aefcec9bf, type: 3}
+  specialTreasurePrefab: {fileID: 0}
   spawnLocations:
   - {fileID: 1092417144}
   - {fileID: 1490340527}
@@ -9964,6 +10017,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryObject: {fileID: 816629300}
   treasurePrefab: {fileID: 75743043850902136, guid: 62628fb1c7f38874bb46dc3aefcec9bf, type: 3}
+  specialTreasurePrefab: {fileID: 0}
   spawnLocations:
   - {fileID: 305277868}
   - {fileID: 785282854}
@@ -10085,6 +10139,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryObject: {fileID: 816629300}
   treasurePrefab: {fileID: 75743043850902136, guid: 62628fb1c7f38874bb46dc3aefcec9bf, type: 3}
+  specialTreasurePrefab: {fileID: 0}
   spawnLocations:
   - {fileID: 156323693}
   - {fileID: 1893708808}
@@ -10851,6 +10906,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 826976891}
   - {fileID: 422120039}
   - {fileID: 406534075}
   - {fileID: 647466516}
@@ -10944,6 +11000,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   islandTreasureSpawnManager: {fileID: 1885766789}
+  mapTreasureManager: {fileID: 826976890}
 --- !u!1 &1892340149
 GameObject:
   m_ObjectHideFlags: 0
