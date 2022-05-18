@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1361.416, g: 1228.7949, b: 1256.3115, a: 1}
+  m_IndirectSpecularColor: {r: 1321.2441, g: 1179.8135, b: 1186.8975, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -578,7 +578,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'DEV_1.3
+  m_text: 'DEV_1.5
+
 
 '
   m_isRightToLeft: 0
