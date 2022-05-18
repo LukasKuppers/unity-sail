@@ -8,9 +8,12 @@ public class NavigationDataManager : MonoBehaviour
     private GameObject shipPrefabManager;
     [SerializeField]
     private GameObject islandVisitManager;
+    [SerializeField]
+    private GameObject islandMapsManager;
 
     private ShipPrefabManager shipManager;
     private IslandVisitManager visitManager;
+    private IslandMapsManager mapsManager;
 
     private HashSet<Islands> navigatedIslands;
 
@@ -20,6 +23,7 @@ public class NavigationDataManager : MonoBehaviour
 
         shipManager = shipPrefabManager.GetComponent<ShipPrefabManager>();
         visitManager = islandVisitManager.GetComponent<IslandVisitManager>();
+        mapsManager = islandMapsManager.GetComponent<IslandMapsManager>();
 
         shipManager.AddRespawnListener(ResetNavData);
         visitManager.AddGeneralVisitListener(HandleIslandVisit);
@@ -55,6 +59,7 @@ public class NavigationDataManager : MonoBehaviour
 
     private void HandleIslandVisit(Islands island)
     {
-        navigatedIslands.Add(island);
+        if (!mapsManager.IslandIsDiscovered(island))
+            navigatedIslands.Add(island);
     }
 }

@@ -50,6 +50,11 @@ public class IslandMapsManager : MonoBehaviour
         return null;
     }
 
+    public bool IslandIsDiscovered(Islands island)
+    {
+        return discoveredIslands.Contains(island);
+    }
+
     public void SetDiscoveredIslands(Islands[] islands)
     {
         discoveredIslands = new List<Islands>(islands);
