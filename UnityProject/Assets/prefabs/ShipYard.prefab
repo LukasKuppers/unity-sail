@@ -78,11 +78,13 @@ MonoBehaviour:
   inventoryObject: {fileID: 0}
   shipPrefabManager: {fileID: 0}
   uIParent: {fileID: 0}
+  safeZoneObject: {fileID: 0}
   modalPrefab: {fileID: 2076737471493864097, guid: ef3b0704c3350de4bbd221ad9af63de5, type: 3}
   shipNames:
   - Cog
   - Sloop
-  shipPrices: 00000000e8030000
+  - Brigantine
+  shipPrices: 00000000e803000088130000
 --- !u!1001 &4309858971508429350
 PrefabInstance:
   m_ObjectHideFlags: 0
