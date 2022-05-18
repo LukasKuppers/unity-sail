@@ -46,7 +46,7 @@ public class PlayerDestroyer : MonoBehaviour, IDestructable
 
     public void Destroy()
     {
-        prefabManager.SpawnShip(prefabManager.GetShipIndex());
+        prefabManager.RespawnShip();
 
         inventory.SetFoodAmount(defaultFoodAmount);
         inventory.SetWoodAmount(defaultWoodAmount);

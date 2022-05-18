@@ -54,6 +54,11 @@ public class IslandMapsManager : MonoBehaviour
         }
         return null;
     }
+
+    public void SetDiscoveredIslands(Islands[] islands)
+    {
+        discoveredIslands = new List<Islands>(islands);
+    }
 }
 
 public enum Islands

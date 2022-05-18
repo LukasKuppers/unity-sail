@@ -23,6 +23,7 @@ public class ShipPrefabManager : MonoBehaviour
     private GameObject debugWindow;
 
     private UnityEvent spawnedNewShipEvent;
+    private UnityEvent respawnedShipEvent;
 
     private int currentShipIndex;
     private GameObject currentShip;
@@ -36,6 +37,13 @@ public class ShipPrefabManager : MonoBehaviour
         spawnedNewShipEvent.AddListener(call);
     }
 
+    public void AddRespawnListener(UnityAction call)
+    {
+        if (respawnedShipEvent == null)
+            respawnedShipEvent = new UnityEvent();
+        respawnedShipEvent.AddListener(call);
+    }
+
     public int GetShipIndex()
     {
         return currentShipIndex;
@@ -44,6 +52,14 @@ public class ShipPrefabManager : MonoBehaviour
     public GameObject GetCurrentShip()
     {
         return currentShip;
+    }
+
+    public GameObject RespawnShip()
+    {
+        if (respawnedShipEvent != null)
+            respawnedShipEvent.Invoke();
+
+        return SpawnShip(currentShipIndex);
     }
 
     public GameObject SpawnShip(int shipTypeIndex)
