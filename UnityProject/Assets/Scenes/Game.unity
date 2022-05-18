@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1719.3496, g: 3144.5742, b: 6598.1406, a: 1}
+  m_IndirectSpecularColor: {r: 1727.196, g: 3127.996, b: 6523.242, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -683,6 +683,68 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e16a7e5d502f66342820b701159349b3, type: 3}
+--- !u!1 &79166601
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 79166602}
+  - component: {fileID: 79166603}
+  m_Layer: 0
+  m_Name: IslandMapsManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &79166602
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 79166601}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1885766790}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &79166603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 79166601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e10e7d1219b39564180632e1bc6a2701, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  islands:
+  - island: 0
+    islandObject: {fileID: 422120038}
+    islandSprite: {fileID: 6281394676077553583, guid: 640bd3464d605c349afd2dd882dd44c8, type: 3}
+  - island: 1
+    islandObject: {fileID: 647466515}
+    islandSprite: {fileID: 4703163468022490144, guid: db898641a0aee5843ade99551f56837d, type: 3}
+  - island: 2
+    islandObject: {fileID: 406534074}
+    islandSprite: {fileID: 4393694687226854146, guid: 9ffecba7791732d4ba32ef60ccec63ab, type: 3}
+  - island: 3
+    islandObject: {fileID: 468269149}
+    islandSprite: {fileID: 5319095718075964377, guid: 97299f752d6b5e542ae2463944e8a27d, type: 3}
+  - island: 4
+    islandObject: {fileID: 689569712}
+    islandSprite: {fileID: 3725714037068625058, guid: bc9f654346babfb4ab8e4c196efab56d, type: 3}
+  - island: 5
+    islandObject: {fileID: 1181391606}
+    islandSprite: {fileID: 7047725493385956300, guid: 24c8075418a3ecf4ba66d81cd7cfbfd0, type: 3}
 --- !u!1001 &82393895
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3035,7 +3097,7 @@ Transform:
   - {fileID: 1134427976}
   - {fileID: 1659245227}
   m_Father: {fileID: 1885766790}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &407654529
 GameObject:
@@ -3211,7 +3273,7 @@ Transform:
   - {fileID: 530453450}
   - {fileID: 2073164171}
   m_Father: {fileID: 1885766790}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &422676091
 GameObject:
@@ -3666,7 +3728,7 @@ Transform:
   - {fileID: 1899503595}
   - {fileID: 828070166}
   m_Father: {fileID: 1885766790}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &490848620 stripped
 Transform:
@@ -4704,7 +4766,7 @@ Transform:
   - {fileID: 668413231}
   - {fileID: 379764849}
   m_Father: {fileID: 1885766790}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 166.042, z: 0}
 --- !u!1001 &656518138
 PrefabInstance:
@@ -5010,7 +5072,7 @@ Transform:
   - {fileID: 1976106870}
   - {fileID: 1332102222}
   m_Father: {fileID: 1885766790}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &699126677 stripped
 Transform:
@@ -5854,6 +5916,7 @@ Transform:
   m_Children:
   - {fileID: 1163210784}
   - {fileID: 463560863}
+  - {fileID: 2017234655}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8195,7 +8258,7 @@ Transform:
   - {fileID: 1286256004}
   - {fileID: 1727477115}
   m_Father: {fileID: 1885766790}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1187829371 stripped
 Transform:
@@ -10325,7 +10388,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shipPrefabManager: {fileID: 1163210783}
-  islandMapManager: {fileID: 1885766789}
+  islandMapManager: {fileID: 79166601}
   mapTreasureManager: {fileID: 826976890}
   uIParent: {fileID: 850941751}
   mapPrefab: {fileID: 530225958857074554, guid: ce4079beb31aad1459286bc9ba103236, type: 3}
@@ -11427,6 +11490,7 @@ MonoBehaviour:
   - {fileID: 1316961270}
   - {fileID: 463560862}
   - {fileID: 1885766789}
+  - {fileID: 2017234654}
 --- !u!4 &1867300525
 Transform:
   m_ObjectHideFlags: 0
@@ -11455,7 +11519,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1885766790}
-  - component: {fileID: 1885766791}
   - component: {fileID: 1885766792}
   - component: {fileID: 1885766793}
   - component: {fileID: 1885766794}
@@ -11478,6 +11541,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 826976891}
+  - {fileID: 79166602}
   - {fileID: 422120039}
   - {fileID: 406534075}
   - {fileID: 647466516}
@@ -11487,37 +11551,6 @@ Transform:
   m_Father: {fileID: 1517935550}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1885766791
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1885766789}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e10e7d1219b39564180632e1bc6a2701, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  islands:
-  - island: 0
-    islandObject: {fileID: 422120038}
-    islandSprite: {fileID: 6281394676077553583, guid: 640bd3464d605c349afd2dd882dd44c8, type: 3}
-  - island: 1
-    islandObject: {fileID: 647466515}
-    islandSprite: {fileID: 4703163468022490144, guid: db898641a0aee5843ade99551f56837d, type: 3}
-  - island: 2
-    islandObject: {fileID: 406534074}
-    islandSprite: {fileID: 4393694687226854146, guid: 9ffecba7791732d4ba32ef60ccec63ab, type: 3}
-  - island: 3
-    islandObject: {fileID: 468269149}
-    islandSprite: {fileID: 5319095718075964377, guid: 97299f752d6b5e542ae2463944e8a27d, type: 3}
-  - island: 4
-    islandObject: {fileID: 689569712}
-    islandSprite: {fileID: 3725714037068625058, guid: bc9f654346babfb4ab8e4c196efab56d, type: 3}
-  - island: 5
-    islandObject: {fileID: 1181391606}
-    islandSprite: {fileID: 7047725493385956300, guid: 24c8075418a3ecf4ba66d81cd7cfbfd0, type: 3}
 --- !u!114 &1885766792
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12408,6 +12441,66 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2943491801845623285, guid: 5f4d0cd59771398409b2abedaa2483bd, type: 3}
   m_PrefabInstance: {fileID: 831697984}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2017234654
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2017234655}
+  - component: {fileID: 2017234656}
+  - component: {fileID: 2017234657}
+  m_Layer: 0
+  m_Name: NavData
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2017234655
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2017234654}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 816629303}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2017234656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2017234654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2b0e8f1b045f49459d4b0b9ba2124e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shipPrefabManager: {fileID: 1163210783}
+  islandVisitManager: {fileID: 1885766789}
+--- !u!114 &2017234657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2017234654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a484740dc2020b41a5396d3751cc6e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  islandMapsManager: {fileID: 79166601}
+  navDataManager: {fileID: 2017234654}
 --- !u!4 &2032151510 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6112842622931001252, guid: 176d567b4134ff24795efa92a14cda77, type: 3}

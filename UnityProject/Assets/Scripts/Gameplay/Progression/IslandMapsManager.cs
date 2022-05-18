@@ -14,12 +14,7 @@ public class IslandMapsManager : MonoBehaviour
     {
         discoveredIslands = new List<Islands>
         {
-            Islands.EUREKA_TRADING_POST, 
-            Islands.ROCKY_COVE, 
-            Islands.PALM_ISLE, 
-            Islands.BANNANA_CAY, 
-            Islands.CRAB_REEF, 
-            Islands.BEACON_HILL
+            Islands.EUREKA_TRADING_POST
         };
     }
 
