@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1727.1926, g: 3128.0117, b: 6523.2266, a: 1}
+  m_IndirectSpecularColor: {r: 1686.2065, g: 3210.3594, b: 6945.883, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9365,7 +9365,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uIParent: {fileID: 850941751}
-  cartographerModal: {fileID: 0}
+  cartographerModalPrefab: {fileID: 3190790136418099023, guid: 318b2ede5d71a3e4e98c7f063514a49d, type: 3}
+  navDataManager: {fileID: 2017234654}
+  islandMapsManager: {fileID: 79166601}
+  inventoryObject: {fileID: 816629300}
 --- !u!114 &1332868662
 MonoBehaviour:
   m_ObjectHideFlags: 0
