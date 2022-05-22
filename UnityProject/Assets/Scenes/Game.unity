@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1686.2065, g: 3210.3594, b: 6945.883, a: 1}
+  m_IndirectSpecularColor: {r: 1681.5073, g: 3217.75, b: 6991.961, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6166,6 +6166,8 @@ GameObject:
   - component: {fileID: 850941754}
   - component: {fileID: 850941753}
   - component: {fileID: 850941752}
+  - component: {fileID: 850941756}
+  - component: {fileID: 850941757}
   m_Layer: 5
   m_Name: HUD
   m_TagString: Untagged
@@ -6260,6 +6262,30 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &850941756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 850941751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 691030cd91b06ba4281980fa30f1f2f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &850941757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 850941751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8d03928616f8c249a9b444eb165b279, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &856546013 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3650614318645650684, guid: b105855a7a65fdd47b196a51f82f580d, type: 3}
@@ -6714,14 +6740,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.13536787, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: f43e63aebf78b684eab61d46e30992f6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -12685,7 +12711,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   navDataManager: {fileID: 2017234654}
-  islandVisitManager: {fileID: 1885766789}
 --- !u!114 &2017753588
 MonoBehaviour:
   m_ObjectHideFlags: 0

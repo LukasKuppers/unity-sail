@@ -16,7 +16,8 @@ public class PlayerInputManager : MonoBehaviour
         { KeyCode.Escape, InputEvent.OPEN_MENU },
         { KeyCode.Tab, InputEvent.TOGGLE_MAP },
         { KeyCode.Q, InputEvent.OPEN_NOTES },
-        { KeyCode.F1, InputEvent.TAKE_SCREENSHOT }
+        { KeyCode.F1, InputEvent.TAKE_SCREENSHOT },
+        { KeyCode.F2, InputEvent.TOGGLE_UI }
     };
 
     private Dictionary<InputEvent, UnityEvent> eventMap;
@@ -88,6 +89,7 @@ public enum InputEvent
     TOGGLE_MAP, 
     OPEN_NOTES, 
     TAKE_SCREENSHOT,
+    TOGGLE_UI,
     MOUSE_RIGHT, 
     MOUSE_LEFT
 }
