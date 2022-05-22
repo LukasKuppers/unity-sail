@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class NavigationDataManager : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class NavigationDataManager : MonoBehaviour
     private IslandMapsManager mapsManager;
 
     private HashSet<Islands> navigatedIslands;
+    private UnityEvent countChangedEvent;
 
     private void Start()
     {
@@ -27,6 +29,14 @@ public class NavigationDataManager : MonoBehaviour
 
         shipManager.AddRespawnListener(ResetNavData);
         visitManager.AddGeneralVisitListener(HandleIslandVisit);
+    }
+
+    public void AddNavCountChangeListener(UnityAction call)
+    {
+        if (countChangedEvent == null)
+            countChangedEvent = new UnityEvent();
+
+        countChangedEvent.AddListener(call);
     }
 
     public int GetNumNavigatedIslands()
@@ -50,16 +60,25 @@ public class NavigationDataManager : MonoBehaviour
     {
         if (navigatedIslands != null)
             this.navigatedIslands = new HashSet<Islands>(navigatedIslands);
+
+        if (countChangedEvent != null)
+            countChangedEvent.Invoke();
     }
 
     public void ResetNavData()
     {
         navigatedIslands.Clear();
+        if (countChangedEvent != null)
+            countChangedEvent.Invoke();
     }
 
     private void HandleIslandVisit(Islands island)
     {
         if (!mapsManager.IslandIsDiscovered(island))
+        {
             navigatedIslands.Add(island);
+            if (countChangedEvent != null)
+                countChangedEvent.Invoke();
+        }
     }
 }

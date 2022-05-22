@@ -7,11 +7,8 @@ public class NavDataCountDisplay : MonoBehaviour
 {
     [SerializeField]
     private GameObject navDataManager;
-    [SerializeField]
-    private GameObject islandVisitManager;
 
     private NavigationDataManager navManager;
-    private IslandVisitManager visitManager;
     private TextMeshProUGUI countText;
 
     private void Start()
@@ -19,13 +16,11 @@ public class NavDataCountDisplay : MonoBehaviour
         navManager = navDataManager.GetComponent<NavigationDataManager>();
         countText = gameObject.GetComponent<TextMeshProUGUI>();
 
-        visitManager = islandVisitManager.GetComponent<IslandVisitManager>();
-        visitManager.AddGeneralVisitListener(UpdateText);
-
+        navManager.AddNavCountChangeListener(UpdateText);
         countText.SetText("0");
     }
 
-    private void UpdateText(Islands _island)
+    private void UpdateText()
     {
         countText.SetText(navManager.GetNumNavigatedIslands().ToString());
     }
