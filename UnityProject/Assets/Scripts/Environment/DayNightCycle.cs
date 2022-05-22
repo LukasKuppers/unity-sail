@@ -38,6 +38,11 @@ public class DayNightCycle : MonoBehaviour
         return time;
     }
 
+    public float GetTimePercent()
+    {
+        return (float)time / dayDurationSec;
+    }
+
     public int GetDay()
     {
         return day;
