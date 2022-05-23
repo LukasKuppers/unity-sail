@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1717.7498, g: 3148.957, b: 6617.3984, a: 1}
+  m_IndirectSpecularColor: {r: 1727.1926, g: 3128.0117, b: 6523.2266, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9132,6 +9132,7 @@ GameObject:
   - component: {fileID: 1316961271}
   - component: {fileID: 1316961272}
   - component: {fileID: 1316961273}
+  - component: {fileID: 1316961274}
   m_Layer: 0
   m_Name: Lighting
   m_TagString: Untagged
@@ -9187,6 +9188,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dayCycleManager: {fileID: 1316961270}
+--- !u!114 &1316961274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1316961270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1ff4335797b7ef40b32eaf070c94097, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dayNightCycleManager: {fileID: 1316961270}
+  windowMaterial: {fileID: 2100000, guid: cabc44d56868c5b44b1309f283b6d39a, type: 2}
+  onColor: {r: 1, g: 0.9622972, b: 0, a: 0}
+  offColor: {r: 0.05807228, g: 0.21442688, b: 0.4245283, a: 0}
+  onIntensity: 7
 --- !u!1 &1318436105
 GameObject:
   m_ObjectHideFlags: 0
@@ -14424,10 +14442,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 422120039}
     m_Modifications:
-    - target: {fileID: 72057035304523268, guid: a6c5687737edbcf4bbe9f4110b1d1292, type: 3}
-      propertyPath: m_LODs.Array.data[0].screenRelativeHeight
-      value: 0.07915783
-      objectReference: {fileID: 0}
     - target: {fileID: 738948992273420817, guid: a6c5687737edbcf4bbe9f4110b1d1292, type: 3}
       propertyPath: m_RootOrder
       value: 4

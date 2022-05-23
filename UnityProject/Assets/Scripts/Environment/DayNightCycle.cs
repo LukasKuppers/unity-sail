@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class DayNightCycle : MonoBehaviour
 {
@@ -27,10 +28,45 @@ public class DayNightCycle : MonoBehaviour
 
     private int framesSinceLastCycle = 0;
 
+    private Dictionary<(int, int), UnityEvent> dayTimeEvents;
+    private Dictionary<int, UnityEvent> repeatTimeEvents;
+
     private void Start()
     {
         moon = moonObject.GetComponent<Light>();
+
+        if (dayTimeEvents == null)
+            dayTimeEvents = new Dictionary<(int, int), UnityEvent>();
+        if (repeatTimeEvents == null)
+            repeatTimeEvents = new Dictionary<int, UnityEvent>();
+
         StartCoroutine(DayTimeCycle());
+    }
+
+    public void AddDayTimeListener(int day, float time, UnityAction call)
+    {
+        (int, int) dayTime = (day, (int)(time * dayDurationSec));
+
+        if (dayTimeEvents == null)
+            dayTimeEvents = new Dictionary<(int, int), UnityEvent>();
+
+        if (!dayTimeEvents.ContainsKey(dayTime))
+            dayTimeEvents.Add(dayTime, new UnityEvent());
+
+        dayTimeEvents[dayTime].AddListener(call);
+    }
+
+    public void AddRepeatTimeListener(float time, UnityAction call)
+    {
+        int timeSec = (int)(time * dayDurationSec);
+
+        if (repeatTimeEvents == null)
+            repeatTimeEvents = new Dictionary<int, UnityEvent>();
+
+        if (!repeatTimeEvents.ContainsKey(timeSec))
+            repeatTimeEvents.Add(timeSec, new UnityEvent());
+
+        repeatTimeEvents[timeSec].AddListener(call);
     }
 
     public int GetTime()
@@ -108,6 +144,11 @@ public class DayNightCycle : MonoBehaviour
             {
                 day = (day + 1) % 30;
             }
+
+            if (dayTimeEvents.ContainsKey((day, time)))
+                dayTimeEvents[(day, time)].Invoke();
+            if (repeatTimeEvents.ContainsKey(time))
+                repeatTimeEvents[time].Invoke();
 
             float dayPercentCompletion = time / (float)dayDurationSec;
             SetMoonRotation(dayPercentCompletion);
