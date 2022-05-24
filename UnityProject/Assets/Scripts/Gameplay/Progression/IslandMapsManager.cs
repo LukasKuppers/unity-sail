@@ -69,5 +69,6 @@ public enum Islands
     BANNANA_CAY, 
     CRAB_REEF, 
     BEACON_HILL, 
+    CHIP_TOOTH_COVE, 
     NONE
 }
