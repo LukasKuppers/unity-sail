@@ -8,6 +8,7 @@ TagManager:
   - EnemyTurret
   - EnemyShip
   - Canvas
+  - IslandProximityCol
   layers:
   - Default
   - TransparentFX

@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 7762518301810133406}
   - component: {fileID: 4680481164653240144}
   - component: {fileID: 1593020377753874611}
+  - component: {fileID: 283436942678459226}
   m_Layer: 0
   m_Name: Collider
   m_TagString: Untagged
@@ -84,6 +85,19 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &283436942678459226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 273249503257732714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c10e19ebe77171141880426b2e741ccd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  islandColliderTag: IslandProximityCol
 --- !u!1 &336404819548590908
 GameObject:
   m_ObjectHideFlags: 0
@@ -898,14 +912,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca5ae4264cb39534f987275dec1532c6, type: 3}
---- !u!1 &4796755959727684528 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2596634947891309533, guid: ca5ae4264cb39534f987275dec1532c6, type: 3}
-  m_PrefabInstance: {fileID: 7392827682777682029}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5321654476606415114 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3405505368243925351, guid: ca5ae4264cb39534f987275dec1532c6, type: 3}
+  m_PrefabInstance: {fileID: 7392827682777682029}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4796755959727684528 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2596634947891309533, guid: ca5ae4264cb39534f987275dec1532c6, type: 3}
   m_PrefabInstance: {fileID: 7392827682777682029}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8196045920770011701

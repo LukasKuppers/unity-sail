@@ -16,6 +16,11 @@ public class IslandVisitCollider : MonoBehaviour
             visitEvent = new IslandVisitEvent();
     }
 
+    public Islands GetIsland()
+    {
+        return island;
+    }
+
     public void AddVisitListener(UnityAction<Islands> call)
     {
         if (visitEvent == null)
