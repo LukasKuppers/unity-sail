@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1689.6572, g: 3204.754, b: 6907.8516, a: 1}
+  m_IndirectSpecularColor: {r: 1727.1926, g: 3128.0117, b: 6523.2266, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6853,7 +6853,6 @@ GameObject:
   m_Component:
   - component: {fileID: 863964487}
   - component: {fileID: 863964488}
-  - component: {fileID: 863964489}
   m_Layer: 0
   m_Name: AIShipSpawner
   m_TagString: Untagged
@@ -6871,7 +6870,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1551909967}
   m_Father: {fileID: 1517935550}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6894,21 +6894,6 @@ MonoBehaviour:
   windManager: {fileID: 357877953}
   shipPrefabs:
   - {fileID: 2720305700964610440, guid: 70d6e7caa2059f84dbe5d81c3ede2d08, type: 3}
---- !u!114 &863964489
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 863964486}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76f2e1d58b62535468b90ccd8f643469, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dayNightCycleManager: {fileID: 1316961270}
-  enemyShipSpawner: {fileID: 863964486}
-  islandMapsManager: {fileID: 79166601}
 --- !u!4 &864092131 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4852975787109374714, guid: 1fdc1d82684d37a4f872f386b16c1e10, type: 3}
@@ -11911,6 +11896,66 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1550788050}
   m_CullTransparentMesh: 1
+--- !u!1 &1551909966
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1551909967}
+  - component: {fileID: 1551909969}
+  - component: {fileID: 1551909968}
+  m_Layer: 0
+  m_Name: ShipRouteManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1551909967
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1551909966}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 863964487}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1551909968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1551909966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37a0799be3851104eb5b77c1ff0707cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shipRoutesManager: {fileID: 1551909966}
+--- !u!114 &1551909969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1551909966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76f2e1d58b62535468b90ccd8f643469, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dayNightCycleManager: {fileID: 1316961270}
+  enemyShipSpawner: {fileID: 863964486}
+  islandMapsManager: {fileID: 79166601}
 --- !u!4 &1569197177 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7516223005978541347, guid: e16a7e5d502f66342820b701159349b3, type: 3}
@@ -13330,6 +13375,7 @@ MonoBehaviour:
   - {fileID: 463560862}
   - {fileID: 1885766789}
   - {fileID: 2017234654}
+  - {fileID: 1551909966}
 --- !u!4 &1867300525
 Transform:
   m_ObjectHideFlags: 0

@@ -69,17 +69,17 @@ public class ShipRoutesManager : MonoBehaviour
             dest = GetRandomIsland();
 
         int startDay = timeManager.GetDay() + Random.Range(1, 4);
-        int startTime = timeManager.GetTime();
+        float startTime = Random.Range(0f, 0.99f);
 
         return CreateRoute(start, dest, startDay, startTime);
     }
 
-    public AIShipRoute CreateRoute(Islands start, Islands dest, int startDay, int startTime)
+    public AIShipRoute CreateRoute(Islands start, Islands dest, int startDay, float startTime)
     {
         int startMonth = timeManager.GetMonth();
         if (startDay < timeManager.GetDay())
             startMonth += 1;
-        else if (startDay == timeManager.GetDay() && startTime < timeManager.GetTime())
+        else if (startDay == timeManager.GetDay() && startTime < timeManager.GetTimePercent())
             return null;
 
         AIShipRoute newRoute = new AIShipRoute()
