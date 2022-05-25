@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1727.1926, g: 3128.0117, b: 6523.2266, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -11907,6 +11907,7 @@ GameObject:
   - component: {fileID: 1551909967}
   - component: {fileID: 1551909969}
   - component: {fileID: 1551909968}
+  - component: {fileID: 1551909970}
   m_Layer: 0
   m_Name: ShipRouteManager
   m_TagString: Untagged
@@ -11956,6 +11957,21 @@ MonoBehaviour:
   dayNightCycleManager: {fileID: 1316961270}
   enemyShipSpawner: {fileID: 863964486}
   islandMapsManager: {fileID: 79166601}
+--- !u!114 &1551909970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1551909966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ebf723a43fd9f442bb70d9f8137be00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dayNightCycleManager: {fileID: 1316961270}
+  shipRoutesManager: {fileID: 1551909966}
+  routesPerDay: 1
 --- !u!4 &1569197177 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7516223005978541347, guid: e16a7e5d502f66342820b701159349b3, type: 3}
@@ -12507,7 +12523,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 215, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1726130471

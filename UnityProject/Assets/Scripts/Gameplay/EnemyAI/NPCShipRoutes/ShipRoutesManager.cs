@@ -114,10 +114,12 @@ public class ShipRoutesManager : MonoBehaviour
 
     private void AddFutureRoute(AIShipRoute route)
     {
-        currentRoutes.Add(routeIndexCounter, route);
+        int routeID = routeIndexCounter;
+        currentRoutes.Add(routeID, route);
+
 
         timeManager.AddDayTimeListener(route.startDay, route.startTime,
-            () => StartRoute(routeIndexCounter));
+            () => StartRoute(routeID));
 
         routeIndexCounter++;
     }
@@ -134,7 +136,7 @@ public class ShipRoutesManager : MonoBehaviour
     private void SpawnShip(int routeID, Islands destIsland, Vector3 pos)
     {
         GameObject ship = shipSpawner.SpawnRandomShip(pos);
-        ship.GetComponent<EnemyIslandVisitManager>().AddVisitListener(
+        ship.GetComponentInChildren<EnemyIslandVisitManager>().AddVisitListener(
             destIsland,
             () => CompleteRoute(routeID));
 
@@ -167,7 +169,7 @@ public class ShipRoutesManager : MonoBehaviour
         Islands island = Islands.NONE;
         System.Array vals = System.Enum.GetValues(typeof(Islands));
 
-        while (island != Islands.NONE && island != Islands.EUREKA_TRADING_POST)
+        while (island == Islands.NONE || island == Islands.EUREKA_TRADING_POST)
         {
             island = (Islands)vals.GetValue(Random.Range(0, vals.Length));
         }
