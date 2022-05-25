@@ -24,6 +24,7 @@ public class DayNightCycle : MonoBehaviour
     private int time = 0;
     // day ranges from 0 to 29
     private int day = 0;
+    private int month = 0;
     private Light moon;
 
     private int framesSinceLastCycle = 0;
@@ -84,6 +85,11 @@ public class DayNightCycle : MonoBehaviour
         return day;
     }
 
+    public int GetMonth()
+    {
+        return month;
+    }
+
     public void SetTime(int newTime)
     {
         time = newTime;
@@ -92,6 +98,11 @@ public class DayNightCycle : MonoBehaviour
     public void SetDay(int newDay)
     {
         day = newDay;
+    }
+
+    public void SetMonth(int newMonth)
+    {
+        month = newMonth;
     }
 
     private void SetSunRotation(float dayPercent)
@@ -143,6 +154,8 @@ public class DayNightCycle : MonoBehaviour
             if (time == 0)
             {
                 day = (day + 1) % 30;
+                if (day == 0)
+                    month++;
             }
 
             if (dayTimeEvents.ContainsKey((day, time)))

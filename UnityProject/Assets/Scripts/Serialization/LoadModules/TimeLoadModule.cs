@@ -25,11 +25,13 @@ public class TimeLoadModule : MonoBehaviour, ILoadModule
 
     public string GetJsonString()
     {
+        int month = dayNightManager.GetMonth();
         int day = dayNightManager.GetDay();
         int time = dayNightManager.GetTime();
 
         DayTimeData saveData = new DayTimeData
         {
+            month = month, 
             dayInMonth = day,
             timeInDay = time
         };
@@ -55,12 +57,14 @@ public class TimeLoadModule : MonoBehaviour, ILoadModule
             return;
         }
 
+        dayNightManager.SetMonth(data.month);
         dayNightManager.SetDay(data.dayInMonth);
         dayNightManager.SetTime(data.timeInDay);
     }
 
     private void InitDayTime()
     {
+        dayNightManager.SetMonth(0);
         dayNightManager.SetDay(0);
         dayNightManager.SetTime(0);
     }
@@ -69,6 +73,8 @@ public class TimeLoadModule : MonoBehaviour, ILoadModule
 [Serializable]
 public class DayTimeData
 {
+    public int month;
+
     public int dayInMonth;
 
     public int timeInDay;
