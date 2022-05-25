@@ -137,7 +137,7 @@ public class ShipRoutesManager : MonoBehaviour
     {
         GameObject ship = shipSpawner.SpawnRandomShip(pos, AIShipMode.Passive);
 
-        ship.GetComponentInChildren<EnemyIslandVisitManager>().AddVisitListener(
+        ship.GetComponent<EnemyIslandVisitManager>().AddVisitListener(
             destIsland,
             () => CompleteRoute(routeID));
 

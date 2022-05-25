@@ -30,9 +30,9 @@ public class EnemyIslandVisitManager : MonoBehaviour
         particularVisitEvents[island].AddListener(call);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        GameObject colObj = collision.gameObject;
+        GameObject colObj = other.gameObject;
         if (colObj.CompareTag(islandColliderTag))
         {
             IslandVisitCollider islandCol = colObj.GetComponent<IslandVisitCollider>();
