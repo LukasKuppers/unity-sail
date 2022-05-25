@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class EnemyShipSpawner : MonoBehaviour
 {
-    private static readonly float COROUTINE_TICK_TIME = 5.0f;
-
     [SerializeField]
     private GameObject shipPrefabManager;
     [SerializeField]
@@ -18,134 +16,46 @@ public class EnemyShipSpawner : MonoBehaviour
     private GameObject windManager;
     [SerializeField]
     private GameObject[] shipPrefabs;
-    [SerializeField]
-    private int numShips = 1;
-    [SerializeField]
-    private float spawnRadius = 500f;
-    [SerializeField]
-    private float agressionRadius = 250f;
 
-    private ShipPrefabManager shipManager;
-    private GameObject playerShip;
-    private GameObject[] spawnedShips;
-
-    private void OnDrawGizmosSelected()
+    public GameObject SpawnShip(int shipIndex, Vector3 position, Quaternion rotation)
     {
-        Gizmos.DrawWireSphere(transform.position, spawnRadius);
-        Gizmos.DrawWireSphere(transform.position, agressionRadius);
-    }
+        GameObject newShip = Instantiate(shipPrefabs[shipIndex],
+            position, rotation, transform);
 
-    private void Start()
-    {
-        if (agressionRadius > spawnRadius)
+        PhysicsAdvancedBuoyancy buoyancy = newShip.GetComponent<PhysicsAdvancedBuoyancy>();
+        PhysicsShipController controller = newShip.GetComponent<PhysicsShipController>();
+        ShipAutomation shipAutomation = newShip.GetComponent<ShipAutomation>();
+        AIShipController aiController = newShip.GetComponent<AIShipController>();
+        WindFlag flag = newShip.GetComponentInChildren<WindFlag>();
+        AICanonController[] cannons = newShip.GetComponentsInChildren<AICanonController>();
+        EnemyShipDestroyer shipDestroyer = newShip.GetComponent<EnemyShipDestroyer>();
+
+        buoyancy.SetWaveManager(waveManager);
+        controller.SetWindManager(windManager);
+        shipAutomation.SetWindManager(windManager);
+        aiController.SetShipPrefabManager(shipPrefabManager);
+        aiController.SetShipSafetyManager(shipSafetyManager);
+        flag.SetWindGenerator(windManager);
+        shipDestroyer.SetPickupGenerator(pickupSpawner);
+
+        foreach (AICanonController cannon in cannons)
         {
-            Debug.LogWarning("EnemyShipSpawner: Agression radius should be less than spawn radius");
+            cannon.SetShipPrefabManager(shipPrefabManager);
         }
 
-        shipManager = shipPrefabManager.GetComponent<ShipPrefabManager>();
-        shipManager.AddSpawnListener(UpdateShip);
+        aiController.SetMode(AIShipMode.Anchored);
 
-        spawnedShips = new GameObject[numShips];
+        return newShip;
     }
 
-    private void Awake()
+    public GameObject SpawnShip(int shipIndex, Vector3 position)
     {
-        StartCoroutine(ControlAIBehaviour());
+        return SpawnShip(shipIndex, position, Quaternion.identity);
     }
 
-    private void UpdateShip()
+    public GameObject SpawnRandomShip(Vector3 position)
     {
-        playerShip = shipManager.GetCurrentShip();
-    }
-
-    private IEnumerator ControlAIBehaviour()
-    {
-        while (true)
-        {
-            if (playerShip != null)
-            {
-                float dist = Vector3.Distance(transform.position, playerShip.transform.position);
-
-                if (dist <= spawnRadius)
-                {
-                    SpawnShips();
-                    if (dist <= agressionRadius)
-                    {
-                        SetShipModes(AIShipMode.Agressive);
-                    }
-                    else
-                    {
-                        SetShipModes(AIShipMode.Passive);
-                    }
-                }
-                else
-                {
-                    KillShips();
-                }
-            }
-            yield return new WaitForSeconds(COROUTINE_TICK_TIME);
-        }
-    }
-
-    private void SpawnShips()
-    {
-        if (spawnedShips[0] == null)
-        {
-            for (int i = 0; i < numShips; i++)
-            {
-                int shipIndex = Random.Range(0, shipPrefabs.Length);
-                Quaternion randRot = Quaternion.Euler(0, Random.Range(0f, 360f), 0);
-                Vector3 randPosOffset = new Vector3(Random.Range(-25f, 25f), 10, Random.Range(-25f, 25f));
-
-                GameObject newShip = Instantiate(shipPrefabs[shipIndex],
-                    transform.position + randPosOffset,
-                    randRot,
-                    transform);
-
-                PhysicsAdvancedBuoyancy buoyancy = newShip.GetComponent<PhysicsAdvancedBuoyancy>();
-                PhysicsShipController controller = newShip.GetComponent<PhysicsShipController>();
-                ShipAutomation shipAutomation = newShip.GetComponent<ShipAutomation>();
-                AIShipController aiController = newShip.GetComponent<AIShipController>();
-                WindFlag flag = newShip.GetComponentInChildren<WindFlag>();
-                AICanonController[] cannons = newShip.GetComponentsInChildren<AICanonController>();
-                EnemyShipDestroyer shipDestroyer = newShip.GetComponent<EnemyShipDestroyer>();
-
-                buoyancy.SetWaveManager(waveManager);
-                controller.SetWindManager(windManager);
-                shipAutomation.SetWindManager(windManager);
-                aiController.SetShipPrefabManager(shipPrefabManager);
-                aiController.SetShipSafetyManager(shipSafetyManager);
-                flag.SetWindGenerator(windManager);
-                shipDestroyer.SetPickupGenerator(pickupSpawner);
-                foreach (AICanonController cannon in cannons)
-                {
-                    cannon.SetShipPrefabManager(shipPrefabManager);
-                }
-
-                aiController.SetMode(AIShipMode.Anchored);
-
-                spawnedShips[i] = newShip;
-            }
-        }
-    }
-
-    private void KillShips()
-    {
-        if (spawnedShips[0] != null)
-        {
-            for (int i = 0; i < numShips; i++)
-            {
-                Destroy(spawnedShips[i]);
-            }
-        }
-    }
-
-    private void SetShipModes(AIShipMode mode)
-    {
-        foreach (GameObject ship in spawnedShips)
-        {
-            AIShipController controller = ship.GetComponent<AIShipController>();
-            controller.SetMode(mode);
-        }
+        int randIndex = Random.Range(0, shipPrefabs.Length);
+        return SpawnShip(randIndex, position);
     }
 }
