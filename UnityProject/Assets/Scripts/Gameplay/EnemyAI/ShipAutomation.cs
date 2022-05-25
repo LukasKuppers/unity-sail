@@ -14,6 +14,8 @@ public class ShipAutomation : MonoBehaviour, IAutomaticShip
     private WindGenerator wind;
     private Vector3 target;
 
+    private Queue<float> sailHeightsQueue;
+
     private bool sailCoroutineRunning = false;
 
     private void Awake()
@@ -23,6 +25,7 @@ public class ShipAutomation : MonoBehaviour, IAutomaticShip
         {
             wind = WindManager.GetComponent<WindGenerator>();
         }
+        sailHeightsQueue = new Queue<float>();
     }
 
     private void Update()
@@ -49,19 +52,13 @@ public class ShipAutomation : MonoBehaviour, IAutomaticShip
 
     public void DisableMovement()
     {
-        if (!sailCoroutineRunning)
-        {
-            StartCoroutine(SetSail(0f));
-        }
+        EnqueueSailChange(0f);
         shipController.SetSteerAmount(0);
     }
 
     public void EnableMovement()
     {
-        if (!sailCoroutineRunning)
-        {
-            StartCoroutine(SetSail(1f));
-        }
+        EnqueueSailChange(1f);
     }
 
     private void FollowTarget()
@@ -77,6 +74,16 @@ public class ShipAutomation : MonoBehaviour, IAutomaticShip
         float angleOffset = Vector2.SignedAngle(forward, diff);
 
         shipController.SetSteerAmount(-angleOffset * turnSpeed);
+    }
+
+    private void EnqueueSailChange(float height)
+    {
+        if (!sailCoroutineRunning)
+        {
+            StartCoroutine(SetSail(height));
+            return;
+        }
+        sailHeightsQueue.Enqueue(height);
     }
 
     private void ControlSailAngle()
@@ -103,5 +110,11 @@ public class ShipAutomation : MonoBehaviour, IAutomaticShip
         }
         shipController.SetSailHeight(sailHeight);
         sailCoroutineRunning = false;
+
+        if (sailHeightsQueue.Count > 0)
+        {
+            float nextHeight = sailHeightsQueue.Dequeue();
+            StartCoroutine(SetSail(nextHeight));
+        }
     }
 }

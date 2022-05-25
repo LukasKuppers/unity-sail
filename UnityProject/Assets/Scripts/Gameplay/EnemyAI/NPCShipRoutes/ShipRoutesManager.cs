@@ -135,10 +135,15 @@ public class ShipRoutesManager : MonoBehaviour
 
     private void SpawnShip(int routeID, Islands destIsland, Vector3 pos)
     {
-        GameObject ship = shipSpawner.SpawnRandomShip(pos);
+        GameObject ship = shipSpawner.SpawnRandomShip(pos, AIShipMode.Passive);
+
         ship.GetComponentInChildren<EnemyIslandVisitManager>().AddVisitListener(
             destIsland,
             () => CompleteRoute(routeID));
+
+        AIShipController shipController = ship.GetComponent<AIShipController>();
+        IslandData destInfo = islandManager.GetIslandInfo(destIsland);
+        shipController.SetGoal(destInfo.islandObject);
 
         travellingShips.Add(routeID, ship);
     }

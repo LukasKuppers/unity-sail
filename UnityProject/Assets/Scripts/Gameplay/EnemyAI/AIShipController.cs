@@ -9,9 +9,11 @@ public class AIShipController : MonoBehaviour
 
     private ShipPrefabManager spawnedShipManager;
     private ShipSafetyManager safetyManager;
-    private GameObject targetObject;
     private AIShipMode shipMode = AIShipMode.Anchored;
     private IAutomaticShip ship;
+
+    private GameObject targetObject;
+    private Vector3 goalLocation;
 
     private void Awake()
     {
@@ -34,6 +36,8 @@ public class AIShipController : MonoBehaviour
         {
             Attack();
         }
+        else if (shipMode == AIShipMode.Passive && goalLocation != null)
+            ship.SetTarget(goalLocation);
     }
 
     public void SetShipPrefabManager(GameObject newShipPrefabManager)
@@ -53,13 +57,20 @@ public class AIShipController : MonoBehaviour
     public void SetMode(AIShipMode newMode)
     {
         shipMode = newMode;
-        if (shipMode == AIShipMode.Anchored || shipMode == AIShipMode.Passive)
+        if (shipMode == AIShipMode.Anchored || (shipMode == AIShipMode.Passive && goalLocation == null))
         {
             ship.DisableMovement();
         } else
         {
             ship.EnableMovement();
         }
+    }
+
+    public void SetGoal(GameObject goal)
+    {
+        goalLocation = goal.transform.position;
+        if (shipMode == AIShipMode.Passive)
+            ship.EnableMovement();
     }
 
     private void Attack()

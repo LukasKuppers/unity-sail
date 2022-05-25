@@ -17,7 +17,7 @@ public class EnemyShipSpawner : MonoBehaviour
     [SerializeField]
     private GameObject[] shipPrefabs;
 
-    public GameObject SpawnShip(int shipIndex, Vector3 position, Quaternion rotation)
+    public GameObject SpawnShip(int shipIndex, AIShipMode mode, Vector3 position, Quaternion rotation)
     {
         GameObject newShip = Instantiate(shipPrefabs[shipIndex],
             position, rotation, transform);
@@ -43,19 +43,19 @@ public class EnemyShipSpawner : MonoBehaviour
             cannon.SetShipPrefabManager(shipPrefabManager);
         }
 
-        aiController.SetMode(AIShipMode.Anchored);
+        aiController.SetMode(mode);
 
         return newShip;
     }
 
-    public GameObject SpawnShip(int shipIndex, Vector3 position)
+    public GameObject SpawnShip(int shipIndex, AIShipMode mode, Vector3 position)
     {
-        return SpawnShip(shipIndex, position, Quaternion.identity);
+        return SpawnShip(shipIndex, mode, position, Quaternion.identity);
     }
 
-    public GameObject SpawnRandomShip(Vector3 position)
+    public GameObject SpawnRandomShip(Vector3 position, AIShipMode mode)
     {
         int randIndex = Random.Range(0, shipPrefabs.Length);
-        return SpawnShip(randIndex, position);
+        return SpawnShip(randIndex, mode, position);
     }
 }
