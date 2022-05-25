@@ -7,6 +7,7 @@ public class WindowEmissionController : MonoBehaviour
     private static readonly string EMISSION_KEYWORD = "_EMISSION";
     private static readonly string EMISSION_KEY = "_EmissiveColor";
     private static readonly float TRANSITION_TIME = 5.0f;
+    private static readonly float OFF_MULTIPLIER = 0f;
 
     [SerializeField]
     private GameObject dayNightCycleManager;
@@ -30,22 +31,22 @@ public class WindowEmissionController : MonoBehaviour
         timeManager.AddRepeatTimeListener(0.5f, TurnOnLights);
 
         if (timeManager.GetTimePercent() < 0.5f)
-            SetColor(offColor);
+            SetColor(offColor, OFF_MULTIPLIER);
         else
-            SetColor(onColor * onIntensity);
+            SetColor(onColor, onIntensity);
     }
 
     private void TurnOnLights()
     {
-        StartCoroutine(TransitionColor(offColor, onColor * onIntensity));
+        StartCoroutine(TransitionColor(offColor, onColor, OFF_MULTIPLIER, onIntensity));
     }
 
     private void TurnOffLights()
     {
-        StartCoroutine(TransitionColor(onColor * onIntensity, offColor));
+        StartCoroutine(TransitionColor(onColor, offColor, onIntensity, OFF_MULTIPLIER));
     }
 
-    private IEnumerator TransitionColor(Color oldCol, Color newCol)
+    private IEnumerator TransitionColor(Color oldCol, Color newCol, float oldEm, float newEm)
     {
         int numFrames = (int)(TRANSITION_TIME * 10f);
         float timePerFrame = TRANSITION_TIME / numFrames;
@@ -54,18 +55,19 @@ public class WindowEmissionController : MonoBehaviour
         {
             float transitionPercent = (float)i / numFrames;
             Color col = Color.Lerp(oldCol, newCol, transitionPercent);
+            float intensity = Mathf.Lerp(oldEm, newEm, transitionPercent);
 
-            SetColor(col);
+            SetColor(col, intensity);
 
             yield return new WaitForSeconds(timePerFrame);
         }
 
-        SetColor(newCol);
+        SetColor(newCol, newEm);
     }
 
-    private void SetColor(Color col)
+    private void SetColor(Color col, float multiplier)
     {
         windowMaterial.color = col;
-        windowMaterial.SetColor(EMISSION_KEY, col);
+        windowMaterial.SetColor(EMISSION_KEY, col * multiplier);
     }
 }

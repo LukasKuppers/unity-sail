@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1727.1926, g: 3128.0117, b: 6523.2266, a: 1}
+  m_IndirectSpecularColor: {r: 1721.6191, g: 3135.336, b: 6554, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5287,7 +5287,7 @@ GameObject:
   - component: {fileID: 668413229}
   m_Layer: 3
   m_Name: RockyCoveVisitCollider
-  m_TagString: Untagged
+  m_TagString: IslandProximityCol
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8811,7 +8811,7 @@ GameObject:
   - component: {fileID: 1134427974}
   m_Layer: 3
   m_Name: PlamIsleVisitCollider
-  m_TagString: Untagged
+  m_TagString: IslandProximityCol
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9760,7 +9760,7 @@ GameObject:
   - component: {fileID: 1286256002}
   m_Layer: 3
   m_Name: BeaconHillVisitCollider
-  m_TagString: Untagged
+  m_TagString: IslandProximityCol
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10223,7 +10223,7 @@ MonoBehaviour:
   dayNightCycleManager: {fileID: 1316961270}
   windowMaterial: {fileID: 2100000, guid: cabc44d56868c5b44b1309f283b6d39a, type: 2}
   onColor: {r: 1, g: 0.9622972, b: 0, a: 0}
-  offColor: {r: 0.05807228, g: 0.21442688, b: 0.4245283, a: 0}
+  offColor: {r: 0, g: 0.8156863, b: 1, a: 0}
   onIntensity: 7
 --- !u!1 &1318436105
 GameObject:
@@ -11750,7 +11750,7 @@ GameObject:
   - component: {fileID: 1550677423}
   m_Layer: 3
   m_Name: ChipToothCoveVisitCollider
-  m_TagString: Untagged
+  m_TagString: IslandProximityCol
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13621,7 +13621,7 @@ GameObject:
   - component: {fileID: 1899503593}
   m_Layer: 3
   m_Name: BannanaCayVisitCollider
-  m_TagString: Untagged
+  m_TagString: IslandProximityCol
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14087,7 +14087,7 @@ GameObject:
   - component: {fileID: 1976106868}
   m_Layer: 3
   m_Name: CrabReefVisitCollider
-  m_TagString: Untagged
+  m_TagString: IslandProximityCol
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14743,7 +14743,7 @@ GameObject:
   - component: {fileID: 2073164169}
   m_Layer: 3
   m_Name: HomeVisitCollider
-  m_TagString: Untagged
+  m_TagString: IslandProximityCol
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
