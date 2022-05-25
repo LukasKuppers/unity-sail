@@ -8,14 +8,26 @@ public class EnemyIslandVisitManager : MonoBehaviour
     [SerializeField]
     private string islandColliderTag = "IslandProximityCol";
 
-    UnityEvent<Islands> visitEvent;
+    private UnityEvent<Islands> generalVisitEvent;
+    private Dictionary<Islands, UnityEvent> particularVisitEvents;
 
-    public void AddVisitListener(UnityAction<Islands> call)
+    public void AddGeneralVisitListener(UnityAction<Islands> call)
     {
-        if (visitEvent == null)
-            visitEvent = new UnityEvent<Islands>();
+        if (generalVisitEvent == null)
+            generalVisitEvent = new UnityEvent<Islands>();
 
-        visitEvent.AddListener(call);
+        generalVisitEvent.AddListener(call);
+    }
+
+    public void AddVisitListener(Islands island, UnityAction call)
+    {
+        if (particularVisitEvents == null)
+            particularVisitEvents = new Dictionary<Islands, UnityEvent>();
+
+        if (!particularVisitEvents.ContainsKey(island))
+            particularVisitEvents.Add(island, new UnityEvent());
+
+        particularVisitEvents[island].AddListener(call);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -23,12 +35,14 @@ public class EnemyIslandVisitManager : MonoBehaviour
         GameObject colObj = collision.gameObject;
         if (colObj.CompareTag(islandColliderTag))
         {
-            if (visitEvent != null)
-            {
-                IslandVisitCollider islandCollider = colObj.GetComponent<IslandVisitCollider>();
-                Islands island = islandCollider.GetIsland();
-                visitEvent.Invoke(island);
-            }
+            IslandVisitCollider islandCol = colObj.GetComponent<IslandVisitCollider>();
+            Islands island = islandCol.GetIsland();
+
+            if (generalVisitEvent != null)
+                generalVisitEvent.Invoke(island);
+
+            if (particularVisitEvents != null && particularVisitEvents.ContainsKey(island))
+                particularVisitEvents[island].Invoke();
         }
     }
 }

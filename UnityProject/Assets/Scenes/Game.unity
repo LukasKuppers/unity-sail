@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1721.6191, g: 3135.336, b: 6554, a: 1}
+  m_IndirectSpecularColor: {r: 1689.6572, g: 3204.754, b: 6907.8516, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2613,37 +2613,6 @@ Transform:
   m_Father: {fileID: 647466516}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &351659863
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 351659864}
-  m_Layer: 0
-  m_Name: EnemySpawners
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &351659864
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 351659863}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 598388112}
-  m_Father: {fileID: 1517935550}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &357877953
 GameObject:
   m_ObjectHideFlags: 0
@@ -4778,59 +4747,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f079e79aaa08ff241865eb4b27109021, type: 3}
---- !u!1 &598388111
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 598388112}
-  - component: {fileID: 598388113}
-  m_Layer: 0
-  m_Name: EnemyBrigSpawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &598388112
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 598388111}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 160, y: 0, z: 136}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 351659864}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &598388113
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 598388111}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d0e0e9c1ce21134a80a6f70b5d08fac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shipPrefabManager: {fileID: 1163210783}
-  shipSafetyManager: {fileID: 1163210783}
-  pickupSpawner: {fileID: 1908523563}
-  waveManager: {fileID: 357877953}
-  windManager: {fileID: 357877953}
-  shipPrefabs:
-  - {fileID: 2720305700964610440, guid: 70d6e7caa2059f84dbe5d81c3ede2d08, type: 3}
-  numShips: 1
-  spawnRadius: 292.1
-  agressionRadius: 134.8
 --- !u!4 &600149176 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8957189822999362394, guid: acc2c3f8bcf64c54c8fbd354d2f2c6f7, type: 3}
@@ -6927,6 +6843,72 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3650614318645650684, guid: b105855a7a65fdd47b196a51f82f580d, type: 3}
   m_PrefabInstance: {fileID: 1454450783}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &863964486
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 863964487}
+  - component: {fileID: 863964488}
+  - component: {fileID: 863964489}
+  m_Layer: 0
+  m_Name: AIShipSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &863964487
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 863964486}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1517935550}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &863964488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 863964486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d0e0e9c1ce21134a80a6f70b5d08fac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shipPrefabManager: {fileID: 1163210783}
+  shipSafetyManager: {fileID: 1163210783}
+  pickupSpawner: {fileID: 1908523563}
+  waveManager: {fileID: 357877953}
+  windManager: {fileID: 357877953}
+  shipPrefabs:
+  - {fileID: 2720305700964610440, guid: 70d6e7caa2059f84dbe5d81c3ede2d08, type: 3}
+--- !u!114 &863964489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 863964486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76f2e1d58b62535468b90ccd8f643469, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dayNightCycleManager: {fileID: 1316961270}
+  enemyShipSpawner: {fileID: 863964486}
+  islandMapsManager: {fileID: 79166601}
 --- !u!4 &864092131 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4852975787109374714, guid: 1fdc1d82684d37a4f872f386b16c1e10, type: 3}
@@ -11709,9 +11691,9 @@ Transform:
   - {fileID: 432432461}
   - {fileID: 357877955}
   - {fileID: 1908523564}
+  - {fileID: 863964487}
   - {fileID: 1834884373}
   - {fileID: 1885766790}
-  - {fileID: 351659864}
   - {fileID: 971990260}
   - {fileID: 1360285890}
   m_Father: {fileID: 0}
@@ -12898,7 +12880,7 @@ Transform:
   m_Children:
   - {fileID: 1318436106}
   m_Father: {fileID: 1517935550}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &1834884374
 MeshCollider:
@@ -13407,7 +13389,7 @@ Transform:
   - {fileID: 1181391607}
   - {fileID: 34780053}
   m_Father: {fileID: 1517935550}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1885766792
 MonoBehaviour:
