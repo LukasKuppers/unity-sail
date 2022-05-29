@@ -84,7 +84,8 @@ MonoBehaviour:
   - Cog
   - Sloop
   - Brigantine
-  shipPrices: 00000000e803000088130000
+  - Galleon
+  shipPrices: 00000000e80300008813000010270000
 --- !u!1 &5040112492346197623
 GameObject:
   m_ObjectHideFlags: 0
