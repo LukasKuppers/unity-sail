@@ -19,7 +19,6 @@ public class ScreenShotController : MonoBehaviour
     {
         string name = GenerateFileName();
         ScreenCapture.CaptureScreenshot(name);
-        UnityEditor.AssetDatabase.Refresh();
     }
 
     private string GenerateFileName()
