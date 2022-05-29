@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EnemyShipDestroyer : MonoBehaviour, IDestructable
 {
@@ -17,13 +18,26 @@ public class EnemyShipDestroyer : MonoBehaviour, IDestructable
 
     private PickupGenerator pickupGenerator;
 
+    private UnityEvent destroyedEvent;
+
     public void SetPickupGenerator(GameObject pickupGenerator)
     {
         this.pickupGenerator = pickupGenerator.GetComponent<PickupGenerator>();
     }
 
+    public void AddDestructionListener(UnityAction call)
+    {
+        if (destroyedEvent == null)
+            destroyedEvent = new UnityEvent();
+
+        destroyedEvent.AddListener(call);
+    }
+
     public void Destroy()
     {
+        if (destroyedEvent != null)
+            destroyedEvent.Invoke();
+
         Instantiate(destroyedPrefab, transform.position, transform.rotation);
 
         if (pickupGenerator != null)

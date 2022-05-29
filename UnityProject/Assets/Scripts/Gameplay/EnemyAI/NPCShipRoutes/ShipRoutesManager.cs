@@ -141,6 +141,9 @@ public class ShipRoutesManager : MonoBehaviour
             destIsland,
             () => CompleteRoute(routeID));
 
+        ship.GetComponent<IDestructable>().AddDestructionListener(
+            () => CompleteRoute(routeID));
+
         AIShipController shipController = ship.GetComponent<AIShipController>();
         IslandData destInfo = islandManager.GetIslandInfo(destIsland);
         shipController.SetGoal(destInfo.islandObject);

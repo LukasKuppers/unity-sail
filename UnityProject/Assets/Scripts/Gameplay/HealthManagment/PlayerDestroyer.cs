@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerDestroyer : MonoBehaviour, IDestructable
 {
@@ -20,6 +21,8 @@ public class PlayerDestroyer : MonoBehaviour, IDestructable
 
     private PlayerInventory inventory;
     private ShipPrefabManager prefabManager;
+
+    private UnityEvent destructionEvent;
 
     private void Start()
     {
@@ -44,8 +47,19 @@ public class PlayerDestroyer : MonoBehaviour, IDestructable
         prefabManager = shipPrefabManager.GetComponent<ShipPrefabManager>();
     }
 
+    public void AddDestructionListener(UnityAction call)
+    {
+        if (destructionEvent == null)
+            destructionEvent = new UnityEvent();
+
+        destructionEvent.AddListener(call);
+    }
+
     public void Destroy()
     {
+        if (destructionEvent != null)
+            destructionEvent.Invoke();
+
         prefabManager.RespawnShip();
 
         inventory.SetFoodAmount(defaultFoodAmount);

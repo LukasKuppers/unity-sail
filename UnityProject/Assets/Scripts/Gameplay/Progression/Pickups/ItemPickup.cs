@@ -113,6 +113,11 @@ public class ItemPickup : MonoBehaviour, IDestructable
         display.SetInitParameters(item, itemAmount, gameObject);
     }
 
+    public void AddDestructionListener(UnityEngine.Events.UnityAction call)
+    {
+        throw new System.NotImplementedException("ItemPickup:AddDestructionListener: item pickup has no destruction event");
+    }
+
     public void Destroy()
     {
         Destroy(displayObject);
