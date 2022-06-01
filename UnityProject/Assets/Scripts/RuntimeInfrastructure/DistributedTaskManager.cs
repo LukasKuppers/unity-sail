@@ -8,6 +8,7 @@ public class DistributedTaskManager : MonoBehaviour
     private float taskWaitTime = 0.5f;
 
     private Queue<IQueuableTask> tasks;
+    private Dictionary<IQueuableTask, GameObject> objectMap;
 
     private static DistributedTaskManager instance;
 
@@ -22,14 +23,19 @@ public class DistributedTaskManager : MonoBehaviour
     private void Start()
     {
         tasks = new Queue<IQueuableTask>();
+        objectMap = new Dictionary<IQueuableTask, GameObject>();
 
         StartCoroutine(TaskRunner());
     }
 
-    public void AddTask(IQueuableTask task)
+    public void AddTask(GameObject taskObject)
     {
-        if (task != null)
+        if (taskObject != null)
+        {
+            IQueuableTask task = taskObject.GetComponent<IQueuableTask>();
             tasks.Enqueue(task);
+            objectMap.Add(task, taskObject);
+        }
     }
 
     private IEnumerator TaskRunner()
@@ -39,8 +45,15 @@ public class DistributedTaskManager : MonoBehaviour
             if (tasks.Count > 0)
             {
                 IQueuableTask task = tasks.Dequeue();
-                task.RunTask();
-                tasks.Enqueue(task);
+                if (objectMap[task] != null)
+                {
+                    task.RunTask();
+                    tasks.Enqueue(task);
+                }
+                else
+                {
+                    objectMap.Remove(task);
+                }
             }
             yield return new WaitForSeconds(taskWaitTime);
         }

@@ -17,6 +17,13 @@ public class EnemyShipSpawner : MonoBehaviour
     [SerializeField]
     private GameObject[] shipPrefabs;
 
+    private DistributedTaskManager taskManager;
+
+    private void Start()
+    {
+        taskManager = DistributedTaskManager.GetInstance();
+    }
+
     public GameObject SpawnShip(int shipIndex, AIShipMode mode, Vector3 position, Quaternion rotation)
     {
         GameObject newShip = Instantiate(shipPrefabs[shipIndex],
@@ -44,6 +51,7 @@ public class EnemyShipSpawner : MonoBehaviour
         }
 
         aiController.SetMode(mode);
+        taskManager.AddTask(newShip);
 
         return newShip;
     }

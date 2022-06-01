@@ -49,7 +49,8 @@ public class ShipRoutesManager : MonoBehaviour
         {
             if (TimeIsPassed(route.startMonth, route.startDay, route.startTime))
             {
-                currentRoutes.Add(routeIndexCounter, route);
+                int id = routeIndexCounter;
+                currentRoutes.Add(id, route);
                 SpawnShip(routeIndexCounter, route.destIsland, route.shipPosition);
 
                 routeIndexCounter++;

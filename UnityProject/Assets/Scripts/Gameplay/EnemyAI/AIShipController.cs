@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AIShipController : MonoBehaviour
+public class AIShipController : MonoBehaviour, IQueuableTask
 {
     private GameObject shipPrefabManager;
     private GameObject shipSafetyManager;
@@ -25,7 +25,7 @@ public class AIShipController : MonoBehaviour
         targetObject = spawnedShipManager.GetCurrentShip();
     }
 
-    private void Update()
+    public void RunTask()
     {
         if (safetyManager.ShipIsSafe())
         {
