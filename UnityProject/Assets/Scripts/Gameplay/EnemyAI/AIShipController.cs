@@ -66,10 +66,10 @@ public class AIShipController : MonoBehaviour
         }
     }
 
-    public void SetGoal(GameObject goal)
+    public void SetGoal(Vector3 goal)
     {
-        goalLocation = goal.transform.position;
-        if (shipMode == AIShipMode.Passive)
+        goalLocation = goal;
+        if (shipMode == AIShipMode.Passive || shipMode == AIShipMode.Agressive)
             ship.EnableMovement();
     }
 

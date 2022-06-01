@@ -146,7 +146,7 @@ public class ShipRoutesManager : MonoBehaviour
 
         AIShipController shipController = ship.GetComponent<AIShipController>();
         IslandData destInfo = islandManager.GetIslandInfo(destIsland);
-        shipController.SetGoal(destInfo.islandObject);
+        shipController.SetGoal(destInfo.islandObject.transform.position);
 
         travellingShips.Add(routeID, ship);
     }
