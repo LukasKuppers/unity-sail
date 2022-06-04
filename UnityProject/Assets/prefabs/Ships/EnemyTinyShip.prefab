@@ -294,6 +294,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77cae84347d0af244aee6d2d9c5c822a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxNumSearchRays: 4
+  pathfindingRayLength: 100
+  pathfindingRouteSensitivity: 0.65
+  pathfindingForwardBias: 0.4
+  pathfindingRayObstacleLayer: 0
 --- !u!114 &4159888111899384150
 MonoBehaviour:
   m_ObjectHideFlags: 0
