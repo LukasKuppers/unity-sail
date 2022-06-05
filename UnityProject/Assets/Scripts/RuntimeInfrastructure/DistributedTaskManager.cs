@@ -9,6 +9,7 @@ public class DistributedTaskManager : MonoBehaviour
 
     private Queue<IQueuableTask> tasks;
     private Dictionary<IQueuableTask, GameObject> objectMap;
+    private HashSet<IQueuableTask> standaloneTaskSet;
 
     private static DistributedTaskManager instance;
 
@@ -24,6 +25,7 @@ public class DistributedTaskManager : MonoBehaviour
     {
         tasks = new Queue<IQueuableTask>();
         objectMap = new Dictionary<IQueuableTask, GameObject>();
+        standaloneTaskSet = new HashSet<IQueuableTask>();
 
         StartCoroutine(TaskRunner());
     }
@@ -38,6 +40,23 @@ public class DistributedTaskManager : MonoBehaviour
         }
     }
 
+    public void AddStandaloneTask(IQueuableTask task)
+    {
+        if (task != null)
+        {
+            tasks.Enqueue(task);
+            standaloneTaskSet.Add(task);
+        }
+    }
+
+    public void RemoveStandaloneTask(IQueuableTask task)
+    {
+        if (standaloneTaskSet.Contains(task))
+        {
+            standaloneTaskSet.Remove(task);
+        }
+    }
+
     private IEnumerator TaskRunner()
     {
         while (tasks != null)
@@ -45,12 +64,16 @@ public class DistributedTaskManager : MonoBehaviour
             if (tasks.Count > 0)
             {
                 IQueuableTask task = tasks.Dequeue();
-                if (objectMap[task] != null)
+
+                bool isObjectTask = objectMap.ContainsKey(task);
+
+                if ((isObjectTask && objectMap[task] != null) ||
+                    standaloneTaskSet.Contains(task))
                 {
                     task.RunTask();
                     tasks.Enqueue(task);
                 }
-                else
+                else if (isObjectTask)
                 {
                     objectMap.Remove(task);
                 }
