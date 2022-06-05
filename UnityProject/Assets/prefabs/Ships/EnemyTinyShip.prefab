@@ -205,6 +205,7 @@ GameObject:
   - component: {fileID: 1156017824892997916}
   - component: {fileID: 6324686856732991042}
   - component: {fileID: 6697175031058522559}
+  - component: {fileID: -8525086781598119008}
   m_Layer: 0
   m_Name: EnemyTinyShip
   m_TagString: Untagged
@@ -294,11 +295,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77cae84347d0af244aee6d2d9c5c822a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxNumSearchRays: 4
-  pathfindingRayLength: 100
-  pathfindingRouteSensitivity: 0.65
-  pathfindingForwardBias: 0.4
-  pathfindingRayObstacleLayer: 0
 --- !u!114 &4159888111899384150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -372,6 +368,23 @@ CapsuleCollider:
   m_Height: 13.78
   m_Direction: 2
   m_Center: {x: 0, y: 0.58, z: 1.2}
+--- !u!114 &-8525086781598119008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2720305700964610440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0f29d7dad55caf47a2ab48a45d78d3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxNumSearchRays: 4
+  pathfindingRayLength: 100
+  pathfindingRouteSensitivity: 0.65
+  pathfindingForwardBias: 0.4
+  pathfindingRayObstacleLayer: 0
 --- !u!1 &5680569740264044967
 GameObject:
   m_ObjectHideFlags: 0
@@ -877,14 +890,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca5ae4264cb39534f987275dec1532c6, type: 3}
---- !u!1 &4796755959727684528 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2596634947891309533, guid: ca5ae4264cb39534f987275dec1532c6, type: 3}
-  m_PrefabInstance: {fileID: 7392827682777682029}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5321654476606415114 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3405505368243925351, guid: ca5ae4264cb39534f987275dec1532c6, type: 3}
+  m_PrefabInstance: {fileID: 7392827682777682029}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4796755959727684528 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2596634947891309533, guid: ca5ae4264cb39534f987275dec1532c6, type: 3}
   m_PrefabInstance: {fileID: 7392827682777682029}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8196045920770011701
