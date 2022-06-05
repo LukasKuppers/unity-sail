@@ -70,7 +70,8 @@ public class DistributedTaskManager : MonoBehaviour
                 if ((isObjectTask && objectMap[task] != null) ||
                     standaloneTaskSet.Contains(task))
                 {
-                    task.RunTask();
+                    float deltaTime = (tasks.Count + 1) * taskWaitTime;
+                    task.RunTask(deltaTime);
                     tasks.Enqueue(task);
                 }
                 else if (isObjectTask)

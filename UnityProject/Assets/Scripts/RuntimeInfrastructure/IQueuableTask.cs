@@ -1,5 +1,5 @@
 
 public interface IQueuableTask
 {
-    public void RunTask();
+    public void RunTask(float deltaTime);
 }

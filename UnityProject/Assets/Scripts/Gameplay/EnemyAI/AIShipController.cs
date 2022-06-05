@@ -27,7 +27,12 @@ public class AIShipController : MonoBehaviour, IQueuableTask
         targetObject = spawnedShipManager.GetCurrentShip();
     }
 
-    public void RunTask()
+    public Vector3 GetGoalLocation()
+    {
+        return goalLocation;
+    }
+
+    public void RunTask(float _deltaTime)
     {
         if (safetyManager.ShipIsSafe())
         {
