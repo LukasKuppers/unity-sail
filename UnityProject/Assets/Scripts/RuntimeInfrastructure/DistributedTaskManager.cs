@@ -66,17 +66,27 @@ public class DistributedTaskManager : MonoBehaviour
                 IQueuableTask task = tasks.Dequeue();
 
                 bool isObjectTask = objectMap.ContainsKey(task);
+                float deltaTime = (tasks.Count + 1) * taskWaitTime;
 
-                if ((isObjectTask && objectMap[task] != null) ||
-                    standaloneTaskSet.Contains(task))
+                if (isObjectTask)
                 {
-                    float deltaTime = (tasks.Count + 1) * taskWaitTime;
-                    task.RunTask(deltaTime);
-                    tasks.Enqueue(task);
+                    if (objectMap[task] != null)
+                    {
+                        if (objectMap[task].activeSelf)
+                            task.RunTask(deltaTime);
+
+                        tasks.Enqueue(task);
+                    }
+                    else
+                        objectMap.Remove(task);
                 }
-                else if (isObjectTask)
+                else
                 {
-                    objectMap.Remove(task);
+                    if (standaloneTaskSet.Contains(task))
+                    {
+                        task.RunTask(deltaTime);
+                        tasks.Enqueue(task);
+                    }
                 }
             }
             yield return new WaitForSeconds(taskWaitTime);

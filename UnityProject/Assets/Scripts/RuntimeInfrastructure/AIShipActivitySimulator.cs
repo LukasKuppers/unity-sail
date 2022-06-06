@@ -44,6 +44,8 @@ public class AIShipActivitySimulator : IQueuableTask
                     Vector3 dir = Vector3.Normalize(atGoal);
                     ship.transform.position += dir * simVelocity * deltaTime;
                 }
+                else
+                    ship.GetComponent<IDestructable>().Destroy();
             }
         }
     }

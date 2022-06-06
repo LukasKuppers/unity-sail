@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1653.7004, g: 3247.832, b: 7254.6406, a: 1}
+  m_IndirectSpecularColor: {r: 1647.8062, g: 3250.9316, b: 7302.672, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6897,6 +6897,7 @@ GameObject:
   m_Component:
   - component: {fileID: 863964487}
   - component: {fileID: 863964488}
+  - component: {fileID: 863964489}
   m_Layer: 0
   m_Name: AIShipSpawner
   m_TagString: Untagged
@@ -6931,6 +6932,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d0e0e9c1ce21134a80a6f70b5d08fac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  npcActivtyManager: {fileID: 863964486}
   shipPrefabManager: {fileID: 1163210783}
   shipSafetyManager: {fileID: 1163210783}
   pickupSpawner: {fileID: 1908523563}
@@ -6938,6 +6940,21 @@ MonoBehaviour:
   windManager: {fileID: 357877953}
   shipPrefabs:
   - {fileID: 2720305700964610440, guid: 70d6e7caa2059f84dbe5d81c3ede2d08, type: 3}
+--- !u!114 &863964489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 863964486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b5ef500bb3c32c4e833e7f0544050f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shipPrefabManager: {fileID: 1163210783}
+  loadDistance: 1000
+  simVelocity: 5
 --- !u!4 &864092131 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4852975787109374714, guid: 1fdc1d82684d37a4f872f386b16c1e10, type: 3}

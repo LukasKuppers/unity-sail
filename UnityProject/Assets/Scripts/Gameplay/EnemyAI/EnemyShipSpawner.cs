@@ -5,6 +5,8 @@ using UnityEngine;
 public class EnemyShipSpawner : MonoBehaviour
 {
     [SerializeField]
+    private GameObject npcActivtyManager;
+    [SerializeField]
     private GameObject shipPrefabManager;
     [SerializeField]
     private GameObject shipSafetyManager;
@@ -18,10 +20,12 @@ public class EnemyShipSpawner : MonoBehaviour
     private GameObject[] shipPrefabs;
 
     private DistributedTaskManager taskManager;
+    private NPCActivityManager npcManager;
 
     private void Start()
     {
         taskManager = DistributedTaskManager.GetInstance();
+        npcManager = npcActivtyManager.GetComponent<NPCActivityManager>();
     }
 
     public GameObject SpawnShip(int shipIndex, AIShipMode mode, Vector3 position, Quaternion rotation)
@@ -52,6 +56,7 @@ public class EnemyShipSpawner : MonoBehaviour
 
         aiController.SetMode(mode);
         taskManager.AddTask(newShip);
+        npcManager.RegisterNewShip(newShip);
 
         return newShip;
     }

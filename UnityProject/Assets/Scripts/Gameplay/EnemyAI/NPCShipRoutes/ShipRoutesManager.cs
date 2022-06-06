@@ -101,7 +101,7 @@ public class ShipRoutesManager : MonoBehaviour
     {
         if (!currentRoutes.ContainsKey(id))
         {
-            Debug.LogError($"ShipRoutesManager:CompleteRoute: no route with id {id} exists");
+            Debug.LogWarning($"ShipRoutesManager:CompleteRoute: no route with id {id} exists");
             return;
         }
 
