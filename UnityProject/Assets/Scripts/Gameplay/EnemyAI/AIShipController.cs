@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class AIShipController : MonoBehaviour, IQueuableTask
 {
+    [SerializeField]
+    private float aggressionDistance = 100f;
+    [SerializeField]
+    private float chaseTimeLimitSec = 180f;
+
     private GameObject shipPrefabManager;
     private GameObject shipSafetyManager;
 
@@ -15,6 +20,7 @@ public class AIShipController : MonoBehaviour, IQueuableTask
 
     private GameObject targetObject;
     private Vector3 goalLocation;
+    private float chaseDuration = 0f;
 
     private void Awake()
     {
@@ -32,19 +38,46 @@ public class AIShipController : MonoBehaviour, IQueuableTask
         return goalLocation;
     }
 
-    public void RunTask(float _deltaTime)
+    public void RunTask(float deltaTime)
     {
-        if (safetyManager.ShipIsSafe())
+        if (safetyManager.ShipIsSafe() || shipMode == AIShipMode.Anchored ||
+            (shipMode == AIShipMode.Passive && goalLocation == null))
         {
-            SetMode(AIShipMode.Passive);
+            ship.DisableMovement();
+            chaseDuration = 0f;
         }
-
-        if (shipMode == AIShipMode.Agressive && targetObject != null)
+        else
         {
-            Attack();
+            ship.EnableMovement();
+            if (shipMode == AIShipMode.Passive)
+            {
+                pathfinder.TravelToPoint(goalLocation);
+                chaseDuration = 0f;
+            }
+            else
+            {
+                if (goalLocation == null)
+                {
+                    Attack();
+                    chaseDuration += deltaTime;
+                }
+                else
+                {
+                    float distToTarget = Vector3.Distance(targetObject.transform.position, transform.position);
+                    if (distToTarget <= aggressionDistance && chaseDuration < chaseTimeLimitSec)
+                    {
+                        Attack();
+                        chaseDuration += deltaTime;
+                    }
+                    else
+                    {
+                        pathfinder.TravelToPoint(goalLocation);
+                    }
+                    if (distToTarget > aggressionDistance)
+                        chaseDuration = 0;
+                }                
+            }
         }
-        else if (shipMode == AIShipMode.Passive && goalLocation != null)
-            pathfinder.TravelToPoint(goalLocation);
     }
 
     public void SetShipPrefabManager(GameObject newShipPrefabManager)
