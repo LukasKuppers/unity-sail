@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class AIShipActivitySimulator : IQueuableTask
 {
@@ -12,7 +13,7 @@ public class AIShipActivitySimulator : IQueuableTask
     private float loadDistance;
     private float simVelocity;
 
-    public AIShipActivitySimulator(GameObject shipObj, ShipPrefabManager playerShipManager, 
+    public AIShipActivitySimulator(GameObject shipObj, ShipPrefabManager playerShipManager,
                                    float loadDistance, float simVelocity)
     {
         this.playerShipManager = playerShipManager;
@@ -27,6 +28,9 @@ public class AIShipActivitySimulator : IQueuableTask
 
     public void RunTask(float deltaTime)
     {
+        if (ship == null)
+            return;
+
         if (ShipInActiveRange())
         {
             ship.SetActive(true);
