@@ -83,6 +83,7 @@ public class ShipAutomation : MonoBehaviour, IAutomaticShip
             StartCoroutine(SetSail(height));
             return;
         }
+        sailHeightsQueue.Clear();
         sailHeightsQueue.Enqueue(height);
     }
 

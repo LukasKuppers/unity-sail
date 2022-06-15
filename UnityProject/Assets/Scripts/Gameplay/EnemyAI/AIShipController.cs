@@ -7,6 +7,8 @@ public class AIShipController : MonoBehaviour, IQueuableTask
     [SerializeField]
     private float aggressionDistance = 100f;
     [SerializeField]
+    private float goalProximityDistance = 10f;
+    [SerializeField]
     private float chaseTimeLimitSec = 180f;
 
     private GameObject shipPrefabManager;
@@ -48,16 +50,16 @@ public class AIShipController : MonoBehaviour, IQueuableTask
         }
         else
         {
-            ship.EnableMovement();
             if (shipMode == AIShipMode.Passive)
             {
-                pathfinder.TravelToPoint(goalLocation);
                 chaseDuration = 0f;
+                SeekGoal();
             }
             else
             {
                 if (goalLocation == null)
                 {
+                    ship.EnableMovement();
                     Attack();
                     chaseDuration += deltaTime;
                 }
@@ -66,12 +68,13 @@ public class AIShipController : MonoBehaviour, IQueuableTask
                     float distToTarget = Vector3.Distance(targetObject.transform.position, transform.position);
                     if (distToTarget <= aggressionDistance && chaseDuration < chaseTimeLimitSec)
                     {
+                        ship.EnableMovement();
                         Attack();
                         chaseDuration += deltaTime;
                     }
                     else
                     {
-                        pathfinder.TravelToPoint(goalLocation);
+                        SeekGoal();
                     }
                     if (distToTarget > aggressionDistance)
                         chaseDuration = 0;
@@ -111,6 +114,21 @@ public class AIShipController : MonoBehaviour, IQueuableTask
         goalLocation = goal;
         if (shipMode == AIShipMode.Passive || shipMode == AIShipMode.Agressive)
             ship.EnableMovement();
+    }
+
+    private void SeekGoal()
+    {
+        if (goalLocation == null)
+            return;
+
+        float distToGoal = Vector3.Distance(goalLocation, transform.position);
+        if (distToGoal <= goalProximityDistance)
+            ship.DisableMovement();
+        else
+        {
+            ship.EnableMovement();
+            pathfinder.TravelToPoint(goalLocation);
+        }
     }
 
     private void Attack()
