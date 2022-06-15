@@ -10,9 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 5823022088228681834}
   - component: {fileID: 5823022088228681833}
+  - component: {fileID: 1184909056424036670}
+  - component: {fileID: 408089611104455082}
   m_Layer: 0
   m_Name: FortTurret
-  m_TagString: Untagged
+  m_TagString: EnemyTurret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46,6 +48,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyedPrefab: {fileID: 1232689866676585660, guid: 3ef90265ccd9f0743973a97aff9120c8, type: 3}
+--- !u!136 &1184909056424036670
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5823022088228681832}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 3.55
+  m_Height: 8.94
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.26, z: 0}
+--- !u!114 &408089611104455082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5823022088228681832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca588077746da5843bd571a9d5165805, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
 --- !u!1001 &3894721255846559750
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -100,6 +129,10 @@ PrefabInstance:
     - target: {fileID: 2856718049442253417, guid: 1d0b2d87a234c3240acdb3f137f5e776, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3535205839689969393, guid: 1d0b2d87a234c3240acdb3f137f5e776, type: 3}
+      propertyPath: maxYawAngle
+      value: 360
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d0b2d87a234c3240acdb3f137f5e776, type: 3}

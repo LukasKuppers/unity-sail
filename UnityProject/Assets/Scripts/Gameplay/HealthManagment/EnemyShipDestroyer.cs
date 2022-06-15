@@ -18,27 +18,27 @@ public class EnemyShipDestroyer : MonoBehaviour, IDestructable
 
     private PickupGenerator pickupGenerator;
 
-    private UnityEvent destroyedEvent;
+    private ObjectDestroyedEvent destroyedEvent;
 
     public void SetPickupGenerator(GameObject pickupGenerator)
     {
         this.pickupGenerator = pickupGenerator.GetComponent<PickupGenerator>();
     }
 
-    public void AddDestructionListener(UnityAction call)
+    public void AddDestructionListener(UnityAction<GameObject> call)
     {
         if (destroyedEvent == null)
-            destroyedEvent = new UnityEvent();
+            destroyedEvent = new ObjectDestroyedEvent();
 
         destroyedEvent.AddListener(call);
     }
 
     public void Destroy()
     {
-        if (destroyedEvent != null)
-            destroyedEvent.Invoke();
+        GameObject destroyedShip = Instantiate(destroyedPrefab, transform.position, transform.rotation);
 
-        Instantiate(destroyedPrefab, transform.position, transform.rotation);
+        if (destroyedEvent != null)
+            destroyedEvent.Invoke(destroyedShip);
 
         if (pickupGenerator != null)
         {

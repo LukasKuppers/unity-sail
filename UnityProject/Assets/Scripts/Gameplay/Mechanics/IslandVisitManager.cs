@@ -21,8 +21,11 @@ public class IslandVisitManager : MonoBehaviour
 
     private void Start()
     {
-        individualVisitEvents = new Dictionary<Islands, UnityEvent>();
-        individualDepartureEvents = new Dictionary<Islands, UnityEvent>();
+        if (individualVisitEvents == null)
+            individualVisitEvents = new Dictionary<Islands, UnityEvent>();
+
+        if (individualDepartureEvents == null)
+            individualDepartureEvents = new Dictionary<Islands, UnityEvent>();
 
         foreach (GameObject colliderObj in islandDetectionColliders)
         {
@@ -50,6 +53,9 @@ public class IslandVisitManager : MonoBehaviour
 
     public void AddSpecificVisitListener(Islands island, UnityAction call)
     {
+        if (individualVisitEvents == null)
+            individualVisitEvents = new Dictionary<Islands, UnityEvent>();
+
         if (!individualVisitEvents.ContainsKey(island))
             individualVisitEvents[island] = new UnityEvent();
 
@@ -58,6 +64,9 @@ public class IslandVisitManager : MonoBehaviour
 
     public void AddSpecificDepartureListener(Islands island, UnityAction call)
     {
+        if (individualDepartureEvents == null)
+            individualDepartureEvents = new Dictionary<Islands, UnityEvent>();
+
         if (!individualDepartureEvents.ContainsKey(island))
             individualDepartureEvents[island] = new UnityEvent();
 

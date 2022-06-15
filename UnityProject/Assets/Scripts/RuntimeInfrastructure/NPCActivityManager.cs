@@ -26,7 +26,7 @@ public class NPCActivityManager : MonoBehaviour
         taskManager.AddStandaloneTask(shipSim);
 
         ship.GetComponent<IDestructable>().AddDestructionListener(
-            () => KillSimTask(shipSim));
+            (GameObject _) => KillSimTask(shipSim));
     }
 
     private void KillSimTask(IQueuableTask task)

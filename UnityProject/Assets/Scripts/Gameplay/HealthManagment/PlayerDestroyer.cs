@@ -22,7 +22,7 @@ public class PlayerDestroyer : MonoBehaviour, IDestructable
     private PlayerInventory inventory;
     private ShipPrefabManager prefabManager;
 
-    private UnityEvent destructionEvent;
+    private ObjectDestroyedEvent destructionEvent;
 
     private void Start()
     {
@@ -47,10 +47,10 @@ public class PlayerDestroyer : MonoBehaviour, IDestructable
         prefabManager = shipPrefabManager.GetComponent<ShipPrefabManager>();
     }
 
-    public void AddDestructionListener(UnityAction call)
+    public void AddDestructionListener(UnityAction<GameObject> call)
     {
         if (destructionEvent == null)
-            destructionEvent = new UnityEvent();
+            destructionEvent = new ObjectDestroyedEvent();
 
         destructionEvent.AddListener(call);
     }
@@ -58,7 +58,7 @@ public class PlayerDestroyer : MonoBehaviour, IDestructable
     public void Destroy()
     {
         if (destructionEvent != null)
-            destructionEvent.Invoke();
+            destructionEvent.Invoke(null);
 
         prefabManager.RespawnShip();
 

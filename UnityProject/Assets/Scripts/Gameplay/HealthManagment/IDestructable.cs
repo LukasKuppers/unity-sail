@@ -5,7 +5,8 @@ using UnityEngine.Events;
 
 public interface IDestructable
 {
-    public void AddDestructionListener(UnityAction call);
+    // returns the destroyed version of the object, if it exists
+    public void AddDestructionListener(UnityAction<GameObject> call);
 
     public void Destroy();
 }
