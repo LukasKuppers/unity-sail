@@ -66,6 +66,7 @@ public class AIShipController : MonoBehaviour, IQueuableTask
                 else
                 {
                     float distToTarget = Vector3.Distance(targetObject.transform.position, transform.position);
+                    float targetDistToGoal = Vector3.Distance(goalLocation, targetObject.transform.position);
                     if (distToTarget <= aggressionDistance && chaseDuration < chaseTimeLimitSec)
                     {
                         ship.EnableMovement();
@@ -77,6 +78,8 @@ public class AIShipController : MonoBehaviour, IQueuableTask
                         SeekGoal();
                     }
                     if (distToTarget > aggressionDistance)
+                        chaseDuration = 0;
+                    if (targetDistToGoal <= aggressionDistance)
                         chaseDuration = 0;
                 }                
             }
