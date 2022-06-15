@@ -14,17 +14,21 @@ public class IslandVisitManager : MonoBehaviour
     private GameObject[] islandDetectionColliders;
 
     private Dictionary<Islands, UnityEvent> individualVisitEvents;
+    private Dictionary<Islands, UnityEvent> individualDepartureEvents;
 
     private IslandVisitEvent generalVisitEvent;
+    private IslandVisitEvent generalDepartureEvent;
 
     private void Start()
     {
         individualVisitEvents = new Dictionary<Islands, UnityEvent>();
+        individualDepartureEvents = new Dictionary<Islands, UnityEvent>();
 
         foreach (GameObject colliderObj in islandDetectionColliders)
         {
             IslandVisitCollider col = colliderObj.GetComponent<IslandVisitCollider>();
-            col.AddVisitListener(IslandListener);
+            col.AddVisitListener(IslandVisitListener);
+            col.AddDepartureListener(IslandDepartureListener);
         }
     }
 
@@ -36,6 +40,14 @@ public class IslandVisitManager : MonoBehaviour
         generalVisitEvent.AddListener(call);
     }
 
+    public void AddGeneralDepartureListener(UnityAction<Islands> call)
+    {
+        if (generalDepartureEvent == null)
+            generalDepartureEvent = new IslandVisitEvent();
+
+        generalDepartureEvent.AddListener(call);
+    }
+
     public void AddSpecificVisitListener(Islands island, UnityAction call)
     {
         if (!individualVisitEvents.ContainsKey(island))
@@ -44,7 +56,15 @@ public class IslandVisitManager : MonoBehaviour
         individualVisitEvents[island].AddListener(call);
     }
 
-    private void IslandListener(Islands island)
+    public void AddSpecificDepartureListener(Islands island, UnityAction call)
+    {
+        if (!individualDepartureEvents.ContainsKey(island))
+            individualDepartureEvents[island] = new UnityEvent();
+
+        individualDepartureEvents[island].AddListener(call);
+    }
+
+    private void IslandVisitListener(Islands island)
     {
         if (generalVisitEvent == null)
             generalVisitEvent = new IslandVisitEvent();
@@ -54,5 +74,17 @@ public class IslandVisitManager : MonoBehaviour
 
         generalVisitEvent.Invoke(island);
         individualVisitEvents[island].Invoke();
+    }
+
+    private void IslandDepartureListener(Islands island)
+    {
+        if (generalDepartureEvent == null)
+            generalDepartureEvent = new IslandVisitEvent();
+
+        if (!individualDepartureEvents.ContainsKey(island))
+            individualDepartureEvents[island] = new UnityEvent();
+
+        generalDepartureEvent.Invoke(island);
+        individualDepartureEvents[island].Invoke();
     }
 }
