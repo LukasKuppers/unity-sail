@@ -6,6 +6,24 @@ Unity-sail is the repository for `Project Sail`, an open world naval-combat and 
 
 ## Version History
 
+### Alpha_1.0 (AI Update):
+June 15, 2022
+- Added distributed task queue
+- Queue AI decision tasks (performance optimization)
+- Revised AI ship behaviour:
+  - Raise sails once goal is reached
+  - aggressive AI can also seek a goal
+  - aggressive AI with a goal will attack a player if they come too close
+  - aggressive AI will stop chasing the player after some time
+- Added simple physics based pathfinding scheme to AI ships
+- Added proximity AI loader (deactiviate distant ships)
+- Added deactivated AI simulator (simulate movement of unloaded ships)
+- Re-added fort turrets
+  - Fort turrets deactivate if the player is far away
+  - Destroyed turrets respawn if the player visits the home island
+- Added fort turret (temporary) to Palm Isle
+- Added patrol ships (temporary) to Beacon Hill 
+
 ### Dev_1.5:
 May 29, 2022
 - Added new prop assets (tent, cartographer tent)
