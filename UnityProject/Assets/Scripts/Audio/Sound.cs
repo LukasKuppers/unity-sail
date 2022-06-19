@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
+public enum SoundType
+{
+    MUSIC, 
+    SFX
+}
+
 [System.Serializable]
 public class Sound
 {
@@ -17,4 +23,6 @@ public class Sound
     public float pitch;
 
     public bool loop;
+
+    public SoundType type;
 }
