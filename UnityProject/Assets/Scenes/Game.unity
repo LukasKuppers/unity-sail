@@ -15397,11 +15397,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+  - name: ButtonClick
+    clip: {fileID: 8300000, guid: b7efa89dfafb49f4ba0735fd4f1e7bb1, type: 3}
+    volume: 0.5
+    pitch: 2
     loop: 0
+    type: 1
 --- !u!4 &2114433590
 Transform:
   m_ObjectHideFlags: 0

@@ -15,7 +15,8 @@ public class ButtonAudio : MonoBehaviour
         audioManager = AudioManager.GetInstance();
         Button button = gameObject.GetComponent<Button>();
 
-        button.onClick.AddListener(PlayClickSound);
+        if (button != null)
+            button.onClick.AddListener(PlayClickSound);
     }
 
     private void PlayClickSound()
