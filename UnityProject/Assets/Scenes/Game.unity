@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1727.1926, g: 3128.0117, b: 6523.2266, a: 1}
+  m_IndirectSpecularColor: {r: 1694.3914, g: 3197.043, b: 6854.6953, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -15377,6 +15377,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2114433590}
   - component: {fileID: 2114433589}
+  - component: {fileID: 2114433591}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -15399,7 +15400,7 @@ MonoBehaviour:
   sounds:
   - name: ButtonClick
     clip: {fileID: 8300000, guid: b7efa89dfafb49f4ba0735fd4f1e7bb1, type: 3}
-    volume: 0.5
+    volume: 1
     pitch: 2
     loop: 0
     type: 1
@@ -15417,6 +15418,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2114433591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2114433588}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e5a2bc1a5ada884195d6d8b4eb117d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  combatDuration: 5
+  maxAmbientTrackWaitTime: 10
+  ambientTrackNames:
+  - ButtonClick
+  dangerTrackNames:
+  - ButtonClick
+  combatTrackNames:
+  - ButtonClick
 --- !u!1001 &2122717391
 PrefabInstance:
   m_ObjectHideFlags: 0

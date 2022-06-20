@@ -46,6 +46,15 @@ public class AudioManager : MonoBehaviour
         });
     }
 
+    public void PlayWithCompletionCallback(string soundName, UnityAction callback)
+    {
+        FetchSource(soundName, (source) =>
+        {
+            source.Play();
+            StartCoroutine(SoundClipCompletionCallback(source.clip.length, callback));
+        });
+    }
+
     public void Pause(string soundName)
     {
         FetchSource(soundName, (source) =>
@@ -65,5 +74,11 @@ public class AudioManager : MonoBehaviour
         else
             Debug.LogWarning($"AudioManager:Play: Sound {soundName} does not exist");
         return null;
+    }
+
+    private IEnumerator SoundClipCompletionCallback(float clipTime, UnityAction callback)
+    {
+        yield return new WaitForSeconds(clipTime);
+        callback.Invoke();
     }
 }
