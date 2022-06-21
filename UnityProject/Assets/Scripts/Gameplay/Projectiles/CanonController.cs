@@ -28,11 +28,13 @@ public class CanonController : MonoBehaviour, IProjectileShooter
 
     private ProjectilePathRenderer pathRendrer;
     private Rigidbody parentRb;
+    private AudioSource shootSound;
     private bool fireReady = true;
 
     private void Start()
     {
         pathRendrer = gameObject.GetComponent<ProjectilePathRenderer>();
+        shootSound = gameObject.GetComponent<AudioSource>();
         ValidateParams(yawLimit, pitchLimit);
     }
 
@@ -99,6 +101,8 @@ public class CanonController : MonoBehaviour, IProjectileShooter
             {
                 rb.velocity += parentRb.velocity;
             }
+
+            shootSound.Play();
 
             fireReady = false;
             StartCoroutine(COROUTINE_CALL_NAME);
