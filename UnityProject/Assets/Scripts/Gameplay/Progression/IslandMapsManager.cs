@@ -71,5 +71,6 @@ public enum Islands
     BEACON_HILL, 
     CHIP_TOOTH_COVE, 
     CROOKS_COVE, 
+    SKULL_ISLE, 
     NONE
 }
