@@ -70,5 +70,6 @@ public enum Islands
     CRAB_REEF, 
     BEACON_HILL, 
     CHIP_TOOTH_COVE, 
+    CROOKS_COVE, 
     NONE
 }
