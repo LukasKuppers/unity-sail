@@ -72,5 +72,6 @@ public enum Islands
     CHIP_TOOTH_COVE, 
     CROOKS_COVE, 
     SKULL_ISLE, 
+    GRAND_FORT, 
     NONE
 }
