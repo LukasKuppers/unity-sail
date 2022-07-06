@@ -44,10 +44,13 @@ public class PlayerController : MonoBehaviour
 
     private float GetSailAngle(float currentSailAngle)
     {
-        float shipAngle = transform.localEulerAngles.y > 180f ? transform.localEulerAngles.y - 360f : transform.localEulerAngles.y;
-        float currentGlobal = currentSailAngle + shipAngle;
-        float targetAngle = wind.GetWindDirection();
+        float windAngle = wind.GetWindDirection();
+        Vector2 windVector = Vector2Util.DegreeToVector2(windAngle);
+        Vector2 shipVector = new Vector2(transform.forward.x, transform.forward.z);
+        float localWindAngle = Vector2.SignedAngle(shipVector, windVector) * -1;  
 
-        return currentSailAngle + (targetAngle - currentGlobal) / 100f;
+        float sailDelta = (localWindAngle - currentSailAngle) / 100f;
+
+        return currentSailAngle + sailDelta;
     }
 }

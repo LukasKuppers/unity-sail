@@ -90,12 +90,15 @@ public class ShipAutomation : MonoBehaviour, IAutomaticShip
     private void ControlSailAngle()
     {
         float currentAngle = shipController.GetSailAngle();
+        float windAngle = wind.GetWindDirection();
 
-        float shipAngle = transform.localEulerAngles.y > 180f ? transform.localEulerAngles.y - 360f : transform.localEulerAngles.y;
-        float currentGlobal = currentAngle + shipAngle;
-        float targetAngle = wind.GetWindDirection();
+        Vector2 windVector = Vector2Util.DegreeToVector2(windAngle);
+        Vector2 shipVector = new Vector2(transform.forward.x, transform.forward.z);
+        float localWindAngle = Vector2.SignedAngle(shipVector, windVector) * -1;
 
-        shipController.SetSailAngle(currentAngle + (targetAngle - currentGlobal) / 100f);
+        float sailDelta = (localWindAngle - currentAngle) / 100f;
+
+        shipController.SetSailAngle(currentAngle + sailDelta);
     }
 
     private IEnumerator SetSail(float sailHeight)
