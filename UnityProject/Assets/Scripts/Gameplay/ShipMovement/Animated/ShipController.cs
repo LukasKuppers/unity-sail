@@ -60,7 +60,7 @@ public class ShipController : MonoBehaviour, IShipController
 
     public float GetSailMultiplier()
     {
-        return parameters.GetSailMultiplier(rotation, sailAngle, wind.GetWindDirection());
+        return parameters.GetSailMultiplier(transform.forward, sailAngle, wind.GetWindDirection());
     }
 
     public void SetSailHeight(float height)
@@ -81,8 +81,8 @@ public class ShipController : MonoBehaviour, IShipController
     private void CalculateSpeed()
     {
         float potential = sailHeight * 
-            parameters.GetSailMultiplier(rotation, sailAngle, wind.GetWindDirection()) * 
-            parameters.GetKeelMultiplier(rotation, wind.GetWindDirection());
+            parameters.GetSailMultiplier(transform.forward, sailAngle, wind.GetWindDirection()) * 
+            parameters.GetKeelMultiplier(transform.forward, wind.GetWindDirection());
         float target = potential * topSpeed;
         float delta = target - speed;
 

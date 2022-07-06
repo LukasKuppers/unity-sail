@@ -11,28 +11,26 @@ public class ShipParameters
         this.keelInfluence = keelInfluence;
     }
 
-    public float GetSailMultiplier(float shipRotation, float sailAngle, float windDirection)
+    public float GetSailMultiplier(Vector3 shipForward, float sailAngle, float windDirection)
     {
-        float sailRotation = (shipRotation + sailAngle) % 360f;
+        Vector2 shipVector = new Vector2(shipForward.x, shipForward.z);
+        Vector2 windVector = Vector2Util.DegreeToVector2(windDirection);
+        float localWindAngle = Vector2.SignedAngle(shipVector, windVector) * -1f;
 
-        float sailOffset = AngleDifference(sailRotation, windDirection);
+        float sailOffset = Mathf.Abs(sailAngle - localWindAngle);
+        
         float sailMultiplier = sailOffset < 90f ? 1 - (sailOffset / 90f) : 0f;
         return sailMultiplier;
     }
 
-    public float GetKeelMultiplier(float shipRotation, float windDirection)
+    public float GetKeelMultiplier(Vector3 shipForward, float windDirection)
     {
-        float keelOffset = AngleDifference(shipRotation, windDirection);
+        Vector2 shipVector = new Vector2(shipForward.x, shipForward.z);
+        Vector2 windVector = Vector2Util.DegreeToVector2(windDirection);
+        float keelOffset = Vector2.Angle(shipVector, windVector);
         keelOffset = keelOffset > 90f ? 180 - keelOffset : keelOffset;
 
-        return ((keelOffset / 90f) * keelInfluence) + (1f - keelInfluence);
-    }
-
-    private float AngleDifference(float a, float b)
-    {
-        float min = Mathf.Min(a, b);
-        float max = a + b - min;
-
-        return Mathf.Min(max - min, min + (360 - max));
+        float keelMultiplier = ((keelOffset / 90f) * keelInfluence) + (1f - keelInfluence);
+        return keelMultiplier;
     }
 }

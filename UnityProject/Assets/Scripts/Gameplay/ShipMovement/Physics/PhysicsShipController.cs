@@ -46,6 +46,12 @@ public class PhysicsShipController : MonoBehaviour, IShipController
     {
         float magnitude = CalculateForce();
 
+        Vector3 pos = transform.position + (transform.up * 40f);
+        Vector2 windVec = Vector2Util.DegreeToVector2(wind.GetWindDirection()) * 10f;
+        Vector2 shipVec = new Vector2(transform.forward.x, transform.forward.z) * 10f;
+        Debug.DrawRay(pos, new Vector3(windVec.x, 0, windVec.y), Color.blue);
+        Debug.DrawRay(pos, new Vector3(shipVec.x, 0, shipVec.y), Color.red);
+
         rb.AddForce(transform.forward * magnitude, ForceMode.Acceleration);
         rb.AddRelativeTorque(Vector3.up * steerAmount * torque);
     }
@@ -67,13 +73,10 @@ public class PhysicsShipController : MonoBehaviour, IShipController
 
     public float GetSailMultiplier()
     {
-        float shipRotation = transform.rotation.eulerAngles.y;
-        float multiplier = paramteters.GetSailMultiplier(shipRotation, sailAngle, wind.GetWindDirection());
+        float multiplier = paramteters.GetSailMultiplier(transform.forward, sailAngle, wind.GetWindDirection());
 
-        if (intoWindBonus && multiplier <= 0.5f)
-        {
-            multiplier = 0.5f;
-        }
+        multiplier = intoWindBonus ? Mathf.Clamp(multiplier, 0.5f, 1.0f) : multiplier;
+
         return multiplier;
     }
 
@@ -94,10 +97,9 @@ public class PhysicsShipController : MonoBehaviour, IShipController
 
     private float CalculateForce()
     {
-        float shipRotation = transform.rotation.eulerAngles.y;
         float potential = sailHeight *
             GetSailMultiplier() *
-            paramteters.GetKeelMultiplier(shipRotation, wind.GetWindDirection());
+            paramteters.GetKeelMultiplier(transform.forward, wind.GetWindDirection());
 
         float target = potential * topSpeed;
         float delta = target - GetSpeed();
