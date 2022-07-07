@@ -73,5 +73,6 @@ public enum Islands
     CROOKS_COVE, 
     SKULL_ISLE, 
     GRAND_FORT, 
+    SCIMITAR_ROCK, 
     NONE
 }
