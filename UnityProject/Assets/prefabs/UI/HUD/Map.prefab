@@ -121,7 +121,7 @@ MonoBehaviour:
   contentContainer: {fileID: 6583900433191183780}
   islandsContainer: {fileID: 8763464473908088344}
   playerPosIcon: {fileID: 6583900432814136254}
-  worldMapWidth: 2000
+  worldMapWidth: 3000
   worldMapHeight: 3000
 --- !u!1 &4614397631895714936
 GameObject:
