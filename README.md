@@ -6,6 +6,20 @@ Unity-sail is the repository for `Project Sail`, an open world naval-combat and 
 
 ## Version History
 
+### Alpha_1.1 (Map Update):
+July 13, 2022
+- Added SFX infrastructure
+- Added music player state machine
+- Added Crooks Cove
+- Added Skull Isle
+- Added Grand Fort
+- Added Scimitar Rock
+- Added obstacle islands
+- Added mainland with river
+- Added random and dynamic wind direction
+- Expanded map boundaries
+- Adjusted fog appearance
+
 ### Alpha_1.0 (AI Update):
 June 15, 2022
 - Added distributed task queue
