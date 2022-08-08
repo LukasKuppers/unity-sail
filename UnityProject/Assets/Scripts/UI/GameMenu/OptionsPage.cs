@@ -9,9 +9,12 @@ public class OptionsPage : MonoBehaviour
     private GameObject applyButton;
     [SerializeField]
     private GameObject uiScaleSliderObject;
+    [SerializeField]
+    private GameObject masterVolumeSliderObject;
 
     private Button applyBtn;
     private Slider uiScaleSlider;
+    private Slider masterVolumeSlider;
 
     private GameMenuModal menu;
     private OptionsManager optionsManager;
@@ -23,6 +26,7 @@ public class OptionsPage : MonoBehaviour
 
         applyBtn = applyButton.GetComponent<Button>();
         uiScaleSlider = uiScaleSliderObject.GetComponent<Slider>();
+        masterVolumeSlider = masterVolumeSliderObject.GetComponent<Slider>();
 
         applyBtn.onClick.AddListener(ApplyValues);
 
@@ -31,17 +35,39 @@ public class OptionsPage : MonoBehaviour
 
     private void InitValues()
     {
-        float uiScale = float.Parse(optionsManager.GetOption(Option.UI_SCALE));
-
-        uiScaleSlider.value = Mathf.InverseLerp(0.5f, 1.0f, uiScale);
+        InitUIScale();
+        InitMasterVolume();
     }
 
     private void ApplyValues()
     {
-        float uiScale = Mathf.Lerp(0.5f, 1.0f, uiScaleSlider.value);
-
-        optionsManager.WriteOption(Option.UI_SCALE, uiScale.ToString());
+        ApplyUIScale();
+        ApplyMasterVolume();
 
         menu.ClosePages();
+    }
+
+    private void InitUIScale()
+    {
+        float uiScale = float.Parse(optionsManager.GetOption(Option.UI_SCALE));
+        uiScaleSlider.value = Mathf.InverseLerp(0.5f, 1.0f, uiScale);
+    }
+
+    private void ApplyUIScale()
+    {
+        float uiScale = Mathf.Lerp(0.5f, 1.0f, uiScaleSlider.value);
+        optionsManager.WriteOption(Option.UI_SCALE, uiScale.ToString());
+    }
+
+    private void InitMasterVolume()
+    {
+        float volume = float.Parse(optionsManager.GetOption(Option.MASTER_VOLUME));
+        masterVolumeSlider.value = volume;
+    }
+
+    private void ApplyMasterVolume()
+    {
+        float volume = masterVolumeSlider.value;
+        optionsManager.WriteOption(Option.MASTER_VOLUME, volume.ToString());
     }
 }
