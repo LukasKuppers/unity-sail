@@ -8,13 +8,17 @@ public class OptionsManager : MonoBehaviour
     private static readonly Dictionary<Option, string> KEY_MAP = new Dictionary<Option, string>()
     {
         { Option.UI_SCALE, "ui_scale" },
-        { Option.MASTER_VOLUME, "master_volume" }
+        { Option.MASTER_VOLUME, "master_volume" },
+        { Option.DISPLAY_MODE, "display_mode" },
+        { Option.DISPLAY_RESOLUTION, "display_resolution" }
     };
 
     private static readonly Dictionary<string, string> DEFAULT_OPTIONS = new Dictionary<string, string>()
     {
         { KEY_MAP[Option.UI_SCALE], "1" },
-        { KEY_MAP[Option.MASTER_VOLUME], "1" }
+        { KEY_MAP[Option.MASTER_VOLUME], "1" },
+        { KEY_MAP[Option.DISPLAY_MODE], "true" },
+        { KEY_MAP[Option.DISPLAY_RESOLUTION], "1920x1080" }
     };
 
     [SerializeField]
@@ -49,6 +53,7 @@ public class OptionsManager : MonoBehaviour
     {
         ApplyUIScaleToScene();
         ApplyMasterVolumeToScene();
+        ApplyDisplayModeToScene();
     }
 
     public void WriteOption(Option optionType, string optionValue)
@@ -75,10 +80,26 @@ public class OptionsManager : MonoBehaviour
         float volume = float.Parse(options[KEY_MAP[Option.MASTER_VOLUME]]);
         AudioListener.volume = volume;
     }
+
+    private void ApplyDisplayModeToScene()
+    {
+        bool isFullscreen = bool.Parse(options[KEY_MAP[Option.DISPLAY_MODE]]);
+        string resStr = options[KEY_MAP[Option.DISPLAY_RESOLUTION]];
+
+        string[] resArr = resStr.Split(new char[] { 'x' });
+        int width = int.Parse(resArr[0]);
+        int height = int.Parse(resArr[1]);
+
+        FullScreenMode mode = isFullscreen ? FullScreenMode.FullScreenWindow : FullScreenMode.Windowed;
+        
+        Screen.SetResolution(width, height, mode);
+    }
 }
 
 public enum Option
 {
     UI_SCALE,
-    MASTER_VOLUME
+    MASTER_VOLUME, 
+    DISPLAY_MODE, 
+    DISPLAY_RESOLUTION
 }

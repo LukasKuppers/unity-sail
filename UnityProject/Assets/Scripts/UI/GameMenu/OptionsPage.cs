@@ -53,6 +53,7 @@ public class OptionsPage : MonoBehaviour
     {
         ApplyUIScale();
         ApplyMasterVolume();
+        ApplyDisplaySettings();
 
         menu.ClosePages();
     }
@@ -86,10 +87,33 @@ public class OptionsPage : MonoBehaviour
         List<TMP_Dropdown.OptionData> resList = new List<TMP_Dropdown.OptionData>();
         foreach (Resolution res in Screen.resolutions)
         {
-            string resStr = $"{res.width}x{res.height}";
+            string resStr = ResToString(res);
             TMP_Dropdown.OptionData newRes = new TMP_Dropdown.OptionData(resStr);
             resList.Add(newRes);
         }
         resolutionDropdown.AddOptions(resList);
+
+        resolutionDropdown.value = resolutionDropdown.options.FindIndex(
+            option => option.text == ResToString(Screen.currentResolution));
+
+        string currentMode = Screen.fullScreenMode == FullScreenMode.FullScreenWindow ? "Fullscreen" : "Windowed";
+        displayModeDropdown.value = displayModeDropdown.options.FindIndex(
+            option => option.text == currentMode);
+    }
+
+    private void ApplyDisplaySettings()
+    {
+        string resolution = resolutionDropdown.options[resolutionDropdown.value].text;
+        
+        string dispMode = displayModeDropdown.options[displayModeDropdown.value].text;
+        bool isFullscreen = dispMode == "Fullscreen";
+
+        optionsManager.WriteOption(Option.DISPLAY_MODE, isFullscreen.ToString());
+        optionsManager.WriteOption(Option.DISPLAY_RESOLUTION, resolution);
+    }
+
+    private string ResToString(Resolution res)
+    {
+        return $"{res.width}x{res.height}";
     }
 }
