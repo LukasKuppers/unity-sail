@@ -7,6 +7,8 @@ public class ItemPickup : MonoBehaviour, IDestructable
     [SerializeField]
     private GameObject displayPrefab;
     [SerializeField]
+    private GameObject pickupDisplayPrefab;
+    [SerializeField]
     private GameObject uiParent;
     [SerializeField]
     private GameObject shipPrefabManager;
@@ -100,6 +102,15 @@ public class ItemPickup : MonoBehaviour, IDestructable
         }
         itemAmount -= pickupAmount;
         display.UpdateItemAmount(itemAmount);
+
+        if (pickupAmount > 0)
+        {
+            GameObject pickupDisplay = Instantiate(pickupDisplayPrefab, 
+                display.transform.position, Quaternion.identity, uiParent.transform);
+
+            InventoryIncreaseDisplay disp = pickupDisplay.GetComponent<InventoryIncreaseDisplay>();
+            disp.Init(item, pickupAmount);
+        }
 
         if (itemAmount <= 0)
         {
