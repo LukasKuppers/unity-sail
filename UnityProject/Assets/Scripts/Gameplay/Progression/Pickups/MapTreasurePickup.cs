@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class MapTreasurePickup : MonoBehaviour, IClickableObject
 {
+    private static readonly string HUD_TAG = "Canvas";
+
+    [SerializeField]
+    private GameObject pickupIndicatorPrefab;
     [SerializeField]
     private GameObject inventoryObject;
     [SerializeField]
@@ -35,6 +39,8 @@ public class MapTreasurePickup : MonoBehaviour, IClickableObject
             {
                 treasureManger.RegisterRemovedTreasure(island);
 
+                SpawnPickupIndicator(acutalInc);
+
                 PlayerAttackMode.EnableAttack(interactionLockKey);
                 Destroy(gameObject);
             }
@@ -50,5 +56,15 @@ public class MapTreasurePickup : MonoBehaviour, IClickableObject
         treasureManger = mapTreasureManager.GetComponent<MapTreasureManager>();
 
         this.island = island;
+    }
+
+    private void SpawnPickupIndicator(int amount)
+    {
+        Vector3 pos = Camera.main.WorldToScreenPoint(transform.position);
+        GameObject dispObj = Instantiate(pickupIndicatorPrefab, pos, Quaternion.identity,
+            GameObject.FindGameObjectWithTag(HUD_TAG).transform);
+
+        InventoryIncreaseDisplay disp = dispObj.GetComponent<InventoryIncreaseDisplay>();
+        disp.Init(Item.TREASURE, amount);
     }
 }

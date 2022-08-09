@@ -234,7 +234,7 @@ MonoBehaviour:
   treasureIcon: {fileID: 21300000, guid: ff229bd14f237fa46a9a61893aa37ec4, type: 3}
   amountTextObject: {fileID: 6221796074744090732}
   iconObject: {fileID: 7770656265652005153}
-  animationDuration: 0.5
+  animationDuration: 1
 --- !u!1 &6221796074744090732
 GameObject:
   m_ObjectHideFlags: 0

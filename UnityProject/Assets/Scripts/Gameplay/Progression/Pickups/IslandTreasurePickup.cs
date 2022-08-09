@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class IslandTreasurePickup : MonoBehaviour, IClickableObject
 {
+    private static readonly string HUD_TAG = "Canvas";
+
+    [SerializeField]
+    private GameObject pickupDisplayPrefab;
     [SerializeField]
     private GameObject inventoryObject;
     [SerializeField]
@@ -23,13 +27,25 @@ public class IslandTreasurePickup : MonoBehaviour, IClickableObject
     {
         if (PlayerSceneInteraction.InteractionEnabled())
         {
-            int acutalInc = inventory.IncrementTreasure(treasureAmount);
-            if (acutalInc > 0)
+            int actualInc = inventory.IncrementTreasure(treasureAmount);
+            if (actualInc > 0)
             {
+                SpawnPickupDisplay(actualInc);
+
                 PlayerAttackMode.EnableAttack(interactionLockKey);
                 Destroy(gameObject);
             }
         }
+    }
+
+    private void SpawnPickupDisplay(int amount)
+    {
+        Vector3 pos = Camera.main.WorldToScreenPoint(transform.position);
+        GameObject dispObj = Instantiate(pickupDisplayPrefab, pos, Quaternion.identity,
+            GameObject.FindGameObjectWithTag(HUD_TAG).transform);
+
+        InventoryIncreaseDisplay disp = dispObj.GetComponent<InventoryIncreaseDisplay>();
+        disp.Init(Item.TREASURE, amount);
     }
 
     public void SetInventory(GameObject inventoryManager)
