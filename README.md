@@ -6,6 +6,15 @@ Unity-sail is the repository for `Project Sail`, an open world naval-combat and 
 
 ## Version History
 
+### Alpha_1.2 (Quality of Life):
+August 09, 2022
+- Added display settings
+- Added resolution settings
+- Added volume settings
+- Added island visit banners
+- Added item pickup indicators
+- Staggered cannons when firing (in random order)
+
 ### Alpha_1.1 (Map Update):
 July 13, 2022
 - Added SFX infrastructure
