@@ -12,15 +12,23 @@ public class IslandVisitBanner : MonoBehaviour, IDestructable
     [SerializeField]
     private GameObject textObject;
     [SerializeField]
+    private float fadeInDuration = 1.0f;
+    [SerializeField]
     private float fadeOutDuration = 1.0f;
 
+    private RectTransform rect;
     private Image background;
     private TextMeshProUGUI text;
 
     private void Start()
     {
+        rect = gameObject.GetComponent<RectTransform>();
         background = backgroundObject.GetComponent<Image>();
         text = textObject.GetComponent<TextMeshProUGUI>();
+
+        float numFrames = fadeInDuration / Time.smoothDeltaTime;
+        rect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 0f);
+        StartCoroutine(FadeInCoroutine((int)numFrames));
     }
 
     public void AddDestructionListener(UnityAction<GameObject> call)
@@ -33,6 +41,21 @@ public class IslandVisitBanner : MonoBehaviour, IDestructable
         float numFrames = fadeOutDuration / Time.smoothDeltaTime;
 
         StartCoroutine(FadeOutCoroutine((int)numFrames));
+    }
+
+    private IEnumerator FadeInCoroutine(int numFrames)
+    {
+        int screenWdith = Screen.width;
+
+        for (int i = 0; i < numFrames; i++)
+        {
+            float animPercent = (float)i / numFrames;
+
+            float width = screenWdith * animPercent;
+            rect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, width);
+
+            yield return null;
+        }
     }
 
     private IEnumerator FadeOutCoroutine(int numFrames)
