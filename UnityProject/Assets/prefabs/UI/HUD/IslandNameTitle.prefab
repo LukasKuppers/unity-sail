@@ -221,6 +221,7 @@ GameObject:
   - component: {fileID: 8740436550962782809}
   - component: {fileID: 759408461179293910}
   - component: {fileID: 5437674276980679724}
+  - component: {fileID: 3174443252424104544}
   m_Layer: 5
   m_Name: IslandNameTitle
   m_TagString: Untagged
@@ -270,3 +271,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeDuration: 5
+--- !u!114 &3174443252424104544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6972267484167095260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e44242e713a74449bcc36cd204ef39d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backgroundObject: {fileID: 2762232246271462827}
+  textObject: {fileID: 3437943813970943167}
+  fadeOutDuration: 1
