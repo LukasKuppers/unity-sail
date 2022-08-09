@@ -89,17 +89,26 @@ public class PlayerCanonController : MonoBehaviour
     {
         if (PlayerAttackMode.AttackEnabled())
         {
-            foreach (IProjectileShooter cannon in cannons[activeCannonIndex])
+            StartCoroutine(FireActual());
+        }
+    }
+
+    private IEnumerator FireActual()
+    {
+        int[] shootOrder = GetRandCannonOrder(cannons[activeCannonIndex].Length);
+
+        for (int i = 0; i < shootOrder.Length; i++)
+        {
+            if (inventory.GetCannonballAmount() > 0)
             {
-                if (inventory.GetCannonballAmount() > 0)
+                IProjectileShooter cannon = cannons[activeCannonIndex][shootOrder[i]];
+                bool didFire = cannon.Shoot();
+                if (didFire)
                 {
-                    bool didFire = cannon.Shoot();
-                    if (didFire)
-                    {
-                        inventory.IncrementCannonball(-1);
-                    }
+                    inventory.IncrementCannonball(-1);
                 }
             }
+            yield return null;
         }
     }
 
@@ -116,5 +125,19 @@ public class PlayerCanonController : MonoBehaviour
             canonsList.Add(canon);
         }
         return canonsList.ToArray();
+    }
+
+    private int[] GetRandCannonOrder(int numCannons)
+    {
+        int[] randOrder = new int[numCannons];
+        for (int i = 0; i < numCannons; i++)
+        {
+            int rand = Random.Range(0, i + 1);
+            if (i != rand)
+                randOrder[i] = randOrder[rand];
+
+            randOrder[rand] = i;
+        }
+        return randOrder;
     }
 }
