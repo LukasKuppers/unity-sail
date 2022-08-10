@@ -38,6 +38,7 @@ public class PlayerCanonController : MonoBehaviour
     {
         PlayerInputManager inputManager = InputReference.GetInputManager();
         inputManager.AddInputListener(InputEvent.MOUSE_LEFT, FireCannons);
+        inputManager.AddInputListener(InputEvent.HOLD_MOUSE_LEFT, ChargeFire);
     }
 
     public void SetInventory(GameObject newInventoryObject)
@@ -93,22 +94,49 @@ public class PlayerCanonController : MonoBehaviour
         }
     }
 
+    private void ChargeFire()
+    {
+        if (PlayerAttackMode.AttackEnabled())
+            StartCoroutine(ChargeFireActual());
+    }
+
     private IEnumerator FireActual()
     {
         int[] shootOrder = GetRandCannonOrder(cannons[activeCannonIndex].Length);
 
         for (int i = 0; i < shootOrder.Length; i++)
         {
-            if (inventory.GetCannonballAmount() > 0)
-            {
-                IProjectileShooter cannon = cannons[activeCannonIndex][shootOrder[i]];
-                bool didFire = cannon.Shoot();
-                if (didFire)
-                {
-                    inventory.IncrementCannonball(-1);
-                }
-            }
+            IProjectileShooter cannon = cannons[activeCannonIndex][shootOrder[i]];
+            FireCannon(cannon);
             yield return null;
+        }
+    }
+
+    private IEnumerator ChargeFireActual()
+    {
+        int[] shootOrder = GetRandCannonOrder(cannons[0].Length);
+        
+        for (int i = 0; i < shootOrder.Length; i++)
+        {
+            IProjectileShooter cannonOne = cannons[0][shootOrder[i]];
+            IProjectileShooter cannonTwo = cannons[1][shootOrder[i]];
+
+            cannonOne.SetOrientation(0f, 0f);
+            cannonTwo.SetOrientation(0f, 0f);
+
+            FireCannon(cannonOne);
+            FireCannon(cannonTwo);
+            yield return null;
+        }
+    }
+
+    private void FireCannon(IProjectileShooter cannon)
+    {
+        if (inventory.GetCannonballAmount() > 0)
+        {
+            bool didFire = cannon.Shoot();
+            if (didFire)
+                inventory.IncrementCannonball(-1);
         }
     }
 
