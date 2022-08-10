@@ -5,6 +5,9 @@ using UnityEngine.Events;
 
 public class PlayerInputManager : MonoBehaviour
 {
+    [SerializeField]
+    private float holdDuration = 0.5f;
+
     private Dictionary<KeyCode, InputEvent> DEFAULT_BINDING = new Dictionary<KeyCode, InputEvent>()
     {
         { KeyCode.W, InputEvent.ACCELERATE_SHIP },
@@ -23,6 +26,9 @@ public class PlayerInputManager : MonoBehaviour
     private Dictionary<InputEvent, UnityEvent> eventMap;
     private Dictionary<KeyCode, InputEvent> keyBinding;
 
+    private float[] mouseHoldTimes = new float[3] { 0, 0, 0 };
+    private bool[] mouseHoldInvoked = new bool[3] { false, false, false };
+
     private void Start()
     {
         eventMap = new Dictionary<InputEvent, UnityEvent>();
@@ -40,14 +46,7 @@ public class PlayerInputManager : MonoBehaviour
             }
         }
 
-        if (Input.GetMouseButtonDown(0))
-        {
-            InvokeEvent(InputEvent.MOUSE_LEFT);
-        }
-        if (Input.GetMouseButtonDown(1))
-        {
-            InvokeEvent(InputEvent.MOUSE_RIGHT);
-        }
+        HandleMouseInput(0, InputEvent.HOLD_MOUSE_LEFT, InputEvent.MOUSE_LEFT);
     }
 
     private void InvokeEvent(InputEvent inputEvent)
@@ -75,6 +74,27 @@ public class PlayerInputManager : MonoBehaviour
             eventMap[eventType].RemoveListener(call);
         }
     }
+
+    private void HandleMouseInput(int btnIndex, InputEvent holdEvent, InputEvent clickEvent)
+    {
+        if (Input.GetMouseButton(btnIndex))
+        {
+            mouseHoldTimes[btnIndex] += Time.deltaTime;
+            if (mouseHoldTimes[btnIndex] > holdDuration && !mouseHoldInvoked[btnIndex])
+            {
+                InvokeEvent(holdEvent);
+                mouseHoldInvoked[btnIndex] = true;
+            }
+        }
+
+        if (Input.GetMouseButtonUp(btnIndex))
+        {
+            if (mouseHoldTimes[btnIndex] < holdDuration)
+                InvokeEvent(clickEvent);
+            mouseHoldTimes[btnIndex] = 0f;
+            mouseHoldInvoked[btnIndex] = false;
+        }
+    }
 }
 
 public enum InputEvent
@@ -91,5 +111,7 @@ public enum InputEvent
     TAKE_SCREENSHOT,
     TOGGLE_UI,
     MOUSE_RIGHT, 
-    MOUSE_LEFT
+    MOUSE_LEFT, 
+    HOLD_MOUSE_RIGHT, 
+    HOLD_MOUSE_LEFT
 }
