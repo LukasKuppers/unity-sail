@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1680.0525, g: 3220.164, b: 7007.203, a: 1}
+  m_IndirectSpecularColor: {r: 1727.196, g: 3128.0117, b: 6523.242, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1743,19 +1743,23 @@ MonoBehaviour:
       type: 3}
   - island: 6
     islandObject: {fileID: 34780052}
-    islandSprite: {fileID: 7047725493385956300, guid: 24c8075418a3ecf4ba66d81cd7cfbfd0,
+    islandSprite: {fileID: 5212117308836528501, guid: c2a9b1d18bcb9be44a6b3ab2002541be,
       type: 3}
   - island: 8
     islandObject: {fileID: 1923673865}
-    islandSprite: {fileID: 7047725493385956300, guid: 24c8075418a3ecf4ba66d81cd7cfbfd0,
+    islandSprite: {fileID: 4250606969690115200, guid: 9c012496a855d1d4db57eb61120b06e4,
       type: 3}
   - island: 9
     islandObject: {fileID: 2006066430}
-    islandSprite: {fileID: 7047725493385956300, guid: 24c8075418a3ecf4ba66d81cd7cfbfd0,
+    islandSprite: {fileID: 949179340149639588, guid: 406d2bceb18ef734088f7a7381564f7c,
       type: 3}
   - island: 10
     islandObject: {fileID: 1723507978}
-    islandSprite: {fileID: 7047725493385956300, guid: 24c8075418a3ecf4ba66d81cd7cfbfd0,
+    islandSprite: {fileID: 8901785234955999583, guid: 61c4a94f3e9f3904cbbb5faf471cae52,
+      type: 3}
+  - island: 7
+    islandObject: {fileID: 614624168}
+    islandSprite: {fileID: 353648176669566644, guid: e55825dbc3820d64c95b0261efea97d2,
       type: 3}
 --- !u!1001 &82393895
 PrefabInstance:
@@ -7763,6 +7767,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1050aefdff0a3e2498644885aa87bcd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  holdDuration: 0.5
 --- !u!4 &363824485 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8957189822999362394, guid: acc2c3f8bcf64c54c8fbd354d2f2c6f7,
