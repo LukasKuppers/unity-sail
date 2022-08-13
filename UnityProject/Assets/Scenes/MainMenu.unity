@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1375.3018, g: 1251.2793, b: 1295.0898, a: 1}
+  m_IndirectSpecularColor: {r: 1375.294, g: 1251.2793, b: 1295.0898, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -669,6 +669,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Cursor
+      objectReference: {fileID: 0}
+    - target: {fileID: 293958097175085429, guid: 3b4de9642e8815e46b67859a5f073cd7,
+        type: 3}
+      propertyPath: lockCursorToUiMode
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b4de9642e8815e46b67859a5f073cd7, type: 3}

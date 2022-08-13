@@ -1,23 +1,35 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CursorController : MonoBehaviour
 {
+    [SerializeField]
+    private Sprite aimSprite;
+    [SerializeField]
+    private Sprite uiSprite;
+    [SerializeField]
+    private bool lockCursorToUiMode = false;
     [SerializeField]
     private float maxCursorScale = 100f;
     [SerializeField]
     private float cursorUIScale = 50f;
 
     private Camera cam;
-    private GameObject camObj;
+    private Image cursorImg;
 
     private void Start()
     {
         cam = Camera.main;
-        camObj = cam.gameObject;
+        cursorImg = gameObject.GetComponent<Image>();
 
-        //Cursor.visible = false;
+        Cursor.visible = false;
+
+        if (lockCursorToUiMode)
+            cursorImg.sprite = uiSprite;
+        else
+            PlayerSceneInteraction.AddInteractionChangeListener(ControlSpriteAppearance);
     }
 
     private void Update()
@@ -41,5 +53,11 @@ public class CursorController : MonoBehaviour
                 scale = maxCursorScale / hit.distance;
         }
         transform.localScale = Vector3.one * scale;
+    }
+
+    private void ControlSpriteAppearance(bool interactionEnabled)
+    {
+        Sprite appearance = interactionEnabled ? aimSprite : uiSprite;
+        cursorImg.sprite = appearance;
     }
 }

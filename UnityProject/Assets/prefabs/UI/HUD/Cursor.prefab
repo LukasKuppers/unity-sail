@@ -88,5 +88,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20f001e05fee15c40a62727efe755207, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  aimSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  uiSprite: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
   maxCursorScale: 100
   cursorUIScale: 5
