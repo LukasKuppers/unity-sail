@@ -21,6 +21,9 @@ public class PlayerCanonController : MonoBehaviour
     private int activeCannonIndex = 0;
     private int layerMask;
 
+    private bool yawInRange = false;
+    private bool pitchInRange = false;
+
     private void Start()
     {
         inventory = inventoryObject.GetComponent<PlayerInventory>();
@@ -45,6 +48,11 @@ public class PlayerCanonController : MonoBehaviour
     {
         inventoryObject = newInventoryObject;
         inventory = inventoryObject.GetComponent<PlayerInventory>();
+    }
+
+    public bool TargetInRange()
+    {
+        return yawInRange && pitchInRange;
     }
 
     private void Update()
@@ -77,10 +85,12 @@ public class PlayerCanonController : MonoBehaviour
         float range = Vector3.Scale(diff_3d, new Vector3(1, 0, 1)).magnitude;
         float height = transform.position.y - targetPos.y;
 
+        yawInRange = false;
+        pitchInRange = false;
         foreach (IProjectileShooter cannon in cannons[cannonIndex])
         {
-            cannon.SetOrientation(-aimAngle, 0f);
-            cannon.SetPitch(range, height);
+            yawInRange = yawInRange || cannon.SetOrientation(-aimAngle, 0f);
+            pitchInRange = pitchInRange || cannon.SetPitch(range, height);
         }
 
         return cannonIndex;

@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class CursorController : MonoBehaviour
 {
     [SerializeField]
+    private GameObject shipPrefabManager;
+    [SerializeField]
     private Sprite aimSprite;
     [SerializeField]
     private Sprite uiSprite;
@@ -14,15 +16,29 @@ public class CursorController : MonoBehaviour
     [SerializeField]
     private float maxCursorScale = 100f;
     [SerializeField]
+    private float minCursorScale = 5f;
+    [SerializeField]
     private float cursorUIScale = 50f;
+    [SerializeField]
+    private float animRotateSpeed = 1f;
 
     private Camera cam;
     private Image cursorImg;
+    private PlayerCanonController cannonController;
 
     private void Start()
     {
         cam = Camera.main;
         cursorImg = gameObject.GetComponent<Image>();
+
+        if (!lockCursorToUiMode)
+        {
+            ShipPrefabManager prefabManager = shipPrefabManager.GetComponent<ShipPrefabManager>();
+            prefabManager.AddSpawnListener(() =>
+            {
+                cannonController = prefabManager.GetCurrentShip().GetComponent<PlayerCanonController>();
+            });
+        }
 
         Cursor.visible = false;
 
@@ -36,6 +52,7 @@ public class CursorController : MonoBehaviour
     {
         ControlPosition();
         ControlScale();
+        ControlAnimation();
     }
 
     private void ControlPosition()
@@ -51,13 +68,26 @@ public class CursorController : MonoBehaviour
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out RaycastHit hit))
                 scale = maxCursorScale / hit.distance;
+            
         }
+        scale = Mathf.Max(minCursorScale, scale);
         transform.localScale = Vector3.one * scale;
+    }
+
+    private void ControlAnimation()
+    {
+        if (PlayerSceneInteraction.InteractionEnabled() && !lockCursorToUiMode)
+        {
+            if (cannonController != null && cannonController.TargetInRange())
+                transform.Rotate(Vector3.forward, animRotateSpeed);
+        }
     }
 
     private void ControlSpriteAppearance(bool interactionEnabled)
     {
         Sprite appearance = interactionEnabled ? aimSprite : uiSprite;
         cursorImg.sprite = appearance;
+
+        transform.rotation = Quaternion.identity;
     }
 }

@@ -8,9 +8,9 @@ public interface IProjectileShooter
 
     public void SetRotationLimits(float yaw, float pitch);
 
-    public void SetOrientation(float yaw, float pitch);
+    public bool SetOrientation(float yaw, float pitch);
 
-    public void SetPitch(float range, float height);
+    public bool SetPitch(float range, float height);
 
     public bool Shoot();
 

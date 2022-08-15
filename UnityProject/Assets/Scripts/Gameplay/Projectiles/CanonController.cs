@@ -61,16 +61,20 @@ public class CanonController : MonoBehaviour, IProjectileShooter
         }
     }
 
-    public void SetOrientation(float yaw, float pitch)
+    // returns false if parameters were truncated
+    public bool SetOrientation(float yaw, float pitch)
     {
         float y = Mathf.Clamp(yaw, -yawLimit, yawLimit);
         float x = Mathf.Clamp(pitch, 0, pitchLimit);
 
         baseModel.transform.localEulerAngles = new Vector3(0, y, 0);
         cannonModel.transform.localEulerAngles = new Vector3(-x, 0, 0);
+
+        return y == yaw && x == pitch;
     }
 
-    public void SetPitch(float range, float height)
+    // returns false if parameters were truncated
+    public bool SetPitch(float range, float height)
     {
         float g = Physics.gravity.magnitude;
 
@@ -79,8 +83,10 @@ public class CanonController : MonoBehaviour, IProjectileShooter
         float pitch = Mathf.Atan(((fireForce * fireForce) - Mathf.Sqrt(temp)) / (g * range));
         pitch *= Mathf.Rad2Deg;
 
-        pitch = Mathf.Clamp(pitch, 0, pitchLimit);
-        cannonModel.transform.localEulerAngles = new Vector3(-pitch, 0, 0);
+        float pitchActual = Mathf.Clamp(pitch, 0, pitchLimit);
+        cannonModel.transform.localEulerAngles = new Vector3(-pitchActual, 0, 0);
+
+        return pitchActual == pitch;
     }
 
     public bool Shoot()
