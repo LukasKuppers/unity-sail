@@ -63,8 +63,20 @@ public class PlayerCanonController : MonoBehaviour
     private Vector3 GetTargetPos()
     {
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-        Physics.Raycast(ray, out RaycastHit hit, 3000f, layerMask);
-        return hit.point;
+        if (Physics.Raycast(ray, out RaycastHit hit, 3000f, layerMask))
+        {
+            Vector3 target = hit.point;
+            target -= rb.velocity;
+            target.y -= 1f;
+
+            // lead moving target
+            Rigidbody targetRb = hit.transform.gameObject.GetComponent<Rigidbody>();
+            if (targetRb != null)
+                target += targetRb.velocity;
+
+            return target;
+        }
+        return Vector3.zero;
     }
 
     private int ControlAim()
@@ -89,8 +101,8 @@ public class PlayerCanonController : MonoBehaviour
         pitchInRange = false;
         foreach (IProjectileShooter cannon in cannons[cannonIndex])
         {
-            yawInRange = yawInRange || cannon.SetOrientation(-aimAngle, 0f);
-            pitchInRange = pitchInRange || cannon.SetPitch(range, height);
+            yawInRange = cannon.SetOrientation(-aimAngle, 0f) || yawInRange;
+            pitchInRange = cannon.SetPitch(range, height) || pitchInRange;
         }
 
         return cannonIndex;

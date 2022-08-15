@@ -83,7 +83,7 @@ public class CanonController : MonoBehaviour, IProjectileShooter
         float pitch = Mathf.Atan(((fireForce * fireForce) - Mathf.Sqrt(temp)) / (g * range));
         pitch *= Mathf.Rad2Deg;
 
-        float pitchActual = Mathf.Clamp(pitch, 0, pitchLimit);
+        float pitchActual = Mathf.Clamp(pitch, -10, pitchLimit);
         cannonModel.transform.localEulerAngles = new Vector3(-pitchActual, 0, 0);
 
         return pitchActual == pitch;
