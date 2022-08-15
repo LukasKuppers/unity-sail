@@ -46,7 +46,7 @@ public class CursorController : MonoBehaviour
     private void ControlScale()
     {
         float scale = cursorUIScale;
-        if (PlayerSceneInteraction.InteractionEnabled())
+        if (PlayerSceneInteraction.InteractionEnabled() && !lockCursorToUiMode)
         {
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out RaycastHit hit))

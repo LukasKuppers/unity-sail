@@ -66,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 35b5f4de82462c94cb9b8df969cde744, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4090be873bc7af64ca7f66c975a95a0b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -91,5 +91,5 @@ MonoBehaviour:
   aimSprite: {fileID: 21300000, guid: 4090be873bc7af64ca7f66c975a95a0b, type: 3}
   uiSprite: {fileID: 21300000, guid: 35b5f4de82462c94cb9b8df969cde744, type: 3}
   lockCursorToUiMode: 0
-  maxCursorScale: 100
-  cursorUIScale: 10
+  maxCursorScale: 200
+  cursorUIScale: 5
