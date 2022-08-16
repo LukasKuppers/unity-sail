@@ -31,6 +31,8 @@ public class QuantityIncrementor : MonoBehaviour, ISelectableQuantity
 
         decBtn.onClick.AddListener(Decrement);
         incBtn.onClick.AddListener(Increment);
+        decBtn.GetComponent<HoldButton>().AddOnHoldPersistenListener(Decrement);
+        incBtn.GetComponent<HoldButton>().AddOnHoldPersistenListener(Increment);
     }
 
     public void SetQuantity(int newQuantity)
