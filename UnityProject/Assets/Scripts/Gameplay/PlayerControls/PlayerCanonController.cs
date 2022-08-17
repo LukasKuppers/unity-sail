@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerCanonController : MonoBehaviour
 {
-    private static readonly int AIM_RAY_LAYER_MASK = 3;
+    public static readonly int AIM_RAY_LAYER_MASK = 3;
 
     [SerializeField]
     private GameObject inventoryObject;

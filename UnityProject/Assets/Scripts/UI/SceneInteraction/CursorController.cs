@@ -26,10 +26,15 @@ public class CursorController : MonoBehaviour
     private Image cursorImg;
     private PlayerCanonController cannonController;
 
+    private int layerMask;
+
     private void Start()
     {
         cam = Camera.main;
         cursorImg = gameObject.GetComponent<Image>();
+
+        layerMask = 1 << PlayerCanonController.AIM_RAY_LAYER_MASK;
+        layerMask = ~layerMask;
 
         if (!lockCursorToUiMode)
         {
@@ -66,7 +71,7 @@ public class CursorController : MonoBehaviour
         if (PlayerSceneInteraction.InteractionEnabled() && !lockCursorToUiMode)
         {
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out RaycastHit hit))
+            if (Physics.Raycast(ray, out RaycastHit hit, 3000f, layerMask))
                 scale = maxCursorScale / hit.distance;
             
         }
