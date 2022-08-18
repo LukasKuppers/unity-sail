@@ -49,6 +49,8 @@ public class ShipHunger : MonoBehaviour
     {
         while (true)
         {
+            Debug.Log("Hunger coroutine run. " + Time.time.ToString());
+
             if (!safetyManager.ShipIsSafe())
             {
                 if (inventory.GetFoodAmount() > 0)
@@ -61,8 +63,9 @@ public class ShipHunger : MonoBehaviour
                     healthManager.Damage(hpPerTick);
                     yield return new WaitForSeconds(hungerTickTime);
                 }
-            }
-            yield return new WaitForSeconds(foodDecrementTickTime);
+            } 
+            else
+                yield return new WaitForSeconds(foodDecrementTickTime);
         }
     }
 }
