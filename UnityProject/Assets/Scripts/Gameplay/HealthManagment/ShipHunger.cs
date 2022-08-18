@@ -49,8 +49,6 @@ public class ShipHunger : MonoBehaviour
     {
         while (true)
         {
-            Debug.Log("Hunger coroutine run. " + Time.time.ToString());
-
             if (!safetyManager.ShipIsSafe())
             {
                 if (inventory.GetFoodAmount() > 0)
