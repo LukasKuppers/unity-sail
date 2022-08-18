@@ -25,6 +25,8 @@ public class CameraController : MonoBehaviour
     private float maxZoom = 50f;
 
     [SerializeField]
+    private bool smoothCamera = true;
+    [SerializeField]
     private float smoothSensitivityAmount = 10f;
     [SerializeField]
     private float smoothGravityAmount = 5f;
@@ -50,6 +52,11 @@ public class CameraController : MonoBehaviour
         zoom = minZoom;
 
         mainCameraEnabled = true;
+    }
+
+    public void SetCameraSmooth(bool isSmooth)
+    {
+        smoothCamera = isSmooth;
     }
 
     public void EnableMainCamera()
@@ -89,13 +96,22 @@ public class CameraController : MonoBehaviour
     {
         Vector2 rawDelta = mouseIn.GetMouseDelta();
 
-        if (Input.GetMouseButton(1) && rawDelta.magnitude > mouseDelta.magnitude)
-            mouseDelta += rawDelta / smoothSensitivityAmount;
-        else
-            mouseDelta -= mouseDelta / smoothGravityAmount;
+        if (smoothCamera)
+        {
+            if (Input.GetMouseButton(1) && rawDelta.magnitude > mouseDelta.magnitude)
+                mouseDelta += rawDelta / smoothSensitivityAmount;
+            else
+                mouseDelta -= mouseDelta / smoothGravityAmount;
 
-        mouseDelta.x = Mathf.Clamp(mouseDelta.x, -panSpeed * 100f, panSpeed * 100f);
-        mouseDelta.y = Mathf.Clamp(mouseDelta.y, -pitchSpeed * 100f, pitchSpeed * 100f);
+            mouseDelta.x = Mathf.Clamp(mouseDelta.x, -panSpeed * 100f, panSpeed * 100f);
+            mouseDelta.y = Mathf.Clamp(mouseDelta.y, -pitchSpeed * 100f, pitchSpeed * 100f);
+        }
+        else
+        {
+            mouseDelta = Vector3.zero;
+            if (Input.GetMouseButton(1))
+                mouseDelta = rawDelta;
+        }
 
         pitchAngle = Mathf.Clamp(pitchAngle - (mouseDelta.y * pitchSpeed), 10f, 90f);
         panAngle += mouseDelta.x * panSpeed;

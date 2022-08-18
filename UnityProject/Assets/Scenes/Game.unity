@@ -39483,6 +39483,7 @@ MonoBehaviour:
   zoomSpeed: 1
   minZoom: 15
   maxZoom: 55
+  smoothCamera: 1
   smoothSensitivityAmount: 10
   smoothGravityAmount: 5
 --- !u!114 &2133451525
