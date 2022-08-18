@@ -16,12 +16,15 @@ public class OptionsPage : MonoBehaviour
     private GameObject displayModeDropdownObject;
     [SerializeField]
     private GameObject resolutionDropdownObject;
+    [SerializeField]
+    private GameObject smoothCamToggleObject;
 
     private Button applyBtn;
     private Slider uiScaleSlider;
     private Slider masterVolumeSlider;
     private TMP_Dropdown displayModeDropdown;
     private TMP_Dropdown resolutionDropdown;
+    private Toggle smoothCamToggle;
 
     private GameMenuModal menu;
     private OptionsManager optionsManager;
@@ -36,6 +39,7 @@ public class OptionsPage : MonoBehaviour
         masterVolumeSlider = masterVolumeSliderObject.GetComponent<Slider>();
         displayModeDropdown = displayModeDropdownObject.GetComponent<TMP_Dropdown>();
         resolutionDropdown = resolutionDropdownObject.GetComponent<TMP_Dropdown>();
+        smoothCamToggle = smoothCamToggleObject.GetComponent<Toggle>();
 
         applyBtn.onClick.AddListener(ApplyValues);
 
@@ -46,6 +50,7 @@ public class OptionsPage : MonoBehaviour
     {
         InitUIScale();
         InitMasterVolume();
+        InitCamSmoothing();
         InitDisplaySettings();
     }
 
@@ -53,6 +58,7 @@ public class OptionsPage : MonoBehaviour
     {
         ApplyUIScale();
         ApplyMasterVolume();
+        ApplyCamSmoothing();
         ApplyDisplaySettings();
 
         menu.ClosePages();
@@ -80,6 +86,18 @@ public class OptionsPage : MonoBehaviour
     {
         float volume = masterVolumeSlider.value;
         optionsManager.WriteOption(Option.MASTER_VOLUME, volume.ToString());
+    }
+
+    private void InitCamSmoothing()
+    {
+        bool smooth = bool.Parse(optionsManager.GetOption(Option.SMOOTH_CAMERA));
+        smoothCamToggle.isOn = smooth;
+    }
+
+    private void ApplyCamSmoothing()
+    {
+        bool smooth = smoothCamToggle.isOn;
+        optionsManager.WriteOption(Option.SMOOTH_CAMERA, smooth.ToString());
     }
 
     private void InitDisplaySettings()

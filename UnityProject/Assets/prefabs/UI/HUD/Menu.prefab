@@ -2938,6 +2938,7 @@ MonoBehaviour:
   masterVolumeSliderObject: {fileID: 3830709902935183946}
   displayModeDropdownObject: {fileID: 9217702189487294419}
   resolutionDropdownObject: {fileID: 3857540472939673170}
+  smoothCamToggleObject: {fileID: 7871071242528096338}
 --- !u!114 &6570004066315748441
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -10,7 +10,8 @@ public class OptionsManager : MonoBehaviour
         { Option.UI_SCALE, "ui_scale" },
         { Option.MASTER_VOLUME, "master_volume" },
         { Option.DISPLAY_MODE, "display_mode" },
-        { Option.DISPLAY_RESOLUTION, "display_resolution" }
+        { Option.DISPLAY_RESOLUTION, "display_resolution" },
+        { Option.SMOOTH_CAMERA, "smooth_camera" }
     };
 
     private static readonly Dictionary<string, string> DEFAULT_OPTIONS = new Dictionary<string, string>()
@@ -18,7 +19,8 @@ public class OptionsManager : MonoBehaviour
         { KEY_MAP[Option.UI_SCALE], "1" },
         { KEY_MAP[Option.MASTER_VOLUME], "1" },
         { KEY_MAP[Option.DISPLAY_MODE], "true" },
-        { KEY_MAP[Option.DISPLAY_RESOLUTION], "1920x1080" }
+        { KEY_MAP[Option.DISPLAY_RESOLUTION], "1920x1080" },
+        { KEY_MAP[Option.SMOOTH_CAMERA], "true" }
     };
 
     [SerializeField]
@@ -53,6 +55,7 @@ public class OptionsManager : MonoBehaviour
     {
         ApplyUIScaleToScene();
         ApplyMasterVolumeToScene();
+        ApplyCameraSmoothingToScene();
         ApplyDisplayModeToScene();
     }
 
@@ -81,6 +84,14 @@ public class OptionsManager : MonoBehaviour
         AudioListener.volume = volume;
     }
 
+    private void ApplyCameraSmoothingToScene()
+    {
+        bool smooth = bool.Parse(options[KEY_MAP[Option.SMOOTH_CAMERA]]);
+
+        CameraController camController = Camera.main.gameObject.GetComponent<CameraController>();
+        camController.SetCameraSmooth(smooth);
+    }
+
     private void ApplyDisplayModeToScene()
     {
         bool isFullscreen = bool.Parse(options[KEY_MAP[Option.DISPLAY_MODE]]);
@@ -101,5 +112,6 @@ public enum Option
     UI_SCALE,
     MASTER_VOLUME, 
     DISPLAY_MODE, 
-    DISPLAY_RESOLUTION
+    DISPLAY_RESOLUTION, 
+    SMOOTH_CAMERA
 }
