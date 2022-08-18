@@ -24,9 +24,15 @@ public class CameraController : MonoBehaviour
     [SerializeField]
     private float maxZoom = 50f;
 
+    [SerializeField]
+    private float smoothSensitivityAmount = 10f;
+    [SerializeField]
+    private float smoothGravityAmount = 5f;
+
     private MouseInputManager mouseIn;
     private GameObject parent;
 
+    private Vector2 mouseDelta;
     private Vector3 mainPosition;
     private Quaternion mainRotation;
 
@@ -37,6 +43,8 @@ public class CameraController : MonoBehaviour
 
     private void Start()
     {
+        mouseDelta = Vector2.zero;
+
         parent = gameObject.transform.parent.gameObject;
         mouseIn = mouseInputManager.GetComponent<MouseInputManager>();
         zoom = minZoom;
@@ -79,13 +87,18 @@ public class CameraController : MonoBehaviour
 
     private void CalculateRotationParameters()
     {
-        if (Input.GetMouseButton(1))
-        {
-            Vector2 delta = mouseIn.GetMouseDelta();
+        Vector2 rawDelta = mouseIn.GetMouseDelta();
 
-            pitchAngle = Mathf.Clamp(pitchAngle - (delta.y * pitchSpeed), 10f, 90f);
-            panAngle += delta.x * panSpeed;
-        }
+        if (Input.GetMouseButton(1) && rawDelta.magnitude > mouseDelta.magnitude)
+            mouseDelta += rawDelta / smoothSensitivityAmount;
+        else
+            mouseDelta -= mouseDelta / smoothGravityAmount;
+
+        mouseDelta.x = Mathf.Clamp(mouseDelta.x, -panSpeed * 100f, panSpeed * 100f);
+        mouseDelta.y = Mathf.Clamp(mouseDelta.y, -pitchSpeed * 100f, pitchSpeed * 100f);
+
+        pitchAngle = Mathf.Clamp(pitchAngle - (mouseDelta.y * pitchSpeed), 10f, 90f);
+        panAngle += mouseDelta.x * panSpeed;
         
         zoom = Mathf.Clamp(zoom - (Input.mouseScrollDelta.y * zoomSpeed), minZoom, maxZoom);
     }
