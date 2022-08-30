@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1630.3359, g: 3255.955, b: 7429.7266, a: 1}
+  m_IndirectSpecularColor: {r: 1598.2666, g: 3240.0684, b: 7579.8438, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -17340,9 +17340,9 @@ MonoBehaviour:
   treasureAmount: 0
   cannonballAmount: 0
   coinAmount: 0
-  foodWeight: 1
-  woodWeight: 1
-  treasureWeight: 30
+  foodWeight: 10
+  woodWeight: 2
+  treasureWeight: 20
   cannonballWeight: 1
 --- !u!4 &816629303
 Transform:
@@ -23861,7 +23861,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shipPrefabManager: {fileID: 1163210783}
   inventoryObject: {fileID: 816629300}
-  healthPerWood: 1
+  healthPerWood: 10
 --- !u!114 &1163210788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23877,7 +23877,7 @@ MonoBehaviour:
   shipPrefabManager: {fileID: 1163210783}
   shipSafetyManager: {fileID: 1163210783}
   inventoryObject: {fileID: 816629300}
-  foodDecrementTickTime: 10
+  foodDecrementTickTime: 60
   hungerTickTime: 2
   hpPerTick: 1
 --- !u!114 &1163210789
