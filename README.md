@@ -6,7 +6,23 @@ Unity-sail is the repository for `Project Sail`, an open world naval-combat and 
 
 ## Version History
 
-### Alpha_1.2 (Quality of Life):
+### Alpha_1.2.2 (Quality of Life 2):
+August 29, 2022
+- Allow user to quickly scroll item values by holding increment button
+- Added missing map icons (Crooks Cove, Shark Tooth Cove, Skull Isle, Scimitar Rock, Grand Fort)
+- Changed item weights (food=10, wood=2, cannonball=1, treasure=20)
+- Changed ship capacities [100, 200, 400, 800]
+- Updated food effects - 1 food lasts 1 minute
+- Updated wood effects - 1 wood heals 10hp
+- Added custom UI cursor
+- Added custom aim cursor
+  - Indicates if target is in range of cannons
+  - Indicates target distance
+- Improved player aim (lead moving targets, account for player velocity) - needs work
+- Added toggleable camera smoothing
+- Fixed hunger bug (Food lasts longer than specified)
+
+### Alpha_1.2.1 (Quality of Life):
 August 09, 2022
 - Added display settings
 - Added resolution settings
