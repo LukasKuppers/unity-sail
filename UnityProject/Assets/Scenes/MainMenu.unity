@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1375.294, g: 1251.2793, b: 1295.0898, a: 1}
+  m_IndirectSpecularColor: {r: 131.87527, g: 4032.1357, b: 2720.1055, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -712,7 +712,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: -20, y: 20}
-  m_SizeDelta: {x: 300, y: 40}
+  m_SizeDelta: {x: 350, y: 40}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &259903041
 MonoBehaviour:
@@ -734,7 +734,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ALPHA_1.2
+  m_text: ALPHA_1.2.1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 08701b0d39e2c3f43bc730e043ba4011, type: 2}
   m_sharedMaterial: {fileID: 7216982862115286129, guid: 08701b0d39e2c3f43bc730e043ba4011,
@@ -778,7 +778,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
