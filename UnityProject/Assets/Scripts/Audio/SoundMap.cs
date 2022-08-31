@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
 public static class SoundMap
 {
@@ -11,4 +8,6 @@ public static class SoundMap
     public static readonly string COINS = "Coins";
 
     public static readonly string SPLASH = "Splash";
+
+    public static readonly string SAIL = "Sails";
 }
