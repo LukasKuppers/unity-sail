@@ -5,24 +5,21 @@ using UnityEngine.Events;
 
 public static class PlayerSceneInteraction
 {
-    private static bool interactionEnabled = true;
-
     private static List<string> lockKeys = new List<string>();
     private static UnityEvent<bool> changeEvent;
 
     public static bool InteractionEnabled()
     {
-        return interactionEnabled;
+        return lockKeys.Count == 0;
     }
 
     public static void DisableInteraction(string key)
     {
         if (!lockKeys.Contains(key))
         {
-            if (changeEvent != null && interactionEnabled)
+            if (changeEvent != null && InteractionEnabled())
                 changeEvent.Invoke(false);
 
-            interactionEnabled = false;
             lockKeys.Add(key);
         }
     }
@@ -32,13 +29,9 @@ public static class PlayerSceneInteraction
         if (lockKeys.Contains(key))
         {
             lockKeys.Remove(key);
-        }
-        if (lockKeys.Count == 0)
-        {
-            if (changeEvent != null && !interactionEnabled)
-                changeEvent.Invoke(true);
 
-            interactionEnabled = true;
+            if (changeEvent != null && !InteractionEnabled())
+                changeEvent.Invoke(true);
         }
     }
 
