@@ -43,6 +43,8 @@ public class OpenMapListener : MonoBehaviour
                 mapInstance = Instantiate(mapPrefab, uIParent.transform);
                 MapManager mapData = mapInstance.GetComponent<MapManager>();
                 mapData.InitParameters(playerShip, islandMapManager, mapTreasureManager);
+
+                AudioManager.GetInstance().Play(SoundMap.TURN_PAGE);
             }
         }
         else

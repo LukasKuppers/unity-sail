@@ -21,5 +21,7 @@ public class Cartographer : MonoBehaviour, IClickableObject
         CartographerModal data = modal.GetComponent<CartographerModal>();
 
         data.InitParameters(navDataManager, inventoryObject, islandMapsManager);
+
+        AudioManager.GetInstance().Play(SoundMap.TURN_PAGE);
     }
 }

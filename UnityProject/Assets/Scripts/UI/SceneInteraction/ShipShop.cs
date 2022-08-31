@@ -38,6 +38,8 @@ public class ShipShop : MonoBehaviour
 
             UpgradeShipModal modalData = modal.GetComponent<UpgradeShipModal>();
             modalData.InitParameters(inventoryObject, shipPrefabManager, shipNames, shipPrices);
+
+            AudioManager.GetInstance().Play(SoundMap.TURN_PAGE);
         }
     }
 

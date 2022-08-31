@@ -24,6 +24,8 @@ public class OpenNotesListener : MonoBehaviour
             GameObject modal = Instantiate(notesModalPrefab, uIParent.transform);
             NotesModal modalData = modal.GetComponent<NotesModal>();
             modalData.InitParameters(notesManager);
+
+            AudioManager.GetInstance().Play(SoundMap.TURN_PAGE);
         }
     }
 }

@@ -28,6 +28,8 @@ public class OpenDropItemsButton : MonoBehaviour
             DropItemsModal modalController = modal.GetComponent<DropItemsModal>();
 
             modalController.InitParameters(pickupSpawner, inventoryObject, shipPrefabManager);
+
+            AudioManager.GetInstance().Play(SoundMap.TURN_PAGE);
         }
     }
 }

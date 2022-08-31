@@ -38,6 +38,8 @@ public class ItemsShop : MonoBehaviour
 
             modalData.InitParameters(inventoryObject,
                 foodPrice, woodPrice, cannonballPrice);
+
+            AudioManager.GetInstance().Play(SoundMap.TURN_PAGE);
         }
     }
 

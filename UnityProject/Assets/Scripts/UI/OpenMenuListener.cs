@@ -25,6 +25,8 @@ public class OpenMenuListener : MonoBehaviour
 
             GameMenuModal modalData = gameMenu.GetComponent<GameMenuModal>();
             modalData.InitParameters(gameLoader);
+
+            AudioManager.GetInstance().Play(SoundMap.TURN_PAGE);
         }
     }
 }

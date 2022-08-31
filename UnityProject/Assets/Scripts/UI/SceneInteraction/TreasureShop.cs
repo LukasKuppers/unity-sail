@@ -31,6 +31,8 @@ public class TreasureShop : MonoBehaviour
             SellTreasureModal modalData = modal.GetComponent<SellTreasureModal>();
 
             modalData.SetInventory(inventoryObject);
+
+            AudioManager.GetInstance().Play(SoundMap.TURN_PAGE);
         }
     }
 
