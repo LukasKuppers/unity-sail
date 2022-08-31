@@ -103,10 +103,14 @@ public class DropItemsModal : MonoBehaviour
 
     private void DropItems()
     {
-        DropItem(Item.FOOD, Mathf.Min(food.GetQuantity(), inventory.GetFoodAmount()));
-        DropItem(Item.WOOD, Mathf.Min(wood.GetQuantity(), inventory.GetWoodAmount()));
-        DropItem(Item.CANNONBALL, Mathf.Min(cannonball.GetQuantity(), inventory.GetCannonballAmount()));
-        DropItem(Item.TREASURE, Mathf.Min(treasure.GetQuantity(), inventory.GetTreasureAmount()));
+        bool dropped = false;
+        dropped = DropItem(Item.FOOD, Mathf.Min(food.GetQuantity(), inventory.GetFoodAmount())) | dropped;
+        dropped = DropItem(Item.WOOD, Mathf.Min(wood.GetQuantity(), inventory.GetWoodAmount())) | dropped;
+        dropped = DropItem(Item.CANNONBALL, Mathf.Min(cannonball.GetQuantity(), inventory.GetCannonballAmount())) | dropped;
+        dropped = DropItem(Item.TREASURE, Mathf.Min(treasure.GetQuantity(), inventory.GetTreasureAmount())) | dropped;
+
+        if (dropped)
+            AudioManager.GetInstance().Play(SoundMap.SPLASH);
 
         ExitModal();
     }
@@ -125,7 +129,7 @@ public class DropItemsModal : MonoBehaviour
         spaceTxt.SetText(text);
     }
 
-    private void DropItem(Item itemType, int amount)
+    private bool DropItem(Item itemType, int amount)
     {
         if (amount > 0)
         {
@@ -150,6 +154,8 @@ public class DropItemsModal : MonoBehaviour
                     break;
             }
             pickupGenerator.SpawnPickup(itemType, amount, dropPos);
+            return true;
         }
+        return false;
     }
 }

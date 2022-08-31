@@ -9,4 +9,6 @@ public static class SoundMap
     public static readonly string TURN_PAGE = "TurnPage";
 
     public static readonly string COINS = "Coins";
+
+    public static readonly string SPLASH = "Splash";
 }
