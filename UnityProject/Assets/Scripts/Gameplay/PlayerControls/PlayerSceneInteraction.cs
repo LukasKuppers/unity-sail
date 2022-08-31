@@ -26,13 +26,16 @@ public static class PlayerSceneInteraction
 
     public static void EnableInteraction(string key)
     {
-        if (lockKeys.Contains(key))
+        StaticCoroutineRunner.GetInstance().CallNextFrame(() =>
         {
-            lockKeys.Remove(key);
+            if (lockKeys.Contains(key))
+            {
+                lockKeys.Remove(key);
 
-            if (changeEvent != null && !InteractionEnabled())
-                changeEvent.Invoke(true);
-        }
+                if (changeEvent != null && InteractionEnabled())
+                    changeEvent.Invoke(true);
+            }
+        });
     }
 
     public static void AddInteractionChangeListener(UnityAction<bool> call)

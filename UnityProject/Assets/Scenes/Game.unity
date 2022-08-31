@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1727.1956, g: 3128.0117, b: 6523.242, a: 1}
+  m_IndirectSpecularColor: {r: 1657.6484, g: 3245.5, b: 7181.922, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -12335,6 +12335,7 @@ GameObject:
   m_Component:
   - component: {fileID: 545177258}
   - component: {fileID: 545177257}
+  - component: {fileID: 545177259}
   m_Layer: 0
   m_Name: QueuedTaskRunner
   m_TagString: Untagged
@@ -12369,6 +12370,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &545177259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 545177256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1f3f23d4fe992f44a5173327c3faa89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &550833800
 PrefabInstance:
   m_ObjectHideFlags: 0

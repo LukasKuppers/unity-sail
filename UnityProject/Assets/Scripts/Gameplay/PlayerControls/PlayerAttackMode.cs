@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public static class PlayerAttackMode
 {
@@ -19,7 +20,10 @@ public static class PlayerAttackMode
 
     public static void EnableAttack(string key)
     {
-        if (lockKeys.Contains(key))
-            lockKeys.Remove(key);
+        StaticCoroutineRunner.GetInstance().CallNextFrame(() =>
+        {
+            if (lockKeys.Contains(key))
+                lockKeys.Remove(key);
+        });
     }
 }
