@@ -76,6 +76,8 @@ public class SellTreasureModal : MonoBehaviour
 
                 resultsObj.SetActive(true);
                 results.SetText("+" + coins.ToString());
+
+                AudioManager.GetInstance().Play(SoundMap.COINS);
             }
         }
     }

@@ -75,10 +75,11 @@ public class CartographerModal : MonoBehaviour
 
             navManager.ResetNavData();
             
-
             resultsContainer.SetActive(true);
             sellAmountT.SetText($"+{sellAmount}");
             SetContentText(0);
+
+            AudioManager.GetInstance().Play(SoundMap.COINS);
         }
     }
 

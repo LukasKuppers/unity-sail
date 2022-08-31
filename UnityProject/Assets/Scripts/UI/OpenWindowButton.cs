@@ -21,7 +21,5 @@ public class OpenWindowButton : MonoBehaviour
     {
         GameObject canvas = GameObject.FindWithTag("Canvas");
         Instantiate(window, canvas.transform);
-
-        AudioManager.GetInstance().Play(SoundMap.TURN_PAGE);
     }
 }

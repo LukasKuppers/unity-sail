@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1727.1956, g: 3128.0117, b: 6491.7812, a: 1}
+  m_IndirectSpecularColor: {r: 1657.6484, g: 3245.5, b: 7221.2812, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -39030,6 +39030,12 @@ MonoBehaviour:
     type: 1
   - name: TurnPage
     clip: {fileID: 8300000, guid: e7d85479fcd92544984487d15e604bff, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    type: 1
+  - name: Coins
+    clip: {fileID: 8300000, guid: 27cf74680b506b244a24f286168cbc56, type: 3}
     volume: 0.5
     pitch: 1
     loop: 0
