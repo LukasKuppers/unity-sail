@@ -21,7 +21,8 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Wave
-  m_Shader: {fileID: -6465566751694194690, guid: a8823d1dd65137342a09429a8a365939, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: a8823d1dd65137342a09429a8a365939,
+    type: 3}
   m_ShaderKeywords: _DISABLE_SSR_TRANSPARENT _ENABLE_FOG_ON_TRANSPARENT _SURFACE_TYPE_TRANSPARENT
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -40,11 +41,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - Texture2D_5be23519422a4a41803b2dd529e7e212:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 4557bd8d96293d348b2ffb3114e0f5cc, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_66abae8b858a4ff2b53b9e6a8b4f8958:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 72ed6f44535f679418e6014afd04fcc1, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _AnisotropyMap:
@@ -158,10 +159,10 @@ Material:
     - Vector1_44e469b6712e4d168159de34e1cb76df: -1
     - Vector1_6a98fb795acd4ab797dd8d10089de341: 0
     - Vector1_80c5d6fdbfcc43ad9f928365e197006d: 2
-    - Vector1_c4bbb6978dbc43b69b4cf79683c32fcf: 0.05
-    - Vector1_d478a2cf25944740b550f13c4e52c7c3: 0.25
+    - Vector1_c4bbb6978dbc43b69b4cf79683c32fcf: 0.001
+    - Vector1_d478a2cf25944740b550f13c4e52c7c3: 0.075
     - Vector1_d778b4ebfcc346b79447a7db8dfa6857: 6.5
-    - Vector1_db811a86933248c9821fab5833b4c406: 0.007
+    - Vector1_db811a86933248c9821fab5833b4c406: 0.01
     - Vector1_ea34565231b541d1a3703c03748ccb0e: 0
     - Vector1_f584db7b254449c5bde636bad90a8b5d: 0
     - _AORemapMax: 1
@@ -278,8 +279,10 @@ Material:
     - _ZWrite: 0
     m_Colors:
     - Color_055e5ddeb57a4ac885d14b9a71fdc081: {r: 1, g: 1, b: 1, a: 1}
-    - Color_1558ca8fd145494eb3f7aaff28edc4a5: {r: 0.23529412, g: 0.8314068, b: 0.972549, a: 1}
-    - Color_2792505f49fc4a29a74dd5c1bd3121dd: {r: 0.23529412, g: 0.654902, b: 0.972549, a: 1}
+    - Color_1558ca8fd145494eb3f7aaff28edc4a5: {r: 0.23529412, g: 0.8314068, b: 0.972549,
+        a: 1}
+    - Color_2792505f49fc4a29a74dd5c1bd3121dd: {r: 0.23529412, g: 0.654902, b: 0.972549,
+        a: 1}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
