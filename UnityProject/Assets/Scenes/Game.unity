@@ -39083,6 +39083,12 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     type: 1
+  - name: DiscardPage
+    clip: {fileID: 8300000, guid: 653a6181f740de048bb37ad789bccd38, type: 3}
+    volume: 0.7
+    pitch: 1
+    loop: 0
+    type: 1
 --- !u!4 &2114433590
 Transform:
   m_ObjectHideFlags: 0

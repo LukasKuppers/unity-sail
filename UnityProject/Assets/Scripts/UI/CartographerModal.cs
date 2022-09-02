@@ -54,6 +54,8 @@ public class CartographerModal : MonoBehaviour
 
     private void CloseModal()
     {
+        AudioManager.GetInstance().Play(SoundMap.DISCARD_PAGE);
+
         PlayerSceneInteraction.EnableInteraction(INTERACTION_LOCK_KEY);
         Destroy(gameObject);
     }

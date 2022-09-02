@@ -16,4 +16,6 @@ public static class SoundMap
     public static readonly string BELL = "Bell";
 
     public static readonly string ERROR = "Error";
+
+    public static readonly string DISCARD_PAGE = "DiscardPage";
 }

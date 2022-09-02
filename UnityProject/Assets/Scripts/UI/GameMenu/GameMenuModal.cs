@@ -48,6 +48,8 @@ public class GameMenuModal : MonoBehaviour
 
     private void CloseMenu()
     {
+        AudioManager.GetInstance().Play(SoundMap.DISCARD_PAGE);
+
         PlayerSceneInteraction.EnableInteraction(INTERACTION_LOCK_KEY);
         Destroy(gameObject);
     }

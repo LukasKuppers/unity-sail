@@ -49,6 +49,8 @@ public class OpenMapListener : MonoBehaviour
         }
         else
         {
+            AudioManager.GetInstance().Play(SoundMap.DISCARD_PAGE);
+
             Destroy(mapInstance);
         }
     }
