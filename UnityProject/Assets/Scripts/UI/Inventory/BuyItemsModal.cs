@@ -146,6 +146,9 @@ public class BuyItemsModal : MonoBehaviour
             inventory.IncrementCannonball(cannonballAmount);
             inventory.IncrementCoin(-totalCost);
 
+            if (totalCost > 0)
+                AudioManager.GetInstance().Play(SoundMap.BELL);
+
             CloseModal();
         }
     }
