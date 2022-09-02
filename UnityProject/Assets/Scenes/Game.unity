@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1727.196, g: 3128.0117, b: 6523.242, a: 1}
+  m_IndirectSpecularColor: {r: 1642.6389, g: 3253.416, b: 7341.2188, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -39037,7 +39037,7 @@ MonoBehaviour:
   sounds:
   - name: ButtonClick
     clip: {fileID: 8300000, guid: ca72121a72bf1f741963cc4b81ebbc43, type: 3}
-    volume: 0.5
+    volume: 0.2
     pitch: 1
     loop: 0
     type: 1
@@ -39062,6 +39062,12 @@ MonoBehaviour:
   - name: Sails
     clip: {fileID: 8300000, guid: 890db12933c3bdc438a5fdf468a856c9, type: 3}
     volume: 1
+    pitch: 1
+    loop: 0
+    type: 1
+  - name: Whistle
+    clip: {fileID: 8300000, guid: 3c4dae9bdf2ad36419e903384a01b355, type: 3}
+    volume: 0.3
     pitch: 1
     loop: 0
     type: 1

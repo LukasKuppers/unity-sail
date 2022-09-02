@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1391.5918, g: 1286.207, b: 1362.6172, a: 1}
+  m_IndirectSpecularColor: {r: 1396.8379, g: 1304.6504, b: 1404.7344, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1740,7 +1740,7 @@ MonoBehaviour:
   sounds:
   - name: ButtonClick
     clip: {fileID: 8300000, guid: ca72121a72bf1f741963cc4b81ebbc43, type: 3}
-    volume: 0.5
+    volume: 0.2
     pitch: 1
     loop: 0
     type: 1

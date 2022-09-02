@@ -10,4 +10,6 @@ public static class SoundMap
     public static readonly string SPLASH = "Splash";
 
     public static readonly string SAIL = "Sails";
+
+    public static readonly string WHISTLE = "Whistle";
 }

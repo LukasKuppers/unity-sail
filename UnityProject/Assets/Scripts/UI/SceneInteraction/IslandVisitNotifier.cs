@@ -34,5 +34,7 @@ public class IslandVisitNotifier : MonoBehaviour
         islandName = islandName.Replace('_', ' ');
         islandName = textinfo.ToTitleCase(islandName.ToLower());
         bannerText.text = islandName;
+
+        AudioManager.GetInstance().Play(SoundMap.WHISTLE);
     }
 }
