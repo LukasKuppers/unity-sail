@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1727.196, g: 3128.0117, b: 6523.242, a: 1}
+  m_IndirectSpecularColor: {r: 1642.6389, g: 3253.416, b: 7341.2188, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -39074,6 +39074,12 @@ MonoBehaviour:
   - name: Bell
     clip: {fileID: 8300000, guid: 83819ae7e8650384f8a58933e95f5936, type: 3}
     volume: 1
+    pitch: 1
+    loop: 0
+    type: 1
+  - name: Error
+    clip: {fileID: 8300000, guid: e246f6e6728383048abe8e993b75c9cd, type: 3}
+    volume: 0.5
     pitch: 1
     loop: 0
     type: 1

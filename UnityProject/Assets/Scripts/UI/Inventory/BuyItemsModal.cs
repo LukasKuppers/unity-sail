@@ -151,6 +151,8 @@ public class BuyItemsModal : MonoBehaviour
 
             CloseModal();
         }
+        else
+            AudioManager.GetInstance().Play(SoundMap.ERROR);
     }
 
     private void CloseModal()

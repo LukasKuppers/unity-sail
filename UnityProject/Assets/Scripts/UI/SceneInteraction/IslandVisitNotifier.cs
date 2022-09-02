@@ -35,6 +35,7 @@ public class IslandVisitNotifier : MonoBehaviour
         islandName = textinfo.ToTitleCase(islandName.ToLower());
         bannerText.text = islandName;
 
-        AudioManager.GetInstance().Play(SoundMap.WHISTLE);
+        if (island != Islands.EUREKA_TRADING_POST)
+            AudioManager.GetInstance().Play(SoundMap.WHISTLE);
     }
 }

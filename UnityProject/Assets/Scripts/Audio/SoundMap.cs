@@ -14,4 +14,6 @@ public static class SoundMap
     public static readonly string WHISTLE = "Whistle";
 
     public static readonly string BELL = "Bell";
+
+    public static readonly string ERROR = "Error";
 }

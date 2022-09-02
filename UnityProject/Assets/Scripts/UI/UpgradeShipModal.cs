@@ -69,6 +69,8 @@ public class UpgradeShipModal : MonoBehaviour
                 inventory.IncrementCoin(-price);
                 CloseModal();
             }
+            else
+                AudioManager.GetInstance().Play(SoundMap.ERROR);
         }    
     }
 
