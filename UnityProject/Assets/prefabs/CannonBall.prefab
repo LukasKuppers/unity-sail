@@ -66,6 +66,8 @@ MonoBehaviour:
     type: 3}
   noDamageParticles: {fileID: 83017755850068640, guid: f3414817e040ed84192db580261adae1,
     type: 3}
+  spawnParticles: {fileID: 658137973571751665, guid: ecf346ad451f3864d90ca048a47b7d7b,
+    type: 3}
 --- !u!135 &5052120822253959354
 SphereCollider:
   m_ObjectHideFlags: 0

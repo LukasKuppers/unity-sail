@@ -11,6 +11,8 @@ public class Projectile : MonoBehaviour
     private GameObject damageParticles;
     [SerializeField]
     private GameObject noDamageParticles;
+    [SerializeField]
+    private GameObject spawnParticles;
 
     private string tagMask = "Untagged";
 
@@ -20,6 +22,12 @@ public class Projectile : MonoBehaviour
         {
             tagMask = tag;
         }
+    }
+
+    private void Awake()
+    {
+        if (spawnParticles != null)
+            Instantiate(spawnParticles, transform.position, transform.rotation);
     }
 
     private void OnCollisionEnter(Collision collision)
