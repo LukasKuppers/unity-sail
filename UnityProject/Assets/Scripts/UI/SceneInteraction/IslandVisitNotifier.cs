@@ -25,17 +25,19 @@ public class IslandVisitNotifier : MonoBehaviour
 
     private void DisplayVisitBanner(Islands island)
     {
-        GameObject banner = Instantiate(islandVisitBannerPrefab, hudParent.transform);
-
-        TextMeshProUGUI bannerText = banner.GetComponentInChildren<TextMeshProUGUI>();
-
-        TextInfo textinfo = new CultureInfo("en-US", false).TextInfo;
-        string islandName = island.ToString();
-        islandName = islandName.Replace('_', ' ');
-        islandName = textinfo.ToTitleCase(islandName.ToLower());
-        bannerText.text = islandName;
-
         if (island != Islands.EUREKA_TRADING_POST)
+        {
+            GameObject banner = Instantiate(islandVisitBannerPrefab, hudParent.transform);
+
+            TextMeshProUGUI bannerText = banner.GetComponentInChildren<TextMeshProUGUI>();
+
+            TextInfo textinfo = new CultureInfo("en-US", false).TextInfo;
+            string islandName = island.ToString();
+            islandName = islandName.Replace('_', ' ');
+            islandName = textinfo.ToTitleCase(islandName.ToLower());
+            bannerText.text = islandName;
+
             AudioManager.GetInstance().Play(SoundMap.WHISTLE);
+        }
     }
 }

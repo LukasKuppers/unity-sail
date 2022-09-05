@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1725.8772, g: 3129.246, b: 6535.6562, a: 1}
+  m_IndirectSpecularColor: {r: 1702.2498, g: 3182.711, b: 6779.9453, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -23835,6 +23835,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9902f0a024152ec42b0dc878948bbeee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathScreenPrefab: {fileID: 6752769829281052784, guid: 5a481c2372d9c9d4695922aaa338eb38,
+    type: 3}
   shipTypePrefabs:
   - {fileID: 5318868907262521436, guid: 26185c802f1fa4f4baa2d4904b41aec2, type: 3}
   - {fileID: 7988099012144062168, guid: f99934fd007ad5e45af2fb94a2e83149, type: 3}

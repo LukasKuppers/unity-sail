@@ -5,6 +5,10 @@ using UnityEngine.Events;
 
 public class ShipPrefabManager : MonoBehaviour
 {
+    private static readonly string CANVAS_TAG = "Canvas";
+
+    [SerializeField]
+    private GameObject deathScreenPrefab;
     [SerializeField]
     private GameObject[] shipTypePrefabs;
     [SerializeField]
@@ -56,6 +60,9 @@ public class ShipPrefabManager : MonoBehaviour
 
     public GameObject RespawnShip()
     {
+        GameObject canvas = GameObject.FindGameObjectWithTag(CANVAS_TAG);
+        Instantiate(deathScreenPrefab, canvas.transform);
+
         if (respawnedShipEvent != null)
             respawnedShipEvent.Invoke();
 

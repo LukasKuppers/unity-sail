@@ -210,6 +210,7 @@ GameObject:
   - component: {fileID: 7355631055844089312}
   - component: {fileID: 6842743462569311098}
   - component: {fileID: 8816878510341709564}
+  - component: {fileID: 1512980206839293664}
   m_Layer: 5
   m_Name: DeathScreen
   m_TagString: Untagged
@@ -275,6 +276,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1512980206839293664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6752769829281052784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c9acfee11072b8419fca85b54497e3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  respawnButton: {fileID: 4073774835526773002}
+  exitButton: {fileID: 7423065428405312962}
+  menuSceneName: MainMenu
 --- !u!1 &8709086091340582370
 GameObject:
   m_ObjectHideFlags: 0
@@ -498,6 +514,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b504bf7282f55c647aef42962a76b9fd, type: 3}
+--- !u!1 &7423065428405312962 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6500646468198019140, guid: b504bf7282f55c647aef42962a76b9fd,
+    type: 3}
+  m_PrefabInstance: {fileID: 4409843346642824582}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &7423065428405312973 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6500646468198019147, guid: b504bf7282f55c647aef42962a76b9fd,
@@ -663,6 +685,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b504bf7282f55c647aef42962a76b9fd, type: 3}
+--- !u!1 &4073774835526773002 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6500646468198019140, guid: b504bf7282f55c647aef42962a76b9fd,
+    type: 3}
+  m_PrefabInstance: {fileID: 7115154304153459022}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &4073774835526772997 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6500646468198019147, guid: b504bf7282f55c647aef42962a76b9fd,
