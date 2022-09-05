@@ -29,9 +29,13 @@ public class PlayerController : MonoBehaviour
     {
         SetSailParameters();
 
-        controller.SetSailHeight(sailHeight);
         controller.SetSailAngle(sailAngle);
-        controller.SetSteerAmount(0.1f * Input.GetAxis("Horizontal"));
+
+        if (PlayerSceneInteraction.InteractionEnabled())
+        {
+            controller.SetSailHeight(sailHeight);
+            controller.SetSteerAmount(0.1f * Input.GetAxis("Horizontal"));
+        }
     }
 
     private void SetSailParameters()
