@@ -342,9 +342,9 @@ MonoBehaviour:
   respawnPoint: {fileID: 0}
   playerInventory: {fileID: 0}
   shipPrefabManager: {fileID: 0}
-  defaultFoodAmount: 10
+  defaultFoodAmount: 2
   defaultWoodAmount: 10
-  defaultCannonballAmount: 50
+  defaultCannonballAmount: 40
 --- !u!114 &4115916517682824892
 MonoBehaviour:
   m_ObjectHideFlags: 0
