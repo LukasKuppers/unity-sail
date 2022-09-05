@@ -85,7 +85,7 @@ public class CameraController : MonoBehaviour
 
     private void Update()
     {
-        if (mainCameraEnabled)
+        if (mainCameraEnabled && PlayerSceneInteraction.InteractionEnabled())
         {
             CalculateRotationParameters();
             SetTransform();
