@@ -47,6 +47,8 @@ public class GameLoader : MonoBehaviour
         {
             SceneManager.LoadScene(menuSceneName, LoadSceneMode.Single);
         }
+
+        AudioManager.GetInstance().Play(SoundMap.BACKGROUND_AMBIANCE);
     }
 
     public void SaveScene()

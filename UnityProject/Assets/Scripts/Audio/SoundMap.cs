@@ -18,4 +18,6 @@ public static class SoundMap
     public static readonly string ERROR = "Error";
 
     public static readonly string DISCARD_PAGE = "DiscardPage";
+
+    public static readonly string BACKGROUND_AMBIANCE = "BackgroundAmbiance";
 }
