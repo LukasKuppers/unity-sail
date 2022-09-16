@@ -40164,6 +40164,12 @@ MonoBehaviour:
     pitch: 1
     loop: 1
     type: 1
+  - name: Hammer
+    clip: {fileID: 8300000, guid: 3eb78d783e525a442bbd5269209f6064, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 0
+    type: 1
 --- !u!4 &2114433590
 Transform:
   m_ObjectHideFlags: 0

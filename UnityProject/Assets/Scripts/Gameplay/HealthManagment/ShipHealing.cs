@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ShipHealing : MonoBehaviour
 {
-    private static readonly float COROUTINE_WAIT_TIME = 1.0f;
+    private static readonly float COROUTINE_WAIT_TIME = 3.0f;
     private static readonly float COROUTINE_TIMEOUT_TIME = 10.0f;
 
     [SerializeField]
@@ -56,6 +56,8 @@ public class ShipHealing : MonoBehaviour
             {
                 inventory.IncrementWood(-1);
                 healthManager.Restore(healthPerWood);
+
+                AudioManager.GetInstance().Play(SoundMap.HAMMER);
             }
 
             lastRrecordedHealth = healthManager.GetHealth();

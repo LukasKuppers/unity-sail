@@ -20,4 +20,6 @@ public static class SoundMap
     public static readonly string DISCARD_PAGE = "DiscardPage";
 
     public static readonly string BACKGROUND_AMBIANCE = "BackgroundAmbiance";
+
+    public static readonly string HAMMER = "Hammer";
 }
