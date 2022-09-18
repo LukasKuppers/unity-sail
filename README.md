@@ -6,6 +6,22 @@ Unity-sail is the repository for `Project Sail`, an open world naval-combat and 
 
 ## Version History
 
+### Alpha_1.3 (SFX & polish):
+September 18, 2022
+- Added sound effects:
+  - UI (click, open menu, close menu, error)
+  - Buy items, upgrade ship
+  - Sell treasure
+  - Pickup item, drop item
+  - Ship (fire cannons, cannon hit, cannon miss, explosion, heal ship)
+  - ambiance (ocean, sailing, island)
+  - Visit island
+- Updated cannon and cannonball placeholder models
+- Disable ship and cannon controls when in menu
+- Added player death screen
+- Added surface texture to ocean waves
+- Added muzzle smoke on cannon fire
+
 ### Alpha_1.2.2 (Quality of Life 2):
 August 29, 2022
 - Allow user to quickly scroll item values by holding increment button
