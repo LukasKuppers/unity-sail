@@ -24,4 +24,6 @@ public static class SoundMap
     public static readonly string HAMMER = "Hammer";
 
     public static readonly string DING = "Ding";
+
+    public static readonly string TRUMPET = "Trumpet";
 }

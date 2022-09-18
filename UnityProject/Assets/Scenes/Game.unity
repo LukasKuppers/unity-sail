@@ -40176,6 +40176,12 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     type: 1
+  - name: Trumpet
+    clip: {fileID: 8300000, guid: 1e60f92aab1181446bb6982f167b30b3, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    type: 1
 --- !u!4 &2114433590
 Transform:
   m_ObjectHideFlags: 0

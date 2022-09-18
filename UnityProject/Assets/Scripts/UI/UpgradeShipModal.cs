@@ -67,6 +67,8 @@ public class UpgradeShipModal : MonoBehaviour
             {
                 prefabManager.SpawnShip(currentIndex + 1);
                 inventory.IncrementCoin(-price);
+
+                AudioManager.GetInstance().Play(SoundMap.TRUMPET);
                 CloseModal();
             }
             else
