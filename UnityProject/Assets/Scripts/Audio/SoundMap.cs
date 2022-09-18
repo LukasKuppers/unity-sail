@@ -22,4 +22,6 @@ public static class SoundMap
     public static readonly string BACKGROUND_AMBIANCE = "BackgroundAmbiance";
 
     public static readonly string HAMMER = "Hammer";
+
+    public static readonly string DING = "Ding";
 }

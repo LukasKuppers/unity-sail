@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1727.196, g: 3128.0117, b: 6523.242, a: 1}
+  m_IndirectSpecularColor: {r: 1707.9106, g: 3170.6406, b: 6717.5156, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -40167,6 +40167,12 @@ MonoBehaviour:
   - name: Hammer
     clip: {fileID: 8300000, guid: 3eb78d783e525a442bbd5269209f6064, type: 3}
     volume: 0.3
+    pitch: 1
+    loop: 0
+    type: 1
+  - name: Ding
+    clip: {fileID: 8300000, guid: 533f7eaff2ad16340b8012d55df00964, type: 3}
+    volume: 0.8
     pitch: 1
     loop: 0
     type: 1

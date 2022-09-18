@@ -34,6 +34,11 @@ public class InventoryIncreaseDisplay : MonoBehaviour
         StartCoroutine(PickupAnimation((int)numFrames));
     }
 
+    private void Awake()
+    {
+        AudioManager.GetInstance().Play(SoundMap.DING);
+    }
+
     public void Init(Item type, int amount)
     {
 
