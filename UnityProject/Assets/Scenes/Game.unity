@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1707.9106, g: 3170.6406, b: 6717.5156, a: 1}
+  m_IndirectSpecularColor: {r: 1608.3127, g: 3248.6777, b: 7545.7344, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5189,7 +5189,7 @@ GameObject:
   - component: {fileID: 260027814}
   - component: {fileID: 260027816}
   - component: {fileID: 260027815}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: BeaconHillPatrol
   m_TagString: Untagged
   m_Icon: {fileID: 0}

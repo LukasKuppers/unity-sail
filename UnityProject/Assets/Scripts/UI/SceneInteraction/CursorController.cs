@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class CursorController : MonoBehaviour
 {
+    private static readonly int IGNORE_RAYCAST_LAYER = 2;
+
     [SerializeField]
     private GameObject shipPrefabManager;
     [SerializeField]
@@ -33,7 +35,7 @@ public class CursorController : MonoBehaviour
         cam = Camera.main;
         cursorImg = gameObject.GetComponent<Image>();
 
-        layerMask = 1 << PlayerCanonController.AIM_RAY_LAYER_MASK;
+        layerMask = (1 << PlayerCanonController.AIM_RAY_LAYER_MASK) | (1 << IGNORE_RAYCAST_LAYER);
         layerMask = ~layerMask;
 
         if (!lockCursorToUiMode)
