@@ -117,12 +117,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4118d1b803d412747bd938c6b296dbad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  treasureLocationPrefab: {fileID: 6703227258108952446, guid: df41329d743538741bc73a2efaeb3672, type: 3}
+  treasureLocationPrefab: {fileID: 6703227258108952446, guid: df41329d743538741bc73a2efaeb3672,
+    type: 3}
   contentContainer: {fileID: 6583900433191183780}
   islandsContainer: {fileID: 8763464473908088344}
   playerPosIcon: {fileID: 6583900432814136254}
   worldMapWidth: 4000
-  worldMapHeight: 3000
+  worldMapHeight: 4000
 --- !u!1 &4614397631895714936
 GameObject:
   m_ObjectHideFlags: 0
@@ -192,7 +193,8 @@ MonoBehaviour:
   m_text: Map of the New World
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 08701b0d39e2c3f43bc730e043ba4011, type: 2}
-  m_sharedMaterial: {fileID: 7216982862115286129, guid: 08701b0d39e2c3f43bc730e043ba4011, type: 2}
+  m_sharedMaterial: {fileID: 7216982862115286129, guid: 08701b0d39e2c3f43bc730e043ba4011,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
