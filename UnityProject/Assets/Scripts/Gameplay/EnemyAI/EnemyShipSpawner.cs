@@ -2,6 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public class EnemyShipSpawnableType
+{
+    public EnemyType shipType;
+
+    public GameObject shipPrefab;
+}
+
 public class EnemyShipSpawner : MonoBehaviour
 {
     [SerializeField]
@@ -17,20 +25,28 @@ public class EnemyShipSpawner : MonoBehaviour
     [SerializeField]
     private GameObject windManager;
     [SerializeField]
-    private GameObject[] shipPrefabs;
+    private EnemyShipSpawnableType[] ships;
 
     private DistributedTaskManager taskManager;
     private NPCActivityManager npcManager;
+
+    private Dictionary<EnemyType, GameObject> shipPrefabMap;
 
     private void Start()
     {
         taskManager = DistributedTaskManager.GetInstance();
         npcManager = npcActivtyManager.GetComponent<NPCActivityManager>();
+
+        shipPrefabMap = new Dictionary<EnemyType, GameObject>();
+        foreach (EnemyShipSpawnableType shipType in ships)
+        {
+            shipPrefabMap.Add(shipType.shipType, shipType.shipPrefab);
+        }
     }
 
-    public GameObject SpawnShip(int shipIndex, AIShipMode mode, Vector3 position, Quaternion rotation)
+    public GameObject SpawnShip(EnemyType type, AIShipMode mode, Vector3 position, Quaternion rotation)
     {
-        GameObject newShip = Instantiate(shipPrefabs[shipIndex],
+        GameObject newShip = Instantiate(shipPrefabMap[type],
             position, rotation, transform);
 
         PhysicsAdvancedBuoyancy buoyancy = newShip.GetComponent<PhysicsAdvancedBuoyancy>();
@@ -61,14 +77,16 @@ public class EnemyShipSpawner : MonoBehaviour
         return newShip;
     }
 
-    public GameObject SpawnShip(int shipIndex, AIShipMode mode, Vector3 position)
+    public GameObject SpawnShip(EnemyType type, Vector3 position, AIShipMode mode)
     {
-        return SpawnShip(shipIndex, mode, position, Quaternion.identity);
+        return SpawnShip(type, mode, position, Quaternion.identity);
     }
 
     public GameObject SpawnRandomShip(Vector3 position, AIShipMode mode)
     {
-        int randIndex = Random.Range(0, shipPrefabs.Length);
-        return SpawnShip(randIndex, mode, position);
+        int randIndex = Random.Range(0, ships.Length);
+        EnemyType randType = ships[randIndex].shipType;
+
+        return SpawnShip(randType, position, mode);
     }
 }

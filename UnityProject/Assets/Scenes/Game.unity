@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1673.5745, g: 3228.3398, b: 7070.547, a: 1}
+  m_IndirectSpecularColor: {r: 1632.3098, g: 3256.1484, b: 7419.6094, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7001,10 +7001,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyShipSpawner: {fileID: 863964486}
   playerTag: Player
-  shipSpawnLocations:
-  - {fileID: 868797639}
-  - {fileID: 1199223000}
-  - {fileID: 1190001020}
+  spawnLocations:
+  - shipType: 0
+    shipSpawnLocation: {fileID: 868797639}
+  - shipType: 0
+    shipSpawnLocation: {fileID: 1199223000}
+  - shipType: 2
+    shipSpawnLocation: {fileID: 1190001020}
 --- !u!1001 &262667051
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23353,10 +23356,19 @@ MonoBehaviour:
   pickupSpawner: {fileID: 1908523563}
   waveManager: {fileID: 357877953}
   windManager: {fileID: 357877953}
-  shipPrefabs:
-  - {fileID: 2720305700964610440, guid: 70d6e7caa2059f84dbe5d81c3ede2d08, type: 3}
-  - {fileID: 5620604600492251025, guid: 4f7ab9de219a8a34fac75e0b3215c241, type: 3}
-  - {fileID: 8709471688725345819, guid: ae8b9d170cfea354dbfabf3a52701e8f, type: 3}
+  ships:
+  - shipType: 0
+    shipPrefab: {fileID: 2720305700964610440, guid: 70d6e7caa2059f84dbe5d81c3ede2d08,
+      type: 3}
+  - shipType: 1
+    shipPrefab: {fileID: 2720305700964610440, guid: 70d6e7caa2059f84dbe5d81c3ede2d08,
+      type: 3}
+  - shipType: 2
+    shipPrefab: {fileID: 8709471688725345819, guid: ae8b9d170cfea354dbfabf3a52701e8f,
+      type: 3}
+  - shipType: 3
+    shipPrefab: {fileID: 5620604600492251025, guid: 4f7ab9de219a8a34fac75e0b3215c241,
+      type: 3}
 --- !u!114 &863964489
 MonoBehaviour:
   m_ObjectHideFlags: 0

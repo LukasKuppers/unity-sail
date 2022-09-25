@@ -2,6 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public class EnemyPatrolSpawnLocation
+{
+    public EnemyType shipType;
+
+    public GameObject shipSpawnLocation;
+}
+
 public class EnemyPatrol : MonoBehaviour
 {
     [SerializeField]
@@ -9,7 +17,7 @@ public class EnemyPatrol : MonoBehaviour
     [SerializeField]
     private string playerTag = "Player";
     [SerializeField]
-    private GameObject[] shipSpawnLocations;
+    private EnemyPatrolSpawnLocation[] spawnLocations;
 
     private EnemyShipSpawner spawner;
 
@@ -26,10 +34,10 @@ public class EnemyPatrol : MonoBehaviour
     {
         if (!shipsAreLoaded)
         {
-            foreach (GameObject location in shipSpawnLocations)
+            foreach (EnemyPatrolSpawnLocation location in spawnLocations)
             {
-                GameObject ship = spawner.SpawnRandomShip(location.transform.position, AIShipMode.Agressive);
-                ship.GetComponent<AIShipController>().SetGoal(location.transform.position);
+                GameObject ship = spawner.SpawnShip(location.shipType, location.shipSpawnLocation.transform.position, AIShipMode.Agressive);
+                ship.GetComponent<AIShipController>().SetGoal(location.shipSpawnLocation.transform.position);
                 spawnedShips.Add(ship);
             }
             shipsAreLoaded = true;
