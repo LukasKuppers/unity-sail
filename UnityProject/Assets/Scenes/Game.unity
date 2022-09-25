@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1575.9675, g: 3211.2188, b: 7603.0547, a: 1}
+  m_IndirectSpecularColor: {r: 1673.5745, g: 3228.3398, b: 7070.547, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -23355,6 +23355,8 @@ MonoBehaviour:
   windManager: {fileID: 357877953}
   shipPrefabs:
   - {fileID: 2720305700964610440, guid: 70d6e7caa2059f84dbe5d81c3ede2d08, type: 3}
+  - {fileID: 5620604600492251025, guid: 4f7ab9de219a8a34fac75e0b3215c241, type: 3}
+  - {fileID: 8709471688725345819, guid: ae8b9d170cfea354dbfabf3a52701e8f, type: 3}
 --- !u!114 &863964489
 MonoBehaviour:
   m_ObjectHideFlags: 0
