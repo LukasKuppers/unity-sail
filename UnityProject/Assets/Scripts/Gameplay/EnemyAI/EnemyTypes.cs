@@ -7,5 +7,7 @@ public enum EnemyType
     SLOOP_NAVY, 
     BRIG_PRIATE, 
     BRIG_NAVY, 
+    NAO_PIRATE, 
+    NAO_NAVY, 
     FORT_TURRET
 }
