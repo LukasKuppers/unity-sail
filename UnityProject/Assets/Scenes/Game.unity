@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1727.196, g: 3128.0117, b: 6523.242, a: 1}
+  m_IndirectSpecularColor: {r: 1646.603, g: 3252.0742, b: 7315.6094, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -53989,6 +53989,90 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55f2a7f3d33a67442b3c9bf22a9b3efd, type: 3}
+--- !u!1001 &9083770930769434534
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 350633529967293871, guid: 674a96c3821993240bce22ffbfb55aae,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 350633529967293871, guid: 674a96c3821993240bce22ffbfb55aae,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 366.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 350633529967293871, guid: 674a96c3821993240bce22ffbfb55aae,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 350633529967293871, guid: 674a96c3821993240bce22ffbfb55aae,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 504.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 350633529967293871, guid: 674a96c3821993240bce22ffbfb55aae,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.76965815
+      objectReference: {fileID: 0}
+    - target: {fileID: 350633529967293871, guid: 674a96c3821993240bce22ffbfb55aae,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 350633529967293871, guid: 674a96c3821993240bce22ffbfb55aae,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.6384563
+      objectReference: {fileID: 0}
+    - target: {fileID: 350633529967293871, guid: 674a96c3821993240bce22ffbfb55aae,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 350633529967293871, guid: 674a96c3821993240bce22ffbfb55aae,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 350633529967293871, guid: 674a96c3821993240bce22ffbfb55aae,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 79.354
+      objectReference: {fileID: 0}
+    - target: {fileID: 350633529967293871, guid: 674a96c3821993240bce22ffbfb55aae,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4041729618177853186, guid: 674a96c3821993240bce22ffbfb55aae,
+        type: 3}
+      propertyPath: island
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4041729618177853186, guid: 674a96c3821993240bce22ffbfb55aae,
+        type: 3}
+      propertyPath: playerShipPrefabManager
+      value: 
+      objectReference: {fileID: 1163210783}
+    - target: {fileID: 4041729618177853186, guid: 674a96c3821993240bce22ffbfb55aae,
+        type: 3}
+      propertyPath: playerIslandVisitManager
+      value: 
+      objectReference: {fileID: 1885766789}
+    - target: {fileID: 8104025669060991209, guid: 674a96c3821993240bce22ffbfb55aae,
+        type: 3}
+      propertyPath: m_Name
+      value: NavyOutpost
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 674a96c3821993240bce22ffbfb55aae, type: 3}
 --- !u!1001 &9084158957283829457
 PrefabInstance:
   m_ObjectHideFlags: 0
