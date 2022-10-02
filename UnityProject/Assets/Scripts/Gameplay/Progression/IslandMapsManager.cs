@@ -74,5 +74,11 @@ public enum Islands
     SKULL_ISLE, 
     GRAND_FORT, 
     SCIMITAR_ROCK, 
+    PIRATE_OUTPOST_1, 
+    PIRATE_OUTPOST_2, 
+    PIRATE_OUTPOST_3, 
+    NAVY_OUTPOST_1, 
+    NAVY_OUTPOST_2, 
+    NAVY_OUTPOST_3, 
     NONE
 }

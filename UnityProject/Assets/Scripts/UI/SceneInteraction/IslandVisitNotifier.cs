@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System.Globalization;
+using System.Linq;
 
 public class IslandVisitNotifier : MonoBehaviour
 {
@@ -16,6 +17,16 @@ public class IslandVisitNotifier : MonoBehaviour
 
     private IslandVisitManager visitManager;
 
+    private readonly Islands[] noNotifyIslands = {
+        Islands.EUREKA_TRADING_POST, 
+        Islands.PIRATE_OUTPOST_1, 
+        Islands.PIRATE_OUTPOST_2,
+        Islands.PIRATE_OUTPOST_3, 
+        Islands.NAVY_OUTPOST_1,
+        Islands.NAVY_OUTPOST_2,
+        Islands.NAVY_OUTPOST_3
+    };
+
     private void Start()
     {
         visitManager = islandVisitManager.GetComponent<IslandVisitManager>();
@@ -25,7 +36,8 @@ public class IslandVisitNotifier : MonoBehaviour
 
     private void DisplayVisitBanner(Islands island)
     {
-        if (island != Islands.EUREKA_TRADING_POST)
+        bool shouldNotify = !noNotifyIslands.Contains(island);
+        if (shouldNotify)
         {
             GameObject banner = Instantiate(islandVisitBannerPrefab, hudParent.transform);
 

@@ -34,7 +34,6 @@ public class IslandTreasureSpawnManager : MonoBehaviour
         {
             IslandTreasureSpawner spawner = islandsTreasureManagers[i].GetComponent<IslandTreasureSpawner>();
             islandSpawnerMap.Add(islandsMapping[i], spawner);
-
         }
     }
 
