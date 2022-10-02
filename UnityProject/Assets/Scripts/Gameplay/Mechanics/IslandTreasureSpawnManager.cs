@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class IslandTreasureSpawnManager : MonoBehaviour
 {
@@ -39,7 +40,8 @@ public class IslandTreasureSpawnManager : MonoBehaviour
 
     private void ProcessNewVisit(Islands island)
     {
-        if (!recentVisits.Contains(island) && island != Islands.EUREKA_TRADING_POST)
+        bool islandIsValid = islandsMapping.Contains(island) && island != Islands.EUREKA_TRADING_POST;
+        if (!recentVisits.Contains(island) && islandIsValid) 
         {
             recentVisits.Dequeue();
             recentVisits.Enqueue(island);
