@@ -6,6 +6,18 @@ Unity-sail is the repository for `Project Sail`, an open world naval-combat and 
 
 ## Version History
 
+### Alpha_1.4 (Map Update 2):
+October 2, 2022
+- Reworked all island locations
+- Updated mainland structure (added endgame arena)
+- Added new enemy types: sloop, brig, galleon (2, 3, 6, cannons per side)
+- Added ship dock points for AI ships travelling routes
+- Added pirate outposts
+- Added navy outposts
+- Added enemy ship patrols across map
+- Populated map with ocean rocks/obstacles
+- Fixed invisible wall bug (UI cursor no longer intracts with ship patrol colliders)
+
 ### Alpha_1.3 (SFX & polish):
 September 18, 2022
 - Added sound effects:
