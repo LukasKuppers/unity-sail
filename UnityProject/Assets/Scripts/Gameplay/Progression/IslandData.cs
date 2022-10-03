@@ -12,4 +12,6 @@ public class IslandData
     public GameObject islandObject;
 
     public GameObject islandSprite;
+
+    public GameObject dockPoint;
 }

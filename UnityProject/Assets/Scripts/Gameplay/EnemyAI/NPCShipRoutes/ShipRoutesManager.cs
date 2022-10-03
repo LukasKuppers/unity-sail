@@ -77,6 +77,9 @@ public class ShipRoutesManager : MonoBehaviour
 
     public AIShipRoute CreateRoute(Islands start, Islands dest, int startDay, float startTime)
     {
+        if (islandManager.GetIslandInfo(start) == null || islandManager.GetIslandInfo(dest) == null)
+            return null;
+
         int startMonth = timeManager.GetMonth();
         if (startDay < timeManager.GetDay())
             startMonth += 1;
@@ -130,7 +133,13 @@ public class ShipRoutesManager : MonoBehaviour
         AIShipRoute route = currentRoutes[routeID];
 
         IslandData startIsland = islandManager.GetIslandInfo(route.startIsland);
+        if (startIsland == null)
+            Debug.LogError("ShipRoutesManager: StartRoute: start Island is not a valid for ship routes");
+        
         Vector3 startPos = startIsland.islandObject.transform.position + new Vector3(100f, 0, 0);
+        if (startIsland.dockPoint != null)
+            startPos = startIsland.dockPoint.transform.position;
+
         SpawnShip(routeID, route.destIsland, startPos);
     }
 
