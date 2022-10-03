@@ -147,9 +147,18 @@ public class ShipRoutesManager : MonoBehaviour
     {
         GameObject ship = shipSpawner.SpawnRandomShip(pos, AIShipMode.Passive);
 
-        ship.GetComponent<EnemyIslandVisitManager>().AddVisitListener(
-            destIsland,
-            () => CompleteRoute(routeID));
+        GameObject dockPoint = islandManager.GetIslandInfo(destIsland).dockPoint;
+        if (dockPoint != null)
+        {
+            SpecificCollisionListener colListener = dockPoint.GetComponent<SpecificCollisionListener>();
+            colListener.AddSpecificCollisionListener(ship, () => CompleteRoute(routeID));
+        }
+        else
+        {
+            ship.GetComponent<EnemyIslandVisitManager>().AddVisitListener(
+                destIsland,
+                () => CompleteRoute(routeID));
+        }
 
         ship.GetComponent<IDestructable>().AddDestructionListener(
             (GameObject _) => CompleteRoute(routeID));

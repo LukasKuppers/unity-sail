@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1727.1956, g: 3128.0117, b: 6523.242, a: 1}
+  m_IndirectSpecularColor: {r: 1727.196, g: 3128.0117, b: 6523.242, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -11093,6 +11093,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 367176855}
+  - component: {fileID: 367176857}
+  - component: {fileID: 367176856}
   m_Layer: 0
   m_Name: DockPoint
   m_TagString: Untagged
@@ -11114,6 +11116,31 @@ Transform:
   m_Father: {fileID: 1723507979}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &367176856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 367176854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8a77756761b71e44a28c8ceb746ee36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!135 &367176857
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 367176854}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &369780376
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22619,6 +22646,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 792415406}
+  - component: {fileID: 792415408}
+  - component: {fileID: 792415407}
   m_Layer: 0
   m_Name: DockPoint
   m_TagString: Untagged
@@ -22640,6 +22669,31 @@ Transform:
   m_Father: {fileID: 614624170}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &792415407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 792415405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8a77756761b71e44a28c8ceb746ee36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!135 &792415408
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 792415405}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &794800036 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8957189822999362394, guid: acc2c3f8bcf64c54c8fbd354d2f2c6f7,
@@ -26857,6 +26911,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 962396352}
+  - component: {fileID: 962396354}
+  - component: {fileID: 962396353}
   m_Layer: 0
   m_Name: DockPoint
   m_TagString: Untagged
@@ -26878,6 +26934,31 @@ Transform:
   m_Father: {fileID: 406534075}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &962396353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 962396351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8a77756761b71e44a28c8ceb746ee36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!135 &962396354
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 962396351}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &963320529
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27234,6 +27315,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 973830257}
+  - component: {fileID: 973830259}
+  - component: {fileID: 973830258}
   m_Layer: 0
   m_Name: DockPoint
   m_TagString: Untagged
@@ -27255,6 +27338,31 @@ Transform:
   m_Father: {fileID: 2006066431}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &973830258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 973830256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8a77756761b71e44a28c8ceb746ee36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!135 &973830259
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 973830256}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &974017219 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 286bc90da7d5c064eb05db5a057fc4dd,
@@ -35481,6 +35589,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1338785232}
+  - component: {fileID: 1338785234}
+  - component: {fileID: 1338785233}
   m_Layer: 0
   m_Name: DockPoint
   m_TagString: Untagged
@@ -35502,6 +35612,31 @@ Transform:
   m_Father: {fileID: 689569713}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1338785233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1338785231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8a77756761b71e44a28c8ceb746ee36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!135 &1338785234
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1338785231}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1347173775
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36598,6 +36733,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1407227608}
+  - component: {fileID: 1407227610}
+  - component: {fileID: 1407227609}
   m_Layer: 0
   m_Name: DockPoint
   m_TagString: Untagged
@@ -36619,6 +36756,31 @@ Transform:
   m_Father: {fileID: 34780053}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1407227609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1407227607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8a77756761b71e44a28c8ceb746ee36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!135 &1407227610
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1407227607}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1408551048
 GameObject:
   m_ObjectHideFlags: 0
@@ -43612,6 +43774,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1709157366}
+  - component: {fileID: 1709157368}
+  - component: {fileID: 1709157367}
   m_Layer: 0
   m_Name: DockPoint
   m_TagString: Untagged
@@ -43633,6 +43797,31 @@ Transform:
   m_Father: {fileID: 468269150}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1709157367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709157365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8a77756761b71e44a28c8ceb746ee36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!135 &1709157368
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709157365}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1711207034
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44381,6 +44570,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1744507735}
+  - component: {fileID: 1744507737}
+  - component: {fileID: 1744507736}
   m_Layer: 0
   m_Name: DockPoint
   m_TagString: Untagged
@@ -44402,6 +44593,31 @@ Transform:
   m_Father: {fileID: 1181391607}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1744507736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1744507734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8a77756761b71e44a28c8ceb746ee36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!135 &1744507737
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1744507734}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1746884418
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -47179,6 +47395,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1879537748}
+  - component: {fileID: 1879537750}
+  - component: {fileID: 1879537749}
   m_Layer: 0
   m_Name: DockPoint
   m_TagString: Untagged
@@ -47200,6 +47418,31 @@ Transform:
   m_Father: {fileID: 647466516}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1879537749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1879537747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8a77756761b71e44a28c8ceb746ee36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!135 &1879537750
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1879537747}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1884392428
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -53171,6 +53414,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2113844312}
+  - component: {fileID: 2113844314}
+  - component: {fileID: 2113844313}
   m_Layer: 0
   m_Name: DockPoint
   m_TagString: Untagged
@@ -53192,6 +53437,31 @@ Transform:
   m_Father: {fileID: 1923673866}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2113844313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2113844311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8a77756761b71e44a28c8ceb746ee36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!135 &2113844314
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2113844311}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2114433588
 GameObject:
   m_ObjectHideFlags: 0
