@@ -26,4 +26,6 @@ public static class SoundMap
     public static readonly string DING = "Ding";
 
     public static readonly string TRUMPET = "Trumpet";
+
+    public static readonly string MENU_THEME = "MenuTheme";
 }

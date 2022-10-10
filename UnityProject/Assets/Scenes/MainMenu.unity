@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1398.1064, g: 1324.2842, b: 1460.7578, a: 1}
+  m_IndirectSpecularColor: {r: 1314.8203, g: 1171.2129, b: 1173.6826, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1718,6 +1718,7 @@ GameObject:
   m_Component:
   - component: {fileID: 890583351}
   - component: {fileID: 890583350}
+  - component: {fileID: 890583352}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -1744,6 +1745,18 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     type: 1
+  - name: BackgroundAmbiance
+    clip: {fileID: 8300000, guid: 9b1245903390cf84f9d651b2cdb005d9, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 1
+    type: 1
+  - name: MenuTheme
+    clip: {fileID: 8300000, guid: 65ebd6f04a3c67b47adcc9f107541594, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    type: 1
 --- !u!4 &890583351
 Transform:
   m_ObjectHideFlags: 0
@@ -1758,6 +1771,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &890583352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 890583349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a47fd5a5e3c9a99468a08801a01982e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  songLengthSec: 120
 --- !u!1 &982916147
 GameObject:
   m_ObjectHideFlags: 0
