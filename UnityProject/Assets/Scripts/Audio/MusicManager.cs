@@ -97,6 +97,7 @@ public class MusicManager : MonoBehaviour
 
         int randTrackIndex = Random.Range(0, candidateTrackNames.Length);
         string track = candidateTrackNames[randTrackIndex];
+
         audioManager.Play(track);
         runningTrack = track;
     }
@@ -107,7 +108,7 @@ public class MusicManager : MonoBehaviour
             audioManager.Pause(runningTrack);
 
         runningTrack = null;
-        float randWaitTime = Random.Range(0f, maxAmbientTrackWaitTime);
+        float randWaitTime = Random.Range(30f, maxAmbientTrackWaitTime);
 
         if (!ambientQueueTimerRunning)
             StartCoroutine(QueueAmbientTrack(randWaitTime));
