@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1604.1785, g: 3245.746, b: 7563.336, a: 1}
+  m_IndirectSpecularColor: {r: 1727.196, g: 3128.0117, b: 6523.242, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -53577,6 +53577,24 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     type: 0
+  - name: song_Organ1_ambient
+    clip: {fileID: 8300000, guid: 25271e89ecc3c3544aee60f0570f3c68, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    type: 0
+  - name: song_Organ2_ambient
+    clip: {fileID: 8300000, guid: 9dc08cec93bcd9340bbfca3eecc86240, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    type: 0
+  - name: song_YoHo_ambient
+    clip: {fileID: 8300000, guid: 30b7279f83207924388071ac69e98007, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    type: 0
 --- !u!4 &2114433590
 Transform:
   m_ObjectHideFlags: 0
@@ -53604,9 +53622,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   combatDuration: 5
-  maxAmbientTrackWaitTime: 300
+  maxAmbientTrackWaitTime: 200
   ambientTrackNames:
   - song_DrunkenSailor
+  - song_Organ1_ambient
+  - song_Organ2_ambient
+  - song_YoHo_ambient
   dangerTrackNames:
   - ButtonClick
   combatTrackNames:
