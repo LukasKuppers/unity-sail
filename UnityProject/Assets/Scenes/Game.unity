@@ -53622,7 +53622,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   combatDuration: 5
-  maxAmbientTrackWaitTime: 200
+  maxAmbientTrackWaitTime: 150
   ambientTrackNames:
   - song_DrunkenSailor
   - song_Organ1_ambient
