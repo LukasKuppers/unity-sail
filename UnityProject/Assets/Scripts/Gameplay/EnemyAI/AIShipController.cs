@@ -62,6 +62,8 @@ public class AIShipController : MonoBehaviour, IQueuableTask
                     ship.EnableMovement();
                     Attack();
                     chaseDuration += deltaTime;
+
+                    MusicManager.GetInstance().TriggerCombat();
                 }
                 else
                 {
@@ -72,6 +74,8 @@ public class AIShipController : MonoBehaviour, IQueuableTask
                         ship.EnableMovement();
                         Attack();
                         chaseDuration += deltaTime;
+
+                        MusicManager.GetInstance().TriggerCombat();
                     }
                     else
                     {

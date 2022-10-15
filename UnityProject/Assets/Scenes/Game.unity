@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1727.196, g: 3128.0117, b: 6523.242, a: 1}
+  m_IndirectSpecularColor: {r: 1717.7783, g: 3149.1797, b: 6619.2656, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -53595,6 +53595,12 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     type: 0
+  - name: combatTheme1
+    clip: {fileID: 8300000, guid: ef4e86b764b2ac744ab0d6572161dacf, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    type: 0
 --- !u!4 &2114433590
 Transform:
   m_ObjectHideFlags: 0
@@ -53631,7 +53637,7 @@ MonoBehaviour:
   dangerTrackNames:
   - ButtonClick
   combatTrackNames:
-  - ButtonClick
+  - combatTheme1
 --- !u!1001 &2116274143
 PrefabInstance:
   m_ObjectHideFlags: 0
