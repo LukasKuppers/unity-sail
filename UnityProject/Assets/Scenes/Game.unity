@@ -53601,6 +53601,12 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     type: 0
+  - name: dangerTheme1
+    clip: {fileID: 8300000, guid: ed9671265b43a6d44838c0df51788559, type: 3}
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    type: 0
 --- !u!4 &2114433590
 Transform:
   m_ObjectHideFlags: 0
@@ -53635,7 +53641,7 @@ MonoBehaviour:
   - song_Organ2_ambient
   - song_YoHo_ambient
   dangerTrackNames:
-  - ButtonClick
+  - dangerTheme1
   combatTrackNames:
   - combatTheme1
 --- !u!1001 &2116274143
