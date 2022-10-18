@@ -57,17 +57,24 @@ public class AIShipController : MonoBehaviour, IQueuableTask
             }
             else
             {
+                float distToTarget = Vector3.Distance(targetObject.transform.position, transform.position);
+
                 if (goalLocation == null)
                 {
                     ship.EnableMovement();
                     Attack();
                     chaseDuration += deltaTime;
 
-                    MusicManager.GetInstance().TriggerCombat();
+                    if (distToTarget <= 2 * aggressionDistance)
+                    {
+                        if (distToTarget <= aggressionDistance)
+                            MusicManager.GetInstance().TriggerCombat();
+                        else
+                            MusicManager.GetInstance().SpotEnemy();
+                    }
                 }
                 else
                 {
-                    float distToTarget = Vector3.Distance(targetObject.transform.position, transform.position);
                     float targetDistToGoal = Vector3.Distance(goalLocation, targetObject.transform.position);
                     if (distToTarget <= aggressionDistance && chaseDuration < chaseTimeLimitSec)
                     {
@@ -80,10 +87,11 @@ public class AIShipController : MonoBehaviour, IQueuableTask
                     else
                     {
                         SeekGoal();
+
+                        if (distToTarget <= 2 * aggressionDistance)
+                            MusicManager.GetInstance().SpotEnemy();
                     }
-                    if (distToTarget > aggressionDistance)
-                        chaseDuration = 0;
-                    if (targetDistToGoal <= aggressionDistance)
+                    if (distToTarget > aggressionDistance || targetDistToGoal <= aggressionDistance)
                         chaseDuration = 0;
                 }                
             }
