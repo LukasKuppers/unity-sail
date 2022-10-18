@@ -9,6 +9,8 @@ public class MusicManager : MonoBehaviour
     private float combatDuration = 5.0f;
     [SerializeField]
     private float maxAmbientTrackWaitTime = 180f;
+    [SerializeField]
+    private float trackFadeOutTime = 1f;
 
     [SerializeField]
     private string[] ambientTrackNames;
@@ -93,7 +95,7 @@ public class MusicManager : MonoBehaviour
     private void PlayMusic(string[] candidateTrackNames)
     {
         if (runningTrack != null)
-            audioManager.Pause(runningTrack);
+            audioManager.Pause(runningTrack, trackFadeOutTime);
 
         int randTrackIndex = Random.Range(0, candidateTrackNames.Length);
         string track = candidateTrackNames[randTrackIndex];
@@ -105,7 +107,7 @@ public class MusicManager : MonoBehaviour
     private void StopAndQueueAmbient()
     {
         if (runningTrack != null)
-            audioManager.Pause(runningTrack);
+            audioManager.Pause(runningTrack, trackFadeOutTime);
 
         runningTrack = null;
         float randWaitTime = Random.Range(30f, maxAmbientTrackWaitTime);

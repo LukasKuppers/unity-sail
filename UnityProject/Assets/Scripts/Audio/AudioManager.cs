@@ -65,6 +65,14 @@ public class AudioManager : MonoBehaviour
         });
     }
 
+    public void Pause(string soundName, float fadeOutTime)
+    {
+        FetchSource(soundName, (source) =>
+        {
+            StartCoroutine(FadeOut(source, fadeOutTime));
+        });
+    }
+
     private AudioSource FetchSource(string soundName, UnityAction<AudioSource> callback)
     {
         if (audioSources.ContainsKey(soundName))
@@ -82,5 +90,22 @@ public class AudioManager : MonoBehaviour
     {
         yield return new WaitForSeconds(clipTime);
         callback.Invoke();
+    }
+
+    private IEnumerator FadeOut(AudioSource source, float timeSeconds)
+    {
+        float originalVolume = source.volume;
+        int numAnimFrames = (int)(timeSeconds / Time.deltaTime);
+        
+        for (int i = 0; i < numAnimFrames; i++)
+        {
+            float animPercent = (float)i / numAnimFrames;
+            float volume = Mathf.SmoothStep(originalVolume, 0, animPercent);
+
+            source.volume = volume;
+            yield return null;
+        }
+        source.Pause();
+        source.volume = originalVolume;
     }
 }
