@@ -42,6 +42,7 @@ public class AudioManager : MonoBehaviour
     {
         FetchSource(soundName, (source) =>
         {
+            source.time = 0;
             source.Play();
         });
     }
@@ -50,6 +51,7 @@ public class AudioManager : MonoBehaviour
     {
         FetchSource(soundName, (source) =>
         {
+            source.time = 0;
             source.Play();
             StartCoroutine(SoundClipCompletionCallback(source.clip.length, callback));
         });
