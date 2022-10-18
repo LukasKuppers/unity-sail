@@ -72,6 +72,8 @@ public class AIShipController : MonoBehaviour, IQueuableTask
                         else
                             MusicManager.GetInstance().SpotEnemy();
                     }
+                    else
+                        MusicManager.GetInstance().ExitEnemyVicinity();
                 }
                 else
                 {
@@ -90,6 +92,8 @@ public class AIShipController : MonoBehaviour, IQueuableTask
 
                         if (distToTarget <= 2 * aggressionDistance)
                             MusicManager.GetInstance().SpotEnemy();
+                        else
+                            MusicManager.GetInstance().ExitEnemyVicinity();
                     }
                     if (distToTarget > aggressionDistance || targetDistToGoal <= aggressionDistance)
                         chaseDuration = 0;
