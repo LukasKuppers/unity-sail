@@ -28,4 +28,6 @@ public static class SoundMap
     public static readonly string TRUMPET = "Trumpet";
 
     public static readonly string MENU_THEME = "MenuTheme";
+
+    public static readonly string GAME_OVER = "gameOver";
 }

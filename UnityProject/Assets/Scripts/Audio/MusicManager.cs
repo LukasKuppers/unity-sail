@@ -46,6 +46,16 @@ public class MusicManager : MonoBehaviour
         StopAndQueueAmbient();
     }
 
+    public void StopMusic()
+    {
+        if (runningTrack != null)
+            audioManager.Pause(runningTrack, trackFadeOutTime);
+
+        runningTrack = null;
+        state = States.SILENT;
+        StopAndQueueAmbient();
+    }
+
     public void SpotEnemy()
     {
         if (state == States.SILENT || 

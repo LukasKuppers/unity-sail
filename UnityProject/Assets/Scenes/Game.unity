@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1717.7783, g: 3149.1797, b: 6619.2656, a: 1}
+  m_IndirectSpecularColor: {r: 1717.7783, g: 3149.1484, b: 6619.1562, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -53571,6 +53571,12 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     type: 1
+  - name: gameOver
+    clip: {fileID: 8300000, guid: c01c6df098af9e24a8cff1c854f9b215, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    type: 1
   - name: song_DrunkenSailor
     clip: {fileID: 8300000, guid: 3026d40cc57a6e4479b904978bfc4500, type: 3}
     volume: 0.2
@@ -53635,6 +53641,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   combatDuration: 5
   maxAmbientTrackWaitTime: 150
+  trackFadeOutTime: 1
   ambientTrackNames:
   - song_DrunkenSailor
   - song_Organ1_ambient

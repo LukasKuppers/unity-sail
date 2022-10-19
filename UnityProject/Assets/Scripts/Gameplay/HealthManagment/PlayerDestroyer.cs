@@ -66,5 +66,8 @@ public class PlayerDestroyer : MonoBehaviour, IDestructable
         inventory.SetWoodAmount(defaultWoodAmount);
         inventory.SetCannonballAmount(defaultCannonballAmount);
         inventory.SetTreasureAmount(0);
+
+        MusicManager.GetInstance().StopMusic();
+        AudioManager.GetInstance().Play(SoundMap.GAME_OVER);
     }
 }
