@@ -196,7 +196,8 @@ public class ShipRoutesManager : MonoBehaviour
         Islands island = Islands.NONE;
         System.Array vals = System.Enum.GetValues(typeof(Islands));
 
-        while (island == Islands.NONE || island == Islands.EUREKA_TRADING_POST)
+        while (island == Islands.NONE || island == Islands.EUREKA_TRADING_POST ||
+               island == Islands.TEMPLE_OF_THE_SEA_BEAST)
         {
             island = (Islands)vals.GetValue(Random.Range(0, vals.Length));
         }

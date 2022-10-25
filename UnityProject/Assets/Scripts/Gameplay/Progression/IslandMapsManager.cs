@@ -80,5 +80,6 @@ public enum Islands
     NAVY_OUTPOST_1, 
     NAVY_OUTPOST_2, 
     NAVY_OUTPOST_3, 
+    TEMPLE_OF_THE_SEA_BEAST, 
     NONE
 }

@@ -2374,6 +2374,11 @@ MonoBehaviour:
     islandSprite: {fileID: 353648176669566644, guid: e55825dbc3820d64c95b0261efea97d2,
       type: 3}
     dockPoint: {fileID: 792415405}
+  - island: 17
+    islandObject: {fileID: 1162929300}
+    islandSprite: {fileID: 353648176669566644, guid: e55825dbc3820d64c95b0261efea97d2,
+      type: 3}
+    dockPoint: {fileID: 0}
 --- !u!1001 &82393895
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5549,7 +5554,7 @@ Transform:
   - {fileID: 1223781579}
   - {fileID: 1329402772}
   m_Father: {fileID: 1157287807}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &193225882
 PrefabInstance:
@@ -23529,7 +23534,7 @@ Transform:
   - {fileID: 1216148397}
   - {fileID: 1031856149}
   m_Father: {fileID: 1157287807}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &812009327
 GameObject:
@@ -32198,6 +32203,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1162929301}
   - {fileID: 1711556892}
   - {fileID: 1096788162}
   - {fileID: 323428793}
@@ -32302,6 +32308,64 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 693941813}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1162929300
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1162929301}
+  - component: {fileID: 1162929303}
+  - component: {fileID: 1162929302}
+  m_Layer: 3
+  m_Name: TempleVisitCollider
+  m_TagString: IslandProximityCol
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1162929301
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1162929300}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1579, y: 0, z: -487}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1157287807}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1162929302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1162929300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 479e0167150184b458e59f215c01b2b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  island: 17
+--- !u!135 &1162929303
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1162929300}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 400
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1163210783
 GameObject:
   m_ObjectHideFlags: 0
@@ -46641,7 +46705,7 @@ PrefabInstance:
     - target: {fileID: 4865913337127803721, guid: 88a44b90d59df7e44a7df314c3dcc5b6,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4865913337127803721, guid: 88a44b90d59df7e44a7df314c3dcc5b6,
         type: 3}
@@ -48586,6 +48650,7 @@ MonoBehaviour:
   - {fileID: 1614404865}
   - {fileID: 414900418}
   - {fileID: 1453082863}
+  - {fileID: 1162929300}
 --- !u!114 &1885766793
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55522,7 +55587,7 @@ PrefabInstance:
     - target: {fileID: 806261775225907291, guid: 3898e59adf2ebaf4692770c9a5b11cdf,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 806261775225907291, guid: 3898e59adf2ebaf4692770c9a5b11cdf,
         type: 3}
@@ -56392,7 +56457,7 @@ PrefabInstance:
     - target: {fileID: 4865913337127803721, guid: 88a44b90d59df7e44a7df314c3dcc5b6,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4865913337127803721, guid: 88a44b90d59df7e44a7df314c3dcc5b6,
         type: 3}
