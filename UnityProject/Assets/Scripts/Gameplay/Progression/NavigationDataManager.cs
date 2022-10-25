@@ -19,6 +19,12 @@ public class NavigationDataManager : MonoBehaviour
     private HashSet<Islands> navigatedIslands;
     private UnityEvent countChangedEvent;
 
+    private List<Islands> noNavDataLocations = new List<Islands>()
+    {
+        Islands.PIRATE_OUTPOST_1, Islands.PIRATE_OUTPOST_2, Islands.PIRATE_OUTPOST_3,
+        Islands.NAVY_OUTPOST_1, Islands.NAVY_OUTPOST_2, Islands.NAVY_OUTPOST_3
+    };
+
     private void Start()
     {
         navigatedIslands = new HashSet<Islands>();
@@ -74,7 +80,7 @@ public class NavigationDataManager : MonoBehaviour
 
     private void HandleIslandVisit(Islands island)
     {
-        if (!mapsManager.IslandIsDiscovered(island))
+        if (!mapsManager.IslandIsDiscovered(island) && !noNavDataLocations.Contains(island))
         {
             navigatedIslands.Add(island);
             if (countChangedEvent != null)
