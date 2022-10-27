@@ -19,20 +19,33 @@ public class TextSequenceDisplay : MonoBehaviour
     {
         textDisplay = textDisplayObject.GetComponent<TextMeshProUGUI>();
 
-        DelimmitedTextLoader textLoader = new DelimmitedTextLoader(textSourcFileName, '\t');
-        string[][] rawData = textLoader.GetDataNoHeader();
+        if (textSourcFileName != null && textSourcFileName != "")
+            SetTextSourceFile(textSourcFileName);
+    }
+
+    public void SetTextSourceFile(string fileName)
+    {
+        textSourcFileName = fileName;
+        DelimmitedTextLoader textLoader = new DelimmitedTextLoader(fileName, '\t');
+        string[][] rawData = textLoader.GetData();
         textSequence = new string[rawData.Length];
 
         for (int i = 0; i < textSequence.Length; i++)
         {
             textSequence[i] = rawData[i][0];
         }
+
     }
 
     public void StartSequenceDisplay()
     {
-        currentIndex = 0;
-        DisplayText(currentIndex);
+        if (textSequence != null)
+        {
+            currentIndex = 0;
+            DisplayText(currentIndex);
+        }
+        else
+            Debug.LogWarning("TextSequenceDisplay:StartSequenceDisplay: text source file not set");
     }
 
     public void IncrementSequence()
