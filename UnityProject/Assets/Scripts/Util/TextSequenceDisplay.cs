@@ -12,7 +12,7 @@ public class TextSequenceDisplay : MonoBehaviour
 
     private TextMeshProUGUI textDisplay;
 
-    private Dictionary<int, string> textSequence;
+    private string[] textSequence;
     private int currentIndex = -1;
 
     private void Start()
@@ -21,11 +21,11 @@ public class TextSequenceDisplay : MonoBehaviour
 
         DelimmitedTextLoader textLoader = new DelimmitedTextLoader(textSourcFileName, '\t');
         string[][] rawData = textLoader.GetDataNoHeader();
-        textSequence = new Dictionary<int, string>();
+        textSequence = new string[rawData.Length];
 
-        foreach (string[] row in rawData)
+        for (int i = 0; i < textSequence.Length; i++)
         {
-            textSequence.Add(int.Parse(row[0]), row[1]);
+            textSequence[i] = rawData[i][0];
         }
     }
 
@@ -37,7 +37,7 @@ public class TextSequenceDisplay : MonoBehaviour
 
     public void IncrementSequence()
     {
-        if (currentIndex != -1 && currentIndex < textSequence.Count - 2)
+        if (currentIndex != -1 && currentIndex < textSequence.Length - 2)
         {
             currentIndex++;
             DisplayText(currentIndex);
