@@ -9,6 +9,8 @@ public class TextSequenceDisplay : MonoBehaviour
     private GameObject textDisplayObject;
     [SerializeField]
     private string textSourcFileName;
+    [SerializeField]
+    private float fadeTime = 1f;
 
     private TextMeshProUGUI textDisplay;
 
@@ -65,6 +67,9 @@ public class TextSequenceDisplay : MonoBehaviour
     private void DisplayText(int index)
     {
         string text = textSequence[index];
+
+        textDisplay.CrossFadeAlpha(0f, fadeTime, false);
         textDisplay.text = text;
+        textDisplay.CrossFadeAlpha(1f, fadeTime, false);
     }
 }
