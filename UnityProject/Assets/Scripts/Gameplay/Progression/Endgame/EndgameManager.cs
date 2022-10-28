@@ -25,6 +25,8 @@ public class EndgameManager : MonoBehaviour
     private TempleBeaconManager[] arenaBeacons;
 
     private bool playerInArena = false;
+    private bool playerBeatEndgame = false;
+    private int currentSequenceIndex = 0;
 
     private void Start()
     {
@@ -48,6 +50,39 @@ public class EndgameManager : MonoBehaviour
         }
     }
 
+    public bool GetPlayerInEndgame()
+    {
+        return playerInArena;
+    }
+
+    public bool PlayerBeatEndgame()
+    {
+        return playerBeatEndgame;
+    }
+
+    public int GetCurrentSequenceIndex()
+    {
+        return currentSequenceIndex;
+    }
+
+    // to be used by load module
+    public void SetPlayerBeatEndgame()
+    {
+        playerBeatEndgame = true;
+
+        foreach (TempleBeaconManager beacon in arenaBeacons)
+        {
+            beacon.SetBeaconDestroyed();
+        }
+        arenaGate.OpenGate();
+    }
+
+    // to be used by load module
+    public void SetSequenceIndex(int sequenceIndex)
+    {
+        currentSequenceIndex = sequenceIndex;
+    }
+
     private void InitiateEndgameSequence()
     {
         playerInArena = true;
@@ -56,7 +91,7 @@ public class EndgameManager : MonoBehaviour
         StartCoroutine(CloseGateOnDelay(GATE_DELAY_TIME));
     }
 
-    private void ResetEndgameSequence()
+    public void ResetEndgameSequence()
     {
         playerInArena = false;
         arenaGate.OpenGate();
