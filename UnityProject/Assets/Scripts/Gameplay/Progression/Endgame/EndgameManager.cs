@@ -47,6 +47,8 @@ public class EndgameManager : MonoBehaviour
         for (int i = 0; i < arenaBeacons.Length; i++)
         {
             arenaBeacons[i] = arenaBeaconObjects[i].GetComponent<TempleBeaconManager>();
+            arenaBeacons[i].GetCurrentBeaconObject().GetComponent<IDestructable>()
+                .AddDestructionListener(OnBeaconDestroyed);
         }
     }
 
@@ -77,28 +79,58 @@ public class EndgameManager : MonoBehaviour
         arenaGate.OpenGate();
     }
 
-    // to be used by load module
+    // to be used by load module - assumes player in endgame
     public void SetSequenceIndex(int sequenceIndex)
     {
-        currentSequenceIndex = sequenceIndex;
+        playerInArena = true;
+        textDisplay.StartSequenceDisplay();
+        arenaGate.SetStateNoAnim(false);
+
+        if (sequenceIndex >= 1)
+            arenaBeacons[0].SetBeaconDestroyed();
+        if (sequenceIndex >= 2)
+            arenaBeacons[1].SetBeaconDestroyed();
     }
 
     private void InitiateEndgameSequence()
     {
-        playerInArena = true;
-        textDisplay.StartSequenceDisplay();
+        if (!playerInArena)
+        {
+            playerInArena = true;
+            textDisplay.StartSequenceDisplay();
 
-        StartCoroutine(CloseGateOnDelay(GATE_DELAY_TIME));
+            StartCoroutine(CloseGateOnDelay(GATE_DELAY_TIME));
+        }
     }
 
     public void ResetEndgameSequence()
     {
         playerInArena = false;
         arenaGate.OpenGate();
+        textDisplay.EndSequenceDisplay();
+
         foreach (TempleBeaconManager beacon in arenaBeacons)
         {
             beacon.RespawnBeacon();
         }
+    }
+
+    private void OnBeaconDestroyed(GameObject _)
+    {
+        IncrementSequenceIndex();
+
+        if (currentSequenceIndex == 2)
+        {
+            // initiate final endgame stage
+        }
+        else if (currentSequenceIndex > 2)
+            Debug.LogError("EndgameManager:OnBeaconDestroyed: sequence index invalid");
+    }
+
+    private void IncrementSequenceIndex()
+    {
+        currentSequenceIndex++;
+        textDisplay.IncrementSequence();
     }
 
     private IEnumerator CloseGateOnDelay(float delayTimeSec)

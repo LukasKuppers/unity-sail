@@ -23,6 +23,13 @@ public class TempleBeaconManager : MonoBehaviour
 
     }
 
+    public GameObject GetCurrentBeaconObject()
+    {
+        if (beacon != null)
+            return beacon;
+        return destroyedBeacon;
+    }
+
     public void RespawnBeacon()
     {
         if (beacon == null)
