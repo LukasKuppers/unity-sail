@@ -13,11 +13,23 @@ public class EnemyWaveSpawner : MonoBehaviour
     private EnemyShipSpawner shipSpawner;
 
     private System.Guid currentConfigId = System.Guid.Empty;
-    private int numSpawnedShips = 0;
+    private HashSet<GameObject> spawnedShips;
 
     private void Start()
     {
         shipSpawner = enemyShipSpawnerObject.GetComponent<EnemyShipSpawner>();
+        spawnedShips = new HashSet<GameObject>();
+    }
+
+    public void RemoveAllShips()
+    {
+        StopSpawningShips();
+
+        foreach (GameObject ship in spawnedShips)
+        {
+            Destroy(ship);
+        }
+        spawnedShips.Clear();
     }
 
     // maintain a wave of numShips enemies - when an enemy is destroyed, a new one spawns
@@ -38,8 +50,7 @@ public class EnemyWaveSpawner : MonoBehaviour
             System.Guid originalConfigId = currentConfigId;
             newShip.GetComponent<IDestructable>().AddDestructionListener((_) =>
             {
-                numSpawnedShips--;
-                if (currentConfigId.Equals(originalConfigId) && numSpawnedShips < numShips)
+                if (currentConfigId.Equals(originalConfigId) && spawnedShips.Count < numShips)
                     SpawnShip(shipType);
             });
         }));
@@ -68,7 +79,14 @@ public class EnemyWaveSpawner : MonoBehaviour
     private GameObject SpawnShip(EnemyType shipType)
     {
         GameObject newShip = shipSpawner.SpawnShip(shipType, transform.position, AIShipMode.Agressive);
-        numSpawnedShips++;
+        spawnedShips.Add(newShip);
+
+        newShip.GetComponent<IDestructable>().AddDestructionListener((_) =>
+        {
+            if (spawnedShips.Contains(newShip))
+                spawnedShips.Remove(newShip);
+        });
+
         return newShip;
     }
 }

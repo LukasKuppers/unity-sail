@@ -144,12 +144,16 @@ public class EndgameManager : MonoBehaviour
         playerInArena = false;
         arenaGate.OpenGate();
         textDisplay.EndSequenceDisplay();
+        
+        foreach (EnemyWaveSpawner spawner in spawners)
+        {
+            spawner.RemoveAllShips();
+        }
 
         foreach (TempleBeaconManager beacon in arenaBeacons)
         {
             beacon.RespawnBeacon();
         }
-        StopSpawners();
     }
 
     private void OnBeaconDestroyed(GameObject _)
@@ -169,7 +173,6 @@ public class EndgameManager : MonoBehaviour
         currentSequenceIndex++;
         textDisplay.IncrementSequence();
 
-        StopSpawners();
         StartSpawnerConfig(currentSequenceIndex);
     }
 

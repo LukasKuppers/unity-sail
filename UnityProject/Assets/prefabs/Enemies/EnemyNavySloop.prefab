@@ -248,7 +248,6 @@ GameObject:
   - component: {fileID: 2629011088375902275}
   - component: {fileID: 3143644021124963768}
   - component: {fileID: 2245783652570463387}
-  - component: {fileID: 9071302306796072379}
   m_Layer: 0
   m_Name: BeamModel
   m_TagString: Untagged
@@ -319,19 +318,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &9071302306796072379
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2106256038029103112}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!82 &7116262178631946478
 AudioSource:
   m_ObjectHideFlags: 0
@@ -615,7 +601,6 @@ GameObject:
   - component: {fileID: 7271564672956110951}
   - component: {fileID: 8037435939857854926}
   - component: {fileID: 2206837835036325826}
-  - component: {fileID: 2927561238102568116}
   m_Layer: 0
   m_Name: BeamModel (1)
   m_TagString: Untagged
@@ -686,19 +671,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &2927561238102568116
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4751383024405405695}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5620604600492251025
 GameObject:
   m_ObjectHideFlags: 0
