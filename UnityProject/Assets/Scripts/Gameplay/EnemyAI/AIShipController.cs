@@ -24,6 +24,8 @@ public class AIShipController : MonoBehaviour, IQueuableTask
     private Vector3 goalLocation;
     private float chaseDuration = 0f;
 
+    private bool goalNotSet = true;
+
     private void Awake()
     {
         ship = gameObject.GetComponent<IAutomaticShip>();
@@ -43,7 +45,7 @@ public class AIShipController : MonoBehaviour, IQueuableTask
     public void RunTask(float deltaTime)
     {
         if (safetyManager.ShipIsSafe() || shipMode == AIShipMode.Anchored ||
-            (shipMode == AIShipMode.Passive && goalLocation == null))
+            (shipMode == AIShipMode.Passive && goalNotSet))
         {
             ship.DisableMovement();
             chaseDuration = 0f;
@@ -59,7 +61,7 @@ public class AIShipController : MonoBehaviour, IQueuableTask
             {
                 float distToTarget = Vector3.Distance(targetObject.transform.position, transform.position);
 
-                if (goalLocation == null)
+                if (goalNotSet)
                 {
                     ship.EnableMovement();
                     Attack();
@@ -119,7 +121,7 @@ public class AIShipController : MonoBehaviour, IQueuableTask
     public void SetMode(AIShipMode newMode)
     {
         shipMode = newMode;
-        if (shipMode == AIShipMode.Anchored || (shipMode == AIShipMode.Passive && goalLocation == null))
+        if (shipMode == AIShipMode.Anchored || (shipMode == AIShipMode.Passive && goalNotSet))
         {
             ship.DisableMovement();
         } else
@@ -130,6 +132,7 @@ public class AIShipController : MonoBehaviour, IQueuableTask
 
     public void SetGoal(Vector3 goal)
     {
+        goalNotSet = false;
         goalLocation = goal;
         if (shipMode == AIShipMode.Passive || shipMode == AIShipMode.Agressive)
             ship.EnableMovement();
@@ -137,7 +140,7 @@ public class AIShipController : MonoBehaviour, IQueuableTask
 
     private void SeekGoal()
     {
-        if (goalLocation == null)
+        if (goalNotSet)
             return;
 
         float distToGoal = Vector3.Distance(goalLocation, transform.position);
