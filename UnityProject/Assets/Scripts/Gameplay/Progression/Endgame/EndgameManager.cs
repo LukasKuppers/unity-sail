@@ -17,12 +17,15 @@ public class EndgameManager : MonoBehaviour
     private GameObject arenaGateObject;
     [SerializeField]
     private GameObject[] arenaBeaconObjects;
+    [SerializeField]
+    private GameObject[] waveSpanerObjects;
 
     private TextSequenceDisplay textDisplay;
     private IslandVisitManager visitManager;
     private ShipPrefabManager playerPrefabManager;
     private EndgameAreaGate arenaGate;
     private TempleBeaconManager[] arenaBeacons;
+    private EnemyWaveSpawner[] spawners;
 
     private bool playerInArena = false;
     private bool playerBeatEndgame = false;
@@ -49,6 +52,11 @@ public class EndgameManager : MonoBehaviour
             arenaBeacons[i] = arenaBeaconObjects[i].GetComponent<TempleBeaconManager>();
             arenaBeacons[i].GetCurrentBeaconObject().GetComponent<IDestructable>()
                 .AddDestructionListener(OnBeaconDestroyed);
+        }
+        spawners = new EnemyWaveSpawner[2];
+        for (int i = 0; i < 2; i++)
+        {
+            spawners[i] = waveSpanerObjects[i].GetComponent<EnemyWaveSpawner>();
         }
     }
 
@@ -90,6 +98,8 @@ public class EndgameManager : MonoBehaviour
             arenaBeacons[0].SetBeaconDestroyed();
         if (sequenceIndex >= 2)
             arenaBeacons[1].SetBeaconDestroyed();
+
+        spawners[0].MaintainConstantWave(3, EnemyType.TINY_SHIP_NAVY);
     }
 
     private void InitiateEndgameSequence()

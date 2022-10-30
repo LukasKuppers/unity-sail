@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1704.6672, g: 3177.1875, b: 6752.422, a: 1}
+  m_IndirectSpecularColor: {r: 1727.196, g: 3128.0117, b: 6523.242, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -32643,6 +32643,8 @@ Transform:
   - {fileID: 190703277}
   - {fileID: 1874126419}
   - {fileID: 811568185}
+  - {fileID: 1345627299}
+  - {fileID: 1447862527}
   m_Father: {fileID: 1885766790}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -32680,6 +32682,9 @@ MonoBehaviour:
   arenaBeaconObjects:
   - {fileID: 2056985077}
   - {fileID: 1888117313}
+  waveSpanerObjects:
+  - {fileID: 1345627298}
+  - {fileID: 1447862526}
 --- !u!114 &1157287810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36901,6 +36906,51 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1345627298
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1345627299}
+  - component: {fileID: 1345627300}
+  m_Layer: 0
+  m_Name: SpawnerSouth
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1345627299
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1345627298}
+  m_LocalRotation: {x: -0, y: -0.39784634, z: -0, w: 0.9174521}
+  m_LocalPosition: {x: -1783, y: 10, z: -834.7}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1157287807}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: -46.887, z: 0}
+--- !u!114 &1345627300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1345627298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51d4db5535f319e4c869751e3339b490, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyShipSpawnerObject: {fileID: 863964486}
+  spawnDelay: 5
 --- !u!1001 &1347173775
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39399,6 +39449,51 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f079e79aaa08ff241865eb4b27109021, type: 3}
+--- !u!1 &1447862526
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1447862527}
+  - component: {fileID: 1447862528}
+  m_Layer: 0
+  m_Name: SpawnerNorth
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1447862527
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1447862526}
+  m_LocalRotation: {x: -0, y: 0.65950274, z: -0, w: 0.75170213}
+  m_LocalPosition: {x: -1773.2, y: 10, z: -142.1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1157287807}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 82.524, z: 0}
+--- !u!114 &1447862528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1447862526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51d4db5535f319e4c869751e3339b490, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyShipSpawnerObject: {fileID: 863964486}
+  spawnDelay: 5
 --- !u!1 &1449167365
 GameObject:
   m_ObjectHideFlags: 0
