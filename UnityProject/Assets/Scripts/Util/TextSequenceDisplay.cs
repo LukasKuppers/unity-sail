@@ -52,7 +52,7 @@ public class TextSequenceDisplay : MonoBehaviour
 
     public void IncrementSequence()
     {
-        if (currentIndex != -1 && currentIndex < textSequence.Length - 2)
+        if (currentIndex != -1 && currentIndex < textSequence.Length - 1)
         {
             currentIndex++;
             DisplayText(currentIndex);
