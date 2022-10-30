@@ -12,9 +12,7 @@ public class EnemyWaveSpawner : MonoBehaviour
 
     private EnemyShipSpawner shipSpawner;
 
-    private enum SpawnState { ACTIVE_SPAWN_MODE, PASSIVE };
-
-    private SpawnState internalState = SpawnState.PASSIVE;
+    private System.Guid currentConfigId = System.Guid.Empty;
     private int numSpawnedShips = 0;
 
     private void Start()
@@ -25,7 +23,7 @@ public class EnemyWaveSpawner : MonoBehaviour
     // maintain a wave of numShips enemies - when an enemy is destroyed, a new one spawns
     public void MaintainConstantWave(int numShips, EnemyType shipType)
     {
-        if (internalState == SpawnState.ACTIVE_SPAWN_MODE)
+        if (!currentConfigId.Equals(System.Guid.Empty))
         {
             Debug.LogWarning("EnemyWaveSpawner:MaintainConstantWave: spawner already active");
             return;
@@ -34,13 +32,14 @@ public class EnemyWaveSpawner : MonoBehaviour
         if (numShips <= 0)
             return;
 
-        internalState = SpawnState.ACTIVE_SPAWN_MODE;
+        currentConfigId = System.Guid.NewGuid();
         StartCoroutine(SpawnShipsOnDelay(numShips, shipType, (newShip) =>
         {
+            System.Guid originalConfigId = currentConfigId;
             newShip.GetComponent<IDestructable>().AddDestructionListener((_) =>
             {
                 numSpawnedShips--;
-                if (internalState == SpawnState.ACTIVE_SPAWN_MODE && numSpawnedShips < numShips)
+                if (currentConfigId.Equals(originalConfigId) && numSpawnedShips < numShips)
                     SpawnShip(shipType);
             });
         }));
@@ -48,14 +47,15 @@ public class EnemyWaveSpawner : MonoBehaviour
 
     public void StopSpawningShips()
     {
-        internalState = SpawnState.PASSIVE;
+        currentConfigId = System.Guid.Empty;
     }
 
     private IEnumerator SpawnShipsOnDelay(int numShips, EnemyType shipType, UnityAction<GameObject> spawnCallback)
     {
+        System.Guid originalConfigId = currentConfigId;
         for (int i = 0; i < numShips; i++)
         {
-            if (internalState == SpawnState.PASSIVE)
+            if (!originalConfigId.Equals(currentConfigId))
                 yield break;    // exit if no longner in spawn mode
 
             GameObject newShip = SpawnShip(shipType);

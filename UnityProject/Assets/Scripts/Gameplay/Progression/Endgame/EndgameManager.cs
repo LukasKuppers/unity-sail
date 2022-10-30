@@ -31,6 +31,31 @@ public class EndgameManager : MonoBehaviour
     private bool playerBeatEndgame = false;
     private int currentSequenceIndex = 0;
 
+    class WaveSpawnerConfig
+    {
+        public int numShips;
+        public EnemyType shipType;
+    }
+
+    private Dictionary<int, Dictionary<int, WaveSpawnerConfig>> spawnerConfig = new Dictionary<int, Dictionary<int, WaveSpawnerConfig>>
+    {
+        { 0, new Dictionary<int, WaveSpawnerConfig>
+        {
+            { 0, new WaveSpawnerConfig(){ numShips=4, shipType=EnemyType.TINY_SHIP_NAVY } },
+            { 1, new WaveSpawnerConfig(){ numShips=3, shipType=EnemyType.SLOOP_NAVY } }
+        } },
+        { 1, new Dictionary<int, WaveSpawnerConfig>
+        {
+            { 0, new WaveSpawnerConfig(){ numShips=3, shipType=EnemyType.SLOOP_NAVY} },
+            { 1, new WaveSpawnerConfig(){ numShips=2, shipType=EnemyType.BRIG_NAVY} }
+        } },
+        { 2, new Dictionary<int, WaveSpawnerConfig>
+        {
+            { 0, new WaveSpawnerConfig(){ numShips=1, shipType=EnemyType.BRIG_NAVY} },
+            { 1, new WaveSpawnerConfig(){ numShips=1, shipType=EnemyType.BRIG_NAVY} }
+        } }
+    };
+
     private void Start()
     {
         textDisplay = textSequenceDisplayObject.GetComponent<TextSequenceDisplay>();
@@ -85,6 +110,7 @@ public class EndgameManager : MonoBehaviour
             beacon.SetBeaconDestroyed();
         }
         arenaGate.OpenGate();
+        StopSpawners();
     }
 
     // to be used by load module - assumes player in endgame
@@ -98,8 +124,6 @@ public class EndgameManager : MonoBehaviour
             arenaBeacons[0].SetBeaconDestroyed();
         if (sequenceIndex >= 2)
             arenaBeacons[1].SetBeaconDestroyed();
-
-        spawners[0].MaintainConstantWave(3, EnemyType.TINY_SHIP_NAVY);
     }
 
     private void InitiateEndgameSequence()
@@ -110,6 +134,8 @@ public class EndgameManager : MonoBehaviour
             textDisplay.StartSequenceDisplay();
 
             StartCoroutine(CloseGateOnDelay(GATE_DELAY_TIME));
+
+            StartSpawnerConfig(0);
         }
     }
 
@@ -123,6 +149,7 @@ public class EndgameManager : MonoBehaviour
         {
             beacon.RespawnBeacon();
         }
+        StopSpawners();
     }
 
     private void OnBeaconDestroyed(GameObject _)
@@ -141,6 +168,27 @@ public class EndgameManager : MonoBehaviour
     {
         currentSequenceIndex++;
         textDisplay.IncrementSequence();
+
+        StopSpawners();
+        StartSpawnerConfig(currentSequenceIndex);
+    }
+
+    private void StartSpawnerConfig(int sequenceIndex)
+    {
+        for (int i = 0; i < 2; i++)
+        {
+            WaveSpawnerConfig config = spawnerConfig[sequenceIndex][i];
+            spawners[i].StopSpawningShips();
+            spawners[i].MaintainConstantWave(config.numShips, config.shipType);
+        }
+    }
+
+    private void StopSpawners()
+    {
+        foreach(EnemyWaveSpawner spawner in spawners)
+        {
+            spawner.StopSpawningShips();
+        }
     }
 
     private IEnumerator CloseGateOnDelay(float delayTimeSec)
