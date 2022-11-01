@@ -9,5 +9,6 @@ public enum EnemyType
     BRIG_NAVY, 
     NAO_PIRATE, 
     NAO_NAVY, 
+    BOSS_NAVY, 
     FORT_TURRET
 }
