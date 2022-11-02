@@ -8157,7 +8157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca588077746da5843bd571a9d5165805, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 200
+  maxHealth: 400
 --- !u!54 &1988422519377117009
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -8191,7 +8191,7 @@ MonoBehaviour:
   maxFoodDrop: 1
   maxWoodDrop: 20
   maxCannonballDrop: 20
-  maxTreasureDrop: 1
+  maxTreasureDrop: 10
 --- !u!114 &2905485158468936893
 MonoBehaviour:
   m_ObjectHideFlags: 0
