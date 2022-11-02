@@ -32679,6 +32679,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemySpawnerObject: {fileID: 863964486}
+  pickupGeneratorObject: {fileID: 1908523563}
   textSequenceDisplayObject: {fileID: 1157287806}
   playerIslandVisitManager: {fileID: 1885766789}
   playerShipPrefabManager: {fileID: 1163210783}

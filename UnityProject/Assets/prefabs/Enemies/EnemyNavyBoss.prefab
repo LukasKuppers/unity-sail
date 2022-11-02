@@ -8188,10 +8188,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroyedPrefab: {fileID: 3866640315932669001, guid: 963d7ce6c90e0e244bb1a97c2f62c628,
     type: 3}
-  maxFoodDrop: 1
-  maxWoodDrop: 20
-  maxCannonballDrop: 20
-  maxTreasureDrop: 10
+  maxFoodDrop: 0
+  maxWoodDrop: 0
+  maxCannonballDrop: 0
+  maxTreasureDrop: 0
 --- !u!114 &2905485158468936893
 MonoBehaviour:
   m_ObjectHideFlags: 0

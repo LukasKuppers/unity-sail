@@ -11,6 +11,8 @@ public class EndgameManager : MonoBehaviour
     [SerializeField]
     private GameObject enemySpawnerObject;
     [SerializeField]
+    private GameObject pickupGeneratorObject;
+    [SerializeField]
     private GameObject textSequenceDisplayObject;
     [SerializeField]
     private GameObject playerIslandVisitManager;
@@ -24,6 +26,7 @@ public class EndgameManager : MonoBehaviour
     private GameObject[] waveSpawnerObjects;
 
     private EnemyShipSpawner enemySpawner;
+    private PickupGenerator pickupGenerator;
     private TextSequenceDisplay textDisplay;
     private IslandVisitManager visitManager;
     private ShipPrefabManager playerPrefabManager;
@@ -63,6 +66,7 @@ public class EndgameManager : MonoBehaviour
     private void Start()
     {
         enemySpawner = enemySpawnerObject.GetComponent<EnemyShipSpawner>();
+        pickupGenerator = pickupGeneratorObject.GetComponent<PickupGenerator>();
 
         textDisplay = textSequenceDisplayObject.GetComponent<TextSequenceDisplay>();
         textDisplay.SetTextSourceFile(INSTRUCTION_TEXT_SOURCE_FILENAME);
@@ -190,7 +194,7 @@ public class EndgameManager : MonoBehaviour
         Vector3 spawnPoint = waveSpawnerObjects[0].transform.position;
         GameObject bossShip = enemySpawner.SpawnShip(EnemyType.BOSS_NAVY, spawnPoint, AIShipMode.Agressive);
 
-        bossShip.GetComponent<IDestructable>().AddDestructionListener((_) =>
+        bossShip.GetComponent<IDestructable>().AddDestructionListener((destObj) =>
         {
             if (playerInArena)
             {
@@ -199,6 +203,12 @@ public class EndgameManager : MonoBehaviour
                 textDisplay.EndSequenceDisplay();
                 arenaGate.OpenGate();
                 StopSpawners();
+
+                Vector3 pos = destObj.transform.position;
+                pickupGenerator.SpawnPickup(Item.TREASURE, 10, (pos + Vector3.right * 5));
+                pickupGenerator.SpawnPickup(Item.FOOD, 10, (pos + Vector3.forward * 5));
+                pickupGenerator.SpawnPickup(Item.WOOD, 200, (pos + Vector3.left * 5));
+                pickupGenerator.SpawnPickup(Item.CANNONBALL, 200, (pos + Vector3.back * 5));
             }
         });
     }
