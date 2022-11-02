@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1703.7754, g: 3178.5469, b: 6759.5547, a: 1}
+  m_IndirectSpecularColor: {r: 1703.0483, g: 3180.129, b: 6768.1797, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -32678,6 +32678,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb0843f93a7696846b5a74dd021d8e4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemySpawnerObject: {fileID: 863964486}
   textSequenceDisplayObject: {fileID: 1157287806}
   playerIslandVisitManager: {fileID: 1885766789}
   playerShipPrefabManager: {fileID: 1163210783}
@@ -32685,7 +32686,7 @@ MonoBehaviour:
   arenaBeaconObjects:
   - {fileID: 2056985077}
   - {fileID: 1888117313}
-  waveSpanerObjects:
+  waveSpawnerObjects:
   - {fileID: 1345627298}
   - {fileID: 1447862526}
 --- !u!114 &1157287810

@@ -6,7 +6,10 @@ public class EndgameManager : MonoBehaviour
 {
     private static readonly string INSTRUCTION_TEXT_SOURCE_FILENAME = "EndgameInstructions";
     private static readonly int GATE_DELAY_TIME = 10;
+    private static readonly int MAX_SEQUENCE_INDEX = 2;
 
+    [SerializeField]
+    private GameObject enemySpawnerObject;
     [SerializeField]
     private GameObject textSequenceDisplayObject;
     [SerializeField]
@@ -18,8 +21,9 @@ public class EndgameManager : MonoBehaviour
     [SerializeField]
     private GameObject[] arenaBeaconObjects;
     [SerializeField]
-    private GameObject[] waveSpanerObjects;
+    private GameObject[] waveSpawnerObjects;
 
+    private EnemyShipSpawner enemySpawner;
     private TextSequenceDisplay textDisplay;
     private IslandVisitManager visitManager;
     private ShipPrefabManager playerPrefabManager;
@@ -58,6 +62,8 @@ public class EndgameManager : MonoBehaviour
 
     private void Start()
     {
+        enemySpawner = enemySpawnerObject.GetComponent<EnemyShipSpawner>();
+
         textDisplay = textSequenceDisplayObject.GetComponent<TextSequenceDisplay>();
         textDisplay.SetTextSourceFile(INSTRUCTION_TEXT_SOURCE_FILENAME);
 
@@ -81,7 +87,7 @@ public class EndgameManager : MonoBehaviour
         spawners = new EnemyWaveSpawner[2];
         for (int i = 0; i < 2; i++)
         {
-            spawners[i] = waveSpanerObjects[i].GetComponent<EnemyWaveSpawner>();
+            spawners[i] = waveSpawnerObjects[i].GetComponent<EnemyWaveSpawner>();
         }
     }
 
@@ -174,6 +180,27 @@ public class EndgameManager : MonoBehaviour
         textDisplay.IncrementSequence();
 
         StartSpawnerConfig(currentSequenceIndex);
+
+        if (currentSequenceIndex >= MAX_SEQUENCE_INDEX)
+            InitializeFinalBoss();
+    }
+
+    private void InitializeFinalBoss()
+    {
+        Vector3 spawnPoint = waveSpawnerObjects[0].transform.position;
+        GameObject bossShip = enemySpawner.SpawnShip(EnemyType.BOSS_NAVY, spawnPoint, AIShipMode.Agressive);
+
+        bossShip.GetComponent<IDestructable>().AddDestructionListener((_) =>
+        {
+            if (playerInArena)
+            {
+                playerBeatEndgame = true;
+
+                textDisplay.EndSequenceDisplay();
+                arenaGate.OpenGate();
+                StopSpawners();
+            }
+        });
     }
 
     private void StartSpawnerConfig(int sequenceIndex)
