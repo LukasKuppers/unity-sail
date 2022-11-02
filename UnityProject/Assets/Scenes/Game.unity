@@ -51090,12 +51090,12 @@ PrefabInstance:
     - target: {fileID: 7324063240255561219, guid: ed6bcf4b67ccbad4ca3555e812f56890,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 14.5398855
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7324063240255561219, guid: ed6bcf4b67ccbad4ca3555e812f56890,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.5307807
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed6bcf4b67ccbad4ca3555e812f56890, type: 3}
