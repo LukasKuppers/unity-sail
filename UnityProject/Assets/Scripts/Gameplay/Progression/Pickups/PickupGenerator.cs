@@ -17,6 +17,9 @@ public class PickupGenerator : MonoBehaviour
 
     public GameObject SpawnPickup(Item item, int amount, Vector3 position)
     {
+        if (amount <= 0)
+            return null;
+
         GameObject pickupObject = Instantiate(pickupPrefab, position, GetRandRotation());
 
         ItemPickup pickup = pickupObject.GetComponent<ItemPickup>();
