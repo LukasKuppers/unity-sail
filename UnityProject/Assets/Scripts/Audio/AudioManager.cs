@@ -38,6 +38,21 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    public void SetMusicVolume(float volume)
+    {
+        if (volume < 0 || volume > 1)
+            Debug.LogWarning("AudioManager:SetMusicVolume: volume out of range [0, 1]");
+
+        foreach (Sound sound in sounds)
+        {
+            if (sound.type == SoundType.MUSIC)
+            {
+                AudioSource source = audioSources[sound.name];
+                source.volume = sound.volume * volume;
+            }
+        }
+    }
+
     public void Play(string soundName)
     {
         FetchSource(soundName, (source) =>

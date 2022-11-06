@@ -9,6 +9,7 @@ public class OptionsManager : MonoBehaviour
     {
         { Option.UI_SCALE, "ui_scale" },
         { Option.MASTER_VOLUME, "master_volume" },
+        { Option.MUSIC_VOLUME, "music_volume" }, 
         { Option.DISPLAY_MODE, "display_mode" },
         { Option.DISPLAY_RESOLUTION, "display_resolution" },
         { Option.SMOOTH_CAMERA, "smooth_camera" }
@@ -18,6 +19,7 @@ public class OptionsManager : MonoBehaviour
     {
         { KEY_MAP[Option.UI_SCALE], "1" },
         { KEY_MAP[Option.MASTER_VOLUME], "1" },
+        { KEY_MAP[Option.MUSIC_VOLUME], "1" }, 
         { KEY_MAP[Option.DISPLAY_MODE], "true" },
         { KEY_MAP[Option.DISPLAY_RESOLUTION], "1920x1080" },
         { KEY_MAP[Option.SMOOTH_CAMERA], "true" }
@@ -55,6 +57,7 @@ public class OptionsManager : MonoBehaviour
     {
         ApplyUIScaleToScene();
         ApplyMasterVolumeToScene();
+        ApplyMusicVolumeToScene();
         ApplyCameraSmoothingToScene();
         ApplyDisplayModeToScene();
     }
@@ -82,6 +85,12 @@ public class OptionsManager : MonoBehaviour
     {
         float volume = float.Parse(options[KEY_MAP[Option.MASTER_VOLUME]]);
         AudioListener.volume = volume;
+    }
+
+    private void ApplyMusicVolumeToScene()
+    {
+        float volume = float.Parse(options[KEY_MAP[Option.MUSIC_VOLUME]]);
+        AudioManager.GetInstance().SetMusicVolume(volume);
     }
 
     private void ApplyCameraSmoothingToScene()
