@@ -111,6 +111,7 @@ public enum Option
 {
     UI_SCALE,
     MASTER_VOLUME, 
+    MUSIC_VOLUME, 
     DISPLAY_MODE, 
     DISPLAY_RESOLUTION, 
     SMOOTH_CAMERA

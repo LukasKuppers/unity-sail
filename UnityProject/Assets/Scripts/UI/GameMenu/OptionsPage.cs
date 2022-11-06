@@ -13,6 +13,8 @@ public class OptionsPage : MonoBehaviour
     [SerializeField]
     private GameObject masterVolumeSliderObject;
     [SerializeField]
+    private GameObject musicVolumeSliderObject;
+    [SerializeField]
     private GameObject displayModeDropdownObject;
     [SerializeField]
     private GameObject resolutionDropdownObject;
@@ -22,6 +24,7 @@ public class OptionsPage : MonoBehaviour
     private Button applyBtn;
     private Slider uiScaleSlider;
     private Slider masterVolumeSlider;
+    private Slider musicVolumeSlider;
     private TMP_Dropdown displayModeDropdown;
     private TMP_Dropdown resolutionDropdown;
     private Toggle smoothCamToggle;
@@ -37,6 +40,7 @@ public class OptionsPage : MonoBehaviour
         applyBtn = applyButton.GetComponent<Button>();
         uiScaleSlider = uiScaleSliderObject.GetComponent<Slider>();
         masterVolumeSlider = masterVolumeSliderObject.GetComponent<Slider>();
+        musicVolumeSlider = musicVolumeSliderObject.GetComponent<Slider>();
         displayModeDropdown = displayModeDropdownObject.GetComponent<TMP_Dropdown>();
         resolutionDropdown = resolutionDropdownObject.GetComponent<TMP_Dropdown>();
         smoothCamToggle = smoothCamToggleObject.GetComponent<Toggle>();
@@ -50,6 +54,7 @@ public class OptionsPage : MonoBehaviour
     {
         InitUIScale();
         InitMasterVolume();
+        InitMusicVolume();
         InitCamSmoothing();
         InitDisplaySettings();
     }
@@ -58,6 +63,7 @@ public class OptionsPage : MonoBehaviour
     {
         ApplyUIScale();
         ApplyMasterVolume();
+        ApplyMusicVolume();
         ApplyCamSmoothing();
         ApplyDisplaySettings();
 
@@ -86,6 +92,18 @@ public class OptionsPage : MonoBehaviour
     {
         float volume = masterVolumeSlider.value;
         optionsManager.WriteOption(Option.MASTER_VOLUME, volume.ToString());
+    }
+
+    private void InitMusicVolume()
+    {
+        float volume = float.Parse(optionsManager.GetOption(Option.MUSIC_VOLUME));
+        musicVolumeSlider.value = volume;
+    }
+
+    private void ApplyMusicVolume()
+    {
+        float volume = musicVolumeSlider.value;
+        optionsManager.WriteOption(Option.MUSIC_VOLUME, volume.ToString());
     }
 
     private void InitCamSmoothing()
