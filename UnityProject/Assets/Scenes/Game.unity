@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1727.196, g: 3128.0117, b: 6523.242, a: 1}
+  m_IndirectSpecularColor: {r: 1717.0278, g: 3149.379, b: 6620.6953, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -36780,6 +36780,81 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 874418163}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1324899103
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2108885086}
+    m_Modifications:
+    - target: {fileID: 1468509998741974194, guid: bb28a60e07dd3534e85f8a8a658736a8,
+        type: 3}
+      propertyPath: m_Name
+      value: Campfire
+      objectReference: {fileID: 0}
+    - target: {fileID: 2215151641630246088, guid: bb28a60e07dd3534e85f8a8a658736a8,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2215151641630246088, guid: bb28a60e07dd3534e85f8a8a658736a8,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 25.74
+      objectReference: {fileID: 0}
+    - target: {fileID: 2215151641630246088, guid: bb28a60e07dd3534e85f8a8a658736a8,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 7.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2215151641630246088, guid: bb28a60e07dd3534e85f8a8a658736a8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 23.29
+      objectReference: {fileID: 0}
+    - target: {fileID: 2215151641630246088, guid: bb28a60e07dd3534e85f8a8a658736a8,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.99580723
+      objectReference: {fileID: 0}
+    - target: {fileID: 2215151641630246088, guid: bb28a60e07dd3534e85f8a8a658736a8,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.06092969
+      objectReference: {fileID: 0}
+    - target: {fileID: 2215151641630246088, guid: bb28a60e07dd3534e85f8a8a658736a8,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.00004565716
+      objectReference: {fileID: 0}
+    - target: {fileID: 2215151641630246088, guid: bb28a60e07dd3534e85f8a8a658736a8,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.06823208
+      objectReference: {fileID: 0}
+    - target: {fileID: 2215151641630246088, guid: bb28a60e07dd3534e85f8a8a658736a8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 6.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 2215151641630246088, guid: bb28a60e07dd3534e85f8a8a658736a8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -0.475
+      objectReference: {fileID: 0}
+    - target: {fileID: 2215151641630246088, guid: bb28a60e07dd3534e85f8a8a658736a8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -7.868
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: bb28a60e07dd3534e85f8a8a658736a8, type: 3}
+--- !u!4 &1324899104 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2215151641630246088, guid: bb28a60e07dd3534e85f8a8a658736a8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1324899103}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1329075233
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -56027,6 +56102,7 @@ Transform:
   - {fileID: 618302091}
   - {fileID: 6436833618395093363}
   - {fileID: 2006975663085268979}
+  - {fileID: 1324899104}
   m_Father: {fileID: 1923673866}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
