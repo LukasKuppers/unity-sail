@@ -20704,6 +20704,53 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88d5ab56fade2454c97edb57cb294b34, type: 3}
+--- !u!1 &696351345
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 696351346}
+  - component: {fileID: 696351347}
+  m_Layer: 0
+  m_Name: BartholomewComingHome
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &696351346
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 696351345}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.5, y: 7.11, z: -723.6}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 971990260}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &696351347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 696351345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdea18320b3ab3248b2e4e885b08aa83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  storyNoteManager: {fileID: 463560862}
+  storyNotePrefab: {fileID: 4094606997667808325, guid: a812d69e3815ec34aa1b5b6238883669,
+    type: 3}
+  noteIndex: 3
 --- !u!4 &698062497 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5285571170913877295, guid: 88d5ab56fade2454c97edb57cb294b34,
@@ -22025,7 +22072,7 @@ GameObject:
   - component: {fileID: 745229870}
   - component: {fileID: 745229871}
   m_Layer: 0
-  m_Name: 1_CaptainJanesLog
+  m_Name: CaptainJaneCommissionLetter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22038,13 +22085,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 745229869}
-  m_LocalRotation: {x: -0, y: -0, z: 0.12398985, w: 0.9922835}
-  m_LocalPosition: {x: 1109.01, y: 3.57, z: -356.92}
+  m_LocalRotation: {x: 0.32911682, y: -0.3246259, z: -0.6226948, w: 0.63130933}
+  m_LocalPosition: {x: 1030.28, y: 11.47, z: -416.32}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 971990260}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 14.245}
+  m_LocalEulerAnglesHint: {x: 0.645, y: -55.066, z: -89.549}
 --- !u!114 &745229871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22060,7 +22107,7 @@ MonoBehaviour:
   storyNoteManager: {fileID: 463560862}
   storyNotePrefab: {fileID: 4094606997667808325, guid: a812d69e3815ec34aa1b5b6238883669,
     type: 3}
-  noteIndex: 1
+  noteIndex: 5
 --- !u!1001 &748981490
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28073,6 +28120,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 745229870}
+  - {fileID: 1759753376}
+  - {fileID: 1624931909}
+  - {fileID: 696351346}
   m_Father: {fileID: 1517935550}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -43794,6 +43844,53 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 91354451}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1624931908
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1624931909}
+  - component: {fileID: 1624931910}
+  m_Layer: 0
+  m_Name: BartholomewBeastlyRumors
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1624931909
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1624931908}
+  m_LocalRotation: {x: 0.13342339, y: -0.24049774, z: -0.167929, w: 0.9466567}
+  m_LocalPosition: {x: 770.1, y: 6.7, z: -1383.12}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 971990260}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 9.895, y: -30.511, z: -22.823}
+--- !u!114 &1624931910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1624931908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdea18320b3ab3248b2e4e885b08aa83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  storyNoteManager: {fileID: 463560862}
+  storyNotePrefab: {fileID: 4094606997667808325, guid: a812d69e3815ec34aa1b5b6238883669,
+    type: 3}
+  noteIndex: 2
 --- !u!4 &1625120023 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5285571170913877295, guid: 88d5ab56fade2454c97edb57cb294b34,
@@ -46752,6 +46849,53 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5954269087959916941}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1759753375
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1759753376}
+  - component: {fileID: 1759753377}
+  m_Layer: 0
+  m_Name: BartholomewRumorsOfDanger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1759753376
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1759753375}
+  m_LocalRotation: {x: 0.03619071, y: -0.21837884, z: -0.1462062, w: 0.96417046}
+  m_LocalPosition: {x: 1560.8, y: 4.81, z: -997.4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 971990260}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0.34, y: -25.575, z: -17.322}
+--- !u!114 &1759753377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1759753375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdea18320b3ab3248b2e4e885b08aa83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  storyNoteManager: {fileID: 463560862}
+  storyNotePrefab: {fileID: 4094606997667808325, guid: a812d69e3815ec34aa1b5b6238883669,
+    type: 3}
+  noteIndex: 1
 --- !u!4 &1763993610 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5285571170913877295, guid: 88d5ab56fade2454c97edb57cb294b34,
