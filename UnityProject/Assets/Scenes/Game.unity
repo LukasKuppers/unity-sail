@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1727.196, g: 3128.0117, b: 6523.242, a: 1}
+  m_IndirectSpecularColor: {r: 1652.2383, g: 3249.0996, b: 7270.0938, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5568,6 +5568,7 @@ MonoBehaviour:
     type: 3}
   attackTime: 4.68
   damageAmount: 30
+  maxAttackInterval: 120
 --- !u!1 &190703276
 GameObject:
   m_ObjectHideFlags: 0
@@ -33165,6 +33166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemySpawnerObject: {fileID: 863964486}
+  seabeastManagerObject: {fileID: 182647373}
   pickupGeneratorObject: {fileID: 1908523563}
   textSequenceDisplayObject: {fileID: 1157287806}
   playerIslandVisitManager: {fileID: 1885766789}

@@ -11,6 +11,8 @@ public class EndgameManager : MonoBehaviour
     [SerializeField]
     private GameObject enemySpawnerObject;
     [SerializeField]
+    private GameObject seabeastManagerObject;
+    [SerializeField]
     private GameObject pickupGeneratorObject;
     [SerializeField]
     private GameObject textSequenceDisplayObject;
@@ -26,6 +28,7 @@ public class EndgameManager : MonoBehaviour
     private GameObject[] waveSpawnerObjects;
 
     private EnemyShipSpawner enemySpawner;
+    private SeaBeastManager seaBeastManager;
     private PickupGenerator pickupGenerator;
     private TextSequenceDisplay textDisplay;
     private IslandVisitManager visitManager;
@@ -66,6 +69,7 @@ public class EndgameManager : MonoBehaviour
     private void Start()
     {
         enemySpawner = enemySpawnerObject.GetComponent<EnemyShipSpawner>();
+        seaBeastManager = seabeastManagerObject.GetComponent<SeaBeastManager>();
         pickupGenerator = pickupGeneratorObject.GetComponent<PickupGenerator>();
 
         textDisplay = textSequenceDisplayObject.GetComponent<TextSequenceDisplay>();
@@ -121,6 +125,7 @@ public class EndgameManager : MonoBehaviour
         }
         arenaGate.OpenGate();
         StopSpawners();
+        seaBeastManager.DisableActiveAgression();
     }
 
     // to be used by load module - assumes player in endgame
@@ -129,6 +134,8 @@ public class EndgameManager : MonoBehaviour
         playerInArena = true;
         textDisplay.StartSequenceDisplay();
         arenaGate.SetStateNoAnim(false);
+
+        seaBeastManager.EnableActiveAgression();
 
         if (sequenceIndex >= 1)
             arenaBeacons[0].SetBeaconDestroyed();
@@ -146,6 +153,7 @@ public class EndgameManager : MonoBehaviour
             StartCoroutine(CloseGateOnDelay(GATE_DELAY_TIME));
 
             StartSpawnerConfig(0);
+            seaBeastManager.EnableActiveAgression();
         }
     }
 
@@ -154,6 +162,8 @@ public class EndgameManager : MonoBehaviour
         playerInArena = false;
         arenaGate.OpenGate();
         textDisplay.EndSequenceDisplay();
+
+        seaBeastManager.DisableActiveAgression();
         
         foreach (EnemyWaveSpawner spawner in spawners)
         {
@@ -170,11 +180,7 @@ public class EndgameManager : MonoBehaviour
     {
         IncrementSequenceIndex();
 
-        if (currentSequenceIndex == 2)
-        {
-            // initiate final endgame stage
-        }
-        else if (currentSequenceIndex > 2)
+        if (currentSequenceIndex > 2)
             Debug.LogError("EndgameManager:OnBeaconDestroyed: sequence index invalid");
     }
 

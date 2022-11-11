@@ -28,17 +28,13 @@ public class SeaBeastManager : MonoBehaviour
         shipPrefabManager = shipPrefabManagerObject.GetComponent<ShipPrefabManager>();
     }
 
-    // for debugging only
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.T))
-            AttackPlayer();
-    }
-
     public void EnableActiveAgression()
     {
-        isActive = true;
-        StartCoroutine(RunContinuousAttacks());
+        if (!isActive)
+        {
+            isActive = true;
+            StartCoroutine(RunContinuousAttacks());
+        }
     }
 
     public void DisableActiveAgression()
