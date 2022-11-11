@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SeaBeastManager : MonoBehaviour
 {
+    private static readonly float MIN_ATTACK_INTERVAL = 45f;
+
     [SerializeField]
     private GameObject shipPrefabManagerObject;
     [SerializeField]
@@ -14,18 +16,34 @@ public class SeaBeastManager : MonoBehaviour
     private float attackTime = 4.68f;
     [SerializeField]
     private float damageAmount = 30f;
+    [SerializeField]
+    private float maxAttackInterval = 120f;
 
     private ShipPrefabManager shipPrefabManager;
+
+    private bool isActive = false;
 
     private void Start()
     {
         shipPrefabManager = shipPrefabManagerObject.GetComponent<ShipPrefabManager>();
     }
 
+    // for debugging only
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.T))
             AttackPlayer();
+    }
+
+    public void EnableActiveAgression()
+    {
+        isActive = true;
+        StartCoroutine(RunContinuousAttacks());
+    }
+
+    public void DisableActiveAgression()
+    {
+        isActive = false;
     }
 
     public void AttackPlayer()
@@ -50,5 +68,17 @@ public class SeaBeastManager : MonoBehaviour
 
         if (healthManager != null)
             healthManager.Damage(damageAmount);
+    }
+
+    private IEnumerator RunContinuousAttacks()
+    {
+        while (isActive)
+        {
+            float waitTime = Random.Range(MIN_ATTACK_INTERVAL, maxAttackInterval);
+            yield return new WaitForSeconds(waitTime);
+
+            if (isActive)
+                AttackPlayer();
+        }
     }
 }
