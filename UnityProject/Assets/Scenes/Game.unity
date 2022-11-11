@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1727.1956, g: 3128.0117, b: 6523.242, a: 1}
+  m_IndirectSpecularColor: {r: 1727.196, g: 3128.0117, b: 6523.242, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5518,6 +5518,56 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: acc2c3f8bcf64c54c8fbd354d2f2c6f7, type: 3}
+--- !u!1 &182647373
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 182647374}
+  - component: {fileID: 182647375}
+  m_Layer: 0
+  m_Name: SeaBeastManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &182647374
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 182647373}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1517935550}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &182647375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 182647373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f5fdf57985a5274f80e2e13a4c1d707, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shipPrefabManagerObject: {fileID: 1163210783}
+  seaBeastAttackPrefab: {fileID: 1685038221494197414, guid: 048c1b76caf116d48a24fb8c31982fc7,
+    type: 3}
+  explosionPrefab: {fileID: 1482752138975826897, guid: ae8187c004d96a44da8fd9b3bb74ec95,
+    type: 3}
+  attackTime: 4.68
+  damageAmount: 30
 --- !u!1 &190703276
 GameObject:
   m_ObjectHideFlags: 0
@@ -28302,7 +28352,7 @@ Transform:
   - {fileID: 769764016}
   - {fileID: 1039416916}
   m_Father: {fileID: 1517935550}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &973830256
 GameObject:
@@ -37804,7 +37854,7 @@ Transform:
   - {fileID: 1892340150}
   - {fileID: 1288665847}
   m_Father: {fileID: 1517935550}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1362775052 stripped
 Transform:
@@ -41266,6 +41316,7 @@ Transform:
   - {fileID: 357877955}
   - {fileID: 1908523564}
   - {fileID: 863964487}
+  - {fileID: 182647374}
   - {fileID: 1834884373}
   - {fileID: 1885766790}
   - {fileID: 971990260}
@@ -43721,7 +43772,7 @@ Transform:
   - {fileID: 1979019607}
   - {fileID: 91712087}
   m_Father: {fileID: 1517935550}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1608810417
 PrefabInstance:
@@ -48908,7 +48959,7 @@ Transform:
   - {fileID: 1318436106}
   - {fileID: 282292902}
   m_Father: {fileID: 1517935550}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &1834884374
 MeshCollider:
@@ -50387,7 +50438,7 @@ Transform:
   - {fileID: 108302246}
   - {fileID: 1157287807}
   m_Father: {fileID: 1517935550}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1885766791
 MonoBehaviour:
