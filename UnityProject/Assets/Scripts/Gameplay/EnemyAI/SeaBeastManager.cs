@@ -5,6 +5,8 @@ using UnityEngine;
 public class SeaBeastManager : MonoBehaviour
 {
     private static readonly float MIN_ATTACK_INTERVAL = 45f;
+    private static readonly float MIN_CIRCLE_INTERVAL = 120f;
+    private static readonly int MIN_ENCOUNTER_SHIP_INDEX = 2;
 
     [SerializeField]
     private GameObject shipPrefabManagerObject;
@@ -20,6 +22,8 @@ public class SeaBeastManager : MonoBehaviour
     private float damageAmount = 30f;
     [SerializeField]
     private float maxAttackInterval = 120f;
+    [SerializeField]
+    private float maxCircleInterval = 1200f;
 
     private ShipPrefabManager shipPrefabManager;
 
@@ -28,12 +32,8 @@ public class SeaBeastManager : MonoBehaviour
     private void Start()
     {
         shipPrefabManager = shipPrefabManagerObject.GetComponent<ShipPrefabManager>();
-    }
 
-    public void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.T))
-            CirclePlayer();
+        StartCoroutine(RunContinuousCircles());
     }
 
     public void EnableActiveAgression()
@@ -101,5 +101,14 @@ public class SeaBeastManager : MonoBehaviour
             if (isActive)
                 AttackPlayer();
         }
+    }
+
+    private IEnumerator RunContinuousCircles()
+    {
+        float waitTime = Random.Range(MIN_CIRCLE_INTERVAL, maxCircleInterval);
+        yield return new WaitForSeconds(waitTime);
+
+        if (shipPrefabManager.GetShipIndex() >= MIN_ENCOUNTER_SHIP_INDEX)
+            CirclePlayer();
     }
 }
