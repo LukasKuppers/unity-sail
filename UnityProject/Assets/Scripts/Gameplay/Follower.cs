@@ -40,7 +40,9 @@ public class Follower : MonoBehaviour
 
     private void Update()
     {
-        transform.position = Vector3.Scale(target.transform.position, mask) + Vector3.Scale(transform.position, inverseMask);
+        if (target != null)
+            transform.position = Vector3.Scale(target.transform.position, mask) + 
+                                 Vector3.Scale(transform.position, inverseMask);
     }
 
     public void SetTarget(GameObject newTarget)

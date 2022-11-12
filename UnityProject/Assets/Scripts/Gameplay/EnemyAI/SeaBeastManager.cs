@@ -57,8 +57,7 @@ public class SeaBeastManager : MonoBehaviour
 
     public void AttackShip(GameObject targetShip)
     {
-        Quaternion randomRot = Quaternion.Euler(0f, Random.Range(0f, 360f), 0f);
-        Instantiate(seaBeastAttackPrefab, targetShip.transform.position, randomRot, targetShip.transform);
+        SpawnSeabeastPrefab(seaBeastAttackPrefab, targetShip);
 
         StartCoroutine(AttackShipOnDelay(attackTime, targetShip));
     }
@@ -70,8 +69,15 @@ public class SeaBeastManager : MonoBehaviour
 
     public void CircleShip(GameObject targetShip)
     {
+        SpawnSeabeastPrefab(seaBeastPassivePrefab, targetShip);
+    }
+
+    private void SpawnSeabeastPrefab(GameObject prefab, GameObject target)
+    {
         Quaternion randomRot = Quaternion.Euler(0f, Random.Range(0f, 360f), 0f);
-        Instantiate(seaBeastPassivePrefab, targetShip.transform.position, randomRot, targetShip.transform);
+        GameObject beast = Instantiate(prefab, target.transform.position, randomRot, gameObject.transform);
+
+        beast.GetComponent<Follower>().SetTarget(target);
     }
 
     private IEnumerator AttackShipOnDelay(float delay, GameObject targetShip)

@@ -172,6 +172,7 @@ GameObject:
   - component: {fileID: 2029335596705400348}
   - component: {fileID: 1991466814914833577}
   - component: {fileID: -4167925020627523939}
+  - component: {fileID: -5134768081313242816}
   m_Layer: 0
   m_Name: SeaBeast
   m_TagString: Untagged
@@ -227,6 +228,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeDuration: 7
+--- !u!114 &-5134768081313242816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1685038221494197414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 279421d8c2932be4daaca5d205943a2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  x: 1
+  y: 1
+  z: 1
 --- !u!1 &3376371037190056824
 GameObject:
   m_ObjectHideFlags: 0
