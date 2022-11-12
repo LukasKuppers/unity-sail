@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1727.196, g: 3127.996, b: 6523.242, a: 1}
+  m_IndirectSpecularColor: {r: 1657.9705, g: 3245.8867, b: 7223.1094, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5571,6 +5571,7 @@ MonoBehaviour:
   attackTime: 4.68
   damageAmount: 30
   maxAttackInterval: 120
+  maxCircleInterval: 1200
 --- !u!1 &190703276
 GameObject:
   m_ObjectHideFlags: 0
@@ -58025,75 +58026,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bc9a6b9943fc3e4e82506a3ec12b9cb, type: 3}
---- !u!1001 &1118622001656478259
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3739877283118865521, guid: e09444a9576848d44b5bfe1c9511d9d2,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 3739877283118865521, guid: e09444a9576848d44b5bfe1c9511d9d2,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1598
-      objectReference: {fileID: 0}
-    - target: {fileID: 3739877283118865521, guid: e09444a9576848d44b5bfe1c9511d9d2,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3739877283118865521, guid: e09444a9576848d44b5bfe1c9511d9d2,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -338
-      objectReference: {fileID: 0}
-    - target: {fileID: 3739877283118865521, guid: e09444a9576848d44b5bfe1c9511d9d2,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3739877283118865521, guid: e09444a9576848d44b5bfe1c9511d9d2,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3739877283118865521, guid: e09444a9576848d44b5bfe1c9511d9d2,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3739877283118865521, guid: e09444a9576848d44b5bfe1c9511d9d2,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3739877283118865521, guid: e09444a9576848d44b5bfe1c9511d9d2,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3739877283118865521, guid: e09444a9576848d44b5bfe1c9511d9d2,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3739877283118865521, guid: e09444a9576848d44b5bfe1c9511d9d2,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4084032860437743307, guid: e09444a9576848d44b5bfe1c9511d9d2,
-        type: 3}
-      propertyPath: m_Name
-      value: SeabeastPassive
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: e09444a9576848d44b5bfe1c9511d9d2, type: 3}
 --- !u!1001 &1182104727374642728
 PrefabInstance:
   m_ObjectHideFlags: 0
