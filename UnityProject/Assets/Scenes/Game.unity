@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1657.9705, g: 3245.8867, b: 7223.1094, a: 1}
+  m_IndirectSpecularColor: {r: 1727.196, g: 3128.0117, b: 6523.242, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -28355,6 +28355,7 @@ Transform:
   - {fileID: 563638916}
   - {fileID: 769764016}
   - {fileID: 1039416916}
+  - {fileID: 1767199020}
   m_Father: {fileID: 1517935550}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -47293,6 +47294,53 @@ Transform:
   m_Father: {fileID: 1979612182}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 7.78, y: 57.23, z: 0}
+--- !u!1 &1767199019
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1767199020}
+  - component: {fileID: 1767199021}
+  m_Layer: 0
+  m_Name: CaptainJanesLog12
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1767199020
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1767199019}
+  m_LocalRotation: {x: -0.025382917, y: -0.002881071, z: 0.112743355, w: 0.9932958}
+  m_LocalPosition: {x: 233.96, y: 6.66, z: 764.23}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 971990260}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: -2.853, y: -0.657, z: 12.968}
+--- !u!114 &1767199021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1767199019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdea18320b3ab3248b2e4e885b08aa83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  storyNoteManager: {fileID: 463560862}
+  storyNotePrefab: {fileID: 4094606997667808325, guid: a812d69e3815ec34aa1b5b6238883669,
+    type: 3}
+  noteIndex: 7
 --- !u!1001 &1770008805
 PrefabInstance:
   m_ObjectHideFlags: 0
