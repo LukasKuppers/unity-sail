@@ -9,6 +9,12 @@ ModelImporter:
   - first:
       74: 7977146218682582864
     second: Armature|Porpoise
+  - first:
+      74: -689269771021720584
+    second: Armature|blank
+  - first:
+      74: 1819375948135568852
+    second: Armature|CircleShip
   externalObjects: {}
   materials:
     materialImportMode: 2

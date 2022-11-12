@@ -11,6 +11,8 @@ public class SeaBeastManager : MonoBehaviour
     [SerializeField]
     private GameObject seaBeastAttackPrefab;
     [SerializeField]
+    private GameObject seaBeastPassivePrefab;
+    [SerializeField]
     private GameObject explosionPrefab;
     [SerializeField]
     private float attackTime = 4.68f;
@@ -26,6 +28,12 @@ public class SeaBeastManager : MonoBehaviour
     private void Start()
     {
         shipPrefabManager = shipPrefabManagerObject.GetComponent<ShipPrefabManager>();
+    }
+
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.T))
+            CirclePlayer();
     }
 
     public void EnableActiveAgression()
@@ -53,6 +61,17 @@ public class SeaBeastManager : MonoBehaviour
         Instantiate(seaBeastAttackPrefab, targetShip.transform.position, randomRot, targetShip.transform);
 
         StartCoroutine(AttackShipOnDelay(attackTime, targetShip));
+    }
+
+    public void CirclePlayer()
+    {
+        CircleShip(shipPrefabManager.GetCurrentShip());
+    }
+
+    public void CircleShip(GameObject targetShip)
+    {
+        Quaternion randomRot = Quaternion.Euler(0f, Random.Range(0f, 360f), 0f);
+        Instantiate(seaBeastPassivePrefab, targetShip.transform.position, randomRot, targetShip.transform);
     }
 
     private IEnumerator AttackShipOnDelay(float delay, GameObject targetShip)
