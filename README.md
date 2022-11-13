@@ -6,6 +6,24 @@ Unity-sail is the repository for `Project Sail`, an open world naval-combat and 
 
 ## Version History
 
+### Alpha_1.5 (Story Update):
+November 13, 2022
+- Added music:
+  - main menu music
+  - ambient snippets
+  - randomly plaing tracks
+  - 'danger' track (played near enemy ships)
+  - 'combat' track (played when fighting enemies)
+- Added music volume slider to options
+- Added endgame boss battle sequence:
+  - 3 stages
+  - includes final navy boss (custom ship)
+- Added sea beast:
+  - random passive encounters for brig and galleon
+  - frequent agressive encounters during boss battle
+- Added story notes to map (not 100% complete)
+- Added custom flags for priate and navy ships
+
 ### Alpha_1.4 (Map Update 2):
 October 2, 2022
 - Reworked all island locations
