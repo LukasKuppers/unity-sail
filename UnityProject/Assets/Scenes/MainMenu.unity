@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1373.3379, g: 1248.1982, b: 1289.9795, a: 1}
+  m_IndirectSpecularColor: {r: 1372.7031, g: 1247.8564, b: 1289.4463, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1899,7 +1899,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00160d80a840a4449936522325b2497e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  arenaSceneName: Game
+  arenaSceneName: Arena
 --- !u!1 &1078975918 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6500646468198019140, guid: b504bf7282f55c647aef42962a76b9fd,
