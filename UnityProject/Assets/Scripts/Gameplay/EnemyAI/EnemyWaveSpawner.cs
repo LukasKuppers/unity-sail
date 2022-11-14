@@ -32,6 +32,14 @@ public class EnemyWaveSpawner : MonoBehaviour
         spawnedShips.Clear();
     }
 
+    public void SpawnSingleWave(int numShips, EnemyType shipType, UnityAction<GameObject> onSpawnCall)
+    {
+        if (numShips <= 0)
+            return;
+
+        StartCoroutine(SpawnShipsOnDelay(numShips, shipType, onSpawnCall));
+    }
+
     // maintain a wave of numShips enemies - when an enemy is destroyed, a new one spawns
     public void MaintainConstantWave(int numShips, EnemyType shipType)
     {

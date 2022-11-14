@@ -29,6 +29,9 @@ public class ShipPathfinder : MonoBehaviour
 
     public void TravelToPoint(Vector3 target)
     {
+        if (ship == null)
+            Start();
+
         Vector3 atTarget = Vector3.Normalize(new Vector3(
             target.x - transform.position.x, 0, target.z - transform.position.z));
         Vector3 forward = Vector3.Normalize(new Vector3(transform.forward.x, 0, transform.forward.z));
