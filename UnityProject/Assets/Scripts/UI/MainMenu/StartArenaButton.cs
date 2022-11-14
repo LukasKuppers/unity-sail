@@ -20,6 +20,7 @@ public class StartArenaButton : MonoBehaviour
 
     private void StartArena()
     {
+        LoadedGame.SetLoadedGame(arenaSceneName);
         SceneManager.LoadScene(arenaSceneName, LoadSceneMode.Single);
     }
 }
