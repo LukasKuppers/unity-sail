@@ -3158,7 +3158,7 @@ MonoBehaviour:
     type: 3}
   maxFoodDrop: 1
   maxWoodDrop: 20
-  maxCannonballDrop: 20
+  maxCannonballDrop: 40
   maxTreasureDrop: 1
 --- !u!114 &6233897518734546943
 MonoBehaviour:

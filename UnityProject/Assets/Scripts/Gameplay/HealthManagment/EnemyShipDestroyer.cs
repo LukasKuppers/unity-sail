@@ -71,6 +71,8 @@ public class EnemyShipDestroyer : MonoBehaviour, IDestructable
         int woodQuantity = GetRandQuantity(Item.WOOD);
         int cannonballQuantity = GetRandQuantity(Item.CANNONBALL);
 
+        cannonballQuantity = cannonballQuantity < 20 ? 20 : cannonballQuantity;
+
         pickupGenerator.SpawnPickup(Item.FOOD, foodQuantity, transform.position + transform.forward * 5);
         pickupGenerator.SpawnPickup(Item.WOOD, woodQuantity, transform.position - transform.forward * 5);
         pickupGenerator.SpawnPickup(Item.CANNONBALL, cannonballQuantity, transform.position);
