@@ -17,6 +17,13 @@ public class ArenaLifecycleManager : MonoBehaviour
         shipPrefabManager = shipPrefabManagerObject.GetComponent<ShipPrefabManager>();
         safetyManager = shipSafetyManagerObject.GetComponent<ShipSafetyManager>();
 
+        StartCoroutine(InitOnDelay());
+    }
+
+    private IEnumerator InitOnDelay()
+    {
+        yield return null;
+
         shipPrefabManager.SpawnShip(0);
         safetyManager.SetShipSafety(false);
     }
