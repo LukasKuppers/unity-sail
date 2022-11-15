@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1727.196, g: 3128.0117, b: 6523.242, a: 1}
+  m_IndirectSpecularColor: {r: 1718.0828, g: 3147.7266, b: 6612.758, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -674,6 +674,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shipPrefabManagerObject: {fileID: 1163210783}
   shipSafetyManagerObject: {fileID: 1163210783}
+  playerInventoryObject: {fileID: 816629300}
+  initFoodAmount: 4
+  initWoodAmount: 10
+  initCannonballAmount: 40
 --- !u!4 &166946450
 Transform:
   m_ObjectHideFlags: 0
@@ -700,11 +704,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3065dc4c9f399c43afe2d52d42936c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerInventoryObject: {fileID: 816629300}
   enemyShipSpawners:
   - {fileID: 198786626}
   - {fileID: 3874725}
   - {fileID: 748021927}
   - {fileID: 776043518}
+  CoinRewardPerKill: 100
 --- !u!1 &174936096
 GameObject:
   m_ObjectHideFlags: 0
@@ -3905,7 +3911,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 215, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1726130471

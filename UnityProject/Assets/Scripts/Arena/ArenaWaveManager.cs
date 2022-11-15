@@ -17,8 +17,13 @@ public class ArenaWaveManager : MonoBehaviour
     };
 
     [SerializeField]
+    private GameObject playerInventoryObject;
+    [SerializeField]
     private GameObject[] enemyShipSpawners;
+    [SerializeField]
+    private int CoinRewardPerKill = 100;
 
+    private PlayerInventory playerInventory;
     private Dictionary<EnemyType, EnemyWaveSpawner> waveSpawners;
     private Dictionary<EnemyType, int> destroyedShipsTally;
     private Dictionary<EnemyType, int> shipCounts;
@@ -33,6 +38,8 @@ public class ArenaWaveManager : MonoBehaviour
             Debug.LogError("ArenaWaveManager:Start:4 ship spawners must be initialized");
             return;
         }
+
+        playerInventory = playerInventoryObject.GetComponent<PlayerInventory>();
 
         shipCounts = new Dictionary<EnemyType, int>();
         foreach (EnemyType shipType in enemyTypes)
@@ -76,6 +83,8 @@ public class ArenaWaveManager : MonoBehaviour
                     destroyedShipsTally[shipType]++;
                     if (WaveDestroyed(waveNum, destroyedShipsTally))
                         StartNextWave();
+
+                    RewardPlayerWithCoins();
                 });
             });
         }
@@ -132,6 +141,13 @@ public class ArenaWaveManager : MonoBehaviour
             else
                 destroyedShipsTally.Add(shipType, 0);
         }
+    }
+
+    private void RewardPlayerWithCoins()
+    {
+        playerInventory.IncrementCoin(CoinRewardPerKill);
+
+        AudioManager.GetInstance().Play(SoundMap.COINS);
     }
 
     private IEnumerator SpawnWaveOnDelay(int wave)
