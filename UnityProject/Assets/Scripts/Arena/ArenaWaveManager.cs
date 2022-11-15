@@ -86,6 +86,7 @@ public class ArenaWaveManager : MonoBehaviour
 
                     RewardPlayerWithCoins();
                 });
+                newShip.GetComponent<EnemyShipDestroyer>().DropGenerousResources();
             });
         }
     }

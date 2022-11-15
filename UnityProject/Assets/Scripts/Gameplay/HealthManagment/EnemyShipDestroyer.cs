@@ -19,6 +19,7 @@ public class EnemyShipDestroyer : MonoBehaviour, IDestructable
     private PickupGenerator pickupGenerator;
 
     private ObjectDestroyedEvent destroyedEvent;
+    private bool generousDropMode = false;
 
     public void SetPickupGenerator(GameObject pickupGenerator)
     {
@@ -33,6 +34,11 @@ public class EnemyShipDestroyer : MonoBehaviour, IDestructable
         destroyedEvent.AddListener(call);
     }
 
+    public void DropGenerousResources()
+    {
+        generousDropMode = true;
+    }
+
     public void Destroy()
     {
         GameObject destroyedShip = Instantiate(destroyedPrefab, transform.position, transform.rotation);
@@ -42,9 +48,14 @@ public class EnemyShipDestroyer : MonoBehaviour, IDestructable
 
         if (pickupGenerator != null)
         {
-            Item item = GetRandItem();
-            int quantity = GetRandQuantity(item);
-            pickupGenerator.SpawnPickup(item, quantity, transform.position);
+            if (!generousDropMode)
+            {
+                Item item = GetRandItem();
+                int quantity = GetRandQuantity(item);
+                pickupGenerator.SpawnPickup(item, quantity, transform.position);
+            }
+            else
+                SpawnGenrousResourceDrop();
         }
         else
         {
@@ -52,6 +63,17 @@ public class EnemyShipDestroyer : MonoBehaviour, IDestructable
         }
 
         Destroy(gameObject);
+    }
+
+    private void SpawnGenrousResourceDrop()
+    {
+        int foodQuantity = GetRandQuantity(Item.FOOD);
+        int woodQuantity = GetRandQuantity(Item.WOOD);
+        int cannonballQuantity = GetRandQuantity(Item.CANNONBALL);
+
+        pickupGenerator.SpawnPickup(Item.FOOD, foodQuantity, transform.position + transform.forward * 5);
+        pickupGenerator.SpawnPickup(Item.WOOD, woodQuantity, transform.position - transform.forward * 5);
+        pickupGenerator.SpawnPickup(Item.CANNONBALL, cannonballQuantity, transform.position);
     }
 
     private Item GetRandItem()
