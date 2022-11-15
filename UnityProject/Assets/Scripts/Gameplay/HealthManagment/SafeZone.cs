@@ -12,6 +12,8 @@ public class SafeZone : MonoBehaviour
     private GameObject shipSafetyManager;
     [SerializeField]
     private float zoneRadius = 1f;
+    [SerializeField]
+    private bool DoNotSetShipSafety = false;
 
     private ShipPrefabManager shipManager;
     private ShipSafetyManager safetyManager;
@@ -50,14 +52,16 @@ public class SafeZone : MonoBehaviour
             if (dist <= zoneRadius)
             {
                 PlayerAttackMode.DisableAttack(ATTACK_MODE_KEY);
-                safetyManager.SetShipSafety(true);
                 shipInZone = true;
+                if (!DoNotSetShipSafety)
+                    safetyManager.SetShipSafety(true);
             }
             else
             {
                 PlayerAttackMode.EnableAttack(ATTACK_MODE_KEY);
-                safetyManager.SetShipSafety(false);
                 shipInZone = false;
+                if (!DoNotSetShipSafety)
+                    safetyManager.SetShipSafety(false);
             }
         }
     }
