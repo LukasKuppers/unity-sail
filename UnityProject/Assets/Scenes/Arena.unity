@@ -672,6 +672,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b3b30f3e59b6804ca6acdbdd11898f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shipPrefabManagerObject: {fileID: 1163210783}
   shipSafetyManagerObject: {fileID: 1163210783}
 --- !u!4 &166946450
 Transform:
@@ -1856,7 +1857,6 @@ GameObject:
   - component: {fileID: 816629302}
   - component: {fileID: 816629301}
   - component: {fileID: 816629304}
-  - component: {fileID: 816629305}
   m_Layer: 0
   m_Name: PlayerData
   m_TagString: Untagged
@@ -1926,19 +1926,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hudCanvas: {fileID: 850941751}
---- !u!114 &816629305
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 816629300}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 260ce79a1cbb37544888e27f9e54ceaf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shipPrefabManagerObject: {fileID: 1163210783}
 --- !u!1 &849881706
 GameObject:
   m_ObjectHideFlags: 0
@@ -3918,7 +3905,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 215, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1726130471
