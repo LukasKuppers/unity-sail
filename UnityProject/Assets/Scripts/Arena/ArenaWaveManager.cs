@@ -10,14 +10,21 @@ public class ArenaWaveManager : MonoBehaviour
     {
         EnemyType.TINY_SHIP_NAVY, EnemyType.SLOOP_NAVY, EnemyType.BRIG_NAVY, EnemyType.NAO_NAVY
     };
+    private static readonly Dictionary<EnemyType, int> shipWeights = new Dictionary<EnemyType, int>()
+    {
+        { enemyTypes[0], 1 }, { enemyTypes[1], 2 },
+        { enemyTypes[2], 3 }, { enemyTypes[3], 6 }
+    };
 
     [SerializeField]
     private GameObject[] enemyShipSpawners;
 
     private Dictionary<EnemyType, EnemyWaveSpawner> waveSpawners;
     private Dictionary<EnemyType, int> destroyedShipsTally;
+    private Dictionary<EnemyType, int> shipCounts;
 
     private int currentWave = 1;
+    private int calculatedWave = 0;
 
     private void Awake()
     {
@@ -25,6 +32,12 @@ public class ArenaWaveManager : MonoBehaviour
         {
             Debug.LogError("ArenaWaveManager:Start:4 ship spawners must be initialized");
             return;
+        }
+
+        shipCounts = new Dictionary<EnemyType, int>();
+        foreach (EnemyType shipType in enemyTypes)
+        {
+            shipCounts.Add(shipType, 0);
         }
 
         ResetDestroyedShipsTally();
@@ -70,7 +83,30 @@ public class ArenaWaveManager : MonoBehaviour
 
     private int GetNumShipsForWave(int wave, EnemyType shipType)
     {
-        return 1;
+        // allow caching of enemy counts
+        if (calculatedWave == wave)
+            return shipCounts[shipType];
+
+        calculatedWave = wave;
+        foreach (EnemyType sType in enemyTypes)
+        {
+            shipCounts[sType] = 0;
+        }
+
+        while (wave > 0)
+        {
+            for (int i = NUM_SHIP_TYPES - 1; i >= 0; i--)
+            {
+                int shipWeight = shipWeights[enemyTypes[i]];
+                if (shipWeight <= wave)
+                {
+                    shipCounts[enemyTypes[i]]++;
+                    wave -= shipWeight;
+                    continue;
+                }
+            }
+        }
+        return shipCounts[shipType];
     }
 
     private bool WaveDestroyed(int currentWave, Dictionary<EnemyType, int> destroyedShipsTally)
