@@ -10,6 +10,8 @@ public class OpenMenuListener : MonoBehaviour
     private GameObject gameLoader;
     [SerializeField]
     private GameObject menuPrefab;
+    [SerializeField]
+    private string customQuitBtnText = "";
 
     private void Start()
     {
@@ -24,7 +26,11 @@ public class OpenMenuListener : MonoBehaviour
             GameObject gameMenu = Instantiate(menuPrefab, uIParent.transform);
 
             GameMenuModal modalData = gameMenu.GetComponent<GameMenuModal>();
-            modalData.InitParameters(gameLoader);
+
+            if (customQuitBtnText != null && customQuitBtnText != "")
+                modalData.InitParameters(gameLoader, customQuitBtnText);
+            else
+                modalData.InitParameters(gameLoader);
 
             AudioManager.GetInstance().Play(SoundMap.TURN_PAGE);
         }

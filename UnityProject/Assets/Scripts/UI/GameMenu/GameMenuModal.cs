@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameMenuModal : MonoBehaviour
 {
@@ -44,6 +45,12 @@ public class GameMenuModal : MonoBehaviour
     public void InitParameters(GameObject gameLoader)
     {
         this.gameLoader = gameLoader.GetComponent<GameLoader>();
+    }
+
+    public void InitParameters(GameObject gameLoader, string quitBtnText)
+    {
+        InitParameters(gameLoader);
+        quitBtn.GetComponentInChildren<TextMeshProUGUI>().text = quitBtnText;
     }
 
     private void CloseMenu()
