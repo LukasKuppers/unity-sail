@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ArenaWaveManager : MonoBehaviour
 {
@@ -21,9 +22,12 @@ public class ArenaWaveManager : MonoBehaviour
     [SerializeField]
     private GameObject[] enemyShipSpawners;
     [SerializeField]
+    private GameObject WaveTextObject;
+    [SerializeField]
     private int CoinRewardPerKill = 100;
 
     private PlayerInventory playerInventory;
+    private TextMeshProUGUI waveText;
     private Dictionary<EnemyType, EnemyWaveSpawner> waveSpawners;
     private Dictionary<EnemyType, int> destroyedShipsTally;
     private Dictionary<EnemyType, int> shipCounts;
@@ -40,6 +44,8 @@ public class ArenaWaveManager : MonoBehaviour
         }
 
         playerInventory = playerInventoryObject.GetComponent<PlayerInventory>();
+        waveText = WaveTextObject.GetComponent<TextMeshProUGUI>();
+        SetWaveText();
 
         shipCounts = new Dictionary<EnemyType, int>();
         foreach (EnemyType shipType in enemyTypes)
@@ -67,6 +73,7 @@ public class ArenaWaveManager : MonoBehaviour
     {
         currentWave++;
         ResetDestroyedShipsTally();
+        SetWaveText();
 
         StartCoroutine(SpawnWaveOnDelay(currentWave));
     }
@@ -149,6 +156,12 @@ public class ArenaWaveManager : MonoBehaviour
         playerInventory.IncrementCoin(CoinRewardPerKill);
 
         AudioManager.GetInstance().Play(SoundMap.COINS);
+    }
+
+    private void SetWaveText()
+    {
+        string msg = $"Wave {currentWave}";
+        waveText.text = msg;
     }
 
     private IEnumerator SpawnWaveOnDelay(int wave)
