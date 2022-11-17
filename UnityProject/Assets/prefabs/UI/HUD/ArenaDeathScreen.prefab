@@ -1362,9 +1362,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreTextObject: {fileID: 1299803584987056766}
-  saveNameTextFieldObject: {fileID: 6730477737183312100}
+  saveNameTextFieldObject: {fileID: 936812528962583826}
   quitButtonObject: {fileID: 6134581778871392447}
   menuSceneName: MainMenu
+  arenaManagerTag: ArenaManager
 --- !u!1 &8272409980793803640
 GameObject:
   m_ObjectHideFlags: 0
