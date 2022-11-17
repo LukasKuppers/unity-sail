@@ -9,6 +9,7 @@ TagManager:
   - EnemyShip
   - Canvas
   - IslandProximityCol
+  - ArenaManager
   layers:
   - Default
   - TransparentFX

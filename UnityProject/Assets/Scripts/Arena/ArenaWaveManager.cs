@@ -58,6 +58,11 @@ public class ArenaWaveManager : MonoBehaviour
         StartCoroutine(SpawnWaveOnDelay(currentWave));
     }
 
+    public int GetCurrentWave()
+    {
+        return currentWave;
+    }
+
     private void InitSpawners()
     {
         waveSpawners = new Dictionary<EnemyType, EnemyWaveSpawner>();

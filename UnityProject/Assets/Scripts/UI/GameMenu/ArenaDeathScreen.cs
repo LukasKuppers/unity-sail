@@ -17,12 +17,14 @@ public class ArenaDeathScreen : MonoBehaviour
     private GameObject quitButtonObject;
     [SerializeField]
     private string menuSceneName;
+    [SerializeField]
+    private string arenaManagerTag = "ArenaManager";
 
     private TextMeshProUGUI scoreText;
     private InputField saveNameTextField;
     private Button quitButton;
 
-    private int score;
+    int score;
 
     private void Start()
     {
@@ -31,21 +33,26 @@ public class ArenaDeathScreen : MonoBehaviour
         quitButton = quitButtonObject.GetComponent<Button>();
 
         quitButton.onClick.AddListener(QuitToMainMenu);
+        GetScore();
 
         PlayerSceneInteraction.DisableInteraction(INTERACTION_LOCK_KEY);
         PlayerAttackMode.DisableAttack(INTERACTION_LOCK_KEY);
     }
 
-    private void SetScore(int score)
+    private void GetScore()
     {
-        string scoreMsg = $"Waves Conquered: {score}";
-        scoreText.text = scoreMsg;
+        ArenaWaveManager waveManager = GameObject.FindGameObjectWithTag(arenaManagerTag)
+            .GetComponent<ArenaWaveManager>();
 
-        this.score = score;
+        score = waveManager.GetCurrentWave();
+        scoreText.text = $"Waves Conquered: {score}";
     }
 
     private void QuitToMainMenu()
     {
+        PlayerSceneInteraction.EnableInteraction(INTERACTION_LOCK_KEY);
+        PlayerAttackMode.EnableAttack(INTERACTION_LOCK_KEY);
+
         SceneManager.LoadScene(menuSceneName, LoadSceneMode.Single);
     }
 }
