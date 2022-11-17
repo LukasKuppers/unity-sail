@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1718.5293, g: 3146.8086, b: 6609.125, a: 1}
+  m_IndirectSpecularColor: {r: 1686.2944, g: 3210.0977, b: 6944.5156, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3082,7 +3082,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9902f0a024152ec42b0dc878948bbeee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathScreenPrefab: {fileID: 6752769829281052784, guid: 6d88d9e614115d44eaab9832e95a43ae,
+  deathScreenPrefab: {fileID: 8039144602733116685, guid: 8e360cd615834c047bf25459fadd9f9f,
     type: 3}
   shipTypePrefabs:
   - {fileID: 5318868907262521436, guid: b177d236e78bb9243bf5e104021bb0f4, type: 3}
@@ -4277,7 +4277,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 215, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1726130471
