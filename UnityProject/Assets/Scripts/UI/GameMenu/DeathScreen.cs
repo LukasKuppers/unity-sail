@@ -43,6 +43,9 @@ public class DeathScreen : MonoBehaviour
 
     private void ExitToMainMenu()
     {
+        PlayerSceneInteraction.EnableInteraction(INTERACTION_LOCK_KEY);
+        PlayerAttackMode.EnableAttack(INTERACTION_LOCK_KEY);
+
         gameLoader.SaveScene();
         SceneManager.LoadScene(menuSceneName, LoadSceneMode.Single);
     }
