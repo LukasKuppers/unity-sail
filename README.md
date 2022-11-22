@@ -6,6 +6,19 @@ Unity-sail is the repository for `Project Sail`, an open world naval-combat and 
 
 ## Version History
 
+### Beta_1.0 (Arena Update):
+November 21, 2022
+- Enabled arena button on main menu
+- Added arena mode:
+  - new arena map
+  - enemy wave spawning system
+  - alternate enemy drops
+  - ship upgrade system (gain coins per enemy kill)
+  - reduced HUD
+- Added arena leaderbaord:
+  - saves 10 highest all time scores
+  - accessible via main menu
+
 ### Alpha_1.5 (Story Update):
 November 13, 2022
 - Added music:
