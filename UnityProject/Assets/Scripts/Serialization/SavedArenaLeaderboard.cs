@@ -9,6 +9,12 @@ public class ArenaLeaderboardEntry
     public string name;
 }
 
+[System.Serializable]
+public class SerializedArenaLeaderboard
+{
+    public ArenaLeaderboardEntry[] leaderboard;
+}
+
 public static class SavedArenaLeaderboard
 {
     private static readonly string PLAYER_PREFS_KEY = "saved_arena_leaderboard_key";
@@ -46,18 +52,24 @@ public static class SavedArenaLeaderboard
         if (savedJson == null || savedJson == "")
             return new List<ArenaLeaderboardEntry>();
 
-        List<ArenaLeaderboardEntry> savedLeaderbaord = JsonUtility
-            .FromJson<List<ArenaLeaderboardEntry>>(savedJson);
-
-        if (savedLeaderbaord == null)
+        SerializedArenaLeaderboard serializedLeaderboard = JsonUtility
+            .FromJson<SerializedArenaLeaderboard>(savedJson);
+       
+        if (serializedLeaderboard == null || serializedLeaderboard.leaderboard == null ||
+            serializedLeaderboard.leaderboard.Length <= 0)
             return new List<ArenaLeaderboardEntry>();
 
-        return savedLeaderbaord;
+        return new List<ArenaLeaderboardEntry>(serializedLeaderboard.leaderboard);
     }
 
     private static void SerializeAndSaveLeaderboard(List<ArenaLeaderboardEntry> leaderboard)
     {
-        string jsonString = JsonUtility.ToJson(leaderboard);
+        SerializedArenaLeaderboard saveObj = new SerializedArenaLeaderboard()
+        {
+            leaderboard = leaderboard.ToArray()
+        };
+        string jsonString = JsonUtility.ToJson(saveObj);
+
         PlayerPrefs.SetString(PLAYER_PREFS_KEY, jsonString);
     }
 }
