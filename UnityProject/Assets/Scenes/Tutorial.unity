@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1727.196, g: 3127.996, b: 6523.242, a: 1}
+  m_IndirectSpecularColor: {r: 1727.196, g: 3128.0117, b: 6523.242, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4691,8 +4691,6 @@ GameObject:
   - component: {fileID: 1589554463}
   - component: {fileID: 1589554462}
   - component: {fileID: 1589554464}
-  - component: {fileID: 1589554465}
-  - component: {fileID: 1589554466}
   m_Layer: 5
   m_Name: DropItemsPrompt
   m_TagString: Untagged
@@ -4777,44 +4775,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uIParent: {fileID: 850941751}
-  gameLoader: {fileID: 0}
+  gameLoader: {fileID: 129271518}
   menuPrefab: {fileID: 6395392067362590035, guid: 36cc517d6cfab7346abcfaa9ae7c6904,
     type: 3}
-  customQuitBtnText: 
---- !u!114 &1589554465
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1589554460}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76c3d44aea481ec42a224bb20d570dac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shipPrefabManager: {fileID: 1163210783}
-  islandMapManager: {fileID: 0}
-  mapTreasureManager: {fileID: 0}
-  uIParent: {fileID: 850941751}
-  mapPrefab: {fileID: 530225958857074554, guid: da9ed116313d72249aab57c823d444c6,
-    type: 3}
---- !u!114 &1589554466
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1589554460}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb9adbed27a4cf84fa5426374eb478c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  uIParent: {fileID: 850941751}
-  notesManager: {fileID: 0}
-  notesModalPrefab: {fileID: 313221364342303929, guid: 6656f930e7596d24bb0e564cb73a18a0,
-    type: 3}
+  customQuitBtnText: Quit
 --- !u!1 &1726130469
 GameObject:
   m_ObjectHideFlags: 0
@@ -4851,7 +4815,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 215, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1726130471
