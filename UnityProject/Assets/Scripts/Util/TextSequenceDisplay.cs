@@ -8,7 +8,7 @@ public class TextSequenceDisplay : MonoBehaviour
     [SerializeField]
     private GameObject textDisplayObject;
     [SerializeField]
-    private string textSourcFileName;
+    private string textSourceFileName;
     [SerializeField]
     private float fadeTime = 1f;
 
@@ -21,13 +21,13 @@ public class TextSequenceDisplay : MonoBehaviour
     {
         textDisplay = textDisplayObject.GetComponent<TextMeshProUGUI>();
 
-        if (textSourcFileName != null && textSourcFileName != "")
-            SetTextSourceFile(textSourcFileName);
+        if (textSourceFileName != null && textSourceFileName != "")
+            SetTextSourceFile(textSourceFileName);
     }
 
     public void SetTextSourceFile(string fileName)
     {
-        textSourcFileName = fileName;
+        textSourceFileName = fileName;
         DelimmitedTextLoader textLoader = new DelimmitedTextLoader(fileName, '\t');
         string[][] rawData = textLoader.GetData();
         textSequence = new string[rawData.Length];
@@ -67,6 +67,9 @@ public class TextSequenceDisplay : MonoBehaviour
     private void DisplayText(int index)
     {
         string text = textSequence[index];
+
+        if (textDisplay == null)
+            Start();
 
         textDisplay.CrossFadeAlpha(0f, fadeTime, false);
         textDisplay.text = text;
