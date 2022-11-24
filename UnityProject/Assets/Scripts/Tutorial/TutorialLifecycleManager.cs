@@ -15,6 +15,9 @@ public class TutorialLifecycleManager : MonoBehaviour
     private ShipPrefabManager shipPrefabManager;
     private TextSequenceDisplay textDisplay;
 
+    private bool moveCameraComplete = false;
+    private bool steerShipComplete = false;
+
     private void Start()
     {
         shipPrefabManager = shipPrefabManagerObject.GetComponent<ShipPrefabManager>();
@@ -25,6 +28,22 @@ public class TutorialLifecycleManager : MonoBehaviour
         shipPrefabManager.SpawnShip(0);
         textDisplay.SetTextSourceFile(instructionsTextResName);
         textDisplay.StartSequenceDisplay();
+    }
+
+    private void Update()
+    {
+        if (!moveCameraComplete && Input.GetMouseButtonDown(1))
+        {
+            textDisplay.IncrementSequence();
+            moveCameraComplete = true;
+        }
+
+        if (!steerShipComplete && moveCameraComplete && 
+            (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D)))
+        {
+            textDisplay.IncrementSequence();
+            steerShipComplete = true;
+        }
     }
 
     public void CompleteTutorial()
