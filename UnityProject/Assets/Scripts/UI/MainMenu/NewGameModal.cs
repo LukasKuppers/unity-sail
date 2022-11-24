@@ -9,6 +9,8 @@ public class NewGameModal : MonoBehaviour
     private string sceneName;
 
     [SerializeField]
+    private GameObject launchTutorialModalPrefab;
+    [SerializeField]
     private GameObject exitButtonObject;
     [SerializeField]
     private GameObject createButtonObject;
@@ -38,6 +40,12 @@ public class NewGameModal : MonoBehaviour
     {
         if (text.text != null || !text.text.Equals(""))
         {
+            if (!SavedTutorialState.TutorialIsCompleted())
+            {
+                Instantiate(launchTutorialModalPrefab, gameObject.transform.parent);
+                return;
+            }
+
             bool success = SavedGamesManager.CreateGame(text.text);
             if (success)
             {
@@ -45,9 +53,7 @@ public class NewGameModal : MonoBehaviour
                 SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
             }
             else
-            {
                 text.text = "";
-            }
         }
     }
 }
