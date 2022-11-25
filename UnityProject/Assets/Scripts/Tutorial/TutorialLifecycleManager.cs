@@ -11,9 +11,12 @@ public class TutorialLifecycleManager : MonoBehaviour
         STEER_SHIP,
         FACE_DIRECTION,
         SAIL_TO_TREASURE,
-        PICKUP_TREASURE
+        PICKUP_TREASURE, 
+        SAIL_TO_PORT
     }
 
+    [SerializeField]
+    private GameObject playerInventoryObject;
     [SerializeField]
     private GameObject shipPrefabManagerObject;
     [SerializeField]
@@ -23,6 +26,7 @@ public class TutorialLifecycleManager : MonoBehaviour
     [SerializeField]
     private string instructionsTextResName;
 
+    private PlayerInventory inventory;
     private ShipPrefabManager shipPrefabManager;
     private TextSequenceDisplay textDisplay;
 
@@ -30,6 +34,7 @@ public class TutorialLifecycleManager : MonoBehaviour
 
     private void Start()
     {
+        inventory = playerInventoryObject.GetComponent<PlayerInventory>();
         shipPrefabManager = shipPrefabManagerObject.GetComponent<ShipPrefabManager>();
         textDisplay = gameObject.GetComponent<TextSequenceDisplay>();
         if (textDisplay == null)
@@ -74,6 +79,13 @@ public class TutorialLifecycleManager : MonoBehaviour
                 {
                     textDisplay.IncrementSequence();
                     currentStage = Stage.PICKUP_TREASURE;
+                }
+                break;
+            case Stage.PICKUP_TREASURE:
+                if (inventory.GetTreasureAmount() == 1)
+                {
+                    textDisplay.IncrementSequence();
+                    currentStage = Stage.SAIL_TO_PORT;
                 }
                 break;
         }
