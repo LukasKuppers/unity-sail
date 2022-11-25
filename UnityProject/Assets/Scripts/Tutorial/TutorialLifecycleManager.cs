@@ -5,6 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class TutorialLifecycleManager : MonoBehaviour
 {
+    private enum Stage
+    {
+        MOVE_CAMERA,
+        STEER_SHIP,
+        FACE_DIRECTION,
+        SAIL_TO_TREASURE,
+        PICKUP_TREASURE
+    }
+
     [SerializeField]
     private GameObject shipPrefabManagerObject;
     [SerializeField]
@@ -15,8 +24,7 @@ public class TutorialLifecycleManager : MonoBehaviour
     private ShipPrefabManager shipPrefabManager;
     private TextSequenceDisplay textDisplay;
 
-    private bool moveCameraComplete = false;
-    private bool steerShipComplete = false;
+    private Stage currentStage;
 
     private void Start()
     {
@@ -25,6 +33,7 @@ public class TutorialLifecycleManager : MonoBehaviour
         if (textDisplay == null)
             Debug.LogError("TutorialLifecycleManager:start: Must assign text sequence display to manager object");
 
+        currentStage = Stage.MOVE_CAMERA;
         shipPrefabManager.SpawnShip(0);
         textDisplay.SetTextSourceFile(instructionsTextResName);
         textDisplay.StartSequenceDisplay();
@@ -32,17 +41,31 @@ public class TutorialLifecycleManager : MonoBehaviour
 
     private void Update()
     {
-        if (!moveCameraComplete && Input.GetMouseButtonDown(1))
+        switch (currentStage)
         {
-            textDisplay.IncrementSequence();
-            moveCameraComplete = true;
-        }
-
-        if (!steerShipComplete && moveCameraComplete && 
-            (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D)))
-        {
-            textDisplay.IncrementSequence();
-            steerShipComplete = true;
+            case Stage.MOVE_CAMERA:
+                if (Input.GetMouseButtonDown(1))
+                {
+                    textDisplay.IncrementSequence();
+                    currentStage = Stage.STEER_SHIP;
+                }
+                break;
+            case Stage.STEER_SHIP:
+                if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D))
+                {
+                    textDisplay.IncrementSequence();
+                    currentStage = Stage.FACE_DIRECTION;
+                }
+                break;
+            case Stage.FACE_DIRECTION:
+                GameObject ship = shipPrefabManager.GetCurrentShip();
+                float rot = ship.transform.eulerAngles.y;
+                if (rot >= 260f && rot <= 280f)
+                {
+                    textDisplay.IncrementSequence();
+                    currentStage = Stage.SAIL_TO_TREASURE;
+                }
+                break;
         }
     }
 
