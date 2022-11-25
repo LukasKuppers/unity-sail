@@ -17,6 +17,8 @@ public class TutorialLifecycleManager : MonoBehaviour
     [SerializeField]
     private GameObject shipPrefabManagerObject;
     [SerializeField]
+    private GameObject treasureIslandObject;
+    [SerializeField]
     private string menuSceneName;
     [SerializeField]
     private string instructionsTextResName;
@@ -64,6 +66,14 @@ public class TutorialLifecycleManager : MonoBehaviour
                 {
                     textDisplay.IncrementSequence();
                     currentStage = Stage.SAIL_TO_TREASURE;
+                }
+                break;
+            case Stage.SAIL_TO_TREASURE:
+                ship = shipPrefabManager.GetCurrentShip();
+                if (Vector3.Distance(ship.transform.position, treasureIslandObject.transform.position) < 50f)
+                {
+                    textDisplay.IncrementSequence();
+                    currentStage = Stage.PICKUP_TREASURE;
                 }
                 break;
         }

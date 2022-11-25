@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1664.739, g: 2763.3242, b: 4747.0312, a: 1}
+  m_IndirectSpecularColor: {r: 1708.52, g: 3168.6133, b: 6707.2266, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5053,6 +5053,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shipPrefabManagerObject: {fileID: 1163210783}
+  treasureIslandObject: {fileID: 2131458784}
   menuSceneName: MainMenu
   instructionsTextResName: TutorialInstructions
 --- !u!4 &1302041953
