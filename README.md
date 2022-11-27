@@ -6,6 +6,20 @@ Unity-sail is the repository for `Project Sail`, an open world naval-combat and 
 
 ## Version History
 
+### Beta_1.1:
+November 27, 2022
+- Added tutorial with following stages:
+  - camera controls
+  - ship movement
+  - pickup treasure
+  - sell treasure
+  - sell nav data and use map
+  - buy items
+  - explain wood and food
+  - shoot enemies (+ double shot)
+- prompt player to complete tutorial if it has not been done
+- allow player to replay tutorial from menu
+
 ### Beta_1.0 (Arena Update):
 November 21, 2022
 - Enabled arena button on main menu
