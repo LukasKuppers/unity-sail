@@ -2,9 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class TutorialLifecycleManager : MonoBehaviour
 {
+    private static readonly float FADE_DURATION = 5f;
+
     private enum Stage
     {
         MOVE_CAMERA,
@@ -36,6 +39,8 @@ public class TutorialLifecycleManager : MonoBehaviour
     private GameObject dummyTarget;
     [SerializeField]
     private GameObject portIslandObject;
+    [SerializeField]
+    private GameObject fadeOutMaskObject;
     [SerializeField]
     private string menuSceneName;
     [SerializeField]
@@ -176,6 +181,7 @@ public class TutorialLifecycleManager : MonoBehaviour
                 if (dummyTarget == null)
                 {
                     textDisplay.IncrementSequence();
+                    CompleteTutorial();
                 }
                 break;
         }
@@ -187,9 +193,26 @@ public class TutorialLifecycleManager : MonoBehaviour
         }
     }
 
-    public void CompleteTutorial()
+    private void CompleteTutorial()
     {
         SavedTutorialState.SetTutorialCompleted();
+
+        StartCoroutine(TutorialEndAnimation());
+    }
+
+    private IEnumerator TutorialEndAnimation()
+    {
+        Image mask = fadeOutMaskObject.GetComponent<Image>();
+
+        int numFrames = (int)(FADE_DURATION / Time.smoothDeltaTime);
+        for (int i  = 0; i < numFrames; i++)
+        {
+            float animPercent = (float)i / numFrames;
+            mask.color = new Color(0, 0, 0, animPercent);
+
+            yield return null;
+        }
+
         SceneManager.LoadScene(menuSceneName, LoadSceneMode.Single);
     }
 }
