@@ -12,7 +12,12 @@ public class TutorialLifecycleManager : MonoBehaviour
         FACE_DIRECTION,
         SAIL_TO_TREASURE,
         PICKUP_TREASURE, 
-        SAIL_TO_PORT
+        SAIL_TO_PORT, 
+        SELL_TREASURE, 
+        BUY_CANNONBALLS, 
+        SAIL_TO_DUMMY_TARGET, 
+        SHOOT_TARGET, 
+        DESTROY_TARGET
     }
 
     [SerializeField]
@@ -21,6 +26,10 @@ public class TutorialLifecycleManager : MonoBehaviour
     private GameObject shipPrefabManagerObject;
     [SerializeField]
     private GameObject treasureIslandObject;
+    [SerializeField]
+    private GameObject dummyTarget;
+    [SerializeField]
+    private GameObject portIslandObject;
     [SerializeField]
     private string menuSceneName;
     [SerializeField]
@@ -88,6 +97,56 @@ public class TutorialLifecycleManager : MonoBehaviour
                     currentStage = Stage.SAIL_TO_PORT;
                 }
                 break;
+            case Stage.SAIL_TO_PORT:
+                ship = shipPrefabManager.GetCurrentShip();
+                if (Vector3.Distance(ship.transform.position, portIslandObject.transform.position) < 70)
+                {
+                    textDisplay.IncrementSequence();
+                    currentStage = Stage.SELL_TREASURE;
+                }
+                break;
+            case Stage.SELL_TREASURE:
+                if (inventory.GetTreasureAmount() == 0)
+                {
+                    textDisplay.IncrementSequence();
+                    currentStage = Stage.BUY_CANNONBALLS;
+                }
+                break;
+            case Stage.BUY_CANNONBALLS:
+                if (inventory.GetCannonballAmount() >= 50 && inventory.GetCoinAmount() < 10)
+                {
+                    textDisplay.IncrementSequence();
+                    currentStage = Stage.SAIL_TO_DUMMY_TARGET;
+                }
+                break;
+            case Stage.SAIL_TO_DUMMY_TARGET:
+                ship = shipPrefabManager.GetCurrentShip();
+                if (Vector3.Distance(ship.transform.position, dummyTarget.transform.position) <= 70)
+                {
+                    textDisplay.IncrementSequence();
+                    currentStage = Stage.SHOOT_TARGET;
+                }
+                break;
+            case Stage.SHOOT_TARGET:
+                IDamageable targetHealth = dummyTarget.GetComponent<IDamageable>();
+                if (targetHealth.GetHealth() < targetHealth.GetMaxHealth())
+                {
+                    textDisplay.IncrementSequence();
+                    currentStage = Stage.DESTROY_TARGET;
+                }
+                break;
+            case Stage.DESTROY_TARGET:
+                if (dummyTarget == null)
+                {
+                    textDisplay.IncrementSequence();
+                }
+                break;
+        }
+
+        if (currentStage == Stage.SHOOT_TARGET || currentStage == Stage.DESTROY_TARGET)
+        {
+            if (inventory.GetCannonballAmount() == 0)
+                inventory.IncrementCannonball(10);
         }
     }
 

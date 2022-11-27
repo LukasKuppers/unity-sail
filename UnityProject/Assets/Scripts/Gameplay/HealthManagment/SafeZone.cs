@@ -32,6 +32,8 @@ public class SafeZone : MonoBehaviour
         safetyManager = shipSafetyManager.GetComponent<ShipSafetyManager>();
 
         shipManager.AddSpawnListener(UpdateShip);
+
+        StartCoroutine(InitShipOnDelay());
     }
 
     private void UpdateShip()
@@ -64,5 +66,12 @@ public class SafeZone : MonoBehaviour
                     safetyManager.SetShipSafety(false);
             }
         }
+    }
+
+    private IEnumerator InitShipOnDelay()
+    {
+        yield return new WaitForFixedUpdate();
+
+        UpdateShip();
     }
 }
