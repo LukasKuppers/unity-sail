@@ -17,6 +17,7 @@ public class Compass : MonoBehaviour
         shipManager = shipPrefabManager.GetComponent<ShipPrefabManager>();
 
         shipManager.AddSpawnListener(UpdateShip);
+        StartCoroutine(SetShipOnDelay());
     }
 
     private void Update()
@@ -32,5 +33,13 @@ public class Compass : MonoBehaviour
     private void UpdateShip()
     {
         ship = shipManager.GetCurrentShip();
+    }
+
+    private IEnumerator SetShipOnDelay()
+    {
+        yield return new WaitForFixedUpdate();
+
+        if (ship == null)
+            UpdateShip();
     }
 }
