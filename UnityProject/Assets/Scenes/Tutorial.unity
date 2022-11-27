@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1720.7192, g: 3136.6367, b: 6209.6953, a: 1}
+  m_IndirectSpecularColor: {r: 1674.8901, g: 3226.8086, b: 7057.1953, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2412,7 +2412,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: -50}
-  m_SizeDelta: {x: 1000, y: 100}
+  m_SizeDelta: {x: 1500, y: 100}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &722322883
 MonoBehaviour:
@@ -5098,6 +5098,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerInventoryObject: {fileID: 816629300}
   shipPrefabManagerObject: {fileID: 1163210783}
+  navDataManagerObject: {fileID: 1885766789}
   treasureIslandObject: {fileID: 2131458784}
   dummyTarget: {fileID: 2382870959219591233}
   portIslandObject: {fileID: 422120038}

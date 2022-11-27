@@ -14,6 +14,8 @@ public class TutorialLifecycleManager : MonoBehaviour
         PICKUP_TREASURE, 
         SAIL_TO_PORT, 
         SELL_TREASURE, 
+        SELL_NAV_DATA, 
+        MAP_INFO, 
         BUY_CANNONBALLS, 
         SAIL_TO_DUMMY_TARGET, 
         SHOOT_TARGET, 
@@ -24,6 +26,8 @@ public class TutorialLifecycleManager : MonoBehaviour
     private GameObject playerInventoryObject;
     [SerializeField]
     private GameObject shipPrefabManagerObject;
+    [SerializeField]
+    private GameObject navDataManagerObject;
     [SerializeField]
     private GameObject treasureIslandObject;
     [SerializeField]
@@ -37,6 +41,7 @@ public class TutorialLifecycleManager : MonoBehaviour
 
     private PlayerInventory inventory;
     private ShipPrefabManager shipPrefabManager;
+    private NavigationDataManager navDataManager;
     private TextSequenceDisplay textDisplay;
 
     private Stage currentStage;
@@ -45,6 +50,8 @@ public class TutorialLifecycleManager : MonoBehaviour
     {
         inventory = playerInventoryObject.GetComponent<PlayerInventory>();
         shipPrefabManager = shipPrefabManagerObject.GetComponent<ShipPrefabManager>();
+        navDataManager = navDataManagerObject.GetComponent<NavigationDataManager>();
+
         textDisplay = gameObject.GetComponent<TextSequenceDisplay>();
         if (textDisplay == null)
             Debug.LogError("TutorialLifecycleManager:start: Must assign text sequence display to manager object");
@@ -109,11 +116,25 @@ public class TutorialLifecycleManager : MonoBehaviour
                 if (inventory.GetTreasureAmount() == 0)
                 {
                     textDisplay.IncrementSequence();
+                    currentStage = Stage.SELL_NAV_DATA;
+                }
+                break;
+            case Stage.SELL_NAV_DATA:
+                if (navDataManager.GetNumNavigatedIslands() == 0)
+                {
+                    textDisplay.IncrementSequence();
+                    currentStage = Stage.MAP_INFO;
+                }
+                break;
+            case Stage.MAP_INFO:
+                if (Input.GetKeyDown(KeyCode.Return))
+                {
+                    textDisplay.IncrementSequence();
                     currentStage = Stage.BUY_CANNONBALLS;
                 }
                 break;
             case Stage.BUY_CANNONBALLS:
-                if (inventory.GetCannonballAmount() >= 50 && inventory.GetCoinAmount() < 10)
+                if (inventory.GetCannonballAmount() == 100)
                 {
                     textDisplay.IncrementSequence();
                     currentStage = Stage.SAIL_TO_DUMMY_TARGET;
