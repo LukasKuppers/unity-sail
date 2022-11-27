@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1674.8901, g: 3226.8086, b: 7057.1953, a: 1}
+  m_IndirectSpecularColor: {r: 1678.5857, g: 3219.754, b: 6601.4688, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5847,6 +5847,7 @@ GameObject:
   - component: {fileID: 1589554463}
   - component: {fileID: 1589554462}
   - component: {fileID: 1589554464}
+  - component: {fileID: 1589554465}
   m_Layer: 5
   m_Name: DropItemsPrompt
   m_TagString: Untagged
@@ -5935,6 +5936,24 @@ MonoBehaviour:
   menuPrefab: {fileID: 6395392067362590035, guid: 36cc517d6cfab7346abcfaa9ae7c6904,
     type: 3}
   customQuitBtnText: Quit
+--- !u!114 &1589554465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1589554460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c3d44aea481ec42a224bb20d570dac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shipPrefabManager: {fileID: 1163210783}
+  islandMapManager: {fileID: 1885766789}
+  mapTreasureManager: {fileID: 1885766789}
+  uIParent: {fileID: 850941751}
+  mapPrefab: {fileID: 530225958857074554, guid: ce4079beb31aad1459286bc9ba103236,
+    type: 3}
 --- !u!1001 &1679339989
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6506,6 +6525,7 @@ GameObject:
   - component: {fileID: 1885766793}
   - component: {fileID: 1885766792}
   - component: {fileID: 1885766791}
+  - component: {fileID: 1885766794}
   m_Layer: 0
   m_Name: Islands
   m_TagString: Untagged
@@ -6545,7 +6565,8 @@ MonoBehaviour:
   islands:
   - island: 3
     islandObject: {fileID: 2131458784}
-    islandSprite: {fileID: 0}
+    islandSprite: {fileID: 8096019490604546007, guid: 9f32fe18ea9f78942b7c6002ea149d0b,
+      type: 3}
     dockPoint: {fileID: 0}
 --- !u!114 &1885766792
 MonoBehaviour:
@@ -6576,6 +6597,20 @@ MonoBehaviour:
   shipPrefabManager: {fileID: 1163210783}
   islandVisitManager: {fileID: 1885766789}
   islandMapsManager: {fileID: 1885766789}
+--- !u!114 &1885766794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1885766789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d499a3c6c4c28b141be63cc936080d39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  islandTreasureSpawners: []
+  islandsMapping: 
 --- !u!1 &1892340149
 GameObject:
   m_ObjectHideFlags: 0

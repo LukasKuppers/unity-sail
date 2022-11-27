@@ -127,7 +127,7 @@ public class TutorialLifecycleManager : MonoBehaviour
                 }
                 break;
             case Stage.MAP_INFO:
-                if (Input.GetKeyDown(KeyCode.Return))
+                if (Input.GetKeyDown(KeyCode.Tab))
                 {
                     textDisplay.IncrementSequence();
                     currentStage = Stage.BUY_CANNONBALLS;

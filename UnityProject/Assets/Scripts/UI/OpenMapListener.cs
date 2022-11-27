@@ -24,6 +24,7 @@ public class OpenMapListener : MonoBehaviour
     {
         shipManager = shipPrefabManager.GetComponent<ShipPrefabManager>();
         shipManager.AddSpawnListener(UpdateShip);
+        StartCoroutine(InitShipOnDelay());
 
         PlayerInputManager inputManager = InputReference.GetInputManager();
         inputManager.AddInputListener(InputEvent.TOGGLE_MAP, ToggleMap);
@@ -53,5 +54,13 @@ public class OpenMapListener : MonoBehaviour
 
             Destroy(mapInstance);
         }
+    }
+
+    private IEnumerator InitShipOnDelay()
+    {
+        yield return new WaitForFixedUpdate();
+
+        if (playerShip == null)
+            UpdateShip();
     }
 }
