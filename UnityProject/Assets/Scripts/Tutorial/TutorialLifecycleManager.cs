@@ -17,6 +17,8 @@ public class TutorialLifecycleManager : MonoBehaviour
         SELL_NAV_DATA, 
         MAP_INFO, 
         BUY_CANNONBALLS, 
+        WOOD_INFO, 
+        FOOD_INFO, 
         SAIL_TO_DUMMY_TARGET, 
         SHOOT_TARGET, 
         DESTROY_TARGET
@@ -135,6 +137,20 @@ public class TutorialLifecycleManager : MonoBehaviour
                 break;
             case Stage.BUY_CANNONBALLS:
                 if (inventory.GetCannonballAmount() == 100)
+                {
+                    textDisplay.IncrementSequence();
+                    currentStage = Stage.WOOD_INFO;
+                }
+                break;
+            case Stage.WOOD_INFO:
+                if (Input.GetKeyDown(KeyCode.Return))
+                {
+                    textDisplay.IncrementSequence();
+                    currentStage = Stage.FOOD_INFO;
+                }
+                break;
+            case Stage.FOOD_INFO:
+                if (Input.GetKeyDown(KeyCode.Return))
                 {
                     textDisplay.IncrementSequence();
                     currentStage = Stage.SAIL_TO_DUMMY_TARGET;
