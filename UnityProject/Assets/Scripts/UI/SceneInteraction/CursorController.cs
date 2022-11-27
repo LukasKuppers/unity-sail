@@ -45,6 +45,7 @@ public class CursorController : MonoBehaviour
             {
                 cannonController = prefabManager.GetCurrentShip().GetComponent<PlayerCanonController>();
             });
+            StartCoroutine(InitCannonsOnDelay());
         }
 
         Cursor.visible = false;
@@ -96,5 +97,16 @@ public class CursorController : MonoBehaviour
         cursorImg.sprite = appearance;
 
         transform.rotation = Quaternion.identity;
+    }
+
+    private IEnumerator InitCannonsOnDelay()
+    {
+        yield return new WaitForSeconds(0.1f);
+
+        if (cannonController == null)
+        {
+            ShipPrefabManager prefabManager = shipPrefabManager.GetComponent<ShipPrefabManager>();
+            cannonController = prefabManager.GetCurrentShip().GetComponent<PlayerCanonController>();
+        }
     }
 }
