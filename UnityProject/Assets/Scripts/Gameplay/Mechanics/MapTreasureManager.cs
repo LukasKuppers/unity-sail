@@ -55,11 +55,12 @@ public class MapTreasureManager : MonoBehaviour
     {
         bool foundLocation = false;
         var enumValues = System.Enum.GetValues(typeof(Islands));
+        List<Islands> validIslands = new List<Islands>(islandsMapping);
         while (!foundLocation)
         {
             Islands randIsland = (Islands)enumValues.GetValue(Random.Range(0, enumValues.Length));
-            if (!islandsWithTreasure.Contains(randIsland) && 
-                randIsland != Islands.EUREKA_TRADING_POST && randIsland != Islands.NONE &&
+            if (!islandsWithTreasure.Contains(randIsland) &&
+                validIslands.Contains(randIsland) &&
                 randIsland != excludeIsland)
             {
                 foundLocation = true;
