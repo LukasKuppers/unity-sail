@@ -8,6 +8,10 @@ public class StartArenaButton : MonoBehaviour
 {
     [SerializeField]
     private string arenaSceneName;
+    [SerializeField]
+    private GameObject launchTutorialModalPrefab;
+    [SerializeField]
+    private GameObject HUDParent;
 
     private Button startButton;
 
@@ -20,6 +24,12 @@ public class StartArenaButton : MonoBehaviour
 
     private void StartArena()
     {
+        if (!SavedTutorialState.TutorialIsCompleted())
+        {
+            Instantiate(launchTutorialModalPrefab, HUDParent.transform);
+            return;
+        }
+
         LoadedGame.SetLoadedGame(arenaSceneName);
         SceneManager.LoadScene(arenaSceneName, LoadSceneMode.Single);
     }
