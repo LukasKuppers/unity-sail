@@ -409,6 +409,7 @@ MonoBehaviour:
   - {fileID: 2165352697235320738}
   - {fileID: 3236194611903387219}
   - {fileID: 1914591017323686052}
+  verticalCannonOffset: 4.21
 --- !u!114 &2499121288358093292
 MonoBehaviour:
   m_ObjectHideFlags: 0

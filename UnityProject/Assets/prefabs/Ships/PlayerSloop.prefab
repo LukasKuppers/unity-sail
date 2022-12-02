@@ -967,6 +967,7 @@ MonoBehaviour:
   rightCannons:
   - {fileID: 5769558867931643498}
   - {fileID: 7511015482684524611}
+  verticalCannonOffset: 2.77
 --- !u!114 &2258120984749467520
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -12,6 +12,8 @@ public class PlayerCanonController : MonoBehaviour
     private GameObject[] leftCannons;
     [SerializeField]
     private GameObject[] rightCannons;
+    [SerializeField]
+    private float verticalCannonOffset;
 
     private PlayerInventory inventory;
     private Camera cam;
@@ -67,7 +69,6 @@ public class PlayerCanonController : MonoBehaviour
         {
             Vector3 target = hit.point;
             target -= rb.velocity;
-            target.y -= 1f;
 
             // lead moving target
             Rigidbody targetRb = hit.transform.gameObject.GetComponent<Rigidbody>();
@@ -95,7 +96,7 @@ public class PlayerCanonController : MonoBehaviour
 
         Vector3 diff_3d = targetPos - transform.position;
         float range = Vector3.Scale(diff_3d, new Vector3(1, 0, 1)).magnitude;
-        float height = transform.position.y - targetPos.y;
+        float height = (transform.position.y + verticalCannonOffset) - targetPos.y;
 
         yawInRange = false;
         pitchInRange = false;
