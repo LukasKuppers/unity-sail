@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PhysicsShipController : MonoBehaviour, IShipController
 {
+    private static readonly float MIN_UP_Y_COMPONENT = -0.7071f;
+
     [SerializeField]
     private GameObject windManager;
     [SerializeField]
@@ -48,6 +50,8 @@ public class PhysicsShipController : MonoBehaviour, IShipController
 
         rb.AddForce(transform.forward * magnitude, ForceMode.Acceleration);
         rb.AddRelativeTorque(Vector3.up * steerAmount * torque);
+
+        PerformCapsizeCheck();
     }
 
     public float GetSailHeight()
@@ -99,5 +103,19 @@ public class PhysicsShipController : MonoBehaviour, IShipController
         float delta = target - GetSpeed();
 
         return delta * agility;
+    }
+
+    private void PerformCapsizeCheck()
+    {
+        Vector3 localUp = transform.up;
+        if (localUp.y <= MIN_UP_Y_COMPONENT)
+        {
+            // destroy ship
+            IDestructable shipDestroyer = gameObject.GetComponent<IDestructable>();
+            if (shipDestroyer != null)
+                shipDestroyer.Destroy();
+            else
+                Destroy(gameObject);
+        }
     }
 }
