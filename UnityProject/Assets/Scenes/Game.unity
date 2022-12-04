@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1727.196, g: 3128.0117, b: 6523.242, a: 1}
+  m_IndirectSpecularColor: {r: 1727.196, g: 3127.996, b: 6523.242, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -17403,6 +17403,53 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1fdc1d82684d37a4f872f386b16c1e10, type: 3}
+--- !u!1 &538385235
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 538385236}
+  - component: {fileID: 538385237}
+  m_Layer: 0
+  m_Name: Naval Report
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &538385236
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 538385235}
+  m_LocalRotation: {x: -0.70029014, y: -0.07948597, z: 0.0800084, w: 0.7048932}
+  m_LocalPosition: {x: 576.28, y: 8.2, z: 1189.35}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 971990260}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: -77.043, y: -88.326, z: 88.368}
+--- !u!114 &538385237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 538385235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdea18320b3ab3248b2e4e885b08aa83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  storyNoteManager: {fileID: 463560862}
+  storyNotePrefab: {fileID: 4094606997667808325, guid: a812d69e3815ec34aa1b5b6238883669,
+    type: 3}
+  noteIndex: 10
 --- !u!4 &540474858 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8957189822999362394, guid: acc2c3f8bcf64c54c8fbd354d2f2c6f7,
@@ -28356,6 +28403,9 @@ Transform:
   - {fileID: 769764016}
   - {fileID: 1039416916}
   - {fileID: 1767199020}
+  - {fileID: 1730796919}
+  - {fileID: 1014857451}
+  - {fileID: 538385236}
   m_Father: {fileID: 1517935550}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -29489,6 +29539,53 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 774149401}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1014857450
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1014857451}
+  - component: {fileID: 1014857452}
+  m_Layer: 0
+  m_Name: Discomfort
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1014857451
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1014857450}
+  m_LocalRotation: {x: -0.27704522, y: -0.03144584, z: 0.10830754, w: 0.9542152}
+  m_LocalPosition: {x: 1218.11, y: 2.87, z: 1192.06}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 971990260}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: -31.46, y: -8.089, z: 15.233}
+--- !u!114 &1014857452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1014857450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdea18320b3ab3248b2e4e885b08aa83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  storyNoteManager: {fileID: 463560862}
+  storyNotePrefab: {fileID: 4094606997667808325, guid: a812d69e3815ec34aa1b5b6238883669,
+    type: 3}
+  noteIndex: 9
 --- !u!4 &1016534222 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5285571170913877295, guid: 88d5ab56fade2454c97edb57cb294b34,
@@ -33155,7 +33252,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textDisplayObject: {fileID: 722322881}
-  textSourcFileName: 
+  textSourceFileName: 
   fadeTime: 1
 --- !u!114 &1157287809
 MonoBehaviour:
@@ -43348,6 +43445,7 @@ MonoBehaviour:
   gameLoader: {fileID: 1867300523}
   menuPrefab: {fileID: 6395392067362590035, guid: 1bf61d5a7ecb5454c98e4c4f67700a4d,
     type: 3}
+  customQuitBtnText: 
 --- !u!114 &1589554465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46665,6 +46763,53 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1730796918
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1730796919}
+  - component: {fileID: 1730796920}
+  m_Layer: 0
+  m_Name: CaptainJanesLog13
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1730796919
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1730796918}
+  m_LocalRotation: {x: 0.28475738, y: -0.01226336, z: -0.019552043, w: 0.9583218}
+  m_LocalPosition: {x: 338.69, y: 4.21, z: 2.98}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 971990260}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 33.045, y: -2.368, z: -3.04}
+--- !u!114 &1730796920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1730796918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdea18320b3ab3248b2e4e885b08aa83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  storyNoteManager: {fileID: 463560862}
+  storyNotePrefab: {fileID: 4094606997667808325, guid: a812d69e3815ec34aa1b5b6238883669,
+    type: 3}
+  noteIndex: 11
 --- !u!1001 &1732182723
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -47919,6 +48064,7 @@ MonoBehaviour:
   gameLoader: {fileID: 1867300523}
   menuPrefab: {fileID: 6395392067362590035, guid: 1bf61d5a7ecb5454c98e4c4f67700a4d,
     type: 3}
+  customQuitBtnText: 
 --- !u!114 &1794094222
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48568,6 +48714,7 @@ MonoBehaviour:
   shipPrefabManager: {fileID: 1163210783}
   shipSafetyManager: {fileID: 1163210783}
   zoneRadius: 80
+  DoNotSetShipSafety: 0
 --- !u!64 &1817234984
 MeshCollider:
   m_ObjectHideFlags: 0
