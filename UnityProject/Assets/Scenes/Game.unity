@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1727.196, g: 3127.996, b: 6523.242, a: 1}
+  m_IndirectSpecularColor: {r: 1718.2117, g: 3147.2617, b: 6611.914, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -17414,7 +17414,7 @@ GameObject:
   - component: {fileID: 538385236}
   - component: {fileID: 538385237}
   m_Layer: 0
-  m_Name: Naval Report
+  m_Name: NavalReport
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22131,6 +22131,53 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 156044971}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &735487800
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 735487801}
+  - component: {fileID: 735487802}
+  m_Layer: 0
+  m_Name: CaptainJanesLog14
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &735487801
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 735487800}
+  m_LocalRotation: {x: 0.66359335, y: 0.29043552, z: -0.3038493, w: 0.61884314}
+  m_LocalPosition: {x: -848.92, y: 16.4, z: -899.62}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 971990260}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 86.214, y: -138.451, z: -188.177}
+--- !u!114 &735487802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 735487800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdea18320b3ab3248b2e4e885b08aa83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  storyNoteManager: {fileID: 463560862}
+  storyNotePrefab: {fileID: 4094606997667808325, guid: a812d69e3815ec34aa1b5b6238883669,
+    type: 3}
+  noteIndex: 12
 --- !u!1001 &736273802
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28406,6 +28453,8 @@ Transform:
   - {fileID: 1730796919}
   - {fileID: 1014857451}
   - {fileID: 538385236}
+  - {fileID: 1563200190}
+  - {fileID: 735487801}
   m_Father: {fileID: 1517935550}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -42775,6 +42824,53 @@ PrefabInstance:
       objectReference: {fileID: 1885766789}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ae39f31d6c97614893476b9702b6127, type: 3}
+--- !u!1 &1563200189
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1563200190}
+  - component: {fileID: 1563200191}
+  m_Layer: 0
+  m_Name: AdmiralKnoxProgress
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1563200190
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563200189}
+  m_LocalRotation: {x: -0.70029014, y: -0.07948597, z: 0.0800084, w: 0.7048932}
+  m_LocalPosition: {x: -1245.95, y: 13.93, z: 1570.24}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 971990260}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: -77.043, y: -88.326, z: 88.368}
+--- !u!114 &1563200191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563200189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdea18320b3ab3248b2e4e885b08aa83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  storyNoteManager: {fileID: 463560862}
+  storyNotePrefab: {fileID: 4094606997667808325, guid: a812d69e3815ec34aa1b5b6238883669,
+    type: 3}
+  noteIndex: 13
 --- !u!4 &1564217066 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5285571170913877295, guid: 88d5ab56fade2454c97edb57cb294b34,
