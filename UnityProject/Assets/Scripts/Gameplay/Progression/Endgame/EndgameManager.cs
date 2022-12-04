@@ -7,6 +7,7 @@ public class EndgameManager : MonoBehaviour
     private static readonly string INSTRUCTION_TEXT_SOURCE_FILENAME = "EndgameInstructions";
     private static readonly int GATE_DELAY_TIME = 10;
     private static readonly int MAX_SEQUENCE_INDEX = 2;
+    private static readonly int END_NOTE_INDEX = 14;
 
     [SerializeField]
     private GameObject enemySpawnerObject;
@@ -21,6 +22,8 @@ public class EndgameManager : MonoBehaviour
     [SerializeField]
     private GameObject playerShipPrefabManager;
     [SerializeField]
+    private GameObject storyNoteManagerObject;
+    [SerializeField]
     private GameObject arenaGateObject;
     [SerializeField]
     private GameObject[] arenaBeaconObjects;
@@ -33,6 +36,7 @@ public class EndgameManager : MonoBehaviour
     private TextSequenceDisplay textDisplay;
     private IslandVisitManager visitManager;
     private ShipPrefabManager playerPrefabManager;
+    private StoryNotesManager storyNotesManager;
     private EndgameAreaGate arenaGate;
     private TempleBeaconManager[] arenaBeacons;
     private EnemyWaveSpawner[] spawners;
@@ -71,6 +75,7 @@ public class EndgameManager : MonoBehaviour
         enemySpawner = enemySpawnerObject.GetComponent<EnemyShipSpawner>();
         seaBeastManager = seabeastManagerObject.GetComponent<SeaBeastManager>();
         pickupGenerator = pickupGeneratorObject.GetComponent<PickupGenerator>();
+        storyNotesManager = storyNoteManagerObject.GetComponent<StoryNotesManager>();
 
         textDisplay = textSequenceDisplayObject.GetComponent<TextSequenceDisplay>();
         textDisplay.SetTextSourceFile(INSTRUCTION_TEXT_SOURCE_FILENAME);
@@ -209,6 +214,7 @@ public class EndgameManager : MonoBehaviour
                 textDisplay.EndSequenceDisplay();
                 arenaGate.OpenGate();
                 StopSpawners();
+                storyNotesManager.DiscoverNote(END_NOTE_INDEX);
 
                 Vector3 pos = destObj.transform.position;
                 pickupGenerator.SpawnPickup(Item.TREASURE, 10, (pos + Vector3.right * 5));
