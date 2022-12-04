@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1718.2117, g: 3147.2617, b: 6611.914, a: 1}
+  m_IndirectSpecularColor: {r: 1727.196, g: 3127.996, b: 6523.242, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -33321,6 +33321,7 @@ MonoBehaviour:
   textSequenceDisplayObject: {fileID: 1157287806}
   playerIslandVisitManager: {fileID: 1885766789}
   playerShipPrefabManager: {fileID: 1163210783}
+  storyNoteManagerObject: {fileID: 463560862}
   arenaGateObject: {fileID: 1874126418}
   arenaBeaconObjects:
   - {fileID: 2056985077}
