@@ -6,6 +6,17 @@ Unity-sail is the repository for `Project Sail`, an open world naval-combat and 
 
 ## Version History
 
+### Beta_1.2:
+December 11, 2022
+- Fixed disabled player cannons after opening the game menu (via `ESC`)
+- Fixed possible crashes when picking up treasure maps
+- Destroy ships that become capsized
+- Fix issues with random ship routes:
+  - ships would not move after entering player active range
+- Fix root cause of player cannons shooting too high
+- Prompt player to finish tutorial when starting new arena game
+- Add remaining story notes (story now complete!)
+
 ### Beta_1.1:
 November 27, 2022
 - Added tutorial with following stages:
