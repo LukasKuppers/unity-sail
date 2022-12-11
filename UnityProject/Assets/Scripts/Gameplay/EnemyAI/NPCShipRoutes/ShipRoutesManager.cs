@@ -157,7 +157,8 @@ public class ShipRoutesManager : MonoBehaviour
     {
         GameObject ship = shipSpawner.SpawnRandomShip(pos, AIShipMode.Passive);
 
-        GameObject dockPoint = islandManager.GetIslandInfo(destIsland).dockPoint;
+        IslandData destInfo = islandManager.GetIslandInfo(destIsland);
+        GameObject dockPoint = destInfo.dockPoint;
         if (dockPoint != null)
         {
             SpecificCollisionListener colListener = dockPoint.GetComponent<SpecificCollisionListener>();
@@ -174,8 +175,10 @@ public class ShipRoutesManager : MonoBehaviour
             (GameObject _) => CompleteRoute(routeID));
 
         AIShipController shipController = ship.GetComponent<AIShipController>();
-        IslandData destInfo = islandManager.GetIslandInfo(destIsland);
-        shipController.SetGoal(destInfo.islandObject.transform.position);
+        if (dockPoint != null)
+            shipController.SetGoal(dockPoint.transform.position);
+        else
+            shipController.SetGoal(destInfo.islandObject.transform.position);
 
         travellingShips.Add(routeID, ship);
     }

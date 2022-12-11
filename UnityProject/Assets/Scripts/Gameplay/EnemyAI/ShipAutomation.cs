@@ -36,6 +36,12 @@ public class ShipAutomation : MonoBehaviour, IAutomaticShip
         }
     }
 
+    private void OnDisable()
+    {
+        StopCoroutine(SetSail());
+        sailCoroutineRunning = false;
+    }
+
     public void SetWindManager(GameObject newWindManager)
     {
         WindManager = newWindManager;
@@ -78,13 +84,14 @@ public class ShipAutomation : MonoBehaviour, IAutomaticShip
 
     private void EnqueueSailChange(float height)
     {
-        if (!sailCoroutineRunning)
-        {
-            StartCoroutine(SetSail(height));
-            return;
-        }
         sailHeightsQueue.Clear();
         sailHeightsQueue.Enqueue(height);
+
+        if (!sailCoroutineRunning)
+        {
+            StartCoroutine(SetSail());
+            return;
+        }
     }
 
     private void ControlSailAngle()
@@ -101,24 +108,30 @@ public class ShipAutomation : MonoBehaviour, IAutomaticShip
         shipController.SetSailAngle(currentAngle + sailDelta);
     }
 
-    private IEnumerator SetSail(float sailHeight)
+    private IEnumerator SetSail()
     {
         sailCoroutineRunning = true;
-        float current = shipController.GetSailHeight();
 
-        for (float t = 0; t <= 1; t += Time.deltaTime)
+        while (sailHeightsQueue.Count > 0)
         {
-            float height = Mathf.SmoothStep(current, sailHeight, t);
-            shipController.SetSailHeight(height);
+            float targetHeight = sailHeightsQueue.Dequeue();
+            float currentHeight = shipController.GetSailHeight();
+
+            if (targetHeight == currentHeight)
+            {
+                yield return null;
+                continue;
+            }
+
+            for (float t = 0; t <= 1; t += Time.deltaTime)
+            {
+                float height = Mathf.SmoothStep(currentHeight, targetHeight, t);
+                shipController.SetSailHeight(height);
+                yield return null;
+            }
+            shipController.SetSailHeight(targetHeight);
             yield return null;
         }
-        shipController.SetSailHeight(sailHeight);
         sailCoroutineRunning = false;
-
-        if (sailHeightsQueue.Count > 0)
-        {
-            float nextHeight = sailHeightsQueue.Dequeue();
-            StartCoroutine(SetSail(nextHeight));
-        }
     }
 }

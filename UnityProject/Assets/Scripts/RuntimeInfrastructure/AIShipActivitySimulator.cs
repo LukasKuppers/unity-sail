@@ -33,7 +33,8 @@ public class AIShipActivitySimulator : IQueuableTask
 
         if (ShipInActiveRange())
         {
-            ship.SetActive(true);
+            if (!ship.activeSelf)
+                ship.SetActive(true);
         }
         else
         {
