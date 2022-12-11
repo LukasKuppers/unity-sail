@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class ShipRoutesManager : MonoBehaviour
 {
+    private static readonly List<Islands> noRouteIslands = new List<Islands>()
+    {
+        Islands.EUREKA_TRADING_POST, Islands.TEMPLE_OF_THE_SEA_BEAST, Islands.NONE, 
+        Islands.NAVY_OUTPOST_1, Islands.NAVY_OUTPOST_2, Islands.NAVY_OUTPOST_3,
+        Islands.PIRATE_OUTPOST_1, Islands.PIRATE_OUTPOST_2, Islands.PIRATE_OUTPOST_3
+    };
+
+
     [SerializeField]
     private GameObject dayNightCycleManager;
     [SerializeField]
@@ -71,6 +79,8 @@ public class ShipRoutesManager : MonoBehaviour
 
         int startDay = timeManager.GetDay() + Random.Range(1, 4);
         float startTime = Random.Range(0f, 0.99f);
+
+        Debug.Log($"New Route:\n\troute: {start} -> {dest}\n\tday: {startDay}\n\ttime: {startTime}\n");
 
         return CreateRoute(start, dest, startDay, startTime);
     }
@@ -196,8 +206,7 @@ public class ShipRoutesManager : MonoBehaviour
         Islands island = Islands.NONE;
         System.Array vals = System.Enum.GetValues(typeof(Islands));
 
-        while (island == Islands.NONE || island == Islands.EUREKA_TRADING_POST ||
-               island == Islands.TEMPLE_OF_THE_SEA_BEAST)
+        while (noRouteIslands.Contains(island))
         {
             island = (Islands)vals.GetValue(Random.Range(0, vals.Length));
         }
