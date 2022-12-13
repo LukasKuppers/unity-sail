@@ -855,7 +855,7 @@ MonoBehaviour:
     type: 3}
   exitButtonObject: {fileID: 8253067159028411220}
   createButtonObject: {fileID: 8253067159272759607}
-  textInput: {fileID: 2935827300094508638}
+  textInput: {fileID: 2935827300339157761}
 --- !u!1001 &2935827298562216307
 PrefabInstance:
   m_ObjectHideFlags: 0

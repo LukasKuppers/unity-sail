@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1368.625, g: 1241.3428, b: 1278.4883, a: 1}
+  m_IndirectSpecularColor: {r: 1356.5703, g: 1222.4297, b: 1246.4229, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1753,6 +1753,12 @@ MonoBehaviour:
     type: 1
   - name: MenuTheme
     clip: {fileID: 8300000, guid: 65ebd6f04a3c67b47adcc9f107541594, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    type: 1
+  - name: Error
+    clip: {fileID: 8300000, guid: e246f6e6728383048abe8e993b75c9cd, type: 3}
     volume: 0.2
     pitch: 1
     loop: 0
