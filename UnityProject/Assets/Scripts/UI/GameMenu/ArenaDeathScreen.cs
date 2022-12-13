@@ -21,7 +21,7 @@ public class ArenaDeathScreen : MonoBehaviour
     private string arenaManagerTag = "ArenaManager";
 
     private TextMeshProUGUI scoreText;
-    private TextMeshProUGUI saveNameTextField;
+    private TMP_InputField saveNameTextField;
     private Button quitButton;
 
     int score;
@@ -29,7 +29,7 @@ public class ArenaDeathScreen : MonoBehaviour
     private void Start()
     {
         scoreText = scoreTextObject.GetComponent<TextMeshProUGUI>();
-        saveNameTextField = saveNameTextFieldObject.GetComponent<TextMeshProUGUI>();
+        saveNameTextField = saveNameTextFieldObject.GetComponent<TMP_InputField>();
         quitButton = quitButtonObject.GetComponent<Button>();
 
         quitButton.onClick.AddListener(QuitToMainMenu);
@@ -50,8 +50,8 @@ public class ArenaDeathScreen : MonoBehaviour
 
     private void QuitToMainMenu()
     {
-        string saveName = saveNameTextField.text;
-        if (saveName != null && saveName != "")
+        string saveName = saveNameTextField.text.Trim();
+        if (!string.IsNullOrEmpty(saveName))
         {
             ArenaLeaderboardEntry newEntry = new ArenaLeaderboardEntry()
             {
