@@ -9,6 +9,8 @@ public class LoadGameModal : MonoBehaviour
     private GameObject gameButtonPrefab;
     [SerializeField]
     private GameObject exitButton;
+    [SerializeField]
+    private GameObject emptyStateTextObject;
 
     private Button button;
 
@@ -23,12 +25,27 @@ public class LoadGameModal : MonoBehaviour
     private void PopulateGameList()
     {
         string[] gameNames = SavedGamesManager.GetSavedGames();
-        
+
+        if (gameNames.Length <= 0)
+        {
+            emptyStateTextObject.SetActive(true);
+            return;
+        }
+        else
+            emptyStateTextObject.SetActive(false);
+
         foreach (string name in gameNames)
         {
             GameObject panel = Instantiate(gameButtonPrefab, gameObject.transform);
             panel.GetComponent<LoadGamePanel>().SetName(name);
         }
+    }
+
+    public void ProcessDeletedGame()
+    {
+        int numSaves = SavedGamesManager.GetSavedGames().Length;
+        if (numSaves <= 0)
+            emptyStateTextObject.SetActive(true);
     }
 
     private void CloseModal()

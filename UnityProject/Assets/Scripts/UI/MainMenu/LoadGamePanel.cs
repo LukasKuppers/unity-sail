@@ -18,11 +18,15 @@ public class LoadGamePanel : MonoBehaviour
     private Button deleteButton;
     private TextMeshProUGUI text;
 
+    private LoadGameModal parentModal;
+
     private void Awake()
     {
         loadButton = loadButtonObject.GetComponent<Button>();
         deleteButton = deleteButtonObject.GetComponent<Button>();
         text = textObject.GetComponent<TextMeshProUGUI>();
+
+        parentModal = transform.parent.gameObject.GetComponent<LoadGameModal>();
 
         loadButton.onClick.AddListener(LoadGame);
         deleteButton.onClick.AddListener(DeleteGame);
@@ -45,6 +49,8 @@ public class LoadGamePanel : MonoBehaviour
     private void DeleteGame()
     {
         SavedGamesManager.RemoveGame(text.text);
+
+        parentModal.ProcessDeletedGame();
         Destroy(gameObject);
     }
 }
