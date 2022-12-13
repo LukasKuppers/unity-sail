@@ -45,6 +45,8 @@ public class NewGameModal : MonoBehaviour
             if (!SavedTutorialState.TutorialIsCompleted())
             {
                 Instantiate(launchTutorialModalPrefab, gameObject.transform.parent);
+
+                AudioManager.GetInstance().Play(SoundMap.CLICK);
                 return;
             }
 
@@ -53,6 +55,8 @@ public class NewGameModal : MonoBehaviour
             {
                 LoadedGame.SetLoadedGame(input);
                 SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
+
+                AudioManager.GetInstance().Play(SoundMap.CLICK);
             }
             else
             {
