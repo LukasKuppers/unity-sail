@@ -12,6 +12,7 @@ public class AIShipActivitySimulator : IQueuableTask
 
     private float loadDistance;
     private float simVelocity;
+    private bool isRouteShip;
 
     public AIShipActivitySimulator(GameObject shipObj, ShipPrefabManager playerShipManager,
                                    float loadDistance, float simVelocity)
@@ -24,6 +25,23 @@ public class AIShipActivitySimulator : IQueuableTask
         this.loadDistance = loadDistance;
         this.simVelocity = simVelocity;
         shipController = ship.GetComponent<AIShipController>();
+
+        isRouteShip = false;
+    }
+
+    public AIShipActivitySimulator(GameObject shipObj, ShipPrefabManager playerShipManager, 
+                                   float loadDistance, float simVelocity, bool isTravellingRoute)
+    {
+        this.playerShipManager = playerShipManager;
+        this.playerShipManager.AddSpawnListener(UpdatePlayerShip);
+        UpdatePlayerShip();
+
+        ship = shipObj;
+        this.loadDistance = loadDistance;
+        this.simVelocity = simVelocity;
+        shipController = ship.GetComponent<AIShipController>();
+
+        isRouteShip = isTravellingRoute;
     }
 
     public void RunTask(float deltaTime)
@@ -50,7 +68,8 @@ public class AIShipActivitySimulator : IQueuableTask
                     ship.transform.position += dir * simVelocity * deltaTime;
                 }
                 else
-                    ship.GetComponent<IDestructable>().Destroy();
+                    if (isRouteShip)
+                        ship.GetComponent<IDestructable>().Destroy();
             }
         }
     }

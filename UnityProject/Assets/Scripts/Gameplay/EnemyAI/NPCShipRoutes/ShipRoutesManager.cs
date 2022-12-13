@@ -155,7 +155,7 @@ public class ShipRoutesManager : MonoBehaviour
 
     private void SpawnShip(int routeID, Islands destIsland, Vector3 pos)
     {
-        GameObject ship = shipSpawner.SpawnRandomShip(pos, AIShipMode.Passive);
+        GameObject ship = shipSpawner.SpawnRandomTravellingShip(pos, AIShipMode.Passive);
 
         IslandData destInfo = islandManager.GetIslandInfo(destIsland);
         GameObject dockPoint = destInfo.dockPoint;

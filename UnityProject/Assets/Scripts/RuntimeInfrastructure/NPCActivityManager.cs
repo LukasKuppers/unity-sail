@@ -29,6 +29,15 @@ public class NPCActivityManager : MonoBehaviour
             (GameObject _) => KillSimTask(shipSim));
     }
 
+    public void RegisterNewShip(GameObject ship, bool isRouteShip)
+    {
+        IQueuableTask shipSim = new AIShipActivitySimulator(ship, shipManager, loadDistance, simVelocity, isRouteShip);
+        taskManager.AddStandaloneTask(shipSim);
+
+        ship.GetComponent<IDestructable>().AddDestructionListener(
+            (GameObject _) => KillSimTask(shipSim));
+    }
+
     private void KillSimTask(IQueuableTask task)
     {
         taskManager.RemoveStandaloneTask(task);

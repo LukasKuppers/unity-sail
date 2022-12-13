@@ -44,7 +44,8 @@ public class EnemyShipSpawner : MonoBehaviour
         }
     }
 
-    public GameObject SpawnShip(EnemyType type, AIShipMode mode, Vector3 position, Quaternion rotation)
+    public GameObject SpawnShip(EnemyType type, AIShipMode mode, Vector3 position, 
+                                Quaternion rotation, bool isRouteShip)
     {
         GameObject newShip = Instantiate(shipPrefabMap[type],
             position, rotation, transform);
@@ -72,9 +73,14 @@ public class EnemyShipSpawner : MonoBehaviour
 
         aiController.SetMode(mode);
         taskManager.AddTask(newShip);
-        npcManager.RegisterNewShip(newShip);
+        npcManager.RegisterNewShip(newShip, isRouteShip);
 
         return newShip;
+    }
+
+    public GameObject SpawnShip(EnemyType type, AIShipMode mode, Vector3 position, Quaternion rotation)
+    {
+        return SpawnShip(type, mode, position, rotation, false);
     }
 
     public GameObject SpawnShip(EnemyType type, Vector3 position, AIShipMode mode)
@@ -88,5 +94,13 @@ public class EnemyShipSpawner : MonoBehaviour
         EnemyType randType = ships[randIndex].shipType;
 
         return SpawnShip(randType, position, mode);
+    }
+
+    public GameObject SpawnRandomTravellingShip(Vector3 position, AIShipMode mode)
+    {
+        int randIndex = Random.Range(0, ships.Length);
+        EnemyType randType = ships[randIndex].shipType;
+
+        return SpawnShip(randType, mode, position, Quaternion.identity, true);
     }
 }
