@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1648.8264, g: 3250.541, b: 7295.8594, a: 1}
+  m_IndirectSpecularColor: {r: 1727.3721, g: 3131.836, b: 6538.711, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3546,7 +3546,10 @@ MonoBehaviour:
   treasureMapPrefab: {fileID: 5492372491763508163, guid: e82d865834b54cd4cb90b6cad804ed85,
     type: 3}
   island: 9
-  spawnLocations: []
+  spawnLocations:
+  - {fileID: 1379059222}
+  - {fileID: 1504507780}
+  - {fileID: 158793773}
   treasureSpawnProbability: 0.2
   mapSpawnProbability: 0.1
 --- !u!4 &108218219
@@ -3559,7 +3562,10 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1379059223}
+  - {fileID: 1504507781}
+  - {fileID: 158793774}
   m_Father: {fileID: 2006066431}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5034,6 +5040,36 @@ MonoBehaviour:
   m_AreaLightEmissiveMeshShadowCastingMode: 0
   m_AreaLightEmissiveMeshMotionVectorGenerationMode: 0
   m_AreaLightEmissiveMeshLayer: -1
+--- !u!1 &158793773
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 158793774}
+  m_Layer: 0
+  m_Name: p2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &158793774
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 158793773}
+  m_LocalRotation: {x: -0.09947254, y: 0.7308371, z: 0.035331387, w: -0.6743399}
+  m_LocalPosition: {x: -37.84, y: 29.84, z: 31.09}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 108218219}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 4.733, y: 264.932, z: -11.169}
 --- !u!1001 &160304921
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38291,6 +38327,36 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1897086002}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1379059222
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1379059223}
+  m_Layer: 0
+  m_Name: p0
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1379059223
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1379059222}
+  m_LocalRotation: {x: 0.033805028, y: -0.004397347, z: -0.12891759, w: 0.99106926}
+  m_LocalPosition: {x: 34.3, y: 20.15, z: 21.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 108218219}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 3.777, y: -1.001, z: -14.856}
 --- !u!4 &1379687720 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6112842622931001252, guid: 176d567b4134ff24795efa92a14cda77,
@@ -41266,6 +41332,36 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 71954758}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1504507780
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1504507781}
+  m_Layer: 0
+  m_Name: p1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1504507781
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1504507780}
+  m_LocalRotation: {x: -0, y: 0.87320244, z: -0, w: -0.48735777}
+  m_LocalPosition: {x: -34.66, y: 41.4, z: -29.12}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 108218219}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 238.334, z: 0}
 --- !u!4 &1508148684 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3388424260731773905, guid: 38312605d3dc2614a8c97b0688f022d1,
