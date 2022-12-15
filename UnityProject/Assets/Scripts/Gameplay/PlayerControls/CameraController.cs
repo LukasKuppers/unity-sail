@@ -49,7 +49,10 @@ public class CameraController : MonoBehaviour
 
         parent = gameObject.transform.parent.gameObject;
         mouseIn = mouseInputManager.GetComponent<MouseInputManager>();
-        zoom = minZoom;
+
+        // set init position
+        zoom = (minZoom + maxZoom) / 2f;
+        pitchAngle = 45f;
 
         mainCameraEnabled = true;
     }

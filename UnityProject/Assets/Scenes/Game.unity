@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1727.3721, g: 3131.836, b: 6538.711, a: 1}
+  m_IndirectSpecularColor: {r: 1727.196, g: 3128.0117, b: 6523.242, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -57521,7 +57521,7 @@ MonoBehaviour:
   pitchSpeed: 0.5
   zoomSpeed: 1
   minZoom: 15
-  maxZoom: 55
+  maxZoom: 70
   smoothCamera: 1
   smoothSensitivityAmount: 10
   smoothGravityAmount: 5
