@@ -59,7 +59,7 @@ public class ShipRoutesManager : MonoBehaviour
             {
                 int id = routeIndexCounter;
                 currentRoutes.Add(id, route);
-                SpawnShip(id, route.destIsland, route.shipPosition);
+                SpawnShip(id, route.destIsland, route.shipPosition, EnemyType.TINY_SHIP_NAVY);
 
                 routeIndexCounter++;
             }
@@ -103,6 +103,7 @@ public class ShipRoutesManager : MonoBehaviour
             startMonth = startMonth,
             startDay = startDay,
             startTime = startTime,
+            shipType = shipSpawner.GetRandType(), 
             shipPosition = Vector3.zero
         };
 
@@ -150,12 +151,12 @@ public class ShipRoutesManager : MonoBehaviour
         if (startIsland.dockPoint != null)
             startPos = startIsland.dockPoint.transform.position;
 
-        SpawnShip(routeID, route.destIsland, startPos);
+        SpawnShip(routeID, route.destIsland, startPos, route.shipType);
     }
 
-    private void SpawnShip(int routeID, Islands destIsland, Vector3 pos)
+    private void SpawnShip(int routeID, Islands destIsland, Vector3 pos, EnemyType shipType)
     {
-        GameObject ship = shipSpawner.SpawnRandomTravellingShip(pos, AIShipMode.Passive);
+        GameObject ship = shipSpawner.SpawnTravellingShip(shipType, pos, AIShipMode.Passive);
 
         IslandData destInfo = islandManager.GetIslandInfo(destIsland);
         GameObject dockPoint = destInfo.dockPoint;
@@ -228,6 +229,8 @@ public class AIShipRoute
     public int startDay;
 
     public float startTime;
+
+    public EnemyType shipType;
 
     public Vector3 shipPosition;
 }

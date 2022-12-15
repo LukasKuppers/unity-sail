@@ -88,16 +88,15 @@ public class EnemyShipSpawner : MonoBehaviour
         return SpawnShip(type, mode, position, Quaternion.identity);
     }
 
+    public GameObject SpawnTravellingShip(EnemyType type, Vector3 position, AIShipMode mode)
+    {
+        return SpawnShip(type, mode, position, Quaternion.identity, true);
+    }
+
     public GameObject SpawnRandomShip(Vector3 position, AIShipMode mode)
     {
         EnemyType randType = GetRandType();
         return SpawnShip(randType, position, mode);
-    }
-
-    public GameObject SpawnRandomShip(Vector3 position, AIShipMode mode, out EnemyType type)
-    {
-        type = GetRandType();
-        return SpawnShip(type, position, mode);
     }
 
     public GameObject SpawnRandomTravellingShip(Vector3 position, AIShipMode mode)
@@ -106,13 +105,7 @@ public class EnemyShipSpawner : MonoBehaviour
         return SpawnShip(randType, mode, position, Quaternion.identity, true);
     }
 
-    public GameObject SpawnRandomTravellingShip(Vector3 position, AIShipMode mode, out EnemyType type)
-    {
-        type = GetRandType();
-        return SpawnShip(type, mode, position, Quaternion.identity, true);
-    }
-
-    private EnemyType GetRandType()
+    public EnemyType GetRandType()
     {
         EnemyType randType;
         do
