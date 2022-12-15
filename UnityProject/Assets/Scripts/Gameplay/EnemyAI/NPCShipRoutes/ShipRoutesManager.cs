@@ -59,7 +59,7 @@ public class ShipRoutesManager : MonoBehaviour
             {
                 int id = routeIndexCounter;
                 currentRoutes.Add(id, route);
-                SpawnShip(id, route.destIsland, route.shipPosition, EnemyType.TINY_SHIP_NAVY);
+                SpawnShip(id, route.destIsland, route.shipPosition, route.shipType);
 
                 routeIndexCounter++;
             }

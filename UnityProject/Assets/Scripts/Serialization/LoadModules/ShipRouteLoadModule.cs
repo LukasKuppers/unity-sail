@@ -38,6 +38,7 @@ public class ShipRouteLoadModule : MonoBehaviour, ILoadModule
                 startMonth = route.startMonth,
                 startDay = route.startDay,
                 startTime = route.startTime,
+                shipType = route.shipType.ToString(), 
                 position = route.shipPosition
             };
             formattedRoutes[index] = routeData;
@@ -70,6 +71,7 @@ public class ShipRouteLoadModule : MonoBehaviour, ILoadModule
         {
             Enum.TryParse(route.startIsland, out Islands start);
             Enum.TryParse(route.destIsland, out Islands dest);
+            Enum.TryParse(route.shipType, out EnemyType type);
 
             AIShipRoute loadedRoute = new AIShipRoute()
             {
@@ -78,6 +80,7 @@ public class ShipRouteLoadModule : MonoBehaviour, ILoadModule
                 startMonth = route.startMonth,
                 startDay = route.startDay,
                 startTime = route.startTime,
+                shipType = type, 
                 shipPosition = route.position
             };
             routes.Add(loadedRoute);
@@ -105,6 +108,8 @@ public class PersistentRouteData
     public int startDay;
 
     public float startTime;
+
+    public string shipType;
 
     public Vector3 position;
 }
