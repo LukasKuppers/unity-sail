@@ -25,6 +25,8 @@ public class IslandTreasureSpawner : MonoBehaviour
 
     public void SpawnTreasure()
     {
+        if (spawnLocations.Length == 0)
+            Debug.LogWarning("IslandTreasureSpawner: SpawnTreasure: no spawn locations assigned");
         foreach (GameObject location in spawnLocations)
         {
             if (location.transform.childCount == 0)
@@ -43,6 +45,13 @@ public class IslandTreasureSpawner : MonoBehaviour
 
     public void SpawnSpecialTreasure()
     {
+        if (spawnLocations.Length == 0)
+        {
+            Debug.LogWarning("IslandTreasureSpawner: SpawnSpecialTreaure: " +
+                "no spawn locations assigned. Aborting.");
+            return;
+        }
+
         GameObject location = spawnLocations[Random.Range(0, spawnLocations.Length)];
 
         GameObject treasure = Instantiate(specialTreasurePrefab, location.transform.position,
