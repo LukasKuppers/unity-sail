@@ -90,17 +90,38 @@ public class EnemyShipSpawner : MonoBehaviour
 
     public GameObject SpawnRandomShip(Vector3 position, AIShipMode mode)
     {
-        int randIndex = Random.Range(0, ships.Length);
-        EnemyType randType = ships[randIndex].shipType;
-
+        EnemyType randType = GetRandType();
         return SpawnShip(randType, position, mode);
+    }
+
+    public GameObject SpawnRandomShip(Vector3 position, AIShipMode mode, out EnemyType type)
+    {
+        type = GetRandType();
+        return SpawnShip(type, position, mode);
     }
 
     public GameObject SpawnRandomTravellingShip(Vector3 position, AIShipMode mode)
     {
-        int randIndex = Random.Range(0, ships.Length);
-        EnemyType randType = ships[randIndex].shipType;
-
+        EnemyType randType = GetRandType();
         return SpawnShip(randType, mode, position, Quaternion.identity, true);
+    }
+
+    public GameObject SpawnRandomTravellingShip(Vector3 position, AIShipMode mode, out EnemyType type)
+    {
+        type = GetRandType();
+        return SpawnShip(type, mode, position, Quaternion.identity, true);
+    }
+
+    private EnemyType GetRandType()
+    {
+        EnemyType randType;
+        do
+        {
+            int randIndex = Random.Range(0, ships.Length);
+            randType = ships[randIndex].shipType;
+        }
+        while (randType == EnemyType.BOSS_NAVY);
+
+        return randType;
     }
 }
