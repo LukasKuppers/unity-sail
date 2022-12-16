@@ -32,6 +32,8 @@ public class OptionsPage : MonoBehaviour
     private GameMenuModal menu;
     private OptionsManager optionsManager;
 
+    private Dictionary<Option, string> safeSettings;
+
     private void Awake()
     {
         menu = transform.parent.gameObject.GetComponent<GameMenuModal>();
@@ -48,6 +50,19 @@ public class OptionsPage : MonoBehaviour
         applyBtn.onClick.AddListener(ApplyValues);
 
         InitValues();
+        InitSafeSettings();
+    }
+
+    public void RevertDisplaySettings()
+    {
+        foreach (KeyValuePair<Option, string> setting in safeSettings)
+        {
+            Option option = setting.Key;
+            string value = setting.Value;
+            optionsManager.WriteOption(option, value);
+        }
+
+        InitValues();
     }
 
     private void InitValues()
@@ -57,6 +72,21 @@ public class OptionsPage : MonoBehaviour
         InitMusicVolume();
         InitCamSmoothing();
         InitDisplaySettings();
+    }
+
+    private void InitSafeSettings()
+    {
+        safeSettings = new Dictionary<Option, string>();
+        List<Option> optionsToSave = new List<Option>()
+        {
+            Option.UI_SCALE, Option.DISPLAY_MODE, Option.DISPLAY_RESOLUTION
+        };
+
+        foreach (Option option in optionsToSave)
+        {
+            string safeValue = optionsManager.GetOption(option);
+            safeSettings.Add(option, safeValue);
+        }
     }
 
     private void ApplyValues()
