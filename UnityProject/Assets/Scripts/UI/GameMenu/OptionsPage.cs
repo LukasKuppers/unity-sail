@@ -65,6 +65,11 @@ public class OptionsPage : MonoBehaviour
         InitValues();
     }
 
+    public void CloseOptions()
+    {
+        menu.ClosePages();
+    }
+
     private void InitValues()
     {
         InitUIScale();
