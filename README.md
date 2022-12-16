@@ -6,6 +6,22 @@ Unity-sail is the repository for `Project Sail`, an open world naval-combat and 
 
 ## Version History
 
+### Beta_1.3:
+December 15, 2022
+- Add empty state to load game modal (in main menu)
+- Prevent creating empty arena leaderboard entries
+- Prevent creating game with empty name
+- Fix randomly destructing ships:
+  - caused by NPC activity manager
+- Fix more possible crashes when picking up treasure maps:
+  - add treasure spawn locations to Grand Fort
+- Improve default camera angle (and increase max zoom)
+- Fix overlapping Galleon sails (sails were too wide)
+- Fix arena ship spawners (increase size of spawn caves)
+- Prevent navy boss from travelling random ship routes
+- Serialize ship route type (ensure route ships maintain type across saves)
+- Add decor to mainland river
+
 ### Beta_1.2:
 December 11, 2022
 - Fixed disabled player cannons after opening the game menu (via `ESC`)
