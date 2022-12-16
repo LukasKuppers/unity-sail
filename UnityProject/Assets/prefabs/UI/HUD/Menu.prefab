@@ -2724,7 +2724,7 @@ RectTransform:
   m_GameObject: {fileID: 6395392067362590035}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 13.333334, y: 13.333334, z: 1.3333334}
+  m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children:
   - {fileID: 6662844787161726046}
   - {fileID: 3824216701546330583}
@@ -3268,6 +3268,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3e53fbd3d956734ebf8ebe9e928aa71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  confirmChangesModalPrefab: {fileID: 4025599146742241293, guid: daf4d24c09e147349b83283867a7e538,
+    type: 3}
   applyButton: {fileID: 5267356568802860986}
   uiScaleSliderObject: {fileID: 4286088799728706405}
   masterVolumeSliderObject: {fileID: 3830709902935183946}

@@ -24,6 +24,8 @@ public class ConfirmOptionsModal : MonoBehaviour
         applyChangesButton = applyChangesButtonObject.GetComponent<Button>();
         applyChangesButton.onClick.AddListener(ApplyChanges);
 
+        timerText = timerTextObect.GetComponent<TextMeshProUGUI>();
+
         StartCoroutine(RevertChangesTimer(TIMEOUT_TIME, () =>
         {
             optionsPage.RevertDisplaySettings();

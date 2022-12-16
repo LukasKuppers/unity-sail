@@ -6,6 +6,10 @@ using TMPro;
 
 public class OptionsPage : MonoBehaviour
 {
+    private static readonly string CANVAS_TAG = "Canvas";
+
+    [SerializeField]
+    private GameObject confirmChangesModalPrefab;
     [SerializeField]
     private GameObject applyButton;
     [SerializeField]
@@ -50,6 +54,11 @@ public class OptionsPage : MonoBehaviour
         applyBtn.onClick.AddListener(ApplyValues);
 
         InitValues();
+        InitSafeSettings();
+    }
+
+    private void OnEnable()
+    {
         InitSafeSettings();
     }
 
@@ -102,7 +111,22 @@ public class OptionsPage : MonoBehaviour
         ApplyCamSmoothing();
         ApplyDisplaySettings();
 
-        menu.ClosePages();
+        // if dispaly settings changed -> open confirm modal
+        bool dispSettingsChanged = false;
+        foreach (KeyValuePair<Option, string> setting in safeSettings)
+        {
+            if (setting.Value != optionsManager.GetOption(setting.Key))
+                dispSettingsChanged = true;
+        }
+
+        if (dispSettingsChanged)
+        {
+            Transform hudRoot = GameObject.FindGameObjectWithTag(CANVAS_TAG).transform;
+            GameObject confirmModal = Instantiate(confirmChangesModalPrefab, hudRoot);
+            confirmModal.GetComponent<ConfirmOptionsModal>().InitParameters(gameObject);
+        }
+        else 
+            menu.ClosePages();
     }
 
     private void InitUIScale()
