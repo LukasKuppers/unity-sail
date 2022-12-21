@@ -98,7 +98,9 @@ public class OptionsManager : MonoBehaviour
         bool smooth = bool.Parse(options[KEY_MAP[Option.SMOOTH_CAMERA]]);
 
         CameraController camController = Camera.main.gameObject.GetComponent<CameraController>();
-        camController.SetCameraSmooth(smooth);
+        
+        if (camController != null)
+            camController.SetCameraSmooth(smooth);
     }
 
     private void ApplyDisplayModeToScene()
