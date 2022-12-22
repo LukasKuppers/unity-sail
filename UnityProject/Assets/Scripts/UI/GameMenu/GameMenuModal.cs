@@ -26,6 +26,7 @@ public class GameMenuModal : MonoBehaviour
     private Button exitBtn;
 
     private GameLoader gameLoader;
+    private bool SinglePageMode = false;
 
     private void Awake()
     {
@@ -40,6 +41,12 @@ public class GameMenuModal : MonoBehaviour
 
         PlayerSceneInteraction.DisableInteraction(INTERACTION_LOCK_KEY);
         PlayerAttackMode.DisableAttack(INTERACTION_LOCK_KEY);
+    }
+
+    public void InitAsSinglePage(int pageIndex)
+    {
+        SinglePageMode = true;
+        OpenPage(pageIndex);
     }
 
     public void InitParameters(GameObject gameLoader)
@@ -80,6 +87,9 @@ public class GameMenuModal : MonoBehaviour
 
     public void ClosePages()
     {
+        if (SinglePageMode)
+            CloseMenu();
+
         foreach (GameObject page in pages)
             page.SetActive(false);
 
