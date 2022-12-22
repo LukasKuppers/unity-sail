@@ -1784,7 +1784,7 @@ MonoBehaviour:
     volume: 0.2
     pitch: 1
     loop: 0
-    type: 1
+    type: 0
   - name: Error
     clip: {fileID: 8300000, guid: e246f6e6728383048abe8e993b75c9cd, type: 3}
     volume: 0.2
