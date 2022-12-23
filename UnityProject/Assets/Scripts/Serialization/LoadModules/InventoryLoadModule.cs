@@ -6,6 +6,13 @@ public class InventoryLoadModule : MonoBehaviour, ILoadModule
 {
     private static readonly string JSON_KEY = "PlayerInventory_data";
 
+    [SerializeField]
+    private int initFoodAmount;
+    [SerializeField]
+    private int initWoodAmount;
+    [SerializeField]
+    private int initCannonballAmount;
+
     private PlayerInventory inventory;
 
     private void Start()
@@ -23,6 +30,7 @@ public class InventoryLoadModule : MonoBehaviour, ILoadModule
         JSONNode json = JSON.Parse(saveJson);
         if (json == null)
         {
+            InitInventory();
             return;
         }
         string objectData = json[JSON_KEY].Value;
@@ -30,6 +38,7 @@ public class InventoryLoadModule : MonoBehaviour, ILoadModule
         
         if (data == null)
         {
+            InitInventory();
             return;
         }
 
@@ -53,6 +62,13 @@ public class InventoryLoadModule : MonoBehaviour, ILoadModule
 
         string jsonString = JsonUtility.ToJson(savedData);
         return jsonString;
+    }
+
+    private void InitInventory()
+    {
+        inventory.SetFoodAmount(initFoodAmount);
+        inventory.SetWoodAmount(initWoodAmount);
+        inventory.SetCannonballAmount(initCannonballAmount);
     }
 }
 
