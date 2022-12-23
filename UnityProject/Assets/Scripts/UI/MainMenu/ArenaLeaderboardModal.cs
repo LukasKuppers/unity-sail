@@ -11,6 +11,8 @@ public class ArenaLeaderboardModal : MonoBehaviour
     private GameObject leaderboardEntryPrefab;
     [SerializeField]
     private GameObject exitButtonObject;
+    [SerializeField]
+    private GameObject scrollViewContentParent;
 
     private Button exitButton;
 
@@ -28,7 +30,7 @@ public class ArenaLeaderboardModal : MonoBehaviour
 
         if (leaderboard == null || leaderboard.Count <= 0)
         {
-            GameObject msgContainer = Instantiate(leaderboardEntryPrefab, gameObject.transform);
+            GameObject msgContainer = Instantiate(leaderboardEntryPrefab, scrollViewContentParent.transform);
             msgContainer.GetComponent<LeaderboardEntry>().InitParameters(EMPTY_LEADERBOARD_MSG);
             return;
         }
@@ -38,7 +40,7 @@ public class ArenaLeaderboardModal : MonoBehaviour
             int score = entry.score;
             string name = entry.name;
 
-            GameObject entryObj = Instantiate(leaderboardEntryPrefab, gameObject.transform);
+            GameObject entryObj = Instantiate(leaderboardEntryPrefab, scrollViewContentParent.transform);
             entryObj.GetComponent<LeaderboardEntry>().InitParameters(score, name);
         }
     }
