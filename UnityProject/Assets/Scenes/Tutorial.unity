@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1727.1926, g: 3128.0117, b: 6523.2266, a: 1}
+  m_IndirectSpecularColor: {r: 1669.6626, g: 3232.8242, b: 7110.328, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6355,7 +6355,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uIParent: {fileID: 850941751}
   gameLoader: {fileID: 129271518}
-  menuPrefab: {fileID: 6395392067362590035, guid: 36cc517d6cfab7346abcfaa9ae7c6904,
+  menuPrefab: {fileID: 6395392067362590035, guid: 1bf61d5a7ecb5454c98e4c4f67700a4d,
     type: 3}
   customQuitBtnText: Quit
 --- !u!114 &1589554465
