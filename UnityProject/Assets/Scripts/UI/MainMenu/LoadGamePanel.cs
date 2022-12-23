@@ -26,7 +26,7 @@ public class LoadGamePanel : MonoBehaviour
         deleteButton = deleteButtonObject.GetComponent<Button>();
         text = textObject.GetComponent<TextMeshProUGUI>();
 
-        parentModal = transform.parent.gameObject.GetComponent<LoadGameModal>();
+        parentModal = gameObject.GetComponentInParent<LoadGameModal>();
 
         loadButton.onClick.AddListener(LoadGame);
         deleteButton.onClick.AddListener(DeleteGame);

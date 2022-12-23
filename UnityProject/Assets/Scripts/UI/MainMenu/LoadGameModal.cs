@@ -11,6 +11,8 @@ public class LoadGameModal : MonoBehaviour
     private GameObject exitButton;
     [SerializeField]
     private GameObject emptyStateTextObject;
+    [SerializeField]
+    private GameObject scrollViewContentParent;
 
     private Button button;
 
@@ -36,7 +38,7 @@ public class LoadGameModal : MonoBehaviour
 
         foreach (string name in gameNames)
         {
-            GameObject panel = Instantiate(gameButtonPrefab, gameObject.transform);
+            GameObject panel = Instantiate(gameButtonPrefab, scrollViewContentParent.transform);
             panel.GetComponent<LoadGamePanel>().SetName(name);
         }
     }
