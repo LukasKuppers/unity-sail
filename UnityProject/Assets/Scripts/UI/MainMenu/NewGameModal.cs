@@ -21,8 +21,14 @@ public class NewGameModal : MonoBehaviour
     private Button createButton;
     private TMP_InputField text;
 
-    private void Start()
+    private void Awake()
     {
+        if (!SavedTutorialState.TutorialIsCompleted())
+        {
+            Instantiate(launchTutorialModalPrefab, gameObject.transform.parent);
+            Destroy(gameObject);
+        }
+
         exitButton = exitButtonObject.GetComponent<Button>();
         createButton = createButtonObject.GetComponent<Button>();
         text = textInput.GetComponent<TMP_InputField>();
@@ -42,14 +48,6 @@ public class NewGameModal : MonoBehaviour
 
         if (!string.IsNullOrEmpty(input))
         {
-            if (!SavedTutorialState.TutorialIsCompleted())
-            {
-                Instantiate(launchTutorialModalPrefab, gameObject.transform.parent);
-
-                AudioManager.GetInstance().Play(SoundMap.CLICK);
-                return;
-            }
-
             bool success = SavedGamesManager.CreateGame(input);
             if (success)
             {
