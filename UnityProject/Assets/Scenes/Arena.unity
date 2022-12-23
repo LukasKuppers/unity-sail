@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1681.9658, g: 3217.0195, b: 6988.242, a: 1}
+  m_IndirectSpecularColor: {r: 1727.1926, g: 3128.0117, b: 6523.2266, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3558,7 +3558,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 32000
   m_TargetDisplay: 0
 --- !u!224 &498336995
 RectTransform:
@@ -5651,6 +5651,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 876fc51976bda5f4d85fb543b9fbc29c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initFoodAmount: 0
+  initWoodAmount: 0
+  initCannonballAmount: 0
 --- !u!114 &816629302
 MonoBehaviour:
   m_ObjectHideFlags: 0
