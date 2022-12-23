@@ -22,6 +22,8 @@ public class LoadGameModal : MonoBehaviour
         button.onClick.AddListener(CloseModal);
 
         PopulateGameList();
+
+        MenuModalLock.OpenModal();
     }
 
     private void PopulateGameList()
@@ -52,6 +54,7 @@ public class LoadGameModal : MonoBehaviour
 
     private void CloseModal()
     {
+        MenuModalLock.CloseModal();
         Destroy(gameObject);
     }
 }

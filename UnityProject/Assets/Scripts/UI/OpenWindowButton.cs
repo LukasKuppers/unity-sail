@@ -19,7 +19,10 @@ public class OpenWindowButton : MonoBehaviour
 
     private void OpenModal()
     {
-        GameObject canvas = GameObject.FindWithTag("Canvas");
-        Instantiate(window, canvas.transform);
+        if (MenuModalLock.IsFreeToOpenModal())
+        {
+            GameObject canvas = GameObject.FindWithTag("Canvas");
+            Instantiate(window, canvas.transform);
+        }
     }
 }

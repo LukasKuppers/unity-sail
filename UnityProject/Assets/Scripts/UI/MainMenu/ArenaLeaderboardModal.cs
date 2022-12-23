@@ -22,6 +22,8 @@ public class ArenaLeaderboardModal : MonoBehaviour
         exitButton.onClick.AddListener(CloseModal);
 
         PopulateLeaderboardEntries();
+
+        MenuModalLock.OpenModal();
     }
 
     private void PopulateLeaderboardEntries()
@@ -47,6 +49,7 @@ public class ArenaLeaderboardModal : MonoBehaviour
 
     private void CloseModal()
     {
+        MenuModalLock.CloseModal();
         Destroy(gameObject);
     }
 }

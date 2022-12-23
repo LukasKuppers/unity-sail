@@ -47,6 +47,7 @@ public class GameMenuModal : MonoBehaviour
     {
         SinglePageMode = true;
         OpenPage(pageIndex);
+        MenuModalLock.OpenModal();
     }
 
     public void InitParameters(GameObject gameLoader)
@@ -88,7 +89,10 @@ public class GameMenuModal : MonoBehaviour
     public void ClosePages()
     {
         if (SinglePageMode)
+        {
+            MenuModalLock.CloseModal();
             CloseMenu();
+        }
 
         foreach (GameObject page in pages)
             page.SetActive(false);

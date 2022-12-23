@@ -20,7 +20,10 @@ public class OpenOptionsButton : MonoBehaviour
 
     private void OpenOptionsModal()
     {
-        GameObject modal = Instantiate(menuModalPrefab, hudRoot.transform);
-        modal.GetComponent<GameMenuModal>().InitAsSinglePage(optionsPageIndex);
+        if (MenuModalLock.IsFreeToOpenModal())
+        {
+            GameObject modal = Instantiate(menuModalPrefab, hudRoot.transform);
+            modal.GetComponent<GameMenuModal>().InitAsSinglePage(optionsPageIndex);
+        }
     }
 }

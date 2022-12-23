@@ -35,10 +35,13 @@ public class NewGameModal : MonoBehaviour
 
         exitButton.onClick.AddListener(CloseModal);
         createButton.onClick.AddListener(CreateGame);
+
+        MenuModalLock.OpenModal();
     }
 
     private void CloseModal()
     {
+        MenuModalLock.CloseModal();
         Destroy(gameObject);
     }
 
@@ -51,6 +54,7 @@ public class NewGameModal : MonoBehaviour
             bool success = SavedGamesManager.CreateGame(input);
             if (success)
             {
+                MenuModalLock.CloseModal();
                 LoadedGame.SetLoadedGame(input);
                 SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
 

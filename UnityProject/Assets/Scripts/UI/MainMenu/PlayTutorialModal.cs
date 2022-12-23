@@ -23,15 +23,20 @@ public class PlayTutorialModal : MonoBehaviour
 
         exitButton.onClick.AddListener(CloseModal);
         launchTutorialButton.onClick.AddListener(LaunchTutorial);
+
+        MenuModalLock.OpenModal();
     }
 
     private void CloseModal()
     {
+        MenuModalLock.CloseModal();
         Destroy(gameObject);
     }
 
     private void LaunchTutorial()
     {
+        MenuModalLock.CloseModal();
+
         LoadedGame.SetLoadedGame(tutorialSceneName);
         SceneManager.LoadScene(tutorialSceneName, LoadSceneMode.Single);
     }
