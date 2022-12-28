@@ -1386,7 +1386,7 @@ MonoBehaviour:
   keelInfluence: 0.25
   topSpeed: 50
   agility: 1
-  torque: 500
+  torque: 1500
   intoWindBonus: 1
 --- !u!114 &2350334189479191391
 MonoBehaviour:

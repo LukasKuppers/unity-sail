@@ -369,9 +369,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   windManager: {fileID: 0}
   keelInfluence: 0.25
-  topSpeed: 250
+  topSpeed: 45
   agility: 1
-  torque: 2000
+  torque: 1000
   intoWindBonus: 1
 --- !u!114 &687838623187048683
 MonoBehaviour:
