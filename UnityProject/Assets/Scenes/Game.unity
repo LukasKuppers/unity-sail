@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1619.6619, g: 3256.1523, b: 7499.875, a: 1}
+  m_IndirectSpecularColor: {r: 1696.4622, g: 3194.2656, b: 6837.578, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3945,6 +3945,11 @@ PrefabInstance:
       propertyPath: playerIslandVisitManager
       value: 
       objectReference: {fileID: 1885766789}
+    - target: {fileID: 7429416729793483469, guid: 2ae39f31d6c97614893476b9702b6127,
+        type: 3}
+      propertyPath: playerInventoryManagerObject
+      value: 
+      objectReference: {fileID: 816629300}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ae39f31d6c97614893476b9702b6127, type: 3}
 --- !u!1 &118543748
@@ -7078,6 +7083,11 @@ PrefabInstance:
       propertyPath: playerIslandVisitManager
       value: 
       objectReference: {fileID: 1885766789}
+    - target: {fileID: 5334776263104289787, guid: 501937b3979717f4e828ce52791ebc26,
+        type: 3}
+      propertyPath: playerInventoryManagerObject
+      value: 
+      objectReference: {fileID: 816629300}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 501937b3979717f4e828ce52791ebc26, type: 3}
 --- !u!4 &230644886 stripped
@@ -7195,6 +7205,11 @@ PrefabInstance:
       propertyPath: playerIslandVisitManager
       value: 
       objectReference: {fileID: 1885766789}
+    - target: {fileID: 4041729618177853186, guid: 674a96c3821993240bce22ffbfb55aae,
+        type: 3}
+      propertyPath: playerInventoryManagerObject
+      value: 
+      objectReference: {fileID: 816629300}
     - target: {fileID: 8104025669060991209, guid: 674a96c3821993240bce22ffbfb55aae,
         type: 3}
       propertyPath: m_Name
@@ -11036,6 +11051,11 @@ PrefabInstance:
       propertyPath: playerIslandVisitManager
       value: 
       objectReference: {fileID: 1885766789}
+    - target: {fileID: 7429416729793483469, guid: 2ae39f31d6c97614893476b9702b6127,
+        type: 3}
+      propertyPath: playerInventoryManagerObject
+      value: 
+      objectReference: {fileID: 816629300}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ae39f31d6c97614893476b9702b6127, type: 3}
 --- !u!1 &357877953
@@ -13001,6 +13021,11 @@ PrefabInstance:
       propertyPath: playerIslandVisitManager
       value: 
       objectReference: {fileID: 1885766789}
+    - target: {fileID: 4041729618177853186, guid: 674a96c3821993240bce22ffbfb55aae,
+        type: 3}
+      propertyPath: playerInventoryManagerObject
+      value: 
+      objectReference: {fileID: 816629300}
     - target: {fileID: 6981545853693193346, guid: 674a96c3821993240bce22ffbfb55aae,
         type: 3}
       propertyPath: island
@@ -14073,6 +14098,11 @@ PrefabInstance:
       propertyPath: playerIslandVisitManager
       value: 
       objectReference: {fileID: 1885766789}
+    - target: {fileID: 5334776263104289787, guid: 501937b3979717f4e828ce52791ebc26,
+        type: 3}
+      propertyPath: playerInventoryManagerObject
+      value: 
+      objectReference: {fileID: 816629300}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 501937b3979717f4e828ce52791ebc26, type: 3}
 --- !u!4 &425266545 stripped
@@ -16121,6 +16151,11 @@ PrefabInstance:
       propertyPath: playerIslandVisitManager
       value: 
       objectReference: {fileID: 1885766789}
+    - target: {fileID: 7429416729793483469, guid: 2ae39f31d6c97614893476b9702b6127,
+        type: 3}
+      propertyPath: playerInventoryManagerObject
+      value: 
+      objectReference: {fileID: 816629300}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ae39f31d6c97614893476b9702b6127, type: 3}
 --- !u!4 &490848620 stripped
@@ -22361,6 +22396,11 @@ PrefabInstance:
       propertyPath: playerIslandVisitManager
       value: 
       objectReference: {fileID: 1885766789}
+    - target: {fileID: 5334776263104289787, guid: 501937b3979717f4e828ce52791ebc26,
+        type: 3}
+      propertyPath: playerInventoryManagerObject
+      value: 
+      objectReference: {fileID: 816629300}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 501937b3979717f4e828ce52791ebc26, type: 3}
 --- !u!4 &723427295 stripped
@@ -26405,6 +26445,11 @@ PrefabInstance:
       propertyPath: playerIslandVisitManager
       value: 
       objectReference: {fileID: 1885766789}
+    - target: {fileID: 7429416729793483469, guid: 2ae39f31d6c97614893476b9702b6127,
+        type: 3}
+      propertyPath: playerInventoryManagerObject
+      value: 
+      objectReference: {fileID: 816629300}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ae39f31d6c97614893476b9702b6127, type: 3}
 --- !u!4 &858195835 stripped
@@ -27219,6 +27264,11 @@ PrefabInstance:
       propertyPath: playerIslandVisitManager
       value: 
       objectReference: {fileID: 1885766789}
+    - target: {fileID: 4041729618177853186, guid: 674a96c3821993240bce22ffbfb55aae,
+        type: 3}
+      propertyPath: playerInventoryManagerObject
+      value: 
+      objectReference: {fileID: 816629300}
     - target: {fileID: 6981545853693193346, guid: 674a96c3821993240bce22ffbfb55aae,
         type: 3}
       propertyPath: island
@@ -44690,6 +44740,11 @@ PrefabInstance:
       propertyPath: playerIslandVisitManager
       value: 
       objectReference: {fileID: 1885766789}
+    - target: {fileID: 7429416729793483469, guid: 2ae39f31d6c97614893476b9702b6127,
+        type: 3}
+      propertyPath: playerInventoryManagerObject
+      value: 
+      objectReference: {fileID: 816629300}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ae39f31d6c97614893476b9702b6127, type: 3}
 --- !u!1 &1563200189
@@ -63110,6 +63165,11 @@ PrefabInstance:
       propertyPath: playerIslandVisitManager
       value: 
       objectReference: {fileID: 1885766789}
+    - target: {fileID: 7429416729793483469, guid: 2ae39f31d6c97614893476b9702b6127,
+        type: 3}
+      propertyPath: playerInventoryManagerObject
+      value: 
+      objectReference: {fileID: 816629300}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ae39f31d6c97614893476b9702b6127, type: 3}
 --- !u!1001 &7459732815594733292

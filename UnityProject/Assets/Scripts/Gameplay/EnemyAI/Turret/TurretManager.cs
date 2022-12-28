@@ -5,6 +5,8 @@ using UnityEngine;
 public class TurretManager : MonoBehaviour
 {
     [SerializeField]
+    private GameObject playerInventoryManagerObject;
+    [SerializeField]
     private GameObject playerIslandVisitManager;
     [SerializeField]
     private GameObject playerShipPrefabManager;
@@ -62,6 +64,10 @@ public class TurretManager : MonoBehaviour
         turret = null;
         currentCannon = null;
         this.destroyedTurret = destroyedTurret;
+
+        IslandTreasurePickup pickup = destroyedTurret.GetComponentInChildren<IslandTreasurePickup>();
+        if (pickup != null)
+            pickup.SetInventory(playerInventoryManagerObject);
     }
 
     private void RespawnTurret()
