@@ -30,10 +30,7 @@ public class WindowEmissionController : MonoBehaviour
         timeManager.AddRepeatTimeListener(0f, TurnOffLights);
         timeManager.AddRepeatTimeListener(0.5f, TurnOnLights);
 
-        if (timeManager.GetTimePercent() < 0.5f)
-            SetColor(offColor, OFF_MULTIPLIER);
-        else
-            SetColor(onColor, onIntensity);
+        StartCoroutine(SetInitColorOnDelay());
     }
 
     private void TurnOnLights()
@@ -63,6 +60,16 @@ public class WindowEmissionController : MonoBehaviour
         }
 
         SetColor(newCol, newEm);
+    }
+
+    private IEnumerator SetInitColorOnDelay()
+    {
+        yield return null;
+
+        if (timeManager.GetTimePercent() < 0.5f)
+            SetColor(offColor, OFF_MULTIPLIER);
+        else
+            SetColor(onColor, onIntensity);
     }
 
     private void SetColor(Color col, float multiplier)
