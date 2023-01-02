@@ -6,6 +6,24 @@ Unity-sail is the repository for `Project Sail`, an open world naval-combat and 
 
 ## Version History
 
+### Release_1.0:
+January 2, 2023
+- Add options page to main menu
+- Add confirm modal to options page
+  - Player must confirm display settings changes within 5 seconds
+- Give player ships more room to spawn
+- Give player default inventory on initial game load
+- Fix UI dropdowns hiding cursor
+- Prevent overlapping modals in main menu (no longer able to open multiple modals)
+- Convert load game modal and leaderboard modal to scroll views
+- Fix dock colliders (extend further down)
+- Modify terrain to prevent route ships from getting stuck
+- Spawn treasure when destroying enemy turrents
+- Rebalance ship mobility parameters (Galleon and Brig more agile)
+- Edit main menu layout (move options button)
+- Turn on window lights when loading into night
+- Add windows to navy outpost buildings
+
 ### Beta_1.3:
 December 15, 2022
 - Add empty state to load game modal (in main menu)
