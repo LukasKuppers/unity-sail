@@ -42,6 +42,8 @@ public class LoadGamePanel : MonoBehaviour
 
     private void LoadGame()
     {
+        MenuModalLock.CloseModal();
+
         LoadedGame.SetLoadedGame(text.text);
         SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
     }
