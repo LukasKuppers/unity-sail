@@ -179,12 +179,17 @@ public class OptionsPage : MonoBehaviour
 
     private void InitDisplaySettings()
     {
+        HashSet<string> seenResolutions = new HashSet<string>();
         List<TMP_Dropdown.OptionData> resList = new List<TMP_Dropdown.OptionData>();
         foreach (Resolution res in Screen.resolutions)
         {
             string resStr = ResToString(res);
-            TMP_Dropdown.OptionData newRes = new TMP_Dropdown.OptionData(resStr);
-            resList.Add(newRes);
+            if (!seenResolutions.Contains(resStr))
+            {
+                TMP_Dropdown.OptionData newRes = new TMP_Dropdown.OptionData(resStr);
+                resList.Add(newRes);
+                seenResolutions.Add(resStr);
+            }
         }
         resolutionDropdown.AddOptions(resList);
 
