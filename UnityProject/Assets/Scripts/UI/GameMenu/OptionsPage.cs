@@ -188,10 +188,12 @@ public class OptionsPage : MonoBehaviour
         }
         resolutionDropdown.AddOptions(resList);
 
+        string currentRes = ResToString(Screen.width, Screen.height);
         resolutionDropdown.value = resolutionDropdown.options.FindIndex(
-            option => option.text == ResToString(Screen.currentResolution));
+            option => option.text == currentRes);
 
         string currentMode = Screen.fullScreenMode == FullScreenMode.FullScreenWindow ? "Fullscreen" : "Windowed";
+        
         displayModeDropdown.value = displayModeDropdown.options.FindIndex(
             option => option.text == currentMode);
     }
@@ -210,5 +212,10 @@ public class OptionsPage : MonoBehaviour
     private string ResToString(Resolution res)
     {
         return $"{res.width}x{res.height}";
+    }
+
+    private string ResToString(int resWidth, int resHeight)
+    {
+        return $"{resWidth}x{resHeight}";
     }
 }
