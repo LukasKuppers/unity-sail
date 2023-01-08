@@ -6,6 +6,12 @@ Unity-sail is the repository for `Project Sail`, an open world naval-combat and 
 
 ## Version History
 
+### Release_1.0.1 (small bugfixes):
+January 7, 2023
+- Accurately set resolution option dropdown value after chaing resolution
+- Accurately revert resolution option dropdown value if options revert
+- Fix cutoff text in empty load game modal
+
 ### Release_1.0:
 January 2, 2023
 - Add options page to main menu
