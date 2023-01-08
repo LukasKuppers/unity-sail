@@ -71,7 +71,7 @@ public class OptionsPage : MonoBehaviour
             optionsManager.WriteOption(option, value);
         }
 
-        InitValues();
+        StartCoroutine(InitDisplaySettingsOnDelay());
     }
 
     public void CloseOptions()
@@ -212,6 +212,12 @@ public class OptionsPage : MonoBehaviour
 
         optionsManager.WriteOption(Option.DISPLAY_MODE, isFullscreen.ToString());
         optionsManager.WriteOption(Option.DISPLAY_RESOLUTION, resolution);
+    }
+
+    private IEnumerator InitDisplaySettingsOnDelay()
+    {
+        yield return null;
+        InitDisplaySettings();
     }
 
     private string ResToString(Resolution res)
